@@ -54,8 +54,8 @@ class e107{
 	}
 
 	function set_paths(){
-		global $DOWNLOADS_DIRECTORY, $ADMIN_DIRECTORY, $IMAGES_DIRECTORY, $THEMES_DIRECTORY, $PLUGINS_DIRECTORY,
-		$FILES_DIRECTORY, $HANDLERS_DIRECTORY, $LANGUAGES_DIRECTORY, $HELP_DIRECTORY;
+		global $ADMIN_DIRECTORY, $DOCS_DIRECTORY, $DOWNLOADS_DIRECTORY, $IMAGES_DIRECTORY, $FILES_DIRECTORY, $HANDLERS_DIRECTORY, 
+		$LANGUAGES_DIRECTORY, $PLUGINS_DIRECTORY, $SYSTEM_DIRECTORY, $THEMES_DIRECTORY;
 		$path = ""; $i = 0;
 		while (!file_exists("{$path}class.php")) {
 			$path .= "../";
@@ -88,13 +88,15 @@ class e107{
 			define("e_HTTP", $this->server_path);
 			define("e_BASE", $this->relative_base_path);
 			define("e_ADMIN", e_BASE.$ADMIN_DIRECTORY);
+			define("e_DOCS", e_BASE.$DOCS_DIRECTORY);
 			define("e_IMAGE", e_BASE.$IMAGES_DIRECTORY);
-			define("e_THEME", e_BASE.$THEMES_DIRECTORY);
-			define("e_PLUGIN", e_BASE.$PLUGINS_DIRECTORY);
 			define("e_FILE", e_BASE.$FILES_DIRECTORY);
 			define("e_HANDLER", e_BASE.$HANDLERS_DIRECTORY);
 			define("e_LANGUAGEDIR", e_BASE.$LANGUAGES_DIRECTORY);
-
+			define("e_PLUGIN", e_BASE.$PLUGINS_DIRECTORY);
+			define("e_SYSTEM", e_BASE.$SYSTEM_DIRECTORY);
+			define("e_THEME", e_BASE.$THEMES_DIRECTORY);
+			
 			define("e_ADMIN_ABS", e_HTTP.$ADMIN_DIRECTORY);
 			define("e_IMAGE_ABS", e_HTTP.$IMAGES_DIRECTORY);
 			define("e_THEME_ABS", e_HTTP.$THEMES_DIRECTORY);

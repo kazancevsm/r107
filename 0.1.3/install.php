@@ -28,15 +28,16 @@ define('MAKE_INSTALL_LOG', FALSE);
 $MySQLPrefix	     = 'pref_';
 
 $ADMIN_DIRECTORY     = "admin/";
-$CUSTOM_DIRECTORY    = "custom/";
-$FILES_DIRECTORY     = "files/";
+$DOCS_DIRECTORY      = "docs/help/";
+$DOWNLOADS_DIRECTORY = "files/downloads/";
 $IMAGES_DIRECTORY    = "images/";
-$THEMES_DIRECTORY    = "themes/";
-$PLUGINS_DIRECTORY   = "plugins/";
+$FILES_DIRECTORY     = "files/";
 $HANDLERS_DIRECTORY  = "handlers/";
 $LANGUAGES_DIRECTORY = "languages/";
-$HELP_DIRECTORY      = "docs/help/";
-$DOWNLOADS_DIRECTORY = "files/downloads/";
+$PLUGINS_DIRECTORY   = "plugins/";
+$SYSTEM_DIRECTORY    = "system/";
+$THEMES_DIRECTORY    = "themes/";
+
 
 // Конец конфигурируемых переменных
 
@@ -760,16 +761,15 @@ class e_install
 \$mySQLcharset   = '{$db_utf8}';
 
 \$ADMIN_DIRECTORY     = '{$this->e107->e107_dirs['ADMIN_DIRECTORY']}';
-\$CUSTOM_DIRECTORY    = '{$this->e107->e107_dirs['CUSTOM_DIRECTORY']}';
-\$FILES_DIRECTORY     = '{$this->e107->e107_dirs['FILES_DIRECTORY']}';
+\$DOCS_DIRECTORY      = '{$this->e107->e107_dirs['DOCS_DIRECTORY']}';
+\$DOWNLOADS_DIRECTORY = '{$this->e107->e107_dirs['DOWNLOADS_DIRECTORY']}';
 \$IMAGES_DIRECTORY    = '{$this->e107->e107_dirs['IMAGES_DIRECTORY']}';
-\$THEMES_DIRECTORY    = '{$this->e107->e107_dirs['THEMES_DIRECTORY']}';
-\$PLUGINS_DIRECTORY   = '{$this->e107->e107_dirs['PLUGINS_DIRECTORY']}';
+\$FILES_DIRECTORY     = '{$this->e107->e107_dirs['FILES_DIRECTORY']}';
 \$HANDLERS_DIRECTORY  = '{$this->e107->e107_dirs['HANDLERS_DIRECTORY']}';
 \$LANGUAGES_DIRECTORY = '{$this->e107->e107_dirs['LANGUAGES_DIRECTORY']}';
-\$HELP_DIRECTORY      = '{$this->e107->e107_dirs['HELP_DIRECTORY']}';
-\$DOWNLOADS_DIRECTORY = '{$this->e107->e107_dirs['DOWNLOADS_DIRECTORY']}';
-
+\$PLUGINS_DIRECTORY   = '{$this->e107->e107_dirs['PLUGINS_DIRECTORY']}';
+\$SYSTEM_DIRECTORY    = '{$this->e107->e107_dirs['SYSTEM_DIRECTORY']}';
+\$THEMES_DIRECTORY    = '{$this->e107->e107_dirs['THEMES_DIRECTORY']}';
 
 ?".">";
 

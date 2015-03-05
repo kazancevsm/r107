@@ -128,7 +128,7 @@ class e_shortcode
 				}
 				else
 				{	// Look for a core shortcode
-				  $scFile = e_FILE."shortcode/".strtolower($code).".sc";
+				  $scFile = e_SYSTEM."shortcode/".strtolower($code).".sc";
 				}
 			  }
 			  else
@@ -138,7 +138,7 @@ class e_shortcode
 			}
 			else
 			{
-			  $scFile = e_FILE."shortcode/".strtolower($code).".sc";
+			  $scFile = e_SYSTEM."shortcode/".strtolower($code).".sc";
 			}
 			if (file_exists($scFile)) 
 			{

@@ -28,20 +28,20 @@ $mySQLserver    = 'localhost';
 $mySQLuser      = 'root';
 $mySQLpassword  = '123';
 $mySQLdefaultdb = 'r107';
-$mySQLprefix    = 'r_';
+$mySQLprefix    = 'pro_';
 //$mySQLcharset может содержать, только 'utf8' или ''
 $mySQLcharset   = 'utf8';
 
 $ADMIN_DIRECTORY     = 'admin/';
-$CUSTOM_DIRECTORY    = 'custom/';
-$FILES_DIRECTORY     = 'files/';
+$DOCS_DIRECTORY      = 'docs/help/';
+$DOWNLOADS_DIRECTORY = 'files/downloads/';
 $IMAGES_DIRECTORY    = 'images/';
-$THEMES_DIRECTORY    = 'themes/';
-$PLUGINS_DIRECTORY   = 'plugins/';
+$FILES_DIRECTORY     = 'files/';
 $HANDLERS_DIRECTORY  = 'handlers/';
 $LANGUAGES_DIRECTORY = 'languages/';
-$HELP_DIRECTORY      = 'docs/help/';
-$DOWNLOADS_DIRECTORY = 'files/downloads/';
+$PLUGINS_DIRECTORY   = 'plugins/';
+$SYSTEM_DIRECTORY    = 'system/';
+$THEMES_DIRECTORY    = 'themes/';
 
 
 ?>
