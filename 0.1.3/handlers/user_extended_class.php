@@ -401,7 +401,7 @@ class e107_user_extended
 				break;
 
 			case 8: // language
-				require_once(e_HANDLER."file_class.php");
+				require_once(e_HANDLER."file_handler.php");
 				$fl = new e_file;
 				$lanlist = $fl->get_dirs(e_LANGUAGEDIR);
 				sort($lanlist);

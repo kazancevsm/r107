@@ -387,7 +387,7 @@ class themeHandler{
 		{
 
 			$astext = "";
-			require_once(e_HANDLER."file_class.php");
+			require_once(e_HANDLER."file_handler.php");
 			$file = new e_file;
 
 			$adminstyles = $file -> get_files(e_ADMIN."includes");

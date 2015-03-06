@@ -86,7 +86,7 @@ class e107PDF extends UFPDF{
 		global $sql, $eArrayStorage;
 
 		if(!is_object($eArrayStorage)){
-			e107_require_once(e_HANDLER.'arraystorage_class.php');
+			e107_require_once(e_HANDLER.'array_storage_handler.php');
 			$eArrayStorage = new ArrayData();
 		}
 

@@ -9,9 +9,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/event_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/event_handler.php $
 |     $Revision: 12062 $
-|     $Id: event_class.php 12062 2011-02-03 07:37:30Z e107coders $
+|     $Id: event_handler.php 12062 2011-02-03 07:37:30Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */

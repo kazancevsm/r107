@@ -37,8 +37,8 @@ require_once("auth.php");
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/admin/lan_lancheck.php");
 require_once(e_ADMIN."lancheck.php");
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."file_class.php");
-require_once(e_HANDLER."language_class.php");
+require_once(e_HANDLER."file_handler.php");
+require_once(e_HANDLER."language_handler.php");
 
 $ln = new language;
 $fl = new e_file;

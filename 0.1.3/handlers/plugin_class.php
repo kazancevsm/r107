@@ -108,7 +108,7 @@ class e107plugin
 	{
 		global $sql, $sql2, $mySQLprefix, $menu_pref, $tp, $pref;
 
-		require_once(e_HANDLER.'file_class.php');
+		require_once(e_HANDLER.'file_handler.php');
 
 		$fl = new e_file;
 		$pluginList = $fl->get_files(e_PLUGIN, "^plugin\.php$", "standard", 1);
@@ -753,7 +753,7 @@ class e107plugin
 	  }
 
 		if(!is_object($fl)){
-			require_once(e_HANDLER.'file_class.php');
+			require_once(e_HANDLER.'file_handler.php');
  			$fl = new e_file;
 		}
 

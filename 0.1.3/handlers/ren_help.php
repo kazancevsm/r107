@@ -191,7 +191,7 @@ function PreImage_Select($formid)
 
 
 	if(!is_object($fl)){
-        require_once(e_HANDLER."file_class.php");
+        require_once(e_HANDLER."file_handler.php");
 		$fl = new e_file;
 	}
 
@@ -321,7 +321,7 @@ function PreFile_Select($formid='prefile_selector',$bbcode_filedir = '')
 
 function Emoticon_Select($formid='emoticon_selector') 
 {
-	require_once(e_HANDLER."emote.php");
+	require_once(e_HANDLER."emote_handler.php");
 	$text ="<!-- Start of Emoticon selector -->
 	<div style='margin-left:0px;margin-right:0px; position:relative;z-index:1000;float:right;display:none' id='{$formid}' onclick=\"this.style.display='none'\" >
 		<div style='position:absolute; bottom:30px; right:75px; width:221px; height:133px; overflow:auto;'>

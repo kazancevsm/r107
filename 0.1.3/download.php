@@ -19,7 +19,7 @@
 */
 
 require_once("class.php");
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 require_once(e_SYSTEM."shortcode/batch/download_shortcodes.php");
 
 $cobj = new comment;

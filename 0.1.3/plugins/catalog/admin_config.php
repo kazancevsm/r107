@@ -10,7 +10,7 @@ if (!getperms("5")) { header("location:".e_BASE."index.php"); exit; }
 require_once(e_HANDLER."form_handler.php");
 require_once(e_HANDLER."userclass_class.php");
 require_once(e_PLUGIN."catalog/cat_class.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 require_once(e_HANDLER.'ren_help.php');
 require_once(e_ADMIN."auth.php");
 require_once("languages/".e_LANGUAGE.".php");

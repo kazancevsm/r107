@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/file_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/file_handler.php $
 |     $Revision: 11819 $
-|     $Id: file_class.php 11819 2010-09-24 12:03:13Z e107steved $
+|     $Id: file_handler.php 11819 2010-09-24 12:03:13Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */

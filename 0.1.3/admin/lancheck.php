@@ -476,7 +476,7 @@ function get_lan_file_phrases($dir1,$dir2,$file1,$file2){
 
 function get_comp_lan_phrases($comp_dir,$lang,$depth=0)
 {
-	require_once(e_HANDLER."file_class.php");
+	require_once(e_HANDLER."file_handler.php");
 	$fl = new e_file;
 	$ret = array();
 

@@ -37,7 +37,7 @@ define("EMOLAN_21", "Error");
 //define("EMOLAN_2", "Name");
 define("EMOLAN_22", "New emote pak found:");
 define("EMOLAN_23", "New emote xml pak found:");
-define("EMOLAN_24", "New emote php found:");
+define("EMOLAN_24", "New emote_handler.php found:");
 define("EMOLAN_25", "Installing new PHP emotes: ");
 define("EMOLAN_26", "Re-scan pack");
 define("EMOLAN_27", "Error occurred processing pack: ");

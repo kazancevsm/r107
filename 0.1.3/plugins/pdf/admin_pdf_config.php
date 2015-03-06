@@ -20,7 +20,7 @@ require_once("../../class.php");
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
-e107_require_once(e_HANDLER.'arraystorage_class.php');
+e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 unset($text);
 

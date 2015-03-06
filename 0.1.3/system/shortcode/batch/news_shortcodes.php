@@ -171,14 +171,14 @@ if (!check_class(varset($pref['email_item_class'],e_UC_MEMBER)))
 }
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-require_once(e_HANDLER.'emailprint_class.php');
+require_once(e_HANDLER.'emailprint_handler.php');
 return emailprint::render_emailprint('news', $news_item['news_id'], 1);
 SC_END
 
 SC_BEGIN PRINTICON
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-require_once(e_HANDLER.'emailprint_class.php');
+require_once(e_HANDLER.'emailprint_handler.php');
 return emailprint::render_emailprint('news', $news_item['news_id'], 2);
 SC_END
 

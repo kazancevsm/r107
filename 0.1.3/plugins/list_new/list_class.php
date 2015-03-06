@@ -160,7 +160,7 @@ class listclass {
 
 		$this -> getDefaultSections();
 
-		require_once(e_HANDLER."file_class.php");
+		require_once(e_HANDLER."file_handler.php");
 		$fl = new e_file;
 		$rejectlist = array('$.','$..','/','CVS','thumbs.db','Thumbs.db','*._$', 'index', 'null*', '.bak');
 		$iconlist = $fl->get_files(e_PLUGIN, "e_list\.php$", "standard", 1);

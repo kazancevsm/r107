@@ -24,7 +24,7 @@ if (!getperms("P")) {
 
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."userclass_class.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 $rejecthumb = array('$.','$..','/','CVS','thumbs.db','*._$',"thumb_", 'index', 'null*');
 $templatelist = $fl->get_files(e_PLUGIN."featurebox/templates/","",$rejecthumb);

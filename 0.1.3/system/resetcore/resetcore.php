@@ -62,7 +62,7 @@ mysql_select_db($mySQLdefaultdb);
 define("MAGIC_QUOTES_GPC", (ini_get('magic_quotes_gpc') ? TRUE : FALSE));
 
 define("e107_INIT", TRUE);
-require_once('../../'.$HANDLERS_DIRECTORY.'arraystorage_class.php');
+require_once('../../'.$HANDLERS_DIRECTORY.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 
 echo "<?xml version='1.0' encoding='".CHARSET."' ?>\n";

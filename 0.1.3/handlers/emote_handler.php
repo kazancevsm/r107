@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emote.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emote_handler.php $
 |     $Revision: 12317 $
-|     $Id: emote.php 12317 2011-07-08 06:54:21Z e107coders $
+|     $Id: emote_handler.php 12317 2011-07-08 06:54:21Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -24,7 +24,7 @@ function r_emote()
 
 	if (!is_object($tp->e_emote))
 	{
-		require_once(e_HANDLER.'emote_filter.php');
+		require_once(e_HANDLER.'emote_filter_handler.php');
 		$tp->e_emote = new e_emoteFilter;
 	}
 	

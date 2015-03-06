@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('e107_INIT')) { exit; }
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 
 $LIST_CAPTION = $arr[0];

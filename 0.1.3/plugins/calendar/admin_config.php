@@ -23,7 +23,7 @@
 $eplug_admin = true;		// Make sure we show admin theme
 require_once("../../class.php");
 require_once(e_HANDLER."userclass_class.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 if (!getperms("P"))
 {
   header("location:".e_BASE."index.php");
@@ -311,7 +311,7 @@ if(isset($qs[0]) && $qs[0] == "cat")
 
 		if (!$calendarmenu_dodel)
 		{
-			require_once(e_HANDLER."file_class.php");
+			require_once(e_HANDLER."file_handler.php");
 			$fi = new e_file;
 					$iconlist = $fi->get_files(e_FILE."icons/", "\.\w{3}$");
 					sort($iconlist);

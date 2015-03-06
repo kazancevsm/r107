@@ -238,7 +238,7 @@ else
 // Start the parser; use it to grab the full query string
 //
 
-e107_require_once(e_HANDLER.'e_parse_class.php');
+e107_require_once(e_HANDLER.'e_parse_handler.php');
 $tp = new e_parse;
 
 $e_QUERY = str_replace(array('{', '}', '%7B', '%7b', '%7D', '%7d'), '', rawurldecode($e_QUERY));
@@ -310,7 +310,7 @@ $sql->db_Mark_Time('Start: SQL Connect');
 $merror=$sql->db_Connect($mySQLserver, $mySQLuser, $mySQLpassword, $mySQLdefaultdb);
 $sql->db_Mark_Time('Start: Prefs, misc tables');
 
-require_once(e_HANDLER.'admin_log_class.php');
+require_once(e_HANDLER.'admin_log_handler.php');
 $admin_log = new e_admin_log();
 
 if ($merror == "e1") {
@@ -328,7 +328,7 @@ else if ($merror == "e2") {
 /* At a later date add a check to load e107 compat mode by $pref
 PHP Compatabilty should *always* be on. */
 e107_require_once(e_HANDLER."php_compatibility_handler.php");
-e107_require_once(e_HANDLER."e107_Compat_handler.php");
+e107_require_once(e_HANDLER."r107_compat_handler.php");
 $aj = new textparse; // required for backwards compatibility with 0.6 plugins.
 
 //
@@ -339,7 +339,7 @@ e107_require_once(e_HANDLER."pref_class.php");
 $sysprefs = new prefs;
 
 e107_require_once(e_HANDLER.'cache_handler.php');
-e107_require_once(e_HANDLER.'arraystorage_class.php');
+e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 
 $PrefCache = ecache::retrieve('SitePrefs', 24 * 60, true);
@@ -454,7 +454,7 @@ if (!$pref['cookie_name']) {
 }
 
 $sql->db_Mark_Time('Start: Init Language and detect changes');
-require_once(e_HANDLER."language_class.php");
+require_once(e_HANDLER."language_handler.php");
 $lng = new language;
 $lng->detect(); // Must be before session_start(). Requires $pref, e_DOMAIN, e_MENU;
 
@@ -622,7 +622,7 @@ if (isset($pref['del_unv']) && $pref['del_unv'] && $pref['user_reg_veri'] != 2)
 e107_require_once(e_HANDLER.'override_class.php');
 $override=new override;
 
-e107_require_once(e_HANDLER.'event_class.php');
+e107_require_once(e_HANDLER.'event_handler.php');
 $e_event=new e107_event;
 
 if (isset($pref['notify']) && $pref['notify'] == true) 
@@ -822,7 +822,7 @@ if (varset($pref['maintainance_flag'])
 $sql->db_Mark_Time('(Start: Login/logout/ban/tz)');
 
 if (isset($_POST['userlogin']) || isset($_POST['userlogin_x'])) {
-	e107_require_once(e_HANDLER."login.php");
+	e107_require_once(e_HANDLER."login_handler.php");
 	$usr = new userlogin($_POST['username'], $_POST['userpass'], $_POST['autologin']);
 }
 

@@ -3,7 +3,7 @@
 +-------------------------------------------------------------------------------+
 |	е107 Система Управления Контентом											|
 |	Сайт: http://www.e107club.ru												|
-|	Файл: comment_class.php														|
+|	Файл: comment_handler.php														|
 |	Ревизия: 14000																|
 |	Кодировка: utf-8															|
 |	Дата: 23.02.2012 05:05:05													|
@@ -12,7 +12,7 @@
 +-------------------------------------------------------------------------------+
 |	e107 website system															|
 |	Site: http://www.e107club.ru												|
-|	File: comment_class.php														|
+|	File: comment_handler.php														|
 |	Revision: 14000																|
 |	Charset: utf-8																|
 |	Date: 23.02.2012 05:05:05													|
@@ -708,7 +708,7 @@ $text .= ($nextprev ? '<div class="nextprev">'.$nextprev.'</div>' : '');
 			return $data;
 		}
 
-		require_once(e_HANDLER."file_class.php");
+		require_once(e_HANDLER."file_handler.php");
 		$fl = new e_file;
 
 		$omit = array('^\.$','^\.\.$','^\/$','^CVS$','thumbs\.db','.*\._$','.bak$');

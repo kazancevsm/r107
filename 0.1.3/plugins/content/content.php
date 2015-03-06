@@ -25,9 +25,9 @@ if (!isset($pref['plug_installed']['content']))
 
 $plugindir = e_PLUGIN."content/";
 require_once($plugindir."content_shortcodes.php");
-require_once(e_HANDLER."emailprint_class.php");
+require_once(e_HANDLER."emailprint_handler.php");
 $ep = new emailprint;
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 require_once(e_HANDLER."rate_class.php");
 $rater = new rater;
@@ -35,7 +35,7 @@ require_once(e_HANDLER."form_handler.php");
 $rs = new form;
 require_once($plugindir."handlers/content_class.php");
 $aa = new content;
-e107_require_once(e_HANDLER.'arraystorage_class.php');
+e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 include_lan($plugindir."languages/".e_LANGUAGE."/lan_content.php");
 

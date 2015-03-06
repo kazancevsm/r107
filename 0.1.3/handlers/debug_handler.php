@@ -45,7 +45,7 @@ if (!defined('e107_INIT')) { exit; }
 
 if (strstr(e_MENU, "debug") || isset($_COOKIE['e107_debug_level']) || defined('e_DEBUG')) {
 	$e107_debug = new e107_debug;
-	require_once(e_HANDLER.'db_debug_class.php');
+	require_once(e_HANDLER.'db_debug_handler.php');
 	$db_debug = new e107_db_debug;
 	$e107_debug->set_error_reporting();
 	$e107_debug_level = $e107_debug->debug_level;

@@ -1257,7 +1257,7 @@ function update_617_to_700($type='') {
 
 			unset($type);
 			global $tp, $ns, $sql;
-			require_once(e_HANDLER."file_class.php");
+			require_once(e_HANDLER."file_handler.php");
 			$file = new e_file;
 			$reject = array('$.','$..','/','CVS','thumbs.db','*._$', 'index', 'null*', 'Readme.txt');
 			$cpages = $file -> get_files(e_PLUGIN."custompages", "", $reject);

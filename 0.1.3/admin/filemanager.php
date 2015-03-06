@@ -322,7 +322,7 @@ while ($files[$c]) {
 	$text .= "<tr><td colspan='5' class='r_header1' style='text-align:right'>";
 
 	if ($pubfolder || e_QUERY == ""){
-        require_once(e_HANDLER."file_class.php");
+        require_once(e_HANDLER."file_handler.php");
 		$fl = new e_file;
 		$dl_dirlist = $fl->get_dirs(e_DOWNLOAD);
 		$movechoice = array();

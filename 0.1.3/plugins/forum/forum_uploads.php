@@ -58,7 +58,7 @@ if(is_array($_POST['delete']))
 	}
 }
 
-include_once(e_HANDLER."file_class.php");
+include_once(e_HANDLER."file_handler.php");
 include_once(HEADERF);
 if($msg)
 {

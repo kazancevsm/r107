@@ -24,7 +24,7 @@ if (!getperms("2")) {
 $e_sub_cat = 'menus';
 require_once("auth.php");
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $frm = new form;
 
 if($_POST) {

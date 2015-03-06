@@ -10,7 +10,7 @@ global $sql,$parm;
     }
 
 
-	require_once(e_HANDLER."file_class.php");
+	require_once(e_HANDLER."file_handler.php");
 	$fl = new e_file;
 
   //	$paths = explode("|",$path);

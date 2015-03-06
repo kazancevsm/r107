@@ -34,7 +34,7 @@ if(($pref['cb_layer']==2) || isset($_POST['chatbox_ajax']))
 }
 
 if(!defined("e_HANDLER")){ exit; }
-require_once(e_HANDLER."emote.php");
+require_once(e_HANDLER."emote_handler.php");
 
 $emessage='';
 if(isset($_POST['chat_submit']) && $_POST['cmessage'] != "")

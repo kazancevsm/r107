@@ -19,7 +19,7 @@
 
 if ( ! defined('e107_INIT')) { exit(); }
 
-require_once(e_HANDLER.'language_class.php');
+require_once(e_HANDLER.'language_handler.php');
 $slng = new language;
 
 $languageList = explode(',', e_LANLIST);

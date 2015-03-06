@@ -30,9 +30,9 @@ global $tp;
 require_once(e_HANDLER."userclass_class.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
-e107_require_once(e_HANDLER.'arraystorage_class.php');
+e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 
 require_once(e_HANDLER."calendar/calendar_class.php");

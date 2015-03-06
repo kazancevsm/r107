@@ -17,7 +17,7 @@
 */
 require_once("class.php");
 require_once(e_HANDLER."news_class.php");
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 define("PAGE_NAME", COMLAN_99);
 
 if (!e_QUERY) 

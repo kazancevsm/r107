@@ -302,7 +302,7 @@ if (e_QUERY)
         // return the message in the correct language.
 		if($qs[3] && strlen($qs[3]) == 2 )
 		{
-			require_once(e_HANDLER."language_class.php");
+			require_once(e_HANDLER."language_handler.php");
 			$slng = new language;
 			$the_language = $slng->convert($qs[3]);
 			if(is_readable(e_LANGUAGEDIR.$the_language."/lan_signup.php"))

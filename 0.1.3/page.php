@@ -375,7 +375,7 @@ class pageClass
 
 		if($page_comment_flag)
 		{
-			require_once(e_HANDLER."comment_class.php");
+			require_once(e_HANDLER."comment_handler.php");
 			$cobj = new comment;
 
 			if (isset($_POST['commentsubmit']))

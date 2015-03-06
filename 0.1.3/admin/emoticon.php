@@ -49,7 +49,7 @@ if ($pref['smiley_activate'] != $_POST['smiley_activate'])
 
 
 /* get packs */
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 $emote = new emotec;
 $one_pack = FALSE;

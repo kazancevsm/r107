@@ -18,7 +18,7 @@
 */
 require_once("class.php");
 require_once(e_HANDLER."news_class.php");
-//require_once(e_HANDLER."comment_class.php");
+//require_once(e_HANDLER."comment_handler.php");
 //$cobj = new comment;
 
 if (isset($NEWSHEADER)) 
@@ -650,7 +650,7 @@ if ($action != "item")
 }
 
 if(is_dir("remotefile")) {
-	require_once(e_HANDLER."file_class.php");
+	require_once(e_HANDLER."file_handler.php");
 	$file = new e_file;
 	$reject = array('$.','$..','/','CVS','thumbs.db','*._$', 'index', 'null*', 'Readme.txt');
 	$crem = $file -> get_files(e_BASE."remotefile", "", $reject);

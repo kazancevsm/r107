@@ -37,7 +37,7 @@ $e_sub_cat = 'download';
 
 require_once(e_HANDLER."form_handler.php");
 require_once(e_HANDLER."userclass_class.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 
 $fl = new e_file;
 
@@ -1761,7 +1761,7 @@ class download
 
 		$ns -> tablerender(DOWLAN_138, $text);
 
-		require_once(e_HANDLER."file_class.php");
+		require_once(e_HANDLER."file_handler.php");
 		$fl = new e_file;
 		$rejecthumb = array('$.','$..','/','CVS','thumbs.db','*._$',"thumb_", 'index', 'null*');
 		$imagelist = $fl->get_files(e_FILE."downloadimages/","",$rejecthumb);

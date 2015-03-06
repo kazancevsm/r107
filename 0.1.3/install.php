@@ -958,7 +958,7 @@ class e_install
 
 		require_once("{$this->e107->e107_dirs['SYSTEM_DIRECTORY']}prefs.php");
 
-		include_once("{$this->e107->e107_dirs['HANDLERS_DIRECTORY']}arraystorage_class.php");
+		include_once("{$this->e107->e107_dirs['HANDLERS_DIRECTORY']}array_storage_handler.php");
 
 		$tmp = ArrayData::WriteArray($pref);
 

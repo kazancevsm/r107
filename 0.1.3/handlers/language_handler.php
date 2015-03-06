@@ -3,9 +3,9 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system - Language Class.
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/language_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/language_handler.php $
 |     $Revision: 12076 $
-|     $Id: language_class.php 12076 2011-02-26 19:12:58Z e107coders $
+|     $Id: language_handler.php 12076 2011-02-26 19:12:58Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -273,7 +273,7 @@ class language{
 		if($iso==FALSE || $lang==FALSE)
 		{
 			$diz = ($lang) ? $lang : $iso;
-			trigger_error("The selected language (".$diz.") is invalid. See e107_handlers/language_class.php for a list of valid languages. ", E_USER_ERROR);
+			trigger_error("The selected language (".$diz.") is invalid. See e107_handlers/language_handler.php for a list of valid languages. ", E_USER_ERROR);
 			return FALSE;
 		}
 		

@@ -35,9 +35,9 @@ require_once($plugindir."handlers/content_db_class.php");
 $adb = new contentdb;
 require_once($plugindir."handlers/content_form_class.php");
 $aform = new contentform;
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
-e107_require_once(e_HANDLER.'arraystorage_class.php');
+e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 
 //these have to be set for the tinymce wysiwyg

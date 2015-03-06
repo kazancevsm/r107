@@ -468,7 +468,7 @@ function admin_purge_related($table, $id)
 	$tp->parseTemplate("");
 
 	// Delete any related comments
-	require_once(e_HANDLER."comment_class.php");
+	require_once(e_HANDLER."comment_handler.php");
 	$_com = new comment;
 	$num = $_com->delete_comments($table, $id);
 	if($num)

@@ -46,7 +46,7 @@ require_once(e_HANDLER.'userclass_class.php');
 require_once(e_HANDLER.'news_class.php');
 require_once(e_HANDLER.'ren_help.php');
 require_once(e_HANDLER.'form_handler.php');
-require_once(e_HANDLER.'file_class.php');
+require_once(e_HANDLER.'file_handler.php');
 
 $fl = new e_file;
 $rs = new form;

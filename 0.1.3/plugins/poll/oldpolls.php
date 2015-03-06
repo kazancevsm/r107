@@ -18,7 +18,7 @@
  */
 require_once("../../class.php");
 require_once(HEADERF);
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 $gen = new convert;
 if(!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }

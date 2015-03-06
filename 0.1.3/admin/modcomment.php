@@ -30,7 +30,7 @@ if (!getperms("B")) {
 	exit;
 }
 require_once("auth.php");
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 require_once(e_HANDLER.'ren_help.php');
 
 $cobj = new comment;

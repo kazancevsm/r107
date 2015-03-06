@@ -461,7 +461,7 @@ SC_BEGIN PROFILE_COMMENTS
 global $user, $pref, $sql, $ns;
 if($pref['profile_comments'])
 {
-	include_once(e_HANDLER."comment_class.php");
+	include_once(e_HANDLER."comment_handler.php");
 	$cobj = new comment;
 	$qry = "
 	SELECT c.*, u.*, ue.* FROM #comments AS c
@@ -489,7 +489,7 @@ SC_BEGIN PROFILE_COMMENT_FORM
 global $pref, $user;
 if($pref['profile_comments'])
 {
-	include_once(e_HANDLER."comment_class.php");
+	include_once(e_HANDLER."comment_handler.php");
 	$cobj = new comment;
 	$ret = "";
 	if(ADMIN === TRUE)

@@ -440,7 +440,7 @@ class links
 			$link_name = $this->linkName( $link_name );
 		}
 
-        require_once(e_HANDLER."file_class.php");
+        require_once(e_HANDLER."file_handler.php");
         $fl = new e_file;
 
         if($iconlist = $fl->get_files(e_FILE."icons/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){

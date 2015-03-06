@@ -94,7 +94,7 @@ return "<textarea class='tbox' name='pm_message' cols='60' rows='10' onselect='s
 SC_END
 
 SC_BEGIN EMOTES
-require_once(e_HANDLER."emote.php");
+require_once(e_HANDLER."emote_handler.php");
 return r_emote();
 SC_END
 

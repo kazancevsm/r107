@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emailprint_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emailprint_handler.php $
 |     $Revision: 11941 $
-|     $Id: emailprint_class.php 11941 2010-11-01 22:10:28Z e107steved $
+|     $Id: emailprint_handler.php 11941 2010-11-01 22:10:28Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */

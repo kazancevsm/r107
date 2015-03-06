@@ -646,7 +646,7 @@ function make_email_query($email, $fieldname = 'banlist_ip')
 
 		if($update_xup == TRUE)
 		{
-		  require_once(e_HANDLER."login.php");
+		  require_once(e_HANDLER."login_handler.php");
 		  userlogin::update_xup($inp, $_POST['user_xup']);
 		}
 

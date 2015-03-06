@@ -22,7 +22,7 @@ if(!getperms("1")){ header("location:".e_BASE."index.php"); exit ;}
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 $listplugindir = e_PLUGIN."list_new/";
 require_once($listplugindir."list_class.php");

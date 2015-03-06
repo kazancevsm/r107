@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/e_parse_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/e_parse_handler.php $
 |     $Revision: 12319 $
-|     $Id: e_parse_class.php 12319 2011-07-13 19:43:05Z e107steved $
+|     $Id: e_parse_handler.php 12319 2011-07-13 19:43:05Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
@@ -1047,7 +1047,7 @@ class e_parse
             if ($pref['smiley_activate'] || $opts['emotes_on'])
 			{
                 if (!is_object($this->e_emote)) {
-                    require_once(e_HANDLER.'emote_filter.php');
+                    require_once(e_HANDLER.'emote_filter_handler.php');
                     $this->e_emote = new e_emoteFilter;
                 }
                 $text = $this->e_emote->filterEmotes($text);

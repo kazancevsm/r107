@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emote_filter.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/emote_filter_handler.php $
 |     $Revision: 11750 $
-|     $Id: emote_filter.php 11750 2010-09-06 01:16:29Z e107coders $
+|     $Id: emote_filter_handler.php 11750 2010-09-06 01:16:29Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */

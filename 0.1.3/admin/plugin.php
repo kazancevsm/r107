@@ -26,7 +26,7 @@ if (!getperms("Z"))
 $e_sub_cat = 'plug_manage';
 require_once("auth.php");
 require_once(e_HANDLER.'plugin_class.php');
-require_once(e_HANDLER.'file_class.php');
+require_once(e_HANDLER.'file_handler.php');
 $plugin = new e107plugin;
 
 $tmp = explode('.', e_QUERY);
@@ -267,7 +267,7 @@ if ($action == 'uninstall')
 
 		if($_POST['delete_files'])
 		{
-			include_once(e_HANDLER."file_class.php");
+			include_once(e_HANDLER."file_handler.php");
 			$fi = new e_file;
 			$result = $fi->rmtree(e_PLUGIN.$eplug_folder);
 			$text .= '<br />'.($result ? EPL_ADLAN_64.e_PLUGIN.$eplug_folder : EPL_ADLAN_65.'<br />'.EPL_ADLAN_31.' <b>'.e_PLUGIN.$eplug_folder.'</b> '.EPL_ADLAN_32);

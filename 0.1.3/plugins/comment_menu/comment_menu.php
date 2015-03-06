@@ -20,7 +20,7 @@
 if (!defined('e107_INIT')) { exit; }
 
 require_once(e_PLUGIN."comment_menu/comment_menu_shortcodes.php");
-require_once(e_HANDLER."comment_class.php");
+require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 
 if (file_exists(THEME."comment_menu_template.php")){

@@ -38,7 +38,7 @@ require_once("auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
 require_once(e_HANDLER."userclass_class.php");
-require_once(e_HANDLER."file_class.php");
+require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 
 //FIXME mix up in banner language files
