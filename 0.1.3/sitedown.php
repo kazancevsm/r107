@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once('class.php');
+require_once("class.php");
 
 if (!varset($pref['maintainance_flag']) && !getperms('0')) // Allow main admin to test and view template before going offline.
 {
@@ -28,17 +28,17 @@ header('Content-type: text/html; charset='.CHARSET);
 
 include_lan(e_LANGUAGEDIR.e_LANGUAGE.'/lan_'.e_PAGE);
 
-require_once(e_FILE.'shortcode/batch/sitedown_shortcodes.php');
+require_once(e_SYSTEM."shortcode/batch/sitedown_shortcodes.php");
 
 if (!$SITEDOWN_TABLE)
 {
-	if (file_exists(THEME.'sitedown_template.php'))
+	if (file_exists(THEME."sitedown_template.php"))
 	{
-		require_once(THEME.'sitedown_template.php');
+		require_once(THEME."sitedown_template.php");
 	}
 	else
 	{
-		require_once(e_THEME.'templates/sitedown_template.php');
+		require_once(e_THEME."templates/sitedown_template.php");
 	}
 }
 

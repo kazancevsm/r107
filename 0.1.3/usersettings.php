@@ -53,7 +53,7 @@ else
 {
 	include_once(e_THEME."templates/usersettings_template.php");
 }
-include_once(e_FILE."shortcode/batch/usersettings_shortcodes.php");
+include_once(e_SYSTEM."shortcode/batch/usersettings_shortcodes.php");
 
 require_once(e_HANDLER."calendar/calendar_class.php");
 $cal = new DHTML_Calendar(true);

@@ -194,7 +194,7 @@ class news {
 		}
 		$loop_uid = $news['news_author'];
 
-		require_once(e_FILE.'shortcode/batch/news_shortcodes.php');
+		require_once(e_SYSTEM."shortcode/batch/news_shortcodes.php");
 		$text = $tp -> parseTemplate($NEWS_PARSE, TRUE, $news_shortcodes);
 
 		if ($mode == 'return') {

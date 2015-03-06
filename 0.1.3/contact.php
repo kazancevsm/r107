@@ -167,14 +167,14 @@ if(isset($_POST['send-contactus'])/* && isset($_POST['e-token'])*/)
 
 if(SITECONTACTINFO && $CONTACT_INFO)
 {
-	require_once(e_FILE."shortcode/batch/contact_shortcodes.php");
+	require_once(e_SYSTEM."shortcode/batch/contact_shortcodes.php");
 	$text = $tp->parseTemplate($CONTACT_INFO, TRUE, $contact_shortcodes);
 	$ns -> tablerender(LANCONTACT_01, $text,"contact");
 }
 
 if(isset($pref['sitecontacts']) && $pref['sitecontacts'] != 255)
 {
-	require_once(e_FILE."shortcode/batch/contact_shortcodes.php");
+	require_once(e_SYSTEM."shortcode/batch/contact_shortcodes.php");
 	$text = $tp->parseTemplate($CONTACT_FORM, TRUE, $contact_shortcodes);
 
 	if(trim($text) != "")

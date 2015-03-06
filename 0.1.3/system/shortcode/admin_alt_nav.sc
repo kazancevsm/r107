@@ -40,7 +40,7 @@ if (ADMIN) {
 	if (file_exists(THEME.'nav_menu.js')) {
 		$text = "<script type='text/javascript' src='".THEME_ABS."nav_menu.js'></script>";
 	} else {
-		$text = "<script type='text/javascript' src='".e_FILE_ABS."nav_menu.js'></script>";
+		$text = "<script type='text/javascript' src='".e_SYSTEM_ABS."nav_menu.js'></script>";
 	}
 
 	$text .= "<div style='width: 100%'><table border='0' cellspacing='0' cellpadding='0' style='width: 100%'>

@@ -18,6 +18,6 @@
 */
 
 require_once('../class.php');
-header('Location:'.SITEURL.$FILES_DIRECTORY.'resetcore/resetcore.php');
+header('Location:'.SITEURL.$SYSTEM_DIRECTORY.'resetcore/resetcore.php');
 exit;
 ?>

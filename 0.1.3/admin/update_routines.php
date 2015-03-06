@@ -45,9 +45,9 @@ if (!defined("LAN_UPDATE_9")) { define("LAN_UPDATE_9", ""); }
 $dbupdate = array();
 
 global $e107cache;
-	if (is_readable(e_ADMIN."ver.php"))
+	if (is_readable(e_SYSTEM."version.php"))
 	{
-		include(e_ADMIN."ver.php");
+		include(e_SYSTEM."version.php");
 	}
 
 

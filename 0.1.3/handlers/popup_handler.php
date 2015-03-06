@@ -24,7 +24,7 @@ class popup{
 	// you need to add the following call to popup.js in a headerjs function
 	//
 	// function headerjs(){
-	// echo "<script type='text/javascript' src='".e_FILE."popup.js'></script>\n";
+	// echo "<script type='text/javascript' src='".e_SYSTEM."popup.js'></script>\n";
 	// }
 	// on the page where you want to popup image to appear,
 	// you need to include this class and create a new object for it:

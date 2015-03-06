@@ -785,7 +785,7 @@ class download
 	function create_download($sub_action, $id)
 	{
 		global $cal,$tp, $sql, $fl, $rs, $ns, $file_array, $image_array, $thumb_array,$pst;
-		require_once(e_FILE."shortcode/batch/download_shortcodes.php");
+		require_once(e_SYSTEM."shortcode/batch/download_shortcodes.php");
 
 		$mirrorArray = array();
 

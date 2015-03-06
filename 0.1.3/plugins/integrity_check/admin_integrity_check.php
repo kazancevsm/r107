@@ -229,8 +229,8 @@ function headerjs() {
 
 	
 //check Version you are using
-if (file_exists(e_ADMIN."ver.php")) {
-	include(e_ADMIN."ver.php");
+if (file_exists(e_SYSTEM."version.php")) {
+	include(e_SYSTEM."version.php");
 }
 	
 //Arrays for replacing Directorys (if non-standard)

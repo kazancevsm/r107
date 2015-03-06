@@ -36,7 +36,8 @@ if (is_dir(e_ADMIN.'htmlarea') || is_dir(e_HANDLER.'htmlarea'))
 
 // --- check for Malware/Trojans -----------
 
-$mal_paths = array(e_FILE."thumbs.php",e_FILE.'ok.txt',e_FILE."css.php",e_PLUGIN."css.php");
+//$mal_paths = array(e_SYSTEM."thumbs.php",e_FILE.'ok.txt',e_FILE."css.php",e_PLUGIN."css.php");
+$mal_paths = array(e_SYSTEM."thumbs.php");
 $mal_list = array();
 foreach($mal_paths as $pth)
 {

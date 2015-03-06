@@ -27,16 +27,16 @@ define('MAKE_INSTALL_LOG', FALSE);
 // Параметры и пути по умолчанию для программы установки
 $MySQLPrefix	     = 'pref_';
 
-$ADMIN_DIRECTORY     = "admin/";
-$DOCS_DIRECTORY      = "docs/help/";
-$DOWNLOADS_DIRECTORY = "files/downloads/";
-$IMAGES_DIRECTORY    = "images/";
-$FILES_DIRECTORY     = "files/";
-$HANDLERS_DIRECTORY  = "handlers/";
-$LANGUAGES_DIRECTORY = "languages/";
-$PLUGINS_DIRECTORY   = "plugins/";
-$SYSTEM_DIRECTORY    = "system/";
-$THEMES_DIRECTORY    = "themes/";
+$ADMIN_DIRECTORY     = 'admin/';
+$DOCS_DIRECTORY      = 'docs/help/';
+$DOWNLOADS_DIRECTORY = 'files/downloads/';
+$FILES_DIRECTORY     = 'files/';
+$HANDLERS_DIRECTORY  = 'handlers/';
+$IMAGES_DIRECTORY    = 'images/';
+$LANGUAGES_DIRECTORY = 'languages/';
+$PLUGINS_DIRECTORY   = 'plugins/';
+$SYSTEM_DIRECTORY    = 'system/';
+$THEMES_DIRECTORY    = 'themes/';
 
 
 // Конец конфигурируемых переменных
@@ -124,8 +124,8 @@ $installer_folder_name = 'install';
 
 include_once("./{$HANDLERS_DIRECTORY}e107_class.php");
 
-$e107_paths = compact('ADMIN_DIRECTORY', 'CUSTOM_DIRECTORY', 'FILES_DIRECTORY', 'IMAGES_DIRECTORY', 'THEMES_DIRECTORY', 'PLUGINS_DIRECTORY',
-                      'HANDLERS_DIRECTORY', 'LANGUAGES_DIRECTORY', 'HELP_DIRECTORY', 'DOWNLOADS_DIRECTORY');
+$e107_paths = compact('ADMIN_DIRECTORY', 'DOCS_DIRECTORY', 'DOWNLOADS_DIRECTORY', 'FILES_DIRECTORY', 'HANDLERS_DIRECTORY', 
+		      'IMAGES_DIRECTORY', 'LANGUAGES_DIRECTORY', 'PLUGINS_DIRECTORY', 'SYSTEM_DIRECTORY', 'THEMES_DIRECTORY');
 $e107 = new e107($e107_paths, realpath(dirname(__FILE__)));
 unset($e107_paths);
 
@@ -730,22 +730,18 @@ class e_install
 /*
 +-------------------------------------------------------------------------------+
 	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro
+	Сайт: http://r107.pro, http://osgroup.pro
 	Почта: support@r107.pro
-	Файл: install.php
-	Версия: 0.1
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
-	Автор: © Казанцев Сергей	[Sunout]
+	Автор: © Open Source Group
 +-------------------------------------------------------------------------------+
 	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro
+	Site: http://r107.pro, http://osgroup.pro
 	Email: support@r107.pro
-	File: install.php
-	Version: 0.1
 	Charset: utf8
 	Date: 04.11.2014 05:05:05
-	Author: © Казанцев Сергей	[Sunout]
+	Author: © Open Source Group
 +-------------------------------------------------------------------------------+
 */
 
@@ -763,9 +759,9 @@ class e_install
 \$ADMIN_DIRECTORY     = '{$this->e107->e107_dirs['ADMIN_DIRECTORY']}';
 \$DOCS_DIRECTORY      = '{$this->e107->e107_dirs['DOCS_DIRECTORY']}';
 \$DOWNLOADS_DIRECTORY = '{$this->e107->e107_dirs['DOWNLOADS_DIRECTORY']}';
-\$IMAGES_DIRECTORY    = '{$this->e107->e107_dirs['IMAGES_DIRECTORY']}';
 \$FILES_DIRECTORY     = '{$this->e107->e107_dirs['FILES_DIRECTORY']}';
 \$HANDLERS_DIRECTORY  = '{$this->e107->e107_dirs['HANDLERS_DIRECTORY']}';
+\$IMAGES_DIRECTORY    = '{$this->e107->e107_dirs['IMAGES_DIRECTORY']}';
 \$LANGUAGES_DIRECTORY = '{$this->e107->e107_dirs['LANGUAGES_DIRECTORY']}';
 \$PLUGINS_DIRECTORY   = '{$this->e107->e107_dirs['PLUGINS_DIRECTORY']}';
 \$SYSTEM_DIRECTORY    = '{$this->e107->e107_dirs['SYSTEM_DIRECTORY']}';
@@ -960,7 +956,7 @@ class e_install
 		$site_admin_user = $this->previous_steps['admin']['display'];
 		$site_admin_email = $this->previous_steps['admin']['email'];
 
-		require_once("{$this->e107->e107_dirs['FILES_DIRECTORY']}prefs.php");
+		require_once("{$this->e107->e107_dirs['SYSTEM_DIRECTORY']}prefs.php");
 
 		include_once("{$this->e107->e107_dirs['HANDLERS_DIRECTORY']}arraystorage_class.php");
 
@@ -1170,22 +1166,18 @@ function template_data()
 <!--
 +-------------------------------------------------------------------------------+
 	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro
+	Сайт: http://r107.pro, http://osgroup.pro
 	Почта: support@r107.pro
-	Файл: install.php
-	Версия: 0.1
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
-	Автор: © Казанцев Сергей	[Sunout]
+	Автор: © Open Source Group
 +-------------------------------------------------------------------------------+
 	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro
+	Site: http://r107.pro, http://osgroup.pro
 	Email: support@r107.pro
-	File: install.php
-	Version: 0.1
 	Charset: utf8
 	Date: 04.11.2014 05:05:05
-	Author: © Казанцев Сергей	[Sunout]
+	Author: © Open Source Group
 +-------------------------------------------------------------------------------+
 -->
 <html xmlns=\"http://www.w3.org/1999/xhtml\">

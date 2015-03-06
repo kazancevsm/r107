@@ -88,24 +88,25 @@ class e107{
 			define("e_HTTP", $this->server_path);
 			define("e_BASE", $this->relative_base_path);
 			define("e_ADMIN", e_BASE.$ADMIN_DIRECTORY);
-			define("e_DOCS", e_BASE.$DOCS_DIRECTORY);
-			define("e_IMAGE", e_BASE.$IMAGES_DIRECTORY);
+			define("e_DOC", e_BASE.$DOCS_DIRECTORY);
 			define("e_FILE", e_BASE.$FILES_DIRECTORY);
 			define("e_HANDLER", e_BASE.$HANDLERS_DIRECTORY);
+			define("e_IMAGE", e_BASE.$IMAGES_DIRECTORY);
 			define("e_LANGUAGEDIR", e_BASE.$LANGUAGES_DIRECTORY);
 			define("e_PLUGIN", e_BASE.$PLUGINS_DIRECTORY);
 			define("e_SYSTEM", e_BASE.$SYSTEM_DIRECTORY);
 			define("e_THEME", e_BASE.$THEMES_DIRECTORY);
 			
 			define("e_ADMIN_ABS", e_HTTP.$ADMIN_DIRECTORY);
-			define("e_IMAGE_ABS", e_HTTP.$IMAGES_DIRECTORY);
-			define("e_THEME_ABS", e_HTTP.$THEMES_DIRECTORY);
-			define("e_PLUGIN_ABS", e_HTTP.$PLUGINS_DIRECTORY);
+			define("e_DOC", e_BASE.$HELP_DIRECTORY);
 			define("e_FILE_ABS", e_HTTP.$FILES_DIRECTORY);
 			define("e_HANDLER_ABS", e_HTTP.$HANDLERS_DIRECTORY);
+			define("e_IMAGE_ABS", e_HTTP.$IMAGES_DIRECTORY);
 			define("e_LANGUAGEDIR_ABS", e_HTTP.$LANGUAGES_DIRECTORY);
-
-			define("e_DOC", e_BASE.$HELP_DIRECTORY);
+			define("e_PLUGIN_ABS", e_HTTP.$PLUGINS_DIRECTORY);
+			define("e_SYSTEM_ABS", e_HTTP.$SYSTEM_DIRECTORY);
+			define("e_THEME_ABS", e_HTTP.$THEMES_DIRECTORY);
+			
 			if(isset($_SERVER['DOCUMENT_ROOT'])) 
 			{ 
 			  define("e_DOCROOT", $_SERVER['DOCUMENT_ROOT']."/"); 

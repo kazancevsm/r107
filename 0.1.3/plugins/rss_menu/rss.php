@@ -676,7 +676,7 @@ class rssCreate {
 					<link rel='self' href='".$e107->base_path.$PLUGINS_DIRECTORY."rss_menu/".e_PAGE."?".e_QUERY."' />\n";
 
 					//optional
-					include(e_ADMIN."ver.php");
+					include(e_SYSTEM."version.php");
 					echo "
 					<category term='e107'/>\n
 					<contributor>\n

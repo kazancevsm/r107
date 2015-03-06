@@ -20,7 +20,7 @@ if (!defined('e107_INIT')) { exit; }
 
 if (substr(e_PAGE, 0, 7) != 'content') return;
 
-echo "<script type='text/javascript' src='".e_FILE."popup.js'></script>\n";
+echo "<script type='text/javascript' src='".e_SYSTEM."popup.js'></script>\n";
 
 if(e_QUERY){
 	$qs = explode(".", e_QUERY);

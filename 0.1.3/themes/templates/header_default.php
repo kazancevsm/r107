@@ -115,7 +115,7 @@ if ($pref['jq_core']){
 	echo "<script type='text/javascript' src='".e_FILE_ABS."jquery.js'></script>\n";
 	}
 
-echo "<script type='text/javascript' src='".e_FILE_ABS."core.js'></script>\n";
+echo "<script type='text/javascript' src='".e_SYSTEM_ABS."core.js'></script>\n";
 if (isset($theme_js_php) && $theme_js_php)
 {
 	echo "<script type='text/javascript' src='".THEME_ABS."theme-js.php'></script>\n";
@@ -145,7 +145,7 @@ if (isset($eplug_js) && $eplug_js)
 }
 
 if((isset($pref['enable_png_image_fix']) && $pref['enable_png_image_fix'] == true) || (isset($sleight) && $sleight == true)) {
-	echo "<script type='text/javascript' src='".e_FILE_ABS."sleight_js.php'></script>\n";
+	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."sleight_js.php'></script>\n";
 }
 
 if (function_exists('headerjs')){echo headerjs();  }

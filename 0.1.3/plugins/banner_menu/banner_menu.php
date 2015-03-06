@@ -44,7 +44,7 @@ else
 if(isset($campaign))
 {
   $parm = $campaign;
-  $bannersccode = file_get_contents(e_FILE."shortcode/banner.sc");
+  $bannersccode = file_get_contents(e_SYSTEM."shortcode/banner.sc");
   $BANNER = eval($bannersccode);
   $txt = $BANNER_MENU_START;
   $txt .= preg_replace("/\{(.*?)\}/e", '$\1', $BANNER_MENU);
@@ -82,7 +82,7 @@ else
 	{
 		foreach($parms as $parm)
 		{
-			$bannersccode = file_get_contents(e_FILE."shortcode/banner.sc");
+			$bannersccode = file_get_contents(e_SYSTEM."shortcode/banner.sc");
 			$BANNER = eval($bannersccode);
 			$txt .= preg_replace("/\{(.*?)\}/e", '$\1', $BANNER_MENU);
 		}

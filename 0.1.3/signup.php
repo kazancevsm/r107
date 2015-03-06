@@ -42,7 +42,7 @@ if (is_readable(THEME."signup_template.php")) {
 	require_once(e_THEME."templates/signup_template.php");
 }
 
-include_once(e_FILE."shortcode/batch/signup_shortcodes.php");
+include_once(e_SYSTEM."shortcode/batch/signup_shortcodes.php");
 
 $signup_imagecode = ($pref['signcode'] && extension_loaded("gd"));
 

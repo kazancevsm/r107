@@ -22,7 +22,7 @@ require_once("class.php");
 global $user;
 $user['user_id'] = USERID;
 
-require_once(e_FILE."shortcode/batch/user_shortcodes.php");
+require_once(e_SYSTEM."shortcode/batch/user_shortcodes.php");
 require_once(e_HANDLER."form_handler.php");
 
 if (isset($_POST['delp']))

@@ -80,14 +80,14 @@ function display_help($tagid="helpb", $mode = 1, $addtextfunc = "addtext", $help
 	{
         $BBCODE_TEMPLATE = $temp[$mode];
 	}
-    if(is_readable(e_FILE."shortcode/batch/bbcode_shortcodes.php"))
+    if(is_readable(e_SYSTEM."shortcode/batch/bbcode_shortcodes.php"))
 	{
-  		require_once(e_FILE."shortcode/batch/bbcode_shortcodes.php");
+  		require_once(e_SYSTEM."shortcode/batch/bbcode_shortcodes.php");
   		return $tp->parseTemplate($BBCODE_TEMPLATE, FALSE, $bbcode_shortcodes);
 	}
 	else
 	{
-    	return "ERROR: ".e_FILE."shortcode/batch/bbcode_shortcodes.php IS NOT READABLE.";
+    	return "ERROR: ".e_SYSTEM."shortcode/batch/bbcode_shortcodes.php IS NOT READABLE.";
 	}
 
 }

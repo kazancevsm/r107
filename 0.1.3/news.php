@@ -579,7 +579,7 @@ function show_newsarchive($newsAr, $i = 1)
 	global $ns, $gen, $pref, $tp, $news_archive_shortcodes, $NEWSARCHIVE, $news2;
 
 	// do not show the news archive on the news.php?item.X page (but only on the news mainpage)
-	require_once(e_FILE.'shortcode/batch/news_archives.php');
+	require_once(e_SYSTEM."shortcode/batch/news_archives.php");
 
 	$textnewsarchive = '';
 	ob_start();

@@ -248,7 +248,7 @@ echo $fadejs;
 echo "
 <div style='text-align: center; margin-left: auto; margin-right: auto;'>
 <form method='get' action=''><div>".
-(e_QUERY && e_QUERY == "stps" ? "<input class='button' type='button' onclick=\"self.parent.location='".e_ADMIN."credits.php'\" value='".CRELAN_4."' />" : "<input class='button' type='button' onclick=\"self.parent.location='".e_ADMIN."credits.php?stps'\" value='".CRELAN_5."' />")."</div>
+(e_QUERY && e_QUERY == "stps" ? "<input class='button' type='button' onclick=\"self.parent.location='".e_SYSTEM."credits.php'\" value='".CRELAN_4."' />" : "<input class='button' type='button' onclick=\"self.parent.location='".e_ADMIN."credits.php?stps'\" value='".CRELAN_5."' />")."</div>
 </form>
 </div>
 

@@ -141,14 +141,14 @@ if (varset($pref['wysiwyg'],FALSE) && check_class($pref['post_html']) && varset(
 }
 
 if ($pref['jq_core']){
-	echo "<script type='text/javascript' src='".e_FILE_ABS."jquery.js'></script>\n";
+	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."jquery.js'></script>\n";
 	}
 	
 if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE) {
-	echo "<script type='text/javascript' src='".e_FILE_ABS."core.js'></script>\n";
+	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."core.js'></script>\n";
 }
 	if (file_exists(THEME.'theme.js')) { echo "<script type='text/javascript' src='".THEME_ABS."theme.js'></script>\n"; }
-	if (is_readable(e_FILE.'user.js') && filesize(e_FILE.'user.js')) { echo "<script type='text/javascript' src='".e_FILE_ABS."user.js'></script>\n"; }
+	if (is_readable(e_SYSTEM.'user.js') && filesize(e_SYSTEM.'user.js')) { echo "<script type='text/javascript' src='".e_SYSTEM_ABS."user.js'></script>\n"; }
 
 if (isset($eplug_js) && $eplug_js) 
 {

@@ -30,7 +30,7 @@ if(($pref['cb_layer']==2) || isset($_POST['chatbox_ajax']))
 		//ajax is turned on and the menu is not loaded from the menu.sc
 		include_lan(e_PLUGIN."chatbox_menu/languages/".e_LANGUAGE."/".e_LANGUAGE.".php");
 	}
-	$footer_js[] = e_FILE_ABS.'e_ajax.js';
+	$footer_js[] = e_SYSTEM_ABS.'e_ajax.js';
 }
 
 if(!defined("e_HANDLER")){ exit; }

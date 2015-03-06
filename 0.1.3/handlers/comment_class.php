@@ -26,7 +26,7 @@ if (!defined('e107_INIT')) { exit; }
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_comment.php");
 
 global $comment_shortcodes;
-require_once(e_FILE."shortcode/batch/comment_shortcodes.php");
+require_once(e_SYSTEM."shortcode/batch/comment_shortcodes.php");
 
 /**
  * Enter description here...

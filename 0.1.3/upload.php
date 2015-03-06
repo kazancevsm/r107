@@ -172,7 +172,7 @@ $text = "<div style='text-align:center'>
 	<td class='r_header3'>".DOWLAN_11.":</td>
 	<td class='r_header3'>";
 
-	require_once(e_FILE."shortcode/batch/download_shortcodes.php");
+	require_once(e_SYSTEM."shortcode/batch/download_shortcodes.php");
 	$dlparm = (isset($download_category)) ? $download_category : "";
 	$text .= $tp->parseTemplate("{DOWNLOAD_CATEGORY_SELECT={$dlparm}}",true,$download_shortcodes);
 

@@ -363,9 +363,9 @@ function show_tools()
 {
 	global $ns,$tp;
 	
-	if(is_readable(e_ADMIN."ver.php"))
+	if(is_readable(e_SYSTEM."version.php"))
 	{
-		include(e_ADMIN."ver.php");
+		include(e_SYSTEM."version.php");
 		list($ver, $tmp) = explode(" ", $e107info['e107_version']);
 	}
 		
@@ -668,9 +668,9 @@ function zip_up_lang($language)
 		return $ret;		
 	}
 	
-	if(is_readable(e_ADMIN."ver.php"))
+	if(is_readable(e_SYSTEM."version.php"))
 	{
-		include(e_ADMIN."ver.php");
+		include(e_SYSTEM."version.php");
 	}
 	
 	 $core_plugins = array(

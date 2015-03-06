@@ -150,7 +150,7 @@ if (isset($_POST['reset_core_sub']) && $_POST['mode'] == 2)
 
 	$pref_language = "Russian";
 	include_once("../../".$LANGUAGES_DIRECTORY."Russian/lan_prefs.php");
-	require_once("../../".$FILES_DIRECTORY."prefs.php");
+	require_once("../../".$SYSTEM_DIRECTORY."prefs.php");
 
 	$PrefOutput = $eArrayStorage->WriteArray($pref);
 
