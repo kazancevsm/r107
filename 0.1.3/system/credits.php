@@ -17,7 +17,7 @@
 
 require_once("../class.php");
 $e_sub_cat = 'credits';
-include(e_SYSTEM.'version.php');
+include(e_SYSTEM."version.php");
 
 
 $creditsArray = array(

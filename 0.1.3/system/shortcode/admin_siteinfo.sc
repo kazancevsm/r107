@@ -2,9 +2,9 @@ if (ADMIN)
 {
 	global $ns, $pref, $themename, $themeversion, $themeauthor, $themedate, $themeinfo, $mySQLdefaultdb;
 
-	if (file_exists(e_ADMIN."ver.php"))
+	if (file_exists(e_SYSTEM."version.php"))
 	{ 
-		include(e_ADMIN."ver.php"); 
+		include(e_SYSTEM."version.php"); 
 	}
 	
 	if($parm == "version")
@@ -18,7 +18,7 @@ if (ADMIN)
 	$obj = new convert;
 	$install_date = $obj->convert_date($pref['install_date'], "long");
 
-	$text = "<input style=\"display:block; margin:5px auto 5px;\" alt=\"r107.pro - Официальный сайт поддержки пользователей r107 cms - Нажмите кнопку для перехода\" title=\"r107 - Официальный сайт поддержки пользователей русскоязычного сообщества е107 cms - Нажмите кнопку для перехода\" type=\"button\" class=\"button\" value=\"Портал поддержки пользователей\" onclick=\"window.open('http://r107.pro/', '_blank');\" /><br /><br />
+	$text = "<input style=\"display:block; margin:5px auto 5px;\" alt=\"http://r107.pro - Официальный сайт поддержки пользователей r107 cms - Нажмите кнопку для перехода\" title=\"http://r107.pro - Официальный сайт поддержки пользователей русскоязычного сообщества r107 cms - Нажмите кнопку для перехода\" type=\"button\" class=\"button\" value=\"Портал поддержки пользователей\" onclick=\"window.open('http://r107.pro/', '_blank');\" /><br /><br />
 	<b>".FOOTLAN_1."</b>
 	<br />".
 	SITENAME."
