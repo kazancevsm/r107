@@ -29,7 +29,7 @@ include_once(e_HANDLER."user_extended_class.php");
 $ue = new e107_user_extended;
 
 if (isset($_POST['newver'])) {
-	header("location:http://www.e107club.ru/index.php");
+	header("location:http://r107.ru/index.php");
 	exit;
 }
 

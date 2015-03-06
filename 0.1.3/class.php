@@ -189,8 +189,8 @@ if(!isset($ADMIN_DIRECTORY))
 //
 // clever stuff that figures out where the paths are on the fly.. no more need fo hard-coded e_HTTP :)
 //
-e107_require_once(realpath(dirname(__FILE__).'/'.$HANDLERS_DIRECTORY).'/e107_class.php');
-$e107_paths = compact('ADMIN_DIRECTORY', 'CUSTOM_DIRECTORY', 'FILES_DIRECTORY', 'IMAGES_DIRECTORY', 'THEMES_DIRECTORY', 'PLUGINS_DIRECTORY', 'HANDLERS_DIRECTORY', 'LANGUAGES_DIRECTORY', 'HELP_DIRECTORY', 'DOWNLOADS_DIRECTORY');
+e107_require_once(realpath(dirname(__FILE__).'/'.$HANDLERS_DIRECTORY).'/r107_handler.php');
+$e107_paths = compact('ADMIN_DIRECTORY', 'DOCS_DIRECTORY', 'DOWNLOADS_DIRECTORY', 'FILES_DIRECTORY', 'HANDLERS_DIRECTORY', 'IMAGES_DIRECTORY', 'LANGUAGES_DIRECTORY', 'PLUGINS_DIRECTORY', 'SYSTEM_DIRECTORY', 'THEMES_DIRECTORY');
 $e107 = new e107($e107_paths, realpath(dirname(__FILE__)));
 
 $inArray = array("'", ";", "/**/", "/UNION/", "/SELECT/", "AS ");

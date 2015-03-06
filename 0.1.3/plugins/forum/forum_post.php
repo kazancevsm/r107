@@ -129,8 +129,8 @@ define("e_PAGETITLE", LAN_01." / ".$forum_info['forum_name']." / ".($action == "
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-if (is_readable(e_ADMIN.'filetypes.php')) {
-	$a_filetypes = trim(file_get_contents(e_ADMIN.'filetypes.php'));
+if (is_readable(e_SYSTEM.'filetypes.php')) {
+	$a_filetypes = trim(file_get_contents(e_SYSTEM.'filetypes.php'));
 	$a_filetypes = explode(',', $a_filetypes);
 	foreach ($a_filetypes as $ftype) {
 		$sa_filetypes[] = '.'.trim(str_replace('.', '', $ftype));

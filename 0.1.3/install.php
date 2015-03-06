@@ -122,7 +122,7 @@ header("Content-type: text/html; charset=utf8");
 
 $installer_folder_name = 'install';
 
-include_once("./{$HANDLERS_DIRECTORY}e107_class.php");
+include_once("./{$HANDLERS_DIRECTORY}r107_handler.php");
 
 $e107_paths = compact('ADMIN_DIRECTORY', 'DOCS_DIRECTORY', 'DOWNLOADS_DIRECTORY', 'FILES_DIRECTORY', 'HANDLERS_DIRECTORY', 
 		      'IMAGES_DIRECTORY', 'LANGUAGES_DIRECTORY', 'PLUGINS_DIRECTORY', 'SYSTEM_DIRECTORY', 'THEMES_DIRECTORY');

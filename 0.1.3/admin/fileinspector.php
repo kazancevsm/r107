@@ -29,17 +29,18 @@ require_once(e_HANDLER.'form_handler.php');
 $rs = new form;
 $fi = new file_inspector;
 
-$DOCS_DIRECTORY = $HELP_DIRECTORY;		// Give a sensible, albeit probably invalid, value
-if (substr($HELP_DIRECTORY,-5,5) == 'help/')
+// Give a sensible, albeit probably invalid, value
+if (substr($DOCS_DIRECTORY,-5,5) == 'help/')
 {
-	$DOCS_DIRECTORY = substr($HELP_DIRECTORY,0,-5);		// Whatever $HELP_DIRECTORY is set to, assume docs are in a subdirectory called 'help' off it
+	$DOCS_DIRECTORY = substr($DOCS_DIRECTORY,0,-5);		// Whatever $HELP_DIRECTORY is set to, assume docs are in a subdirectory called 'help' off it
 }
-$maindirs = array('admin' => $ADMIN_DIRECTORY, 'custom' => $CUSTOM_DIRECTORY, 'files' => $FILES_DIRECTORY, 'images' => $IMAGES_DIRECTORY, 'themes' => $THEMES_DIRECTORY, 'plugins' => $PLUGINS_DIRECTORY, 'handlers' => $HANDLERS_DIRECTORY, 'languages' => $LANGUAGES_DIRECTORY, 'downloads' => $DOWNLOADS_DIRECTORY, 'docs' => $DOCS_DIRECTORY);
+
+$maindirs = array('admin' => $ADMIN_DIRECTORY, 'docs' => $DOCS_DIRECTORY, 'downloads' => $DOWNLOADS_DIRECTORY, 'files' => $FILES_DIRECTORY, 'handlers' => $HANDLERS_DIRECTORY, 'images' => $IMAGES_DIRECTORY, 'languages' => $LANGUAGES_DIRECTORY, 'plugins' => $PLUGINS_DIRECTORY, 'system' => $SYSTEM_DIRECTORY, 'themes' => $THEMES_DIRECTORY);
 foreach ($maindirs as $maindirs_key => $maindirs_value) {
 	$coredir[$maindirs_key] = substr($maindirs_value, 0, -1);
 }
 
-require_once('core_image.php');
+require_once(e_SYSTEM."core_image.php");
 
 if (e_QUERY) {
 	$fi -> snapshot_interface();
@@ -239,17 +240,17 @@ class file_inspector {
 	  if ($name == 'e_inspect.php') { return 'nocalc'; }		// Special case for plugin integrity checking
 	  
 	  $filename = $dir.'/'.$name;
-	  $admin_dir = $this->root_dir.'/'.$coredir['admin'].'/';
+	  $system_dir = $this->root_dir.'/'.$coredir['system'].'/';
 	  $image_dir  = $this->root_dir.'/'.$coredir['images'].'/';
 	  $test_list = array();
 
 	  // Files that are unable to be checked
-	  $test_list[$admin_dir.'core_image.php'] = 'uncalc';
+	  $test_list[$system_dir.'core_image.php'] = 'uncalc';
 	  $test_list[$this->root_dir.'/config.php'] = 'uncalc';
 
       // Files that are likely to be renamed by user
 	  // Predator 25.09.2011
-	  $test_list[$admin_dir.'filetypes.php'] = 'ignore';
+	  $test_list[$system_dir.'filetypes.php'] = 'ignore';
 	  $test_list[$this->root_dir.'/.htaccess'] = 'ignore';
 	  $test_list[$this->root_dir.'/robots.txt'] = 'ignore';
 	  
@@ -719,7 +720,7 @@ class file_inspector {
 		$data .= "\$deprecated_image = ".$image_array.";\n\n";
 
 		$data .= "?>";
-		$fp = fopen(e_ADMIN.'core_image.php', 'w');
+		$fp = fopen(e_SYSTEM.'core_image.php', 'w');
 		fwrite($fp, $data);
 	}
 	
@@ -737,7 +738,7 @@ class file_inspector {
 		
 			$text .= "<tr>
 			<td class='r_header3' style='text-align:center'>
-			Снимок (".e_ADMIN."core_image.php) успешно создан.
+			Снимок (".e_SYSTEM."core_image.php) успешно создан.
 			</td>
 			</tr>
 			<tr>

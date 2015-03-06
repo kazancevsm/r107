@@ -64,7 +64,7 @@ define("UPLAN_ARE", "are ");
 define("UPLAN_COPYTODLS", "Copy to Downloads");
 
 define("UPLLAN_48", "For security reasons allowed file types has been moved out of the database into a 
-flatfile located in your admin directory. To use, rename the file e107_admin/filetypes_.php to e107_admin/filetypes.php 
+flatfile located in your admin directory. To use, rename the file system/filetypes_.php to system/filetypes.php 
 and add a comma delimited list of file type extensions to it. You should not allow the upload of .html, .txt, etc., as an attacker may upload a file of this type which includes malicious javascript. You should also, of course, not allow 
 the upload of .php files or any other type of executable script.");
 

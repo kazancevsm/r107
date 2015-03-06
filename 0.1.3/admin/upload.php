@@ -255,9 +255,9 @@ $ns->tablerender(UPLLAN_43, $text);
 // options -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 $allowed_filetypes = '';
-if (is_readable(e_ADMIN.'filetypes.php')) 
+if (is_readable(e_SYSTEM.'filetypes.php')) 
 {
-	$allowed_filetypes = trim(file_get_contents(e_ADMIN.'filetypes.php'));
+	$allowed_filetypes = trim(file_get_contents(e_SYSTEM.'filetypes.php'));
 }
 
 $text = "<div style='text-align:center'>

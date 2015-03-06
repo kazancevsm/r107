@@ -98,8 +98,8 @@ if(getperms('0') && isset($pref['modules']) && $pref['modules'] && $sql->db_Fiel
 }
 
 // check for file-types;
-if (is_readable(e_ADMIN.'filetypes.php')) {
-	$a_types = strtolower(trim(file_get_contents(e_ADMIN.'filetypes.php')));
+if (is_readable(e_SYSTEM.'filetypes.php')) {
+	$a_types = strtolower(trim(file_get_contents(e_SYSTEM.'filetypes.php')));
 } else {
 	$a_types = 'zip, gz, jpg, png, gif';
 }

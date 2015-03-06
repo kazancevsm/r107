@@ -141,10 +141,6 @@ function process_uploaded_files($uploaddir, $fileinfo = FALSE, $options = NULL)
 	{
 	  $allowed_filetypes = get_allowed_filetypes($options['filetypes'], $file_mask);
 	}
-	elseif (ADMIN && is_readable(e_ADMIN.'admin_filetypes.php'))
-	{
-	  $allowed_filetypes = get_allowed_filetypes('admin_filetypes.php', $file_mask);
-	}
 	else
 	{
 	  $allowed_filetypes = get_allowed_filetypes('filetypes.php', $file_mask);

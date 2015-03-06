@@ -1,1 +1,0 @@
-odt, ods, odp, odg, pdf, zip, gz, gzip, rar, jpeg, jpg, png, gif, swf
