@@ -18,7 +18,7 @@
 | 09.11.06 - Started next batch of mods
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_PLUGIN."calendar/calendar_shortcodes.php");
 
 if (isset($_POST['viewallevents']))
@@ -42,7 +42,7 @@ if (isset($_POST['subs']))
 include_lan(e_PLUGIN."calendar/languages/".e_LANGUAGE.".php");
 define("PAGE_NAME", EC_LAN_80);
 
-require_once(e_PLUGIN.'calendar/ecal_class.php');
+require_once(e_PLUGIN."calendar/ecal_class.php");
 global $ecal_class;
 $ecal_class = new ecal_class;
 $cal_super = $ecal_class->cal_super;
@@ -377,7 +377,7 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
 
 		$text .= "
 		<form method='post' action='".e_SELF."' id='linkform' onsubmit='return calcheckform(this, submitted,{$ecal_class->java_format_code})'>
-		<table style='width:98%' class='r_border' >";
+		<table style='width:98%' class='fborder' >";
 
         if ($action == "ed")
         {
@@ -394,8 +394,8 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
 
         $text .= "
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_72." </td>
-		<td class='r_header3' style='width:80%'> ".EC_LAN_67." ";
+		<td class='forumheader3' style='width:20%'>".EC_LAN_72." </td>
+		<td class='forumheader3' style='width:80%'> ".EC_LAN_67." ";
 
 
         $text .= make_calendar("start_date",$ne_startdate)."&nbsp;&nbsp;&nbsp;".EC_LAN_73." ".make_calendar("end_date",$ne_enddate);
@@ -403,8 +403,8 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
 		</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_71." </td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_71." </td>
+		<td class='forumheader3' style='width:80%'>
 		".EC_LAN_67;
 		
 
@@ -414,21 +414,21 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
 		</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_65."</td>
-		<td class='r_header3' style='width:80%'>";
+		<td class='forumheader3' style='width:20%'>".EC_LAN_65."</td>
+		<td class='forumheader3' style='width:80%'>";
 		$text .= "<input type='checkbox' name='recurring' value='1'  ".(isset($recurring) && $recurring == 1 ? "checked='checked'" : "")." />";
         $text .= EC_LAN_63."
 		</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_70." *</td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_70." *</td>
+		<td class='forumheader3' style='width:80%'>
 		<input class='tbox' type='text' name='ne_title' size='75' value='".(isset($ne_title) ? $ne_title : "")."' maxlength='200' style='width:95%' />
 		</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_52." </td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_52." </td>
+		<td class='forumheader3' style='width:80%'>
 		<select name='ne_category' class='tbox'>";
         // Check if supervisor, if so get all categories, otherwise just get those the user is allowed to see
 		$cal_arg = ($ecal_class->cal_super ? "" : "find_in_set(event_cat_addclass,'".USERCLASS_LIST."')");
@@ -449,15 +449,15 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
 
         $text .= "
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_32." </td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_32." </td>
+		<td class='forumheader3' style='width:80%'>
 		<input class='tbox' type='text' name='ne_location' size='60' value='".(isset($ne_location) ? $ne_location : "")."' maxlength='200' style='width:95%' />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_57." *</td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_57." *</td>
+		<td class='forumheader3' style='width:80%'>
 		<textarea class='tbox' name='ne_event' cols='59' rows='8' style='width:95%'>".(isset($ne_event) ? $ne_event : "")."</textarea>
 		</td>
 		</tr>";
@@ -469,8 +469,8 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
         {
             $text .= "
 			<tr>
-			<td class='r_header3' style='width:20%'>".EC_LAN_58." </td>
-			<td class='r_header3' style='width:80%'>
+			<td class='forumheader3' style='width:20%'>".EC_LAN_58." </td>
+			<td class='forumheader3' style='width:80%'>
 			<input class='tbox' type='text' name='ne_thread' size='60' value='".(isset($ne_thread) ? $ne_thread : "")."' maxlength='100' style='width:95%' />
 			</td>
 			</tr>";
@@ -484,16 +484,16 @@ function make_hourmin($boxname,$cur_hour,$cur_minute)
         }
         $text .= "
 		<tr>
-		<td class='r_header3' style='width:20%'>".EC_LAN_59." </td>
-		<td class='r_header3' style='width:80%'>
+		<td class='forumheader3' style='width:20%'>".EC_LAN_59." </td>
+		<td class='forumheader3' style='width:80%'>
 		<input class='tbox' type='text' name='ne_email' size='60' value='$ne_email' maxlength='150' style='width:95%' />
 		</td></tr>
 		<tr>
-		<td class='r_header3' colspan='2' >".EC_LAN_105." </td>
+		<td class='forumheader3' colspan='2' >".EC_LAN_105." </td>
 		</tr>
 
 		<tr>
-		<td class='r_header1' colspan='2' style='text-align:center'>";
+		<td class='forumheader' colspan='2' style='text-align:center'>";
         if ($action == "ed")
 		{
             $text .= "<input class='button' type='submit' name='ne_update' value='".EC_LAN_60."' onclick='submitted=this.name' />

@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 
 if (!getperms("5")) { header("location:".e_BASE."index.php"); exit; }
 
@@ -35,8 +35,8 @@ if (e_QUERY)
 }
 
 require_once("auth.php");
-// require_once(e_HANDLER."ren_help.php");
-require_once(e_HANDLER."userclass_class.php");
+// require_once(e_HANDLER."ren_help_handler.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 
 
@@ -116,12 +116,12 @@ class page
 		{
 			$pages = $sql -> db_getList('ALL', FALSE, FALSE);
 			$text .= "<form action='".e_SELF."' id='newsform' method='post'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_caption'>ID</td>
-			<td style='width:60%' class='r_caption'>".CUSLAN_1."</td>
-			<td style='width:15%; text-align: center;' class='r_caption'>".CUSLAN_2."</td>
-			<td style='width:20%; text-align: center;' class='r_caption'>".CUSLAN_3."</td>
+			<td style='width:5%; text-align: center;' class='fcaption'>ID</td>
+			<td style='width:60%' class='fcaption'>".CUSLAN_1."</td>
+			<td style='width:15%; text-align: center;' class='fcaption'>".CUSLAN_2."</td>
+			<td style='width:20%; text-align: center;' class='fcaption'>".CUSLAN_3."</td>
 			</tr>";
 
 			foreach($pages as $pge)
@@ -129,10 +129,10 @@ class page
 			  $title_text = $pge['page_title'] ? $pge['page_title'] : ($pge['page_theme'] ? CUSLAN_43.$pge['page_theme'] : CUSLAN_44);
 			  $text .= "
 				<tr>
-				<td style='width:5%; text-align: center;' class='r_header3'>{$pge['page_id']}</td>
-				<td style='width:60%' class='r_header3'><a href='".($pge['page_theme'] ? e_ADMIN."menus.php" : e_BASE."page.php?{$pge['page_id']}" )."'>{$title_text}</a></td>
-				<td style='width:15%; text-align: center;' class='r_header3'>".($pge['page_theme'] ? "menu" : "page")."</td>
-				<td style='width:20%; text-align: center;' class='r_header3'>
+				<td style='width:5%; text-align: center;' class='forumheader3'>{$pge['page_id']}</td>
+				<td style='width:60%' class='forumheader3'><a href='".($pge['page_theme'] ? e_ADMIN."menus.php" : e_BASE."page.php?{$pge['page_id']}" )."'>{$title_text}</a></td>
+				<td style='width:15%; text-align: center;' class='forumheader3'>".($pge['page_theme'] ? "menu" : "page")."</td>
+				<td style='width:20%; text-align: center;' class='forumheader3'>
 				<a href='".e_SELF."?".($pge['page_theme'] ? "createm": "create").".edit.{$pge['page_id']}'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[{$pge['page_id']}]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".CUSLAN_4." [ ID: $pge[page_id] ]')\"/>
 				</td>
@@ -193,28 +193,28 @@ class page
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."' id='dataform' enctype='multipart/form-data'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>";
+		<table class='fborder'>";
 
 		if($mode)  // menu mode.
 		{
 			$text .= "<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_7."</td>
-			<td style='width:75%' class='r_header3'>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_7."</td>
+			<td style='width:75%' class='forumheader3'>
            <input class='tbox' type='text' name='menu_name' size='30' value='".$menu_name."' maxlength='50' />
 		   	</td>
 			</tr>";
 		}
 
 		$text .= "<tr>
-		<td style='width:25%' class='r_header3'>".CUSLAN_8."</td>
-		<td style='width:75%' class='r_header3'><input class='tbox' type='text' name='page_title' size='50' value='".$page_title."' maxlength='250' /></td>
+		<td style='width:25%' class='forumheader3'>".CUSLAN_8."</td>
+		<td style='width:75%' class='forumheader3'><input class='tbox' type='text' name='page_title' size='50' value='".$page_title."' maxlength='250' /></td>
 		</tr>
 
 		<tr>
-		<td style='width:25%' class='r_header3'>".CUSLAN_9."</td>
-		<td style='width:75%' class='r_header3'>";
+		<td style='width:25%' class='forumheader3'>".CUSLAN_9."</td>
+		<td style='width:75%' class='forumheader3'>";
 
-		require_once(e_HANDLER."ren_help.php");
+		require_once(e_HANDLER."ren_help_handler.php");
 		$insertjs = (!e_WYSIWYG)?"rows='15' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:95%'": "rows='25' style='width:100%' ";
 		$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 		$text .= "<textarea class='tbox' id='data' name='data' cols='80'   $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."</textarea>";
@@ -223,8 +223,8 @@ class page
 		</tr>
 
 		<tr>
-			<td style='width:25%' class='r_header3'>".LAN_UPLOAD_IMAGES."</td>
-			<td style='width:75%;' class='r_header3'>".$tp->parseTemplate("{UPLOADFILE=".e_IMAGE."custom/}")."</td>
+			<td style='width:25%' class='forumheader3'>".LAN_UPLOAD_IMAGES."</td>
+			<td style='width:75%;' class='forumheader3'>".$tp->parseTemplate("{UPLOADFILE=".e_IMAGE."custom/}")."</td>
 		</tr>";
 
 		if(!$mode)
@@ -233,47 +233,47 @@ class page
 
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_10."</td>
-			<td style='width:75%;' class='r_header3'>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_10."</td>
+			<td style='width:75%;' class='forumheader3'>
 			<input type='radio' name='page_rating_flag' value='1'".($page_rating_flag ? " checked='checked'" : "")." /> ".CUSLAN_38."&nbsp;&nbsp;
 			<input type='radio' name='page_rating_flag' value='0'".($page_rating_flag ? "" : " checked='checked'")." /> ".CUSLAN_39."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_13."</td>
-			<td style='width:75%;' class='r_header3'>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_13."</td>
+			<td style='width:75%;' class='forumheader3'>
 			<input type='radio' name='page_comment_flag' value='1'".($page_comment_flag ? " checked='checked'" : "")." /> ".CUSLAN_38."&nbsp;&nbsp;
 			<input type='radio' name='page_comment_flag' value='0'".($page_comment_flag ? "" : " checked='checked'")." /> ".CUSLAN_39."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_41."</td>
-			<td style='width:75%;' class='r_header3'>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_41."</td>
+			<td style='width:75%;' class='forumheader3'>
 			<input type='radio' name='page_display_authordate_flag' value='1'".($page_display_authordate_flag ? " checked='checked'" : "")." /> ".CUSLAN_38."&nbsp;&nbsp;
 			<input type='radio' name='page_display_authordate_flag' value='0'".($page_display_authordate_flag ? "" : " checked='checked'")." /> ".CUSLAN_39."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_14."<br /><span class='smalltext'>".CUSLAN_15."</span></td>
-			<td style='width:75%' class='r_header3'><input class='tbox' type='text' name='page_password' size='20' value='".$page_password."' maxlength='50' /></td>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_14."<br /><span class='smalltext'>".CUSLAN_15."</span></td>
+			<td style='width:75%' class='forumheader3'><input class='tbox' type='text' name='page_password' size='20' value='".$page_password."' maxlength='50' /></td>
 			</tr>
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_16."<br /><span class='smalltext'>".CUSLAN_17."</span></td>
-			<td style='width:75%' class='r_header3'><input class='tbox' type='text' name='page_link' size='60' value='".$page_link."' maxlength='50' /></td>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_16."<br /><span class='smalltext'>".CUSLAN_17."</span></td>
+			<td style='width:75%' class='forumheader3'><input class='tbox' type='text' name='page_link' size='60' value='".$page_link."' maxlength='50' /></td>
 			</tr>
 
 			<tr>
-			<td style='width:25%' class='r_header3'>".CUSLAN_18."</td>
-			<td style='width:75%' class='r_header3'>".r_userclass("page_class", $page_class, "off", "public,guest,nobody,member,main,admin,classes")."</td>
+			<td style='width:25%' class='forumheader3'>".CUSLAN_18."</td>
+			<td style='width:75%' class='forumheader3'>".r_userclass("page_class", $page_class, "off", "public,guest,nobody,member,main,admin,classes")."</td>
 			</tr>";
 		}
 
 		$text .= "<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>".
+		<td colspan='2' style='text-align:center' class='forumheader'>".
 
 		(!$mode ?
 		($edit  ? "<input class='button' type='submit' name='updatePage' value='".CUSLAN_19."' /><input type='hidden' name='pe_id' value='$id' />" : "<input class='button' type='submit' name='submitPage' value='".CUSLAN_20."' />") :
@@ -398,25 +398,25 @@ class page
 
 		$text = "<div style='text-align: center; margin-left:auto; margin-right: auto;'>
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td style='width:50%' class='r_header3'>".CUSLAN_29."</td>
-		<td style='width:50%; text-align: right;' class='r_header3'>
+		<td style='width:50%' class='forumheader3'>".CUSLAN_29."</td>
+		<td style='width:50%; text-align: right;' class='forumheader3'>
 		<input type='radio' name='listPages' value='1'".($pref['listPages'] ? " checked='checked'" : "")." /> ".CUSLAN_38."&nbsp;&nbsp;
 		<input type='radio' name='listPages' value='0'".($pref['listPages'] ? "" : " checked='checked'")." /> ".CUSLAN_39."
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:50%' class='r_header3'>".CUSLAN_30."</td>
-		<td style='width:50%; text-align: right;' class='r_header3'>
+		<td style='width:50%' class='forumheader3'>".CUSLAN_30."</td>
+		<td style='width:50%; text-align: right;' class='forumheader3'>
 		<input class='tbox' type='text' name='pageCookieExpire' size='15' value='".$pref['pageCookieExpire']."' maxlength='10' />
 		</td>
 		</tr>
 
 		<tr>
-		<td colspan='2'  style='text-align:center' class='r_header1'>
+		<td colspan='2'  style='text-align:center' class='forumheader'>
 		<input class='button' type='submit' name='saveOptions' value='".CUSLAN_40."' />
 		</td>
 		</tr>

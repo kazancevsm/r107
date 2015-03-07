@@ -49,10 +49,10 @@ function calendar($req_day, $req_month, $req_year, $links = NULL, $ws = "sunday"
 	if ($ws && $day_of_week == 0) $day_of_week = 7;
 	 
 	// print the daynames
-	$calendar = "<table class='r_border'>";
+	$calendar = "<table class='fborder'>";
 	$calendar .= '<tr>';
 	foreach($darray as $dheader) {
-		$calendar .= "<td class='r_header1' style='padding: ".$padding."px;'><span class='smalltext'>$dheader</span></td>";
+		$calendar .= "<td class='forumheader' style='padding: ".$padding."px;'><span class='smalltext'>$dheader</span></td>";
 	}
 	$calendar .= "</tr>";
 	$calendar .= '<tr>';
@@ -76,9 +76,9 @@ function calendar($req_day, $req_month, $req_year, $links = NULL, $ws = "sunday"
 			$tablerow++;
 		}
 		if ($day_of_month == $req_day) {
-			$day_style = isset($links[$day_of_month]) ? "indent" : "r_header3";
+			$day_style = isset($links[$day_of_month]) ? "indent" : "forumheader3";
 		} else {
-			$day_style = isset($links[$day_of_month]) ? "indent" : "r_header3";
+			$day_style = isset($links[$day_of_month]) ? "indent" : "forumheader3";
 		}
 		$calendar .= "<td class='$day_style' style='padding: ".$padding."px;'><span class='smalltext'>";
 		$calendar .= isset($links[$day_of_month]) ? "<a href='".$links[$day_of_month]."'>":"";

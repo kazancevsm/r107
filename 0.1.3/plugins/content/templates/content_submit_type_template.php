@@ -27,15 +27,15 @@ $sc_style['CONTENT_SUBMIT_TYPE_TABLE_SUBHEADING']['post'] = "";
 // ##### CONTENT SUBMIT TYPE LIST --------------------------------------------------
 if(!isset($CONTENT_SUBMIT_TYPE_TABLE_START)){
 				$CONTENT_SUBMIT_TYPE_TABLE_START = "
-				<table class='r_border' style='width:98%; text-align:left;'>\n";
+				<table class='fborder' style='width:98%; text-align:left;'>\n";
 }
 if(!isset($CONTENT_SUBMIT_TYPE_TABLE)){
 				$CONTENT_SUBMIT_TYPE_TABLE = "
 				<tr>
-					<td class='r_header3' style='width:10%; white-space:nowrap;' rowspan='2'>{CONTENT_SUBMIT_TYPE_TABLE_ICON}</td>
-					<td class='r_header3'>{CONTENT_SUBMIT_TYPE_TABLE_HEADING}</td>
+					<td class='forumheader3' style='width:10%; white-space:nowrap;' rowspan='2'>{CONTENT_SUBMIT_TYPE_TABLE_ICON}</td>
+					<td class='forumheader3'>{CONTENT_SUBMIT_TYPE_TABLE_HEADING}</td>
 				</tr>
-				<tr><td class='r_header3'>{CONTENT_SUBMIT_TYPE_TABLE_SUBHEADING}<br /></td></tr>\n";
+				<tr><td class='forumheader3'>{CONTENT_SUBMIT_TYPE_TABLE_SUBHEADING}<br /></td></tr>\n";
 }
 if(!isset($CONTENT_SUBMIT_TYPE_TABLE_END)){
 				$CONTENT_SUBMIT_TYPE_TABLE_END = "

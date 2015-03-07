@@ -24,8 +24,8 @@ $sc_style['LIST_INFO']['post'] = " ";
 
 //LIST_MENU_NEW TEMPLATE -------------------------------------------------------------------------
 $LIST_MENU_NEW_START = "
-<div class='r_caption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
-<div class='r_header1' id='{LIST_RECENT_ID}' style='margin-bottom:5px; display:{LIST_DISPLAYSTYLE};'>\n";
+<div class='fcaption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
+<div class='forumheader' id='{LIST_RECENT_ID}' style='margin-bottom:5px; display:{LIST_DISPLAYSTYLE};'>\n";
 $LIST_MENU_NEW = "
 <div>
 {LIST_ICON} {LIST_DATE} {LIST_HEADING} {LIST_AUTHOR} {LIST_CATEGORY}
@@ -35,8 +35,8 @@ $LIST_MENU_NEW_END = "
 
 //LIST_MENU_RECENT TEMPLATE -------------------------------------------------------------------------
 $LIST_MENU_RECENT_START = "
-<div class='r_caption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
-<div class='r_header1' id='{LIST_RECENT_ID}' style='margin-bottom:5px; display:{LIST_DISPLAYSTYLE};'>\n";
+<div class='fcaption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
+<div class='forumheader' id='{LIST_RECENT_ID}' style='margin-bottom:5px; display:{LIST_DISPLAYSTYLE};'>\n";
 $LIST_MENU_RECENT = "
 <div>
 {LIST_ICON} {LIST_DATE} {LIST_HEADING} {LIST_AUTHOR} {LIST_CATEGORY}
@@ -47,8 +47,8 @@ $LIST_MENU_RECENT_END = "
 
 //PAGE TEMPLATE -------------------------------------------------------------------------
 $LIST_PAGE_RECENT_START = "
-<div class='r_caption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
-<div class='r_header1' id='{LIST_RECENT_ID}' style='margin-bottom:10px; display:{LIST_DISPLAYSTYLE};'>\n";
+<div class='fcaption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
+<div class='forumheader' id='{LIST_RECENT_ID}' style='margin-bottom:10px; display:{LIST_DISPLAYSTYLE};'>\n";
 $LIST_PAGE_RECENT = "
 <div>
 {LIST_ICON} {LIST_DATE} {LIST_HEADING} {LIST_AUTHOR} {LIST_CATEGORY} {LIST_INFO}
@@ -59,8 +59,8 @@ $LIST_PAGE_RECENT_END = "
 
 //NEW TEMPLATE -------------------------------------------------------------------------
 $LIST_PAGE_NEW_START = "
-<div class='r_caption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
-<div class='r_header1' id='{LIST_RECENT_ID}' style='margin-bottom:10px; display:{LIST_DISPLAYSTYLE};'>\n";
+<div class='fcaption' style='cursor:pointer;' onclick='expandit(\"{LIST_RECENT_ID}\");'>{LIST_CAPTION}</div>\n
+<div class='forumheader' id='{LIST_RECENT_ID}' style='margin-bottom:10px; display:{LIST_DISPLAYSTYLE};'>\n";
 $LIST_PAGE_NEW = "
 <div>
 {LIST_ICON} {LIST_DATE} {LIST_HEADING} {LIST_AUTHOR} {LIST_CATEGORY} {LIST_INFO}
@@ -72,15 +72,15 @@ $LIST_PAGE_NEW_END = "
 //MULTI COLUMN LAYOUT MASTER -----------------------------------------------------------
 $LIST_COL_START = "
 <div style='text-align:center;'>
-<table class='r_border' style='width:100%;' cellspacing='0' cellpadding='0'>
+<table class='fborder' style='width:100%;' cellspacing='0' cellpadding='0'>
 <tr>";
-$LIST_COL_WELCOME = "<td colspan='{LIST_COL_COLS}' class='r_header1'>{LIST_COL_WELCOMETEXT}</td>";
+$LIST_COL_WELCOME = "<td colspan='{LIST_COL_COLS}' class='forumheader'>{LIST_COL_WELCOMETEXT}</td>";
 $LIST_COL_ROWSWITCH = "</tr><tr>";
 $LIST_COL_CELL_START = "<td style='width:{LIST_COL_CELLWIDTH}%; padding-right:5px; vertical-align:top;'>";
 $LIST_COL_CELL_END = "</td>";
 $LIST_COL_END = "</tr></table></div>";
 
 //TIMELAPSE SELECT -----------------------------------------------------------
-$LIST_TIMELAPSE_TABLE = "<div class='r_header3' style='margin-bottom:20px;'>{LIST_TIMELAPSE}</div>";
+$LIST_TIMELAPSE_TABLE = "<div class='forumheader3' style='margin-bottom:20px;'>{LIST_TIMELAPSE}</div>";
 
 ?>

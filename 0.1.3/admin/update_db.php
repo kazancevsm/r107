@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 $e_sub_cat = 'database';
 require_once("auth.php");
 require_once("update_routines.php");
@@ -44,10 +44,10 @@ function show_updates($dbupdate, $additional = false) {
 	global $ns;
 	$text = "<form method='POST' action='".e_SELF."'>
 	<div style='width:100%'>
-	<table class='r_border' style='".ADMIN_WIDTH."'>
+	<table class='fborder' >
 	<tr>
-	<td class='r_caption'>".LAN_UPDATE."</td>
-	<td class='r_caption'>".LAN_UPDATE_2."</td>
+	<td class='fcaption'>".LAN_UPDATE."</td>
+	<td class='fcaption'>".LAN_UPDATE_2."</td>
 	</tr>
 	";
 
@@ -55,12 +55,12 @@ function show_updates($dbupdate, $additional = false) {
 
 	foreach($dbupdate as $func => $rmks) {
 		if (function_exists("update_".$func)) {
-			$text .= "<tr><td class='r_header3' style='width: 60%'>{$rmks}</td>";
+			$text .= "<tr><td class='forumheader3' style='width: 60%'>{$rmks}</td>";
 			if (call_user_func("update_".$func)) {
-				$text .= "<td class='r_header3' style='text-align:center; width: 40%'>".LAN_UPDATE_3."</td>";
+				$text .= "<td class='forumheader3' style='text-align:center; width: 40%'>".LAN_UPDATE_3."</td>";
 			} else {
 				$updates++;
-				$text .= "<td class='r_header3' style='text-align:center; width: 40%'><input class='button' type='submit' name='{$func}' value='".LAN_UPDATE."' /></td>";
+				$text .= "<td class='forumheader3' style='text-align:center; width: 40%'><input class='button' type='submit' name='{$func}' value='".LAN_UPDATE."' /></td>";
 			}
 			$text .= "</tr>";
 		}

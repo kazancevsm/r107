@@ -24,9 +24,9 @@ if(!function_exists("checkUpdate"))
 	function checkUpdate($query = "newsfeed_active=2 OR newsfeed_active=3")
 	{
 		global $sql, $tp;
-		require_once(e_HANDLER."xml_class.php");
+		require_once(e_HANDLER."xml_handler.php");
 		$xml = new parseXml;
-		require_once(e_HANDLER."magpie_rss.php");
+		require_once(e_HANDLER."rss_handler.php");
 
 		if ($sql -> db_Select("newsfeed", "*", $tp -> toDB($query, true)))
 		{

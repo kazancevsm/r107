@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("class.php");
+require_once("class2.php");
 
 // Next bit is to fool PM plugin into doing things
 global $user;
@@ -55,7 +55,6 @@ else
 }
 $user_frm = new form;
 require_once(HEADERF);
-if (!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }
 
 $full_perms = getperms("0") || check_class(varset($pref['memberlist_access'], 253));		// Controls display of info from other users
 if (!$full_perms && !$self_page)

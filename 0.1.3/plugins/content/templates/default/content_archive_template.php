@@ -19,7 +19,7 @@
 
 global $sc_style, $content_shortcodes;
 
-$sc_style['CONTENT_ARCHIVE_TABLE_AUTHOR']['pre'] = "<tr><td class='r_header3' colspan='2' style='white-space:nowrap; text-align:left;'>".CONTENT_LAN_11." ";
+$sc_style['CONTENT_ARCHIVE_TABLE_AUTHOR']['pre'] = "<tr><td class='forumheader3' colspan='2' style='white-space:nowrap; text-align:left;'>".CONTENT_LAN_11." ";
 $sc_style['CONTENT_ARCHIVE_TABLE_AUTHOR']['post'] = "</td></tr>";
 
 $sc_style['CONTENT_ARCHIVE_TABLE_LETTERS']['pre'] = "<div style='margin-bottom:20px;'>";
@@ -29,14 +29,14 @@ $sc_style['CONTENT_ARCHIVE_TABLE_LETTERS']['post'] = "</div>";
 if(!isset($CONTENT_ARCHIVE_TABLE_START)){
 	$CONTENT_ARCHIVE_TABLE_START = "
 	{CONTENT_ARCHIVE_TABLE_LETTERS}
-	<table class='r_border'>
+	<table class='fborder'>
 	";
 }
 if(!isset($CONTENT_ARCHIVE_TABLE)){
 	$CONTENT_ARCHIVE_TABLE = "				
 	<tr>
-		<td class='r_caption'>{CONTENT_ARCHIVE_TABLE_HEADING}</td>
-		<td class='r_caption' style='width:5%; white-space:nowrap; text-align:right;'>{CONTENT_ARCHIVE_TABLE_DATE}</td>
+		<td class='fcaption'>{CONTENT_ARCHIVE_TABLE_HEADING}</td>
+		<td class='fcaption' style='width:5%; white-space:nowrap; text-align:right;'>{CONTENT_ARCHIVE_TABLE_DATE}</td>
 	</tr>
 	{CONTENT_ARCHIVE_TABLE_AUTHOR}
 	\n";

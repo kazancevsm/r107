@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = true;
-require_once("../../class.php");
+require_once("../../class2.php");
 if(!getperms("P")){header("location:".e_BASE."index.php"); exit; }
 require_once(e_HANDLER."form_handler.php");
 require_once(e_ADMIN."auth.php");
@@ -53,20 +53,20 @@ if(isset($message))
 $text = "
 <div style='text-align:center'>
 <form method='post' action='".e_SELF."'>
-<table style='width:95%' class='r_border' cellspacing='1' cellpadding='0'>
+<table style='width:95%' class='fborder' cellspacing='1' cellpadding='0'>
 
 <tr>
-<td style='width:70%' class='r_header3'>".LAN_ALT_1.": </td>
-<td style='width:30%; text-align:right;' class='r_header3'>".
+<td style='width:70%' class='forumheader3'>".LAN_ALT_1.": </td>
+<td style='width:30%; text-align:right;' class='forumheader3'>".
 $auth_dropdown."
 </td>
 </tr>
 
 <tr>
-<td style='width:70%' class='r_header3'>".LAN_ALT_6.":<br />
+<td style='width:70%' class='forumheader3'>".LAN_ALT_6.":<br />
 <div class='smalltext'>".LAN_ALT_7."</div>
 </td>
-<td style='width:30%; text-align:right;' class='r_header3'>
+<td style='width:30%; text-align:right;' class='forumheader3'>
 <select class='tbox' name='auth_noconn'>";
 $sel = (isset($pref['auth_noconn']) && $pref['auth_noconn'] ? "" : " selected = 'selected' ");
 $text .= "<option value='0' {$sel} >".LAN_ALT_FAIL."</option>";
@@ -77,10 +77,10 @@ $text .= "<option value='1' {$sel} >".LAN_ALT_FALLBACK."</option>
 </tr>
 
 <tr>
-<td style='width:70%' class='r_header3'>".LAN_ALT_8.":<br />
+<td style='width:70%' class='forumheader3'>".LAN_ALT_8.":<br />
 <div class='smalltext'>".LAN_ALT_9."</div>
 </td>
-<td style='width:30%; text-align:right;' class='r_header3'>
+<td style='width:30%; text-align:right;' class='forumheader3'>
 <select class='tbox' name='auth_nouser'>";
 $sel = (isset($pref['auth_nouser']) && $pref['auth_nouser'] ? "" : " selected = 'selected' ");
 $text .= "<option value='0' {$sel} >".LAN_ALT_FAIL."</option>";
@@ -91,7 +91,7 @@ $text .= "<option value='1' {$sel} >".LAN_ALT_FALLBACK."</option>
 </tr>
 
 <tr style='vertical-align:top'> 
-<td colspan='2'  style='text-align:center' class='r_header3'>
+<td colspan='2'  style='text-align:center' class='forumheader3'>
 <br />
 <input class='button' type='submit' name='updateprefs' value='".LAN_ALT_2."' />
 </td>

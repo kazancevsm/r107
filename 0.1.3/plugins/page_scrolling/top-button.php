@@ -12,7 +12,7 @@
 */
 
 	header('Content-type: text/css');
-	@require_once('../../class.php');
+	@require_once("../../class2.php");
 	
 	global $pref;
 	

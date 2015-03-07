@@ -18,8 +18,6 @@
 */
 
 if (!defined('e107_INIT')) { exit; }
-if(!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%;margin-left:auto;margin-right:auto"); }
-
 
 $sc_style['LASTEDIT']['pre'] = "<br /><br /><span class='smallblacktext'>[ ".LAN_29." ";
 $sc_style['LASTEDIT']['post'] = " ]</span>";
@@ -35,31 +33,31 @@ $sc_style['USER_EXTENDED']['location.text_value']['post'] = "<br />";
 
 $FORUMSTART = "<a id='top'></a><div style='text-align:center'>
 	<div class='spacer'>
-	<table style='".USER_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td class='r_caption'>
+	<td class='fcaption'>
 	{BACKLINK}
 	</td>
-	<td class='r_caption' style='text-align: right'>
+	<td class='fcaption' style='text-align: right'>
 	<div class='smalltext'>&nbsp;
 	{TRACK}
 	</div>
 	</td>
-	<td class='r_caption' style='text-align: right'>
+	<td class='fcaption' style='text-align: right'>
 	<span class='smalltext'>
 	{NEXTPREV}
 	</span>
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header1' colspan='3'>
+	<td class='forumheader' colspan='3'>
 	{THREADNAME}
 	</td>
 	</tr>
 	</table>
 	</div>
 
-	<table style='".USER_WIDTH."'>
+	<table>
 	<tr>
 	<td style='width:60%; text-align: left'>
 	{GOTOPAGES}
@@ -81,23 +79,23 @@ $FORUMSTART = "<a id='top'></a><div style='text-align:center'>
 	</table>
 
 	<div class='spacer'>
-	<table style='".USER_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:20%; text-align:center' class='r_caption'>
+	<td style='width:20%; text-align:center' class='fcaption'>
 	".LAN_402."
 	</td>
-	<td style='width:80%; text-align:center' class='r_caption'>
+	<td style='width:80%; text-align:center' class='fcaption'>
 	".LAN_403."
 	</td>
 	</tr>";
 
 $FORUMTHREADSTYLE = "<tr>
-	<td class='r_header1' style='vertical-align:middle'>
+	<td class='forumheader' style='vertical-align:middle'>
 	{NEWFLAG}
 	{POSTER}
 	{ANON_IP}
 	</td>
-	<td class='r_header1' style='vertical-align:middle'>
+	<td class='forumheader' style='vertical-align:middle'>
 	<table cellspacing='0' cellpadding='0' style='width:100%'>
 	<tr>
 	<td class='smallblacktext'>
@@ -111,7 +109,7 @@ $FORUMTHREADSTYLE = "<tr>
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header3' style='vertical-align:top'>
+	<td class='forumheader3' style='vertical-align:top'>
 	{CUSTOMTITLE}
 	{AVATAR}
 	<div class='smalltext'>
@@ -123,7 +121,7 @@ $FORUMTHREADSTYLE = "<tr>
 	{POSTS}
 	</div>
 	</td>
-	<td class='r_header3' style='vertical-align:top'>{POLL}
+	<td class='forumheader3' style='vertical-align:top'>{POLL}
 	{POST}
 	{LASTEDIT}
 	{SIGNATURE}
@@ -156,9 +154,9 @@ $FORUMTHREADSTYLE = "<tr>
 	</td>
 	</tr>";
 
-$FORUMEND = "<tr><td colspan='2' class='r_header3' style='text-align:center'>{QUICKREPLY}</td></tr></table></div>
+$FORUMEND = "<tr><td colspan='2' class='forumheader3' style='text-align:center'>{QUICKREPLY}</td></tr></table></div>
 
-	<table style='".USER_WIDTH."'>
+	<table>
 	<tr>
 	<td style='width:80%'><span class='mediumtext'>{GOTOPAGES}&nbsp;</span>
 	</td>
@@ -178,12 +176,12 @@ $FORUMEND = "<tr><td colspan='2' class='r_header3' style='text-align:center'>{QU
 	<a href='".e_PLUGIN."rss_menu/rss.php?8.1.".e_QUERY."'><img src='".e_PLUGIN."rss_menu/images/rss1.png' alt='".LAN_431."' style='vertical-align: middle; border: 0;' /></a> <a href='".e_PLUGIN."rss_menu/rss.php?8.2.".e_QUERY."'><img src='".e_PLUGIN."rss_menu/images/rss2.png' alt='".LAN_432."' style='vertical-align: middle; border: 0;' /></a> <a href='".e_PLUGIN."rss_menu/rss.php?8.3.".e_QUERY."'><img src='".e_PLUGIN."rss_menu/images/rss3.png' alt='".LAN_433."' style='vertical-align: middle; border: 0;' /></a></div><div class='nforumdisclaimer' style='text-align:center'>Powered by <b>e107 Forum System</b></div>";
 
 $FORUMREPLYSTYLE = "<tr>
-	<td class='r_header1' style='vertical-align:middle'>
+	<td class='forumheader' style='vertical-align:middle'>
 	{NEWFLAG}
 	{POSTER}
 	{ANON_IP}
 	</td>
-	<td class='r_header1' style='vertical-align:middle'>
+	<td class='forumheader' style='vertical-align:middle'>
 	<table cellspacing='0' cellpadding='0' style='width:100%'>
 	<tr>
 	<td class='smallblacktext'>
@@ -197,7 +195,7 @@ $FORUMREPLYSTYLE = "<tr>
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header3' style='vertical-align:top'>
+	<td class='forumheader3' style='vertical-align:top'>
 	{CUSTOMTITLE}
 	{AVATAR}
 	<div class='smalltext'>
@@ -209,7 +207,7 @@ $FORUMREPLYSTYLE = "<tr>
 	{POSTS}
 	</div>
 	</td>
-	<td class='r_header3' style='vertical-align:top'>{POST}
+	<td class='forumheader3' style='vertical-align:top'>{POST}
 	{LASTEDIT}
 	{SIGNATURE}
 	</td>

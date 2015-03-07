@@ -2,13 +2,13 @@
 if (!defined('e107_INIT')) { exit; }
 
 /***************************************************************************
-*                              smtp.php
+*                              smtp_handler.php
 *                       -------------------
 *   begin                : Wed May 09 2001
 *   copyright            : (C) 2001 The phpBB Group
 *   email                : support@phpbb.com
 *
-*   $Id: smtp.php 11346 2010-02-17 18:56:14Z secretr $
+*   $Id: smtp_handler.php 11346 2010-02-17 18:56:14Z secretr $
 *
 ***************************************************************************/
 	

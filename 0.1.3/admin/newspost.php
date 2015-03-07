@@ -1,13 +1,13 @@
 <?php
 
-require_once('../class.php');
+require_once("../class2.php");
 
 if (!getperms('H')) 
 {
 	header('location:'.e_BASE.'index.php');
 	exit;
 }
-require_once(e_HANDLER.'calendar/calendar_class.php');
+require_once(e_HANDLER."calendar/calendar_class2.php");
 
 $cal = new DHTML_Calendar(true);
 function headerjs()
@@ -20,7 +20,7 @@ $e_sub_cat = 'news';
 $e_wysiwyg = 'data,news_extended';
 
 // -------- Presets. ------------  // always load before auth.php
-require_once(e_HANDLER.'preset_class.php');
+require_once(e_HANDLER."preset_handler.php");
 $pst       = new e_preset;
 $pst->form = 'dataform'; // form id of the form that will have it's values saved.
 $pst->page = 'newspost.php?create'; // display preset options on which page(s).
@@ -40,13 +40,13 @@ if (e_QUERY)
 	unset($tmp);
 }
 
-require_once('auth.php');
-$pst->save_preset('news_datestamp'); // save and render result using unique name. Don't save item datestamp
-require_once(e_HANDLER.'userclass_class.php');
-require_once(e_HANDLER.'news_class.php');
-require_once(e_HANDLER.'ren_help.php');
-require_once(e_HANDLER.'form_handler.php');
-require_once(e_HANDLER.'file_handler.php');
+require_once("auth.php");
+$pst->save_preset("news_datestamp"); // save and render result using unique name. Don't save item datestamp
+require_once(e_HANDLER."userclass_handler.php");
+require_once(e_HANDLER."news_handler.php");
+require_once(e_HANDLER."ren_help_handler.php");
+require_once(e_HANDLER."form_handler.php");
+require_once(e_HANDLER."file_handler.php");
 
 $fl = new e_file;
 $rs = new form;
@@ -317,13 +317,13 @@ class newspost
 			$newsarray = $sql -> db_getList();
 			$text .= "
 			<form action='".e_SELF."' id='newsform' method='post'>
-			<table class='r_border' style='".ADMIN_WIDTH."'>
+			<table class='fborder' >
 			<tr>
-			<td style='width:5%' class='r_caption'><a href='".e_SELF."?main.news_id.{$sort_link}.{$from}'>".LAN_NEWS_45."</a></td>
-			<td style='width:15%' class='r_caption'><a href='".e_SELF."?main.news_datestamp.{$sort_link}.{$from}'>Дата</a></td>
-			<td style='width:55%' class='r_caption'><a href='".e_SELF."?main.news_title.{$sort_link}.{$from}'>".NWSLAN_40."</a></td>
-			<td style='width:15%' class='r_caption'>".LAN_NEWS_49."</td>
-			<td style='width:10%' class='r_caption'>".LAN_OPTIONS."</td>
+			<td style='width:5%' class='fcaption'><a href='".e_SELF."?main.news_id.{$sort_link}.{$from}'>".LAN_NEWS_45."</a></td>
+			<td style='width:15%' class='fcaption'><a href='".e_SELF."?main.news_datestamp.{$sort_link}.{$from}'>Дата</a></td>
+			<td style='width:55%' class='fcaption'><a href='".e_SELF."?main.news_title.{$sort_link}.{$from}'>".NWSLAN_40."</a></td>
+			<td style='width:15%' class='fcaption'>".LAN_NEWS_49."</td>
+			<td style='width:10%' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>";
 			$ren_type = array('default','title','other-news','other-news 2');
 			foreach($newsarray as $row)
@@ -332,10 +332,10 @@ class newspost
 				// Note: To fix the alignment bug. Put both buttons inside the Form.
 				// But make EDIT a 'button' and DELETE 'submit'
 				$text .= "<tr>
-				<td style='width:5%' class='r_header3'>{$news_id}</td>
-				<td style='width:15%' class='r_header3'>".date('d.m.Y H:i:s', $news_datestamp)."</td>
-				<td style='width:55%' class='r_header3'><a href='".e_BASE."news.php?item.{$news_id}.{$news_category}'>".($news_title ? $tp->toHTML($news_title,"","no_hook,emotes_off,no_make_clickable") : "[".NWSLAN_42."]")."</a></td>
-				<td style='10%' class='r_header3'>";
+				<td style='width:5%' class='forumheader3'>{$news_id}</td>
+				<td style='width:15%' class='forumheader3'>".date('d.m.Y H:i:s', $news_datestamp)."</td>
+				<td style='width:55%' class='forumheader3'><a href='".e_BASE."news.php?item.{$news_id}.{$news_category}'>".($news_title ? $tp->toHTML($news_title,"","no_hook,emotes_off,no_make_clickable") : "[".NWSLAN_42."]")."</a></td>
+				<td style='10%' class='forumheader3'>";
 				$text .= $ren_type[$news_render_type];
 				if($news_sticky)
 				{
@@ -345,7 +345,7 @@ class newspost
 				$text .= "
 				</td>
 
-				<td style='width:15%; text-align:center' class='r_header3'>
+				<td style='width:15%; text-align:center' class='forumheader3'>
 				<a href='".e_SELF."?create.edit.{$news_id}'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[main_{$news_id}]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".NWSLAN_39." [ID: $news_id ]')\"/>
 				</td>
@@ -463,10 +463,10 @@ class newspost
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."?".e_QUERY."' id='dataform' ".(FILE_UPLOADS ? "enctype='multipart/form-data'" : '')." >
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_6.": </td>
-		<td style='width:80%' class='r_header3'>";
+		<td style='width:20%' class='forumheader3'>".NWSLAN_6.": </td>
+		<td style='width:80%' class='forumheader3'>";
 
 		if (!$sql->db_Select('news_category'))
 		{
@@ -485,22 +485,22 @@ class newspost
 		$text .= "</td>
 		</tr>
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_12.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_12.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<input class='tbox' type='text' name='news_title' size='80' value='".$tp->post_toForm($_POST['news_title'])."' maxlength='200' style='width:95%'/>
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".LAN_NEWS_27.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".LAN_NEWS_27.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<input class='tbox' type='text' name='news_summary' size='80' value='".$tp->post_toForm($_POST['news_summary'])."' maxlength='250' style='width:95%'/>
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_13.":<br /></td>
-		<td style='width:80%;margin-left:auto' class='r_header3'>";
+		<td style='width:20%' class='forumheader3'>".NWSLAN_13.":<br /></td>
+		<td style='width:80%;margin-left:auto' class='forumheader3'>";
 
 		$insertjs = (!e_WYSIWYG) ? "rows='15' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);'": "rows='25' ";
 //		$_POST['data'] = $tp->toForm($_POST['data']);
@@ -513,8 +513,8 @@ class newspost
 		</td>
 		</tr>
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_14.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_14.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<a style='cursor: pointer' onclick=\"expandit(this);{$ff_expand}\">".NWSLAN_83."</a>
 		<div style='display:none'>
 		<textarea class='tbox' id='news_extended' name='news_extended' cols='80' style='width:95%' {$insertjs}>".(strstr($tp->post_toForm($_POST['news_extended']), "[img]http") ? $tp->post_toForm($_POST['news_extended']) : str_replace("[img]../", "[img]", $tp->post_toForm($_POST['news_extended'])))."</textarea>
@@ -524,8 +524,8 @@ class newspost
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_66.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_66.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_69."</a>
 		<div style='display: none;'>";
 
@@ -570,8 +570,8 @@ class newspost
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".NWSLAN_67.":</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".NWSLAN_67.":</td>
+		<td class='forumheader3'>
 		<a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_23."</a>
 		<div style='display: none'><br />";
 
@@ -591,8 +591,8 @@ class newspost
 		";
 
 		$text .= "<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_15.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_15.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_18."</a>
 		<div style='display: none;'>
 
@@ -602,8 +602,8 @@ class newspost
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_73.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_73.":</td>
+		<td style='width:80%' class='forumheader3'>
 		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_74."</a>
 		<div style='display: none;'>";
 		$ren_type = array(NWSLAN_75,NWSLAN_76,NWSLAN_77,NWSLAN_77.' 2');
@@ -619,8 +619,8 @@ class newspost
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".NWSLAN_19.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".NWSLAN_19.":</td>
+		<td style='width:80%' class='forumheader3'>
 
 		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_72."</a>
 		<div style='display: none;'>
@@ -661,10 +661,10 @@ class newspost
 		</td>
 		</tr>";
 		$text .="<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		".LAN_NEWS_33.":
 		</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		<div style='display: block;'>";
 		$update_checked = ($_POST['update_datestamp']) ? "checked='checked'" : '';
 
@@ -688,10 +688,10 @@ class newspost
 		// -------- end of datestamp ---------------------
 
 		$text .="	<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		".NWSLAN_22.":
 		</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 
 		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_84."</a>
 		<div style='display: none;'>
@@ -700,10 +700,10 @@ class newspost
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		".LAN_NEWS_28.":
 		</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 
 		<a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_29."</a>
 		<div style='display: none;'>
@@ -721,8 +721,8 @@ class newspost
 		if($pref['trackbackEnabled'])
 		{
 			$text .= "<tr>
-			<td class='r_header3'>".LAN_NEWS_34.":</td>
-			<td class='r_header3'><a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_35."</a>
+			<td class='forumheader3'>".LAN_NEWS_34.":</td>
+			<td class='forumheader3'><a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_35."</a>
 			<div style='display: none;'>
 			<span class='smalltext'>";
 			/* pingback */
@@ -741,8 +741,8 @@ class newspost
 		$user = get_user_data($tp->post_toForm($_POST['news_author']));
 		$text .= "
 			<tr>
-				<td class='r_header3'>".LAN_NEWS_55.":</td>
-				<td class='r_header3'><a style='cursor: pointer' onclick='expandit(this);'>".$user['user_name']."</a>
+				<td class='forumheader3'>".LAN_NEWS_55.":</td>
+				<td class='forumheader3'><a style='cursor: pointer' onclick='expandit(this);'>".$user['user_name']."</a>
 					<div style='display: none;'>
 						<select class='tbox' name='news_author'>";
 		$query = "SELECT * FROM #user WHERE (user_admin = '1' AND ((user_perms  = '0') OR (user_perms  = '0.'))) OR (user_perms REGEXP 'H.') ORDER BY user_id";
@@ -759,7 +759,7 @@ class newspost
 			</tr>\n";
 
 		$text .= "<tr style='vertical-align: top;'>
-		<td colspan='2'  style='text-align:center' class='r_header1'>".
+		<td colspan='2'  style='text-align:center' class='forumheader'>".
 
 		(isset($_POST['preview']) ? "<input class='button' type='submit' name='preview' value='".NWSLAN_24."' /> " : "<input class='button' type='submit' name='preview' value='".NWSLAN_27."' /> ").
 		($id && $sub_action != 'sn' && $sub_action != 'upload' ? "<input class='button' type='submit' name='submit_news' value='".NWSLAN_25."' /> " : "<input class='button' type='submit' name='submit_news' value='".NWSLAN_26."' /> ")."
@@ -923,14 +923,14 @@ class newspost
 
 		$text = "<div style='text-align:center'>
 		".$rs->form_open('post', e_SELF.'?cat', 'dataform')."
-		<table class='r_border' style='".ADMIN_WIDTH."'>
+		<table class='fborder' >
 		<tr>
-		<td class='r_header3' style='width:30%'><span class='defaulttext'>".NWSLAN_52."</span></td>
-		<td class='r_header3' style='width:70%'>".$rs->form_text('category_name', 30, $category_name, 200)."</td>
+		<td class='forumheader3' style='width:30%'><span class='defaulttext'>".NWSLAN_52."</span></td>
+		<td class='forumheader3' style='width:70%'>".$rs->form_text('category_name', 30, $category_name, 200)."</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:30%'><span class='defaulttext'>".NWSLAN_53."</span></td>
-		<td class='r_header3' style='width:70%'>
+		<td class='forumheader3' style='width:30%'><span class='defaulttext'>".NWSLAN_53."</span></td>
+		<td class='forumheader3' style='width:70%'>
 		".$rs->form_text('category_button', 60, $category_icon, 100)."
 		<br />
 		<input class='button' type ='button' style='cursor: pointer' size='30' value='".NWSLAN_54."' onclick='expandit(this)' />
@@ -944,7 +944,7 @@ class newspost
 		$text .= "</div></td>
 		</tr>
 
-		<tr><td colspan='2' style='text-align:center' class='r_header1'>";
+		<tr><td colspan='2' style='text-align:center' class='forumheader'>";
 		if ($id) 
 		{
 			$text .= "<input class='button' type='submit' name='update_category' value='".NWSLAN_55."' />
@@ -968,12 +968,12 @@ class newspost
 		{
 			$text .= "
 			<form action='".e_SELF."?cat' id='newscatform' method='post'>
-			<table class='r_border' style='".ADMIN_WIDTH."'>
+			<table class='fborder' >
 			<tr>
-			<td style='width:5%' class='r_caption'>".LAN_NEWS_45."</td>
-			<td style='width:5%' class='r_caption'>&nbsp;</td>
-			<td style='width:70%' class='r_caption'>".NWSLAN_6."</td>
-			<td style='width:20%; text-align:center' class='r_caption'>".LAN_OPTIONS."</td>
+			<td style='width:5%' class='fcaption'>".LAN_NEWS_45."</td>
+			<td style='width:5%' class='fcaption'>&nbsp;</td>
+			<td style='width:70%' class='fcaption'>".NWSLAN_6."</td>
+			<td style='width:20%; text-align:center' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>";
 			while ($row = $sql->db_Fetch())
 			{
@@ -984,10 +984,10 @@ class newspost
 				}
 
 				$text .= "<tr>
-				<td style='width:5%; text-align:center' class='r_header3'>{$category_id}</td>
-				<td style='width:5%; text-align:center' class='r_header3'><img src='{$icon}' alt='' style='vertical-align:middle' /></td>
-				<td style='width:70%' class='r_header3'>{$category_name}</td>
-				<td style='width:20%; text-align:center' class='r_header3'>
+				<td style='width:5%; text-align:center' class='forumheader3'>{$category_id}</td>
+				<td style='width:5%; text-align:center' class='forumheader3'><img src='{$icon}' alt='' style='vertical-align:middle' /></td>
+				<td style='width:70%' class='forumheader3'>{$category_name}</td>
+				<td style='width:20%; text-align:center' class='forumheader3'>
 				<a href='".e_SELF."?cat.edit.{$category_id}'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[category_{$category_id}]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".$tp->toJS(NWSLAN_37." [ID: {$category_id} ]")."') \"/>
 				</td>
@@ -1009,17 +1009,17 @@ class newspost
 
 		$text = "<div style='text-align:center'>
 		".$rs->form_open('post', e_SELF.'?pref', 'dataform')."
-		<table class='r_border' style='".ADMIN_WIDTH."'>
+		<table class='fborder' >
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_86."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_86."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input type='checkbox' name='news_cats' value='1' ".($pref['news_cats'] == 1 ? " checked='checked'" : '')." />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_87."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_87."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<select class='tbox' name='nbr_cols'>";
 		for($i = 1; $i < 7; $i++) 
 		{	// Up to 6 category columns
@@ -1030,15 +1030,15 @@ class newspost
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_88."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_88."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input class='tbox' type='text' style='width:30px' name='newsposts' value='".$pref['newsposts']."' />
 		</td>
 		</tr>";
 
 		//			<tr>
-		//			<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_108."</span><br /><i>".NWSLAN_109."</i></td>
-		//			<td class='r_header3' style='width:40%'>
+		//			<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_108."</span><br /><i>".NWSLAN_109."</i></td>
+		//			<td class='forumheader3' style='width:40%'>
 		//			<input type='checkbox' name='subnews_hide_news' value='1' ".($pref['subnews_hide_news'] == 1 ? " checked='checked'" : "")." />
 		//			</td>
 		//			</tr>";
@@ -1048,10 +1048,10 @@ class newspost
 		// this should really be made as an onchange event on the selectbox for $pref['newsposts'] ...
 		$text .= "
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_115."</span><br />
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_115."</span><br />
 		<span class='defaulttext'><i>".NWSLAN_116."</i></span>
 		</td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:40%'>
 		<select class='tbox' name='newsposts_archive'>";
 		for($i = 0; $i < $pref['newsposts']; $i++) 
 		{
@@ -1061,65 +1061,65 @@ class newspost
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_117."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_117."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input class='tbox' type='text' style='width:150px' name='newsposts_archive_title' value='".$pref['newsposts_archive_title']."' />
 		</td>
 		</tr>
 		";
 		// ##### END --------------------------------------------------------------------------------------
 
-		require_once(e_HANDLER.'userclass_class.php');
+		require_once(e_HANDLER."userclass_handler.php");
 		$text .= " <tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_106."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_106."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		".r_userclass('subnews_class', $pref['subnews_class'],'off','nobody,public,guest,member,admin,classes'). "</td></tr>";
 
 		$text .= "
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_107."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_107."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input type='checkbox' name='subnews_htmlarea' value='1' ".($pref['subnews_htmlarea'] == 1 ? " checked='checked'" : '')." />
 		</td>
 		</tr>";
 
 		$text .= "
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_100."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_100."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input type='checkbox' name='subnews_attach' value='1' ".($pref['subnews_attach'] == 1 ? " checked='checked'" : '')." />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_101."</span></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_101."</span></td>
+		<td class='forumheader3' style='width:40%'>
 		<input class='tbox' type='text' style='width:50px' name='subnews_resize' value='".$pref['subnews_resize']."' />
 		<span class='smalltext'>".NWSLAN_102."</span></td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_111."</span><br /><i>".NWSLAN_112."</i></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_111."</span><br /><i>".NWSLAN_112."</i></td>
+		<td class='forumheader3' style='width:40%'>
 		<input type='checkbox' name='news_newdateheader' value='1' ".($pref['news_newdateheader'] == 1 ? " checked='checked'" : '')." />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_113."</span><br /><i>".NWSLAN_114."</i></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_113."</span><br /><i>".NWSLAN_114."</i></td>
+		<td class='forumheader3' style='width:40%'>
 		<input type='checkbox' name='news_unstemplate' value='1' ".($pref['news_unstemplate'] == 1 ? " checked='checked'" : '')." />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:60%'><span class='defaulttext'>".NWSLAN_120."</span><br /></td>
-		<td class='r_header3' style='width:40%'>
+		<td class='forumheader3' style='width:60%'><span class='defaulttext'>".NWSLAN_120."</span><br /></td>
+		<td class='forumheader3' style='width:40%'>
 		<textarea name='news_subheader' style='width:95%;' rows='6' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' class='tbox'>".stripcslashes($pref['news_subheader'])." </textarea><br />" . display_help('helpb', 2) . "
 		</td>
 		</tr>
 
-		<tr><td colspan='2' style='text-align:center' class='r_header1'>";
+		<tr><td colspan='2' style='text-align:center' class='forumheader'>";
 		$text .= "<input class='button' type='submit' name='save_prefs' value='".NWSLAN_89."' /></td></tr>";
 
 		$text .= "</table>
@@ -1134,8 +1134,8 @@ class newspost
 
 		$text = "<div style='text-align:center;'>
 		".$rs->form_open('post', e_SELF.'?maint', 'dataform')."
-		<table class='r_border' style='".ADMIN_WIDTH."'>
-		<tr><td class='r_header3'>".LAN_NEWS_51."</td><td style='text-align:center;' class='r_header3'>";
+		<table class='fborder' >
+		<tr><td class='forumheader3'>".LAN_NEWS_51."</td><td style='text-align:center;' class='forumheader3'>";
 		$text .= "<input class='button' type='submit' name='news_comments_recalc' value='".LAN_NEWS_52."' /></td></tr>";
 		$text .= "</table>
 		".$rs->form_close()."
@@ -1160,16 +1160,16 @@ class newspost
 		if ($category_total = $sql2->db_Select('submitnews', '*', "submitnews_id !='' ORDER BY submitnews_id DESC")) 
 		{
 			$text .= "
-			<table class='r_border' style='".ADMIN_WIDTH."'>
+			<table class='fborder' >
 				<tr>
-					<td style='width:5%' class='r_caption'>ID</td>
-					<td style='width:60%' class='r_caption'>".NWSLAN_57."</td>
-					<td style='width:15%' class='r_caption'>".LAN_DATE."</td>
-					<td style='width:10%' class='r_caption'>".LAN_NEWS_55."</td>
-					<td class='r_caption'>".NWSLAN_6."</td>
-					<td class='r_caption'>".LAN_NEWS_56."</td>
+					<td style='width:5%' class='fcaption'>ID</td>
+					<td style='width:60%' class='fcaption'>".NWSLAN_57."</td>
+					<td style='width:15%' class='fcaption'>".LAN_DATE."</td>
+					<td style='width:10%' class='fcaption'>".LAN_NEWS_55."</td>
+					<td class='fcaption'>".NWSLAN_6."</td>
+					<td class='fcaption'>".LAN_NEWS_56."</td>
 					
-					<td style='width:20%; text-align:center' class='r_caption'>".LAN_OPTIONS."</td>
+					<td style='width:20%; text-align:center' class='fcaption'>".LAN_OPTIONS."</td>
 				</tr>";
 			while ($row = $sql2->db_Fetch()) 
 			{
@@ -1180,8 +1180,8 @@ class newspost
 				$submitnews_title = $tp->dataFilter($submitnews_title);
 				$text .= "
 				<tr>
-					<td style='width:5%; text-align:center; vertical-align:top' class='r_header3'>$submitnews_id</td>
-					<td style='width:60%' class='r_header3'><a href=\"javascript:expandit('submitted_".$submitnews_id."')\">";
+					<td style='width:5%; text-align:center; vertical-align:top' class='forumheader3'>$submitnews_id</td>
+					<td style='width:60%' class='forumheader3'><a href=\"javascript:expandit('submitted_".$submitnews_id."')\">";
 				$text .= $tp->toHTML($submitnews_title,FALSE,'emotes_off, no_make_clickable');
 				$text .= '</a>';
 			//	$text .=  [ '.NWSLAN_104.' '.$submitnews_name.' '.NWSLAN_108.' '.date('D dS M y, g:ia', $submitnews_datestamp).']<br />';
@@ -1202,11 +1202,11 @@ class newspost
 				
 				$text .= "</td>";
 				
-				$text .= "<td style='vertical-align:top' class='r_header3'>".date('D jS M, Y, g:ia', $submitnews_datestamp)."</td>
-				<td style='vertical-align:top' class='r_header3'><a href=\"mailto:".$submitnews_email."?subject=[".SITENAME."] ".trim($submitnews_title)."\" title='".$submitnews_email."'>".$submitnews_name."</a></td>
-				<td style='vertical-align:top' class='r_header3'>".$tp->toHTML($newsCat[$submitnews_category],TRUE,'defs')."</td>
-				<td style='text-align:center; vertical-align:top' class='r_header3'>".($submitnews_auth == 0 ?  "&nbsp;" : ADMIN_TRUE_ICON)."</td>
-				<td style='width:20%;  text-align:right; vertical-align:top' class='r_header3'>";
+				$text .= "<td style='vertical-align:top' class='forumheader3'>".date('D jS M, Y, g:ia', $submitnews_datestamp)."</td>
+				<td style='vertical-align:top' class='forumheader3'><a href=\"mailto:".$submitnews_email."?subject=[".SITENAME."] ".trim($submitnews_title)."\" title='".$submitnews_email."'>".$submitnews_name."</a></td>
+				<td style='vertical-align:top' class='forumheader3'>".$tp->toHTML($newsCat[$submitnews_category],TRUE,'defs')."</td>
+				<td style='text-align:center; vertical-align:top' class='forumheader3'>".($submitnews_auth == 0 ?  "&nbsp;" : ADMIN_TRUE_ICON)."</td>
+				<td style='width:20%;  text-align:right; vertical-align:top' class='forumheader3'>";
 				$buttext = ($submitnews_auth == 0)? NWSLAN_58 :	NWSLAN_103;
 				$text .= $rs->form_open('post', e_SELF.'?sn', 'myform__'.$submitnews_id, '', '', " onsubmit=\"return jsconfirm('".$tp->toJS(NWSLAN_38." [ID: {$submitnews_id} ]")."')\"   ")
 				."<div style='white-space:nowrap'>".

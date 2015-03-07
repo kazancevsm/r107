@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("1")) 		// Access to those who can change prefs, theme etc
 {
 	header("location:".e_BASE."index.php");
@@ -64,19 +64,19 @@ if (isset($_POST['update_menu']))
 	$ns->tablerender("", "<div style='text-align:center'><b>".BANNER_MENU_L2."</b></div>");
 }
 	
-if (!$menu_pref['banner_caption']) 
+if (!$menu_pref['bannefcaption']) 
 {
 	$menu_pref['banner2_caption'] = BANNER_MENU_L1;
 }
 	
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."' name='menu_conf_form'>
-	<table style='width:85%' class='r_border' >
+	<table style='width:85%' class='fborder' >
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L3.": </td>
-	<td style='width:60%' class='r_header3'>
-	<input class='tbox' type='text' name='banner_caption' size='20' value='".$menu_pref['banner_caption']."' maxlength='100' />
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L3.": </td>
+	<td style='width:60%' class='forumheader3'>
+	<input class='tbox' type='text' name='bannefcaption' size='20' value='".$menu_pref['bannefcaption']."' maxlength='100' />
 	</td>
 	</tr>";
 	
@@ -99,8 +99,8 @@ while ($row = $sql2->db_Fetch()) {
 	
 $text .= "
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L6."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L6."</td>
+	<td style='width:60%' class='forumheader3'>
 	 
 	<table style='width:90%'>
 	<tr>
@@ -129,8 +129,8 @@ $text .= "</select><br /><br />
 	</tr>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L10."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L10."</td>
+	<td style='width:60%' class='forumheader3'>
 	<select class='tbox' id='banner_rendertype' name='banner_rendertype' size='1'  >
 	".$rs->form_option(BANNER_MENU_L11, (!$menu_pref['banner_rendertype'] || $menu_pref['banner_rendertype'] == "0" ? "1" : "0"), 0)."
 	".$rs->form_option("1 - ".BANNER_MENU_L12."", ($menu_pref['banner_rendertype'] == "1" ? "1" : "0"), 1)."
@@ -141,8 +141,8 @@ $text .= "</select><br /><br />
 	</tr>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L15."<br /><span class='smalltext' style='font-style:italic;'>".BANNER_MENU_L16."</span></td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L15."<br /><span class='smalltext' style='font-style:italic;'>".BANNER_MENU_L16."</span></td>
+	<td style='width:60%' class='forumheader3'>
 	<select class='tbox' id='banner_amount' name='banner_amount' size='1'  >
 	".$rs->form_option(BANNER_MENU_L17, (!$menu_pref['banner_amount'] ? "1" : "0"), 0);
 for($b = 1; $b < 6; $b++) {
@@ -153,7 +153,7 @@ $text .= $rs->form_select_close()."
 	</tr>
 	 
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'><input class='button' type='submit' name='update_menu' value='".BANNER_MENU_L18."' /></td>
+	<td colspan='2' class='forumheader' style='text-align:center'><input class='button' type='submit' name='update_menu' value='".BANNER_MENU_L18."' /></td>
 	</tr>
 	 
 	</table>

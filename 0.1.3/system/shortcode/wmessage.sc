@@ -18,7 +18,7 @@ if (($prefwmsc && $parm == "header") || (!$prefwmsc && ($parm !='header')) )
 	} 
 	else if (USER) 
 	{
-		require_once(e_HANDLER.'userclass_class.php');
+		require_once(e_HANDLER."userclass_handler.php");
 		$class_list = get_userclass_list();
 		if (is_array($class_list))
 		{

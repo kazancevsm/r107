@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once('../../class.php');
+require_once('../../class2.php');
 
 if (!isset($pref['plug_installed']['links_page']))
 {
@@ -24,11 +24,11 @@ if (!isset($pref['plug_installed']['links_page']))
 	exit;
 }
 
-require_once(e_HANDLER."rate_class.php");
+require_once(e_HANDLER."rate_handler.php");
 $rater = new rater;
 require_once(e_PLUGIN.'links_page/link_shortcodes.php');
 require_once(e_PLUGIN.'links_page/link_defines.php');
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 e107_require_once(e_HANDLER.'array_storage_handler.php');
 $eArrayStorage = new ArrayData();
 require_once(e_HANDLER."form_handler.php");

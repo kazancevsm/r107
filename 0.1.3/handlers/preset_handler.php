@@ -9,9 +9,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/preset_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/preset_handler.php $
 |     $Revision: 11759 $
-|     $Id: preset_class.php 11759 2010-09-07 13:00:58Z e107steved $
+|     $Id: preset_handler.php 11759 2010-09-07 13:00:58Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */

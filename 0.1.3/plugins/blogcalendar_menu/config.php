@@ -17,13 +17,13 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("1")) {
 	header("location:".e_BASE."index.php");
 	 exit();
 }
 
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 	
 include_lan(e_PLUGIN."blogcalendar_menu/languages/".e_LANGUAGE.".php");
 
@@ -41,11 +41,11 @@ if (isset($_POST['update_menu'])) {
 	
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."?".e_QUERY."' name='menu_conf_form'>
-	<table style='width:85%' class='r_border' >
+	<table style='width:85%' class='fborder' >
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BLOGCAL_CONF1.": </td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BLOGCAL_CONF1.": </td>
+	<td style='width:60%' class='forumheader3'>
 	<select class='tbox' name='blogcal_mpr'>";
 	
 // if the nr of months per row is undefined, default to 3
@@ -63,8 +63,8 @@ $text .= "</select>
 	</tr>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BLOGCAL_CONF2.": </td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BLOGCAL_CONF2.": </td>
+	<td style='width:60%' class='forumheader3'>
 	<input class='tbox' type='text' name='blogcal_padding' size='20' value='";
 // if the cellpadding isn't defined
 $padding = $pref['blogcal_padding']?$pref['blogcal_padding']:
@@ -75,7 +75,7 @@ $text .= "' maxlength='100' />
 	</tr>
 	 
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'>
+	<td colspan='2' class='forumheader' style='text-align:center'>
 	<input class='button' type='submit' name='update_menu' value='".BLOGCAL_CONF3."' />
 	</td>
 	</tr>

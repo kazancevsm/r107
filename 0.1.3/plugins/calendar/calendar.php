@@ -21,7 +21,7 @@
 */ 
 
 
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_PLUGIN."calendar/calendar_shortcodes.php");
 if (isset($_POST['viewallevents']))
 {
@@ -42,7 +42,7 @@ if (isset($_POST['subs']))
 include_lan(e_PLUGIN."calendar/languages/".e_LANGUAGE.".php");
 define("PAGE_NAME", EC_LAN_121);
 
-require_once('ecal_class.php');
+require_once("ecal_class.php");
 $ecal_class = new ecal_class;
 
 if (is_readable(THEME."calendar_template.php")) 

@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("P")) {
 	header("location:".e_BASE."index.php");
 	 exit ;
@@ -47,23 +47,23 @@ if (isset($message)) {
 $text = "
 <div style='text-align:center'>
 <form method='post' action='".e_SELF."'>
-<table style='".ADMIN_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-<td style='width:50%' class='r_header3'>".TRACKBACK_L7."</td>
-<td style='width:50%; text-align:right' class='r_header3'>
+<td style='width:50%' class='forumheader3'>".TRACKBACK_L7."</td>
+<td style='width:50%; text-align:right' class='forumheader3'>
 <input type='radio' name='trackbackEnabled' value='1'".($pref['trackbackEnabled'] ? " checked='checked'" : "")." /> ".TRACKBACK_L5."&nbsp;&nbsp;
 <input type='radio' name='trackbackEnabled' value='0'".(!$pref['trackbackEnabled'] ? " checked='checked'" : "")." /> ".TRACKBACK_L6."
 </td>
 </tr>
 
 <tr>
-<td style='width:50%' class='r_header3'>".TRACKBACK_L8."</td>
-<td style='width:50%; text-align:right' class='r_header3'>
+<td style='width:50%' class='forumheader3'>".TRACKBACK_L8."</td>
+<td style='width:50%; text-align:right' class='forumheader3'>
 <input  size='50' class='tbox' type='text' name='trackbackString' value='".$pref['trackbackString']."' />
 </td>
 </tr>
 
-<td colspan='2' style='text-align:center' class='r_header1'>
+<td colspan='2' style='text-align:center' class='forumheader'>
 <input class='button' type='submit' name='updatesettings' value='".TRACKBACK_L9."' />
 </td>
 </tr>

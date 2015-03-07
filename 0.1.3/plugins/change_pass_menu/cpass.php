@@ -1,5 +1,5 @@
 <?php
-require_once("../../class.php");
+require_once("../../class2.php");
 if (e_LANGUAGE != "English" && file_exists(e_PLUGIN . "change_pass_menu/languages/" . e_LANGUAGE . ".php"))
 {
     include_once(e_PLUGIN . "change_pass_menu/languages/" . e_LANGUAGE . ".php");
@@ -60,33 +60,33 @@ if (USERID > 0)
     unset($_POST['password1']);
     unset($_POST['password2']);
     $cpass_text .= "<form id='cpass' action='" . e_SELF . "' method='post'>
-	<table class='r_border' width='97%'>
+	<table class='fborder' width='97%'>
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:left' class='r_caption'>" . CPASS_10 . "
+	<td colspan='2' style='text-align:left' class='fcaption'>" . CPASS_10 . "
 	</td></tr>";
     if (file_exists("./images/change64.png"))
     {
         $cpass_text .= "<tr style='vertical-align:top;'>
-		<td colspan='2' style='text-align:center' class='r_header3'><img src='./images/change64.png' alt='' /><br />" . CPASS_20 . "
+		<td colspan='2' style='text-align:center' class='forumheader3'><img src='./images/change64.png' alt='' /><br />" . CPASS_20 . "
 		</td>
 	</tr>";
     } 
     if (!empty($error))
     {
         $cpass_text .= "<tr style='vertical-align:top'>
-		<td colspan='2' style='text-align:left' class='r_header2'>" . $error . "
+		<td colspan='2' style='text-align:left' class='forumheader2'>" . $error . "
 		</td>
 	</tr>";
     } 
     $cpass_text .= "<tr>
-	<td style='width:30%' class='r_header3'>" . CPASS_3 . "</td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>" . CPASS_3 . "</td>
+	<td style='width:70%' class='forumheader3'>
 	" . $rs->form_password("password0", 40, "", 20) . "
 	</td>
 	</tr>
 	<tr>
-	<td style='width:30%' class='r_header3'>" . CPASS_4 . "</td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>" . CPASS_4 . "</td>
+	<td style='width:70%' class='forumheader3'>
 	" . $rs->form_password("password1", 40, "", 20);
     if ($pref['signup_pass_len'] > 0)
     {
@@ -97,13 +97,13 @@ if (USERID > 0)
 	</tr>
 
 	<tr>
-	<td style='width:30%' class='r_header3'>" . CPASS_5 . "</td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>" . CPASS_5 . "</td>
+	<td style='width:70%' class='forumheader3'>
 	" . $rs->form_password("password2", 40, "", 20) . "<br /><span class='smalltext'>  (" . CPASS_6 . ")</span>
 	</td>
 	</tr>
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:left' class='r_caption'>
+	<td colspan='2' style='text-align:left' class='fcaption'>
 	<input class='button' type='submit' name='updatesettings' value='" . CPASS_9 . "' /></td>
 	</tr>
 	</table></form>";
@@ -111,15 +111,15 @@ if (USERID > 0)
 else
 {
     $cpass_text .= "
-	<table class='r_border' width='97%'>
+	<table class='fborder' width='97%'>
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:left' class='r_caption'>" . CPASS_10 . "
+	<td colspan='2' style='text-align:left' class='fcaption'>" . CPASS_10 . "
 	</td></tr>
 	<tr style='vertical-align:top'>
-	<td style='text-align:left' class='r_header3'>" . CPASS_19 . "
+	<td style='text-align:left' class='forumheader3'>" . CPASS_19 . "
 	</td></tr>
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:left' class='r_caption'>
+	<td colspan='2' style='text-align:left' class='fcaption'>
 	&nbsp;</td>
 	</tr></table>";
 } 

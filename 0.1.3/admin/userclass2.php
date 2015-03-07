@@ -23,7 +23,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../class.php");
+require_once("../class2.php");
 
 if (!getperms("4")) {
 	header("location:".e_BASE."index.php");
@@ -31,7 +31,7 @@ if (!getperms("4")) {
 }
 $e_sub_cat = 'userclass';
 require_once("auth.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 $uclass = new e_userclass;
 
 function check_allowed($class_id)
@@ -57,10 +57,10 @@ if (isset($_POST['disp']))
 	$class_name = $tp->toDB($_POST['userclass_name']);
 	$text = "<br />
 		<div style='text-align:center'>
-		<table class='r_border' style='".ADMIN_WIDTH."'>
+		<table class='fborder' >
 		<tr>
-			<td class='r_caption'>".UCSLAN_25."</td>
-			<td class='r_caption'>".UCSLAN_26."</td>
+			<td class='fcaption'>".UCSLAN_25."</td>
+			<td class='fcaption'>".UCSLAN_26."</td>
 		</tr>";
 	if ($sql->db_Select('user', 'user_id, user_name', "user_class = '{$class_id}' OR user_class REGEXP('^{$class_id},') OR user_class REGEXP(',{$class_id},') OR user_class REGEXP(',{$class_id}$') ORDER BY user_id"))
 	{
@@ -68,8 +68,8 @@ if (isset($_POST['disp']))
 		{
 			$text .= "
 		<tr>
-			<td class='r_header3'><a href='".SITEURL."user.php?id.".$row['user_id']."' alt=''>".$row['user_id']."</a></td>
-			<td class='r_header3'>".$row['user_name']."</td>
+			<td class='forumheader3'><a href='".SITEURL."user.php?id.".$row['user_id']."' alt=''>".$row['user_id']."</a></td>
+			<td class='forumheader3'>".$row['user_name']."</td>
 		</tr>";
 		}
 	}
@@ -219,9 +219,9 @@ $class_total = $sql->db_Select("userclass_classes", "*", "ORDER BY userclass_nam
 
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."' id='classForm'>
-	<table class='r_border' style='".ADMIN_WIDTH."'>
+	<table class='fborder' >
 	<tr>
-	<td class='r_caption' style='text-align:center' colspan='2'>";
+	<td class='fcaption' style='text-align:center' colspan='2'>";
 
 if ($class_total == "0")
 {
@@ -249,14 +249,14 @@ else
 
 $text .= "
 	<tr>
-	<td class='r_header3' style='width:30%'>".UCSLAN_12."</td>
-	<td class='r_header3' style='width:70%'>
+	<td class='forumheader3' style='width:30%'>".UCSLAN_12."</td>
+	<td class='forumheader3' style='width:70%'>
 	<input class='tbox' type='text' size='30' maxlength='25' name='userclass_name' value='$userclass_name' />
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header3'>".UCSLAN_13."</td>
-	<td class='r_header3' style='width:70%'>
+	<td class='forumheader3'>".UCSLAN_13."</td>
+	<td class='forumheader3' style='width:70%'>
 	<input class='tbox' type='text' size='60' maxlength='85' name='userclass_description' value='$userclass_description' />
 	</td>
 	</tr>
@@ -269,13 +269,13 @@ $text .= "
 
 $text .= "
 	<tr>
-	<td class='r_header3'>".UCSLAN_24."</td>
-	<td class='r_header3'>".r_userclass("userclass_editclass", $userclass_editclass, "off", "main,admin,classes,matchclass,public,nobody")."</td>
+	<td class='forumheader3'>".UCSLAN_24."</td>
+	<td class='forumheader3'>".r_userclass("userclass_editclass", $userclass_editclass, "off", "main,admin,classes,matchclass,public,nobody")."</td>
 	</tr>
 	";
 
 $text .= "
-	<tr><td colspan='2' style='text-align:center' class='r_header1'>";
+	<tr><td colspan='2' style='text-align:center' class='forumheader'>";
 
 if(isset($_POST['edit']))
 {
@@ -319,11 +319,11 @@ if(isset($_POST['edit']))
 		}
 	}
 
-	$text .= "<br /><table class='r_border' style='".ADMIN_WIDTH."'>
+	$text .= "<br /><table class='fborder' >
 		<tr>
-		<td class='r_caption' style='text-align:center;width:30%'>".UCSLAN_16."</td></tr>
+		<td class='fcaption' style='text-align:center;width:30%'>".UCSLAN_16."</td></tr>
 		<tr>
-		<td class='r_header3' style='width:70%; text-align:center'>
+		<td class='forumheader3' style='width:70%; text-align:center'>
 
 		<table style='width:90%'>
 		<tr>
@@ -352,7 +352,7 @@ if(isset($_POST['edit']))
 
 		</td></tr></table>
 		</td></tr>
-		<tr><td colspan='2' style='text-align:center' class='r_header1'>
+		<tr><td colspan='2' style='text-align:center' class='forumheader'>
 		<input class='button' type='button' value='".UCSLAN_19." ".$userclass_name." ".UCSLAN_20."' onclick='saveMe($userclass_id);' />
 		</td>
 		</tr>
@@ -372,12 +372,12 @@ $class_total = $sql->db_Select("userclass_classes", "*", "ORDER BY userclass_nam
 $text .= "
 	<br />
 	<div style='text-align:center'>
-	<table class='r_border' style='".ADMIN_WIDTH."'>
+	<table class='fborder' >
 	<tr>
-	<td class='r_caption'>".UCSLAN_12."</td>
-	<td class='r_caption'>".UCSLAN_24."</td>
-	<td class='r_caption'>".UCSLAN_13."</td>
-	<td class='r_caption' style='text-align:center;'>#</td>
+	<td class='fcaption'>".UCSLAN_12."</td>
+	<td class='fcaption'>".UCSLAN_24."</td>
+	<td class='fcaption'>".UCSLAN_13."</td>
+	<td class='fcaption' style='text-align:center;'>#</td>
 	</tr>
 	";
 
@@ -416,10 +416,10 @@ else
 			}
 			$text .= "
 			<tr>
-			<td class='r_header3'>{$row['userclass_name']}</td>
-			<td class='r_header3'>".r_userclass_name($rEditClass)."</td>
-			<td class='r_header3'>{$row['userclass_description']}</td>
-			<td class='r_header3' style='text-align:center;'>".$disp_form."</td>
+			<td class='forumheader3'>{$row['userclass_name']}</td>
+			<td class='forumheader3'>".r_userclass_name($rEditClass)."</td>
+			<td class='forumheader3'>{$row['userclass_description']}</td>
+			<td class='forumheader3' style='text-align:center;'>".$disp_form."</td>
 			</tr>";
 		}
 	}

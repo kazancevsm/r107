@@ -1,7 +1,7 @@
 <?php
 define('e_TOKEN_FREEZE', true);
 
-require_once("../../../../class.php");
+require_once("../../../../class2.php");
 if(!USER || check_class($pref['post_html']) == FALSE){
 exit;
 }

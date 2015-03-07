@@ -24,7 +24,7 @@ if(isset($_POST['send-contactus']) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("class.php");
+require_once("class2.php");
 
     // security image may be disabled by removing the appropriate shortcodes from the template.
 	require_once(e_HANDLER."secure_img_handler.php");
@@ -90,7 +90,7 @@ if(isset($_POST['send-contactus'])/* && isset($_POST['e-token'])*/)
 // Check email address on remote server (if enabled).
 	if ($pref['signup_remote_emailcheck'] && $error == "")
 	{
-		require_once(e_HANDLER."mail_validation_class.php");
+		require_once(e_HANDLER."mail_validation_handler.php");
 		list($adminuser,$adminhost) = split ("@", SITEADMINEMAIL);
 		$validator = new email_validation_class;
 		$validator->localuser= $adminuser;
@@ -148,7 +148,7 @@ if(isset($_POST['send-contactus'])/* && isset($_POST['e-token'])*/)
 			$send_to_name = ADMIN;
 		}
 
-    	require_once(e_HANDLER."mail.php");
+    	require_once(e_HANDLER."mail_handler.php");
  		$message =  (sendemail($send_to,"[".SITENAME."] ".$subject, $body,$send_to_name,$sender,$sender_name)) ? LANCONTACT_09 : LANCONTACT_10;
     	if(isset($pref['contact_emailcopy']) && $pref['contact_emailcopy'] && $_POST['email_copy'] == 1){
 			sendemail($sender,"[".SITENAME."] ".$subject, $body,ADMIN,$sender,$sender_name);

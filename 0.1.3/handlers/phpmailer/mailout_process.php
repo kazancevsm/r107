@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if(!getperms("W")){ header("location:".e_BASE."index.php"); exit; }
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/admin/lan_mailout.php");
 
@@ -159,7 +159,7 @@ if($_POST['cancel_emails']){
 
 		$message_body = $mail_head;
 		$message_body .= "</head>\n<body>\n";
-		$message_body .= "<div style='padding:10px;width:97%'><div class='r_header3'>\n";
+		$message_body .= "<div style='padding:10px;width:97%'><div class='forumheader3'>\n";
 		$message_body .= $tp -> toEmail($_POST['email_body'])."</div></div></body></html>";
 	}
 	else
@@ -178,7 +178,7 @@ if($_POST['cancel_emails']){
 // ----------------  Display Progress and Send Emails. ----------------------->
 
 
-    echo "<div class='r_caption'>&nbsp;".MAILAN_59."</div>";
+    echo "<div class='fcaption'>&nbsp;".MAILAN_59."</div>";
     $qry = "SELECT g.*,u.* FROM #generic AS g LEFT JOIN #user AS u ON g.gen_user_id = u.user_id WHERE g.gen_type='sendmail' and g.gen_datestamp = '".intval($_POST['mail_id'])."' ";
     $count = $sql -> db_Select_gen($qry);
 

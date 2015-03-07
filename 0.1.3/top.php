@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("class.php");
+require_once("class2.php");
 if (!e_QUERY) {
 	$action = "top";
 	$subaction = "all";
@@ -38,7 +38,7 @@ if ($action == "top") {
 	
 require_once(HEADERF);
 if ($action == "active") {
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	 
 	$query = "
 			SELECT 
@@ -59,18 +59,18 @@ if ($action == "active") {
 				{$from}, {$view}";
 
 	if ($sql->db_Select_gen($query)) {
-		$text = "<div style='text-align:center'>\n<table style='width:auto' class='r_border'>\n";
+		$text = "<div style='text-align:center'>\n<table style='width:auto' class='fborder'>\n";
 		if (!is_object($gen)) {
 			$gen = new convert;
 		}
 		 
 		$text .= "<tr>
-			<td style='width:5%' class='r_header1'>&nbsp;</td>
-			<td style='width:45%' class='r_header1'>".LAN_1."</td>
-			<td style='width:15%; text-align:center' class='r_header1'>".LAN_2."</td>
-			<td style='width:5%; text-align:center' class='r_header1'>".LAN_3."</td>
-			<td style='width:5%; text-align:center' class='r_header1'>".LAN_4."</td>
-			<td style='width:25%; text-align:center' class='r_header1'>".LAN_5."</td>
+			<td style='width:5%' class='forumheader'>&nbsp;</td>
+			<td style='width:45%' class='forumheader'>".LAN_1."</td>
+			<td style='width:15%; text-align:center' class='forumheader'>".LAN_2."</td>
+			<td style='width:5%; text-align:center' class='forumheader'>".LAN_3."</td>
+			<td style='width:5%; text-align:center' class='forumheader'>".LAN_4."</td>
+			<td style='width:25%; text-align:center' class='forumheader'>".LAN_5."</td>
 			</tr>\n";
 		 
 		while ($row = $sql->db_Fetch()) {
@@ -96,12 +96,12 @@ if ($action == "active") {
 				}
 
 				$text .= "<tr>
-					<td style='width:5%; text-align:center' class='r_header3'><img src='".e_PLUGIN_ABS."forum/images/".IMODE."/new_small.png' alt='' /></td>
-					<td style='width:45%' class='r_header3'><b><a href='{$LINKTOTHREAD}'>{$thread_name}</a></b> <span class='smalltext'>(<a href='{$LINKTOFORUM}'>{$forum_name}</a>)</span></td>
-					<td style='width:15%; text-align:center' class='r_header3'>{$POSTER}</td>
-					<td style='width:5%; text-align:center' class='r_header3'>{$thread_views}</td>
-					<td style='width:5%; text-align:center' class='r_header3'>{$thread_total_replies}</td>
-					<td style='width:25%; text-align:center' class='r_header3'>{$LASTPOST}</td>
+					<td style='width:5%; text-align:center' class='forumheader3'><img src='".e_PLUGIN_ABS."forum/images/".IMODE."/new_small.png' alt='' /></td>
+					<td style='width:45%' class='forumheader3'><b><a href='{$LINKTOTHREAD}'>{$thread_name}</a></b> <span class='smalltext'>(<a href='{$LINKTOFORUM}'>{$forum_name}</a>)</span></td>
+					<td style='width:15%; text-align:center' class='forumheader3'>{$POSTER}</td>
+					<td style='width:5%; text-align:center' class='forumheader3'>{$thread_views}</td>
+					<td style='width:5%; text-align:center' class='forumheader3'>{$thread_total_replies}</td>
+					<td style='width:25%; text-align:center' class='forumheader3'>{$LASTPOST}</td>
 					</tr>\n";
 			}
 		}
@@ -109,7 +109,7 @@ if ($action == "active") {
 		$text .= "</table>\n</div>";
 		 
 		$ns->tablerender(LAN_7, $text, "nfp");
-		require_once(e_HANDLER."np_class.php");
+		require_once(e_HANDLER."np_handler.php");
 		$ftotal = $sql->db_Count("forum_t", "(*)", "WHERE thread_parent = 0");
 		$ix = new nextprev("top.php", $from, $view, $ftotal, "", "active.forum.".$view."");
 	}
@@ -124,29 +124,29 @@ if ($action == "top") {
 		$top_forum_posters = $sql->db_Select("user", "*", "`user_forums` > 0 ORDER BY user_forums DESC LIMIT ".$from.", ".$view."");
 		$text = "
 			<div style='text-align:center'>
-			<table style='width:95%' class='r_border'>
+			<table style='width:95%' class='fborder'>
 			<tr>
-			<td style='width:10%; text-align:center' class='r_header3'>&nbsp;</td>
-			<td style='width:50%' class='r_header3'>".TOP_LAN_1."</td>
-			<td style='width:10%; text-align:center' class='r_header3'>".TOP_LAN_2."</td>
-			<td style='width:30%; text-align:center' class='r_header3'>".TOP_LAN_6."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>&nbsp;</td>
+			<td style='width:50%' class='forumheader3'>".TOP_LAN_1."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>".TOP_LAN_2."</td>
+			<td style='width:30%; text-align:center' class='forumheader3'>".TOP_LAN_6."</td>
 			</tr>\n";
 		$counter = 1 + $from;
 		while ($row = $sql->db_Fetch()) {
 			extract($row);
 			$ldata = get_level($user_id, $user_forums, $user_comments, $user_chats, $user_visits, $user_join, $user_admin, $user_perms, $pref);
 			$text .= "<tr>
-				<td style='width:10%; text-align:center' class='r_header3'>{$counter}</td>
-				<td style='width:50%' class='r_header3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
-				<td style='width:10%; text-align:center' class='r_header3'>{$user_forums}</td>
-				<td style='width:30%; text-align:center' class='r_header3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$counter}</td>
+				<td style='width:50%' class='forumheader3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$user_forums}</td>
+				<td style='width:30%; text-align:center' class='forumheader3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
 				</tr>";
 			$counter++;
 		}
 		$text .= "</table>\n</div>";
 		$ns->tablerender(TOP_LAN_0, $text);
 		if ($subaction == "forum") {
-			require_once(e_HANDLER."np_class.php");
+			require_once(e_HANDLER."np_handler.php");
 			$ftotal = $sql->db_Count("user", "(*)", "WHERE `user_forums` > 0");
 			$ix = new nextprev("top.php", $from, $view, $ftotal, "Forum Posts", "top.forum.".$view."");
 		}
@@ -157,22 +157,22 @@ if ($action == "top") {
 		$top_forum_posters = $sql->db_Select("user", "*", "`user_comments` > 0 ORDER BY user_comments DESC LIMIT 0, 10");
 		$text = "
 			<div style='text-align:center'>
-			<table style='width:95%' class='r_border'>
+			<table style='width:95%' class='fborder'>
 			<tr>
-			<td style='width:10%; text-align:center' class='r_header3'>&nbsp;</td>
-			<td style='width:50%' class='r_header3'>".TOP_LAN_1."</td>
-			<td style='width:10%; text-align:center' class='r_header3'>".TOP_LAN_4."</td>
-			<td style='width:30%; text-align:center' class='r_header3'>".TOP_LAN_6."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>&nbsp;</td>
+			<td style='width:50%' class='forumheader3'>".TOP_LAN_1."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>".TOP_LAN_4."</td>
+			<td style='width:30%; text-align:center' class='forumheader3'>".TOP_LAN_6."</td>
 			</tr>\n";
 		$counter = 1;
 		while ($row = $sql->db_Fetch()) {
 			extract($row);
 			$ldata = get_level($user_id, $user_forums, $user_comments, $user_chats, $user_visits, $user_join, $user_admin, $user_perms, $pref);
 			$text .= "<tr>
-				<td style='width:10%; text-align:center' class='r_header3'>{$counter}</td>
-				<td style='width:50%' class='r_header3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
-				<td style='width:10%; text-align:center' class='r_header3'>{$user_comments}</td>
-				<td style='width:30%; text-align:center' class='r_header3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$counter}</td>
+				<td style='width:50%' class='forumheader3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$user_comments}</td>
+				<td style='width:30%; text-align:center' class='forumheader3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
 				</tr>";
 			$counter++;
 		}
@@ -184,22 +184,22 @@ if ($action == "top") {
 		$top_forum_posters = $sql->db_Select("user", "*", "`user_chats` > 0 ORDER BY user_chats DESC LIMIT 0, 10");
 		$text = "
 			<div style='text-align:center'>
-			<table style='width:95%' class='r_border'>
+			<table style='width:95%' class='fborder'>
 			<tr>
-			<td style='width:10%; text-align:center' class='r_header3'>&nbsp;</td>
-			<td style='width:20%' class='r_header3'>".TOP_LAN_1."</td>
-			<td style='width:10%; text-align:center' class='r_header3'>".TOP_LAN_2."</td>
-			<td style='width:30%; text-align:center' class='r_header3'>".TOP_LAN_6."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>&nbsp;</td>
+			<td style='width:20%' class='forumheader3'>".TOP_LAN_1."</td>
+			<td style='width:10%; text-align:center' class='forumheader3'>".TOP_LAN_2."</td>
+			<td style='width:30%; text-align:center' class='forumheader3'>".TOP_LAN_6."</td>
 			</tr>\n";
 		$counter = 1;
 		while ($row = $sql->db_Fetch()) {
 			extract($row);
 			$ldata = get_level($user_id, $user_forums, $user_comments, $user_chats, $user_visits, $user_join, $user_admin, $user_perms, $pref);
 			$text .= "<tr>
-				<td style='width:10%; text-align:center' class='r_header3'>{$counter}</td>
-				<td style='width:50%' class='r_header3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
-				<td style='width:10%; text-align:center' class='r_header3'>{$user_chats}</td>
-				<td style='width:30%; text-align:center' class='r_header3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$counter}</td>
+				<td style='width:50%' class='forumheader3'><a href='".e_HTTP."user.php?id.{$user_id}'>{$user_name}</a></td>
+				<td style='width:10%; text-align:center' class='forumheader3'>{$user_chats}</td>
+				<td style='width:30%; text-align:center' class='forumheader3'>".(strstr($ldata[0], "LAN") ? $ldata[1] : $ldata[0])."</td>
 				</tr>";
 			$counter++;
 		}

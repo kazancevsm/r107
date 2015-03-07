@@ -59,7 +59,7 @@ if (!function_exists('simplexml_load_string'))
 {
 	function simplexml_load_string($xml)
 	{
-		require_once(e_HANDLER.'xml_class.php');
+		require_once(e_HANDLER.'xml_handler.php');
 		$xmlClass = new simplexml;
 		return $xmlClass->xml_load_string($xml);
 	}

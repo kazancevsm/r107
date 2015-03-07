@@ -17,7 +17,7 @@
 */
 
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 include_lan(e_PLUGIN."tree_menu/languages/".e_LANGUAGE.".php");
 
 if (!getperms("4")) {
@@ -40,26 +40,26 @@ if (isset($_POST['update_menu'])) {
 	
 $text = "
 	<form method='post' action='".e_SELF."?".e_QUERY."' name='menu_conf_form'>
-	<table style='".ADMIN_WIDTH."' class='r_border' >
+	<table class='fborder' >
 	 
 	<tr>
-	<td style='width: 50%;' class='r_header3'>".TREE_L6."</td>
-	<td style='width: 50%;' class='r_header3'><input class='tbox' type='text' name='tm_class1' size='40' value='".$menu_pref['tm_class1']."' maxlength='20' /></td>
+	<td style='width: 50%;' class='forumheader3'>".TREE_L6."</td>
+	<td style='width: 50%;' class='forumheader3'><input class='tbox' type='text' name='tm_class1' size='40' value='".$menu_pref['tm_class1']."' maxlength='20' /></td>
 	</tr>
 
 	<tr>
-	<td style='width: 50%;' class='r_header3'>".TREE_L7."</td>
-	<td style='width: 50%;' class='r_header3'><input class='tbox' type='text' name='tm_class2' size='40' value='".$menu_pref['tm_class2']."' maxlength='20' /></td>
+	<td style='width: 50%;' class='forumheader3'>".TREE_L7."</td>
+	<td style='width: 50%;' class='forumheader3'><input class='tbox' type='text' name='tm_class2' size='40' value='".$menu_pref['tm_class2']."' maxlength='20' /></td>
 	</tr>
 
 	<tr>
-	<td style='width: 50%;' class='r_header3'>".TREE_L8."</td>
-	<td style='width: 50%;' class='r_header3'><input class='tbox' type='text' name='tm_class3' size='40' value='".$menu_pref['tm_class3']."' maxlength='20' /></td>
+	<td style='width: 50%;' class='forumheader3'>".TREE_L8."</td>
+	<td style='width: 50%;' class='forumheader3'><input class='tbox' type='text' name='tm_class3' size='40' value='".$menu_pref['tm_class3']."' maxlength='20' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".TREE_L9."</td>
-	<td style='width:50%; text-align:right' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".TREE_L9."</td>
+	<td style='width:50%; text-align:right' class='forumheader3'>
 	<input type='radio' name='tm_spacer' value='1'".($menu_pref['tm_spacer'] ? " checked='checked'" : "")." /> ".TREE_L4."&nbsp;&nbsp;
 	<input type='radio' name='tm_spacer' value='0'".(!$menu_pref['tm_spacer'] ? " checked='checked'" : "")." /> ".TREE_L5."
 	</td>
@@ -67,7 +67,7 @@ $text = "
 
 	
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'><input class='button' type='submit' name='update_menu' value='".TREE_L2."' /></td>
+	<td colspan='2' class='forumheader' style='text-align:center'><input class='button' type='submit' name='update_menu' value='".TREE_L2."' /></td>
 	</tr>
 	</table>
 	</form>

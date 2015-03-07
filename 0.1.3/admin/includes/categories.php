@@ -20,12 +20,12 @@
 if (!defined('e107_INIT')) { exit; }
 
 $text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 foreach ($admin_cat['id'] as $cat_key => $cat_id) {
 	$text_check = FALSE;
-	$text_cat = "<tr><td class='r_caption' colspan='2'>".$admin_cat['title'][$cat_key]."</td></tr>
-		<tr><td class='r_header3'>".$admin_cat['lrg_img'][$cat_key]."</td><td class='r_header3'>
+	$text_cat = "<tr><td class='fcaption' colspan='2'>".$admin_cat['title'][$cat_key]."</td></tr>
+		<tr><td class='forumheader3'>".$admin_cat['lrg_img'][$cat_key]."</td><td class='forumheader3'>
 		<table style='width:100%'>";
 	if ($cat_key != 5) {
 		foreach ($newarray as $key => $funcinfo) {

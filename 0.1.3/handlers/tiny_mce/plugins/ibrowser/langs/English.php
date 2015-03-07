@@ -15,7 +15,7 @@ $lang_ibrowser_align= 'Text flow';
 $lang_ibrowser_height= 'Height';
 $lang_ibrowser_width= 'Width';
 $lang_ibrowser_reset= 'Reset Dimensions';
-$lang_ibrowser_border= 'Border';
+$lang_ibrowsefborder= 'Border';
 $lang_ibrowser_hspace= 'HSpace';
 $lang_ibrowser_vspace= 'VSpace';
 $lang_ibrowser_select= 'Save';
@@ -41,7 +41,7 @@ $lang_ibrowser_errordelete= 'Delete failed';
 $lang_ibrowser_confirmdelete= 'Click OK to delete image!';
 $lang_ibrowser_error_width_nan= 'Width is not a number!';
 $lang_ibrowser_error_height_nan= 'Height is not a number!';
-$lang_ibrowser_error_border_nan= 'Border is not a number!';
+$lang_ibrowser_errofborder_nan= 'Border is not a number!';
 $lang_ibrowser_error_hspace_nan= 'Horizontal space is not a number!';
 $lang_ibrowser_error_vspace_nan= 'Vertical space is not a number!';
 

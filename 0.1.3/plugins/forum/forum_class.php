@@ -868,7 +868,7 @@ class e107forum
 					$email_name = $parent_thread[0]['user_name'];
 					$email_addy = $parent_thread[0]['user_email'];
 					$message = LAN_384.SITENAME.".<br /><br />". LAN_382.$datestamp."<br />". LAN_94.": ".$thread_poster['post_user_name']."<br /><br />". LAN_385.$tp->toHTML($email_post, TRUE, 'USER_BODY')."<br /><br />". LAN_383."<br /><br />".$mail_link;
-					include_once(e_HANDLER."mail.php");
+					include_once(e_HANDLER."mail_handler.php");
 					sendemail($email_addy, $pref['forum_eprefix']." '".$thread_name."', ".LAN_381.SITENAME, $message, $email_name);
 				}
 			}
@@ -876,7 +876,7 @@ class e107forum
 			// Send email to all users tracking thread - except the one that's just posted
 			if ($pref['forum_track'] && $sql->db_Select('user', 'user_id, user_ban, user_admin, user_perms, user_class, user_email, user_name', "user_realm REGEXP('-".intval($thread_parent)."-') "))
 			{
-				include_once(e_HANDLER.'mail.php');
+				include_once(e_HANDLER."mail_handler.php");
 				$message = LAN_385.SITENAME.".<br /><br />". LAN_382.$datestamp."<br />". LAN_94.": ".$thread_poster['post_user_name']."<br /><br />". LAN_385.$tp->toHTML($email_post, TRUE, 'USER_BODY')."<br /><br />". LAN_383."<br /><br />".$mail_link;
 				while ($tracker = $sql->db_Fetch(MYSQL_ASSOC))
 				{

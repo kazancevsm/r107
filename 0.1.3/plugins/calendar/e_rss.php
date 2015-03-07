@@ -14,7 +14,7 @@ $feed['class']		= '0';
 $feed['limit']		= '9';
 //##### ------------------------------------------------------------------------------------
 
-require_once('ecal_class.php');
+require_once("ecal_class.php");
 $ecal_class = new ecal_class;
 
 //##### create rss data, return as array $eplug_rss_data -----------------------------------

@@ -18,8 +18,8 @@
 | Based on code by: Thomas Bouve (crahan@gmx.net)
 */
 	
-require_once("../../class.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once("../../class2.php");
+require_once(e_HANDLER."userclass_handler.php");
 	
 include_lan(e_PLUGIN."blogcalendar_menu/languages/".e_LANGUAGE.".php");
 require_once("calendar.php");
@@ -70,7 +70,7 @@ $end_year = $cur_year;
 // ----------------------
 // build the yearselector
 // ----------------------
-$year_selector = "<div class='r_header1' style='text-align: center; margin-bottom: 2px;'>";
+$year_selector = "<div class='forumheader' style='text-align: center; margin-bottom: 2px;'>";
 $year_selector .= "".BLOGCAL_ARCHIV1.": <select name='activate' onchange='urljump(this.options[selectedIndex].value)' class='tbox'>\n";
 
 for($i = $start_year; $i <= $end_year; $i++) 
@@ -118,7 +118,7 @@ for($i = 1; $i <= 12; $i++)
 		$newline = 1;
 	}
 	$archive .= "<td style='vertical-align:top'>";
-	$archive .= "<div class='r_caption' style='text-align:center; margin-bottom:2px;'>";
+	$archive .= "<div class='fcaption' style='text-align:center; margin-bottom:2px;'>";
 	 
 	// href the current month regardless of newsposts or any month with news
 	if (($req_year == $cur_year && $i == $cur_month) || $day_links[$i]) 

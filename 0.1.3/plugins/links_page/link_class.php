@@ -80,7 +80,7 @@ class linkclass {
         $linkspage_pref['link_menu_navigator_links'] = "1";
         $linkspage_pref['link_menu_navigator_category'] = "1";
         $linkspage_pref['link_menu_navigator_rendertype'] = "";
-        $linkspage_pref['link_menu_navigator_caption'] = LCLAN_OPT_82;
+        $linkspage_pref['link_menu_navigatofcaption'] = LCLAN_OPT_82;
         $linkspage_pref['link_menu_category'] = "1";
         $linkspage_pref['link_menu_category_amount'] = "1";
         $linkspage_pref['link_menu_category_rendertype'] = "";
@@ -596,14 +596,14 @@ class linkclass {
             $row['link_class']          = $_POST['link_class'];
             $link_resize_value          = (isset($_POST['link_resize_value']) && $_POST['link_resize_value'] ? $_POST['link_resize_value'] : $link_resize_value);
         }
-        $width = (e_PAGE == "admin_linkspage_config.php" ? ADMIN_WIDTH : "width:100%;");
+        $width = (e_PAGE == "admin_linkspage_config.php");
         $text = "
         <div style='text-align:center'>
         ".$rs -> form_open("post", e_SELF."?".e_QUERY, "linkform", "", "enctype='multipart/form-data'", "")."
-        <table style='".$width."' class='r_border' cellspacing='0' cellpadding='0'>
+        <table style='".$width."' class='fborder' cellspacing='0' cellpadding='0'>
         <tr>
-        <td style='width:30%' class='r_header3'>".LCLAN_ITEM_2."</td>
-        <td style='width:70%' class='r_header3'>";
+        <td style='width:30%' class='forumheader3'>".LCLAN_ITEM_2."</td>
+        <td style='width:70%' class='forumheader3'>";
 
         if (!$link_cats = $sql->db_Select("links_page_cat")) {
             $text .= LCLAN_ITEM_3."<br />";
@@ -622,26 +622,26 @@ class linkclass {
         </td>
         </tr>
         <tr>
-        <td style='width:30%' class='r_header3'>".LCLAN_ITEM_4."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%' class='forumheader3'>".LCLAN_ITEM_4."</td>
+        <td style='width:70%' class='forumheader3'>
             ".$rs -> form_text("link_name", 60, $row['link_name'], 100)."
         </td>
         </tr>
         <tr>
-        <td style='width:30%' class='r_header3'>".LCLAN_ITEM_5."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%' class='forumheader3'>".LCLAN_ITEM_5."</td>
+        <td style='width:70%' class='forumheader3'>
             ".$rs -> form_text("link_url", 60, $row['link_url'], 200)."
         </td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_ITEM_6."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_ITEM_6."</td>
+        <td style='width:70%' class='forumheader3'>
             ".$rs -> form_textarea("link_description", '59', '3', $row['link_description'], "", "", "", "", "")."
         </td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_ITEM_7."</td>
-        <td style='width:70%' class='r_header3'>";
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_ITEM_7."</td>
+        <td style='width:70%' class='forumheader3'>";
             if(!FILE_UPLOADS){
                 $text .= "<b>".LCLAN_ITEM_9."</b>";
             }else{
@@ -664,8 +664,8 @@ class linkclass {
 
         $text .= "
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_ITEM_14."</td>
-        <td style='width:70%; vertical-align:top;' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_ITEM_14."</td>
+        <td style='width:70%; vertical-align:top;' class='forumheader3'>
         <input class='tbox' type='text' name='link_but' id='link_but' size='60' value='".$row['link_button']."' maxlength='100' />
             <div id='linkbut' style='display:block; vertical-align:top;'><table style='text-align:left; width:100%;'><tr><td style='width:20%; padding-right:10px;'>";
             $selectjs   = " onchange=\"document.getElementById('link_but').value=this.options[this.selectedIndex].value; if(this.options[this.selectedIndex].value!=''){document.getElementById('iconview').src='".$iconpath."'+this.options[this.selectedIndex].value; document.getElementById('iconview').style.display='block';}else{document.getElementById('iconview').src='';document.getElementById('iconview').style.display='none';}\"";
@@ -689,8 +689,8 @@ class linkclass {
         //0=same window, 1=_blank, 2=_parent, 3=_top, 4=miniwindow
         $text .= "
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_ITEM_16."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_ITEM_16."</td>
+        <td style='width:70%' class='forumheader3'>
             ".$rs -> form_select_open("linkopentype")."
             ".$rs -> form_option(LCLAN_ITEM_17, ($row['link_open'] == "0" ? "1" : "0"), "0", "")."
             ".$rs -> form_option(LCLAN_ITEM_18, ($row['link_open'] == "1" ? "1" : "0"), "1", "")."
@@ -699,13 +699,13 @@ class linkclass {
         </td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_ITEM_20."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_ITEM_20."</td>
+        <td style='width:70%' class='forumheader3'>
             ".r_userclass("link_class", $row['link_class'], "off", "public,guest,nobody,member,admin,classes")."
         </td>
         </tr>
         <tr style='vertical-align:top'>
-        <td colspan='2' style='text-align:center' class='r_header1'>";
+        <td colspan='2' style='text-align:center' class='forumheader'>";
         if (isset($qs[2]) && $qs[2] && $qs[1] == "edit") {
             $text .= $rs -> form_hidden("link_datestamp", $row['link_datestamp']);
             $text .= $rs -> form_checkbox("update_datestamp", 1, 0)." ".LCLAN_ITEM_21."<br /><br />";
@@ -753,13 +753,13 @@ class linkclass {
 		{	// Display the individual links
             $text = $rs->form_open("post", e_SELF.(e_QUERY ? "?".e_QUERY : ""), "myform_{$row['link_id']}", "", "");
             $text .= "<div style='text-align:center'>
-            <table class='r_border' style='".ADMIN_WIDTH."'>
+            <table class='fborder' >
             <tr>
-            <td class='r_caption' style='width:5%'>".LCLAN_ITEM_25."</td>
-            <td class='r_caption' style='width:65%'>".LCLAN_ITEM_26."</td>
-            <td class='r_caption' style='width:10%'>".LCLAN_ITEM_27."</td>
-            <td class='r_caption' style='width:10%'>".LCLAN_ITEM_28."</td>
-            <td class='r_caption' style='width:10%'>".LCLAN_ITEM_29."</td>
+            <td class='fcaption' style='width:5%'>".LCLAN_ITEM_25."</td>
+            <td class='fcaption' style='width:65%'>".LCLAN_ITEM_26."</td>
+            <td class='fcaption' style='width:10%'>".LCLAN_ITEM_27."</td>
+            <td class='fcaption' style='width:10%'>".LCLAN_ITEM_28."</td>
+            <td class='fcaption' style='width:10%'>".LCLAN_ITEM_29."</td>
             </tr>";
             while ($row = $sql->db_Fetch()) 
 			{
@@ -795,19 +795,19 @@ class linkclass {
                 }
                 $text .= "
                 <tr>
-                <td class='r_header3' style='width:5%; text-align: center; vertical-align: middle'>".$img."</td>
-                <td style='width:65%' class='r_header3'>
+                <td class='forumheader3' style='width:5%; text-align: center; vertical-align: middle'>".$img."</td>
+                <td style='width:65%' class='forumheader3'>
                     <a href='".e_PLUGIN_ABS."links_page/links.php?".$row['link_id']."' rel='external'>".LINK_ICON_LINK."</a> ".$row['link_name']."
                 </td>
-                <td style='width:10%; text-align:center; white-space: nowrap' class='r_header3'>
+                <td style='width:10%; text-align:center; white-space: nowrap' class='forumheader3'>
                     <a href='".e_SELF."?link.edit.".$linkid."' title='".LCLAN_ITEM_31."'>".LINK_ICON_EDIT."</a>
                     <input type='image' title='delete' name='delete[main_{$linkid}]' alt='".LCLAN_ITEM_32."' src='".LINK_ICON_DELETE_BASE."' onclick=\"return jsconfirm('".$tp->toJS(LCLAN_ITEM_33." [ ".$row['link_name']." ]")."')\" />
                 </td>
-                <td style='width:10%; text-align:center; white-space: nowrap' class='r_header3'>
+                <td style='width:10%; text-align:center; white-space: nowrap' class='forumheader3'>
                     ".$up."
                     ".$down."
                 </td>
-                <td style='width:10%; text-align:center' class='r_header3'>
+                <td style='width:10%; text-align:center' class='forumheader3'>
                     <select name='link_order[]' class='tbox'>";
                     //".$rs -> form_select_open("link_order[]");
                     for($a = 1; $a <= $link_total; $a++) {
@@ -819,8 +819,8 @@ class linkclass {
             }
             $text .= "
             <tr>
-            <td class='r_header1' colspan='4'>&nbsp;</td>
-            <td class='r_header1' style='width:5%; text-align:center'>
+            <td class='forumheader' colspan='4'>&nbsp;</td>
+            <td class='forumheader' style='width:5%; text-align:center'>
             ".$rs->form_button("submit", "update_order", LCLAN_ITEM_30)."
             </td>
             </tr>
@@ -860,18 +860,18 @@ class linkclass {
 
         $text = "<div style='text-align:center'>
         ".$rs->form_open("post", e_SELF.(e_QUERY ? "?".e_QUERY : ""), "linkform", "", "enctype='multipart/form-data'", "")."
-        <table class='r_border' style='".ADMIN_WIDTH."'>
+        <table class='fborder' >
         <tr>
-        <td class='r_header3' style='width:30%'>".LCLAN_CAT_13."</td>
-        <td class='r_header3' style='width:70%'>".$rs->form_text("link_category_name", 50, $row['link_category_name'], 200)."</td>
+        <td class='forumheader3' style='width:30%'>".LCLAN_CAT_13."</td>
+        <td class='forumheader3' style='width:70%'>".$rs->form_text("link_category_name", 50, $row['link_category_name'], 200)."</td>
         </tr>
         <tr>
-        <td class='r_header3' style='width:30%; vertical-align:top;'>".LCLAN_CAT_14."</td>
-        <td class='r_header3' style='width:70%'>".$rs->form_text("link_category_description", 60, $row['link_category_description'], 200)."</td>
+        <td class='forumheader3' style='width:30%; vertical-align:top;'>".LCLAN_CAT_14."</td>
+        <td class='forumheader3' style='width:70%'>".$rs->form_text("link_category_description", 60, $row['link_category_description'], 200)."</td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_CAT_15."</td>
-        <td style='width:70%' class='r_header3'>";
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_CAT_15."</td>
+        <td style='width:70%' class='forumheader3'>";
             if(!FILE_UPLOADS){
                 $text .= "<b>".LCLAN_CAT_17."</b>";
             }else{
@@ -887,8 +887,8 @@ class linkclass {
         </td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_CAT_22."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_CAT_22."</td>
+        <td style='width:70%' class='forumheader3'>
             ".$rs -> form_text("link_category_icon", 60, $row['link_category_icon'], 100)."
             ".$rs -> form_button("button", '', LCLAN_CAT_23, "onclick=\"expandit('catico')\"")."
             <div id='catico' style='{head}; display:none'>";
@@ -899,12 +899,12 @@ class linkclass {
         </td>
         </tr>
         <tr>
-        <td style='width:30%; vertical-align:top;' class='r_header3'>".LCLAN_CAT_24."</td>
-        <td style='width:70%' class='r_header3'>
+        <td style='width:30%; vertical-align:top;' class='forumheader3'>".LCLAN_CAT_24."</td>
+        <td style='width:70%' class='forumheader3'>
             ".r_userclass("link_category_class", $row['link_category_class'], "off", "public,guest,nobody,member,admin,classes")."
         </td>
         </tr>
-        <tr><td colspan='2' style='text-align:center' class='r_header1'>";
+        <tr><td colspan='2' style='text-align:center' class='forumheader'>";
         if (is_numeric($qs[2])) {
             $text .= $rs -> form_hidden("link_category_order", $row['link_category_order']);
             $text .= $rs -> form_hidden("link_category_datestamp", $row['link_category_datestamp']);
@@ -930,15 +930,15 @@ class linkclass {
             $text = "
             <div style='text-align: center'>
             ".$rs->form_open("post", e_SELF.(e_QUERY ? "?".e_QUERY : ""), "", "", "")."
-            <table class='r_border' style='".ADMIN_WIDTH."'>
+            <table class='fborder' >
             <tr>
-            <td style='width:5%' class='r_caption'>".LCLAN_CAT_1."</td>
-            <td class='r_caption'>".LCLAN_CAT_2."</td>
-            <td style='width:10%' class='r_caption'>".LCLAN_CAT_3."</td>";
+            <td style='width:5%' class='fcaption'>".LCLAN_CAT_1."</td>
+            <td class='fcaption'>".LCLAN_CAT_2."</td>
+            <td style='width:10%' class='fcaption'>".LCLAN_CAT_3."</td>";
             if($mode == "cat"){
                 $text .= "
-                <td class='r_caption' style='width:10%'>".LCLAN_CAT_4."</td>
-                <td class='r_caption' style='width:10%'>".LCLAN_CAT_5."</td>";
+                <td class='fcaption' style='width:10%'>".LCLAN_CAT_4."</td>
+                <td class='fcaption' style='width:10%'>".LCLAN_CAT_5."</td>";
             }
             $text .= "
             </tr>";
@@ -951,8 +951,8 @@ class linkclass {
                 }
                 $text .= "
                 <tr>
-                <td style='width:5%; text-align:center' class='r_header3'>".$img."</td>
-                <td class='r_header3'>
+                <td style='width:5%; text-align:center' class='forumheader3'>".$img."</td>
+                <td class='forumheader3'>
                     <a href='".e_PLUGIN_ABS."links_page/links.php?cat.".$linkcatid."' rel='external'>".LINK_ICON_LINK."</a>
                     ".$row['link_category_name']."<br /><span class='smalltext'>".$row['link_category_description']."</span>
                 </td>";
@@ -968,15 +968,15 @@ class linkclass {
                         $down = "<input type='image' src='".LINK_ICON_ORDER_DOWN_BASE."' value='".$linkcatid.".".$row['link_category_order']."' name='dec' />";
                     }
                     $text .= "
-                    <td style='width:10%; text-align:center; white-space: nowrap' class='r_header3'>
+                    <td style='width:10%; text-align:center; white-space: nowrap' class='forumheader3'>
                         <a href='".e_SELF."?cat.edit.".$linkcatid."' title='".LCLAN_CAT_6."'>".LINK_ICON_EDIT."</a>
                         <input type='image' title='delete' name='delete[category_{$linkcatid}]' alt='".LCLAN_CAT_7."' src='".LINK_ICON_DELETE_BASE."' onclick=\"return jsconfirm('".$tp->toJS(LCLAN_CAT_8." [ ".$row['link_category_name']." ]")."')\"/>
                     </td>
-                    <td style='width:10%; text-align:center; white-space: nowrap' class='r_header3'>
+                    <td style='width:10%; text-align:center; white-space: nowrap' class='forumheader3'>
                         ".$up."
                         ".$down."
                     </td>
-                    <td style='width:10%; text-align:center' class='r_header3'>
+                    <td style='width:10%; text-align:center' class='forumheader3'>
                         <select name='link_category_order[]' class='tbox'>";
                         for($a = 1; $a <= $category_total; $a++) {
                             $text .= $rs -> form_option($a, ($row['link_category_order'] == $a ? "1" : "0"), $linkcatid.".".$a, "");
@@ -984,7 +984,7 @@ class linkclass {
                         $text .= $rs -> form_select_close()."
                     </td>";
                 }else{
-                    $text .= "<td style='width:10%; text-align:center; white-space: nowrap' class='r_header3'>
+                    $text .= "<td style='width:10%; text-align:center; white-space: nowrap' class='forumheader3'>
                     <a href='".e_SELF."?link.view.".$linkcatid."' title='".LCLAN_CAT_9."'>".LINK_ICON_EDIT."</a></td>";
                 }
                 $text .= "
@@ -993,16 +993,16 @@ class linkclass {
             if($mode == "cat"){
                 $text .= "
                 <tr>
-                <td class='r_header1' colspan='4'>&nbsp;</td>
-                <td class='r_header1' style='width:5%; text-align:center'>
+                <td class='forumheader' colspan='4'>&nbsp;</td>
+                <td class='forumheader' style='width:5%; text-align:center'>
                 ".$rs->form_button("submit", "update_category_order", LCLAN_CAT_10)."
                 </td>
                 </tr>";
             }else{
                 $text .= "
                 <tr>
-                <td class='r_header1' colspan='2'>&nbsp;</td>
-                <td class='r_header1' style='width:5%; text-align:center'>".$rs->form_button("button", "viewalllinks", LCLAN_ITEM_37, "onclick=\"document.location='".e_SELF."?link.view.all';\"")."
+                <td class='forumheader' colspan='2'>&nbsp;</td>
+                <td class='forumheader' style='width:5%; text-align:center'>".$rs->form_button("button", "viewalllinks", LCLAN_ITEM_37, "onclick=\"document.location='".e_SELF."?link.view.all';\"")."
                 </td>
                 </tr>";
             }
@@ -1025,11 +1025,11 @@ class linkclass {
         }else{
             $text = "
             ".$rs->form_open("post", e_SELF."?sn", "submitted_links")."
-            <table class='r_border' style='".ADMIN_WIDTH."'>
+            <table class='fborder' >
             <tr>
-            <td style='width:60%' class='r_caption'>".LCLAN_SL_3."</td>
-            <td style='width:30%' class='r_caption'>".LCLAN_SL_4."</td>
-            <td style='width:10%; white-space:nowrap; text-align:center' class='r_caption'>".LCLAN_SL_5."</td>
+            <td style='width:60%' class='fcaption'>".LCLAN_SL_3."</td>
+            <td style='width:30%' class='fcaption'>".LCLAN_SL_4."</td>
+            <td style='width:10%; white-space:nowrap; text-align:center' class='fcaption'>".LCLAN_SL_5."</td>
             </tr>";
             while ($row = $sql->db_Fetch()) {
                 $tmp_time = $row['tmp_time'];
@@ -1038,9 +1038,9 @@ class linkclass {
                     $submitted[2] = "http://".$submitted[2];
                 }
                 $text .= "<tr>
-                <td style='width:60%' class='r_header3'><a href='".$submitted[2]."' rel='external'>".$submitted[2]."</a></td>
-                <td style='width:30%' class='r_header3'>".$submitted[5]."</td>
-                <td style='width:10%; white-space:nowrap; text-align:center; vertical-align:top' class='r_header3'>
+                <td style='width:60%' class='forumheader3'><a href='".$submitted[2]."' rel='external'>".$submitted[2]."</a></td>
+                <td style='width:30%' class='forumheader3'>".$submitted[5]."</td>
+                <td style='width:10%; white-space:nowrap; text-align:center; vertical-align:top' class='forumheader3'>
                     <a href='".e_SELF."?link.sn.".$tmp_time."' title='".LCLAN_SL_6."'>".LINK_ICON_EDIT."</a>
                     <input type='image' title='delete' name='delete[sn_{$tmp_time}]' alt='".LCLAN_SL_7."' src='".LINK_ICON_DELETE_BASE."' onclick=\"return jsconfirm('".$tp->toJS(LCLAN_SL_8." [ ".$tmp_time." ]")."')\" />
                 </td>
@@ -1078,11 +1078,11 @@ class linkclass {
 
         $TOPIC_ROW = "
         <tr>
-            <td class='r_header3' style='width:25%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
-            <td class='r_header3' style='vertical-align:top;'>{TOPIC_FIELD}</td>
+            <td class='forumheader3' style='width:25%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
+            <td class='forumheader3' style='vertical-align:top;'>{TOPIC_FIELD}</td>
         </tr>";
 
-        $TOPIC_TITLE_ROW = "<tr><td colspan='2' class='r_caption'>{TOPIC_CAPTION}</td></tr>";
+        $TOPIC_TITLE_ROW = "<tr><td colspan='2' class='fcaption'>{TOPIC_CAPTION}</td></tr>";
         $TOPIC_ROW_SPACER = "<tr><td style='height:20px;' colspan='2'></td></tr>";
         $TOPIC_TABLE_END = $this->pref_submit()."</table></div>";
 
@@ -1091,7 +1091,7 @@ class linkclass {
         ".$rs -> form_open("post", e_SELF."?".e_QUERY, "optform", "", "", "")."
 
         <div id='optgeneral' style='text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_1;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1166,7 +1166,7 @@ class linkclass {
 
         $text .= "
         <div id='optmanager' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_2;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1197,7 +1197,7 @@ class linkclass {
 
         $text .= "
         <div id='optcategory' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_3;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1255,7 +1255,7 @@ class linkclass {
 
         $text .= "
         <div id='optlinks' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_4;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1320,7 +1320,7 @@ class linkclass {
 
         $text .= "
         <div id='optrefer' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_5;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1333,7 +1333,7 @@ class linkclass {
 
         $text .= "
         <div id='optrating' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_6;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1352,7 +1352,7 @@ class linkclass {
 
         $text .= "
         <div id='optmenu' style='display:none; text-align:center'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
         $TOPIC_CAPTION = LCLAN_OPT_MENU_7;
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_TITLE_ROW);
@@ -1376,7 +1376,7 @@ class linkclass {
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_ROW);
 
         $TOPIC_TOPIC = LCLAN_OPT_79;
-        $TOPIC_FIELD = $rs -> form_text("link_menu_navigator_caption", "15", $linkspage_pref['link_menu_navigator_caption'], "100", "tbox", "", "", "");
+        $TOPIC_FIELD = $rs -> form_text("link_menu_navigatofcaption", "15", $linkspage_pref['link_menu_navigatofcaption'], "100", "tbox", "", "", "");
         $text .= preg_replace("/\{(.*?)\}/e", '$\1', $TOPIC_ROW);
 
         $TOPIC_TOPIC = LCLAN_OPT_69;
@@ -1451,7 +1451,7 @@ class linkclass {
         global $rs;
         $text = "
         <tr>
-        <td colspan='2' style='text-align:center' class='r_header1'>
+        <td colspan='2' style='text-align:center' class='forumheader'>
         <input class='button' type='submit' name='updateoptions' value='".LCLAN_ADMIN_1."' />
         </td>
         </tr>";

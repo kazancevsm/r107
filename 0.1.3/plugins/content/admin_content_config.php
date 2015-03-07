@@ -16,7 +16,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 
 if(!getperms("P")){header("location:".e_BASE."index.php"); exit; }
 $e_sub_cat = 'content';
@@ -40,7 +40,7 @@ $rs = new form;
 
 
 
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once($plugindir."handlers/content_class.php");
 $aa = new content;
 require_once($plugindir."handlers/content_db_class.php");

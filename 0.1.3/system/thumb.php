@@ -32,7 +32,7 @@
 */
 
 
-require_once("../class.php");
+require_once("../class2.php");
 require_once(e_HANDLER."resize_handler.php");
 
 if (e_QUERY)

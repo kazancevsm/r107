@@ -12,7 +12,7 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = true;
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 include_lan(e_PLUGIN."alt_auth/languages/".e_LANGUAGE."/lan_otherdb_auth.php");
@@ -50,7 +50,7 @@ function show_otherdb_form()
 	$text = $frm -> form_open("POST", e_SELF);
 	$text .= "<table style='width:96%'>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_1."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_1."</td><td class='forumheader3'>";
 	$text .= $frm -> form_select_open("otherdb_dbtype");
 	foreach($db_types as $k => $v)
 	{
@@ -60,37 +60,37 @@ function show_otherdb_form()
 	$text .= $frm -> form_select_close();
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_2."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_2."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_server", 35, $parm['otherdb_server'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_3."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_3."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_username", 35, $parm['otherdb_username'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_4."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_4."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_password", 35, $parm['otherdb_password'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_5."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_5."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_database", 35, $parm['otherdb_database'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_6."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_6."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_table", 35, $parm['otherdb_table'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header2' colspan='2'>".OTHERDB_LAN_11."</td></tr>";
+	$text .= "<tr><td class='forumheader2' colspan='2'>".OTHERDB_LAN_11."</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_7."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_7."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_user_field", 35, $parm['otherdb_user_field'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_8."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_8."</td><td class='forumheader3'>";
 	$text .= $frm -> form_text("otherdb_password_field", 35, $parm['otherdb_password_field'], 120);
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header3'>".OTHERDB_LAN_9."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".OTHERDB_LAN_9."</td><td class='forumheader3'>";
 	$text .= $frm -> form_select_open("otherdb_password_method");
 	foreach($password_methods as $v)
 	{
@@ -100,7 +100,7 @@ function show_otherdb_form()
 	$text .= $frm -> form_select_close();
 	$text .= "</td></tr>";
 
-	$text .= "<tr><td class='r_header1' colspan='2' style='text-align:center;'>";
+	$text .= "<tr><td class='forumheader' colspan='2' style='text-align:center;'>";
 	$text .= $frm -> form_button("submit", "update", "Update settings");
 	$text .= "</td></tr>";
 

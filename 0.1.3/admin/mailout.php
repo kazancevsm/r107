@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 $e_sub_cat = 'mail';
 if (!isset($_POST['submit'])) {
 	$e_wysiwyg = "email_body";
@@ -25,20 +25,20 @@ if (!isset($_POST['submit'])) {
 set_time_limit(180);
 session_write_close();
 require_once(e_ADMIN."auth.php");
-require_once(e_HANDLER."ren_help.php");
+require_once(e_HANDLER."ren_help_handler.php");
 if (!getperms("W")) {
 	header("location:".e_BASE."index.php");
 	 exit;
 }
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/admin/lan_users.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 if (isset($_POST['testemail']) && getperms("0")) {
     if(trim($_POST['testaddress']) == ""){
 		$message = MAILAN_19;
 	}else{
 		$mailheader_e107id = USERID;
-		require_once(e_HANDLER."mail.php");
+		require_once(e_HANDLER."mail_handler.php");
 		$add = ($pref['mailer']) ? " (".strtoupper($pref['mailer']).")" : " (PHP)";
 		$sendto = trim($_POST['testaddress']);
 		if (!sendemail($sendto, PRFLAN_66." ".SITENAME.$add, PRFLAN_67,MAILAN_68)) 
@@ -167,11 +167,11 @@ if (isset($_POST['submit'])) {
 	}
 	$text .= "
 	<div>
-	<table class='r_border'>
+	<table class='fborder'>
 
 		<tr>
-			<td class='r_header3' style='width:30%'>".MAILAN_03."</td>
-			<td class='r_header3'>".$_to."&nbsp;";
+			<td class='forumheader3' style='width:30%'>".MAILAN_03."</td>
+			<td class='forumheader3'>".$_to."&nbsp;";
 			if($_POST['email_to'] == "self"){
 				$text .= "&lt;".USEREMAIL."&gt;";
 			}
@@ -179,55 +179,55 @@ if (isset($_POST['submit'])) {
 		</tr>
 
 		<tr>
-			<td class='r_header3' style='width:30%'>".MAILAN_01." / ".MAILAN_02."</td>
-			<td class='r_header3'>".$_POST['email_from_name']." &lt;".$_POST['email_from_email']."&gt;</td>
+			<td class='forumheader3' style='width:30%'>".MAILAN_01." / ".MAILAN_02."</td>
+			<td class='forumheader3'>".$_POST['email_from_name']." &lt;".$_POST['email_from_email']."&gt;</td>
 		</tr>
 
 		<tr>
-			<td class='r_header3' style='width:20%'>".MAILAN_06."</td>
-			<td class='r_header3'>".$_POST['email_subject']."&nbsp;</td>
+			<td class='forumheader3' style='width:20%'>".MAILAN_06."</td>
+			<td class='forumheader3'>".$_POST['email_subject']."&nbsp;</td>
 		</tr>";
 
 		$text .= ($_POST['email_cc']) ? "
 		<tr>
-			<td class='r_header3' style='width:30%'>".MAILAN_04."</td>
-			<td class='r_header3'>".$_POST['email_cc']."&nbsp;</td>
+			<td class='forumheader3' style='width:30%'>".MAILAN_04."</td>
+			<td class='forumheader3'>".$_POST['email_cc']."&nbsp;</td>
 		</tr>": "";
 
 		$text .= ($_POST['email_bcc']) ? "
 		<tr>
-			<td class='r_header3' style='width:30%'>".MAILAN_05."</td>
-			<td class='r_header3'>".$_POST['email_bcc']."&nbsp;</td>
+			<td class='forumheader3' style='width:30%'>".MAILAN_05."</td>
+			<td class='forumheader3'>".$_POST['email_bcc']."&nbsp;</td>
 		</tr>": "";
 
 
 		$text .= ($_POST['user_search_name'] && $_POST['user_search_value']) ? "
 		<tr>
-			<td class='r_header3' style='width:30%'>".$_POST['user_search_name']."</td>
-			<td class='r_header3'>".$_POST['user_search_value']."&nbsp;</td>
+			<td class='forumheader3' style='width:30%'>".$_POST['user_search_name']."</td>
+			<td class='forumheader3'>".$_POST['user_search_value']."&nbsp;</td>
 		</tr>": "";
 
 
 
 		$text .= ($_POST['extended_1_name'] && $_POST['extended_1_value']) ? "
 		<tr>
-			<td class='r_header3' style='width:30%'>".$_POST['extended_1_name']."</td>
-			<td class='r_header3'>".$_POST['extended_1_value']."&nbsp;</td>
+			<td class='forumheader3' style='width:30%'>".$_POST['extended_1_name']."</td>
+			<td class='forumheader3'>".$_POST['extended_1_value']."&nbsp;</td>
 		</tr>": "";
 
 
 
 		$text .= ($_POST['extended_2_name'] && $_POST['extended_2_value']) ? "
 		<tr>
-			<td class='r_header3' style='width:30%'>".$_POST['extended_2_name']."</td>
-			<td class='r_header3'>".$_POST['extended_2_value']."&nbsp;</td>
+			<td class='forumheader3' style='width:30%'>".$_POST['extended_2_name']."</td>
+			<td class='forumheader3'>".$_POST['extended_2_value']."&nbsp;</td>
 		</tr>": "";
 
 
 
 		$text .="
  		<tr>
-			<td class='r_header3' colspan='2'>".stripslashes($tp->toHTML($_POST['email_body'],TRUE, 'E_BODY', '', FALSE))."</td>
+			<td class='forumheader3' colspan='2'>".stripslashes($tp->toHTML($_POST['email_body'],TRUE, 'E_BODY', '', FALSE))."</td>
 		</tr>
 
 	</table>
@@ -308,12 +308,12 @@ function show_mailform($foo=""){
 	}
 
 	$debug = (e_MENU == "debug") ? "?[debug]" : "";
-	$text .= "<div style='".ADMIN_WIDTH."; text-align:center'>
+	$text .= "<div style='text-align:center'>
 	<form method='post' action='".e_SELF.$debug."' id='mailout_form'>
-	<table class='r_border' style='".ADMIN_WIDTH."'  cellpadding='0' cellspacing='0'>
+	<table class='fborder'  cellpadding='0' cellspacing='0'>
 	<tr>
-	<td style='width:30%' class='r_header3'>".MAILAN_01.": </td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>".MAILAN_01.": </td>
+	<td style='width:70%' class='forumheader3'>
 	<input type='text' name='email_from_name' class='tbox' style='width:80%' size='10' value=\"".$_POST['email_from_name']."\" />
 	</td>
 	</tr>";
@@ -322,15 +322,15 @@ function show_mailform($foo=""){
 	$text .="
 
 	<tr>
-	<td class='r_header3'>".MAILAN_02.": </td>
-	<td  class='r_header3'>
+	<td class='forumheader3'>".MAILAN_02.": </td>
+	<td  class='forumheader3'>
 	<input type='text' name='email_from_email' class='tbox' style='width:80%' value=\"".$_POST['email_from_email']."\" />
 	</td>
 	</tr>
 
 	<tr>
-	<td class='r_header3'>".MAILAN_03.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".MAILAN_03.": </td>
+	<td class='forumheader3'>
 	".userclasses("email_to", $_POST['email_to'])."</td>
 	</tr>";
 
@@ -342,7 +342,7 @@ function show_mailform($foo=""){
 
 		$text .= "
 		<tr>
-			<td style='width:35%' class='r_header3'>".MAILAN_46."
+			<td style='width:35%' class='forumheader3'>".MAILAN_46."
 			<select name='user_search_name' class='tbox'>
 			<option value=''>&nbsp;</option>";
 
@@ -352,7 +352,7 @@ function show_mailform($foo=""){
 
 	$text .= "
 		</select> ".MAILAN_47." </td>
-		<td style='width:65%' class='r_header3'>
+		<td style='width:65%' class='forumheader3'>
 		<input type='text' name='user_search_value' class='tbox' style='width:80%' value='' />
 		</td></tr>
 		";
@@ -361,7 +361,7 @@ function show_mailform($foo=""){
 
 		$text .= "
 		<tr>
-			<td class='r_header3'>".MAILAN_46."
+			<td class='forumheader3'>".MAILAN_46."
 			<select name='extended_1_name' class='tbox'>
 			<option value=''>&nbsp;</option>";
 			$sql -> db_Select("user_extended_struct");
@@ -371,7 +371,7 @@ function show_mailform($foo=""){
 
 		$text .= "
 		</select> ".MAILAN_48." </td>
-		<td  class='r_header3'>
+		<td  class='forumheader3'>
 		<input type='text' name='extended_1_value' class='tbox' style='width:80%' value='' />
 		</td></tr>
 		";
@@ -382,7 +382,7 @@ function show_mailform($foo=""){
 
 		$text .= "
 		<tr>
-			<td class='r_header3'>".MAILAN_46."
+			<td class='forumheader3'>".MAILAN_46."
 			<select name='extended_2_name' class='tbox'>
 			<option value=''>&nbsp;</option>";
 			$sql -> db_Select("user_extended_struct");
@@ -392,7 +392,7 @@ function show_mailform($foo=""){
 
 		$text .= "
 		</select> ".MAILAN_48." </td>
-		<td  class='r_header3'>
+		<td  class='forumheader3'>
 		<input type='text' name='extended_2_value' class='tbox' style='width:80%' value='' />
 		</td></tr>
 		";
@@ -403,8 +403,8 @@ function show_mailform($foo=""){
 	$text .= "
 
 	<tr>
-	<td class='r_header3'>".MAILAN_04.": </td>
-	<td  class='r_header3'>
+	<td class='forumheader3'>".MAILAN_04.": </td>
+	<td  class='forumheader3'>
 	<input type='text' name='email_cc' class='tbox' style='width:80%' value=\"".$_POST['email_cc']."\" />
 
 	</td>
@@ -412,16 +412,16 @@ function show_mailform($foo=""){
 
 
 	<tr>
-	<td class='r_header3'>".MAILAN_05.": </td>
-	<td  class='r_header3'>
+	<td class='forumheader3'>".MAILAN_05.": </td>
+	<td  class='forumheader3'>
 	<input type='text' name='email_bcc' class='tbox' style='width:80%' value='$email_bcc' />
 
 	</td>
 	</tr>
 
 	<tr>
-	<td class='r_header3'>".MAILAN_06.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".MAILAN_06.": </td>
+	<td class='forumheader3'>
 	<input type='text' name='email_subject' class='tbox' style='width:80%' value='$email_subject' />
 
 	</td>
@@ -433,8 +433,8 @@ function show_mailform($foo=""){
 	// Attachment.
 
 	$text .= "<tr>
-	<td class='r_header3'>".MAILAN_07.": </td>
-	<td  class='r_header3'>";
+	<td class='forumheader3'>".MAILAN_07.": </td>
+	<td  class='forumheader3'>";
 	$text .= "<select class='tbox' name='email_attachment' >
 	<option value=''>&nbsp;</option>\n";
 	$sql->db_Select("download", "download_url,download_name", "download_id !='' ORDER BY download_name");
@@ -455,21 +455,21 @@ function show_mailform($foo=""){
 
 	$text .= "
 	<tr>
-	<td class='r_header3'>".MAILAN_09.": </td>
-	<td  class='r_header3'>
+	<td class='forumheader3'>".MAILAN_09.": </td>
+	<td  class='forumheader3'>
 	<input type='checkbox' name='use_theme' value='1' />
 	</td>
 	</tr>
 
 	<tr>
-	<td colspan='2'  class='r_header3'>
+	<td colspan='2'  class='forumheader3'>
 	<textarea rows='10' cols='20' id='email_body' name='email_body'  class='tbox' style='width:100%;height:200px' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);'>".$email_body."</textarea>
 	</td>
 	</tr>";
 
 	$text .="
 	<tr>
-	<td style='width:100%' class='r_header3' colspan='2'>
+	<td style='width:100%' class='forumheader3' colspan='2'>
 	<div style='width:100%;text-align:center;vertical-align: middle;' >";
 
     global $eplug_bb;
@@ -500,7 +500,7 @@ function show_mailform($foo=""){
 
 
 	$text .= "<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:center' class='r_header1'>";
+	<td colspan='2' style='text-align:center' class='forumheader'>";
 	if(isset($_POST['edit'])){
 		$text .= "<input type='hidden' name='update_id' value='".$email_id."' />";
 		$text .= "<input class='button' type='submit' name='update_email' value=\"".LAN_UPDATE."\" />";
@@ -527,17 +527,17 @@ function show_prefs(){
 $text = "
 	<form method='post' action='".e_SELF."?".e_QUERY."' id='mailsettingsform'>
 	<div id='mail' style='text-align:center;'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:30%' class='r_header3'>".PRFLAN_63."<br /></td>
-	<td style='width:70%; text-align:right' class='r_header3'><input class='button' type='submit' name='testemail' value=\"".PRFLAN_65."\" />
+	<td style='width:30%' class='forumheader3'>".PRFLAN_63."<br /></td>
+	<td style='width:70%; text-align:right' class='forumheader3'><input class='button' type='submit' name='testemail' value=\"".PRFLAN_65."\" />
 	<input name='testaddress' class='tbox' size='40' type='text' value=\"".SITEADMINEMAIL."\" />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='vertical-align:top' class='r_header3'>".PRFLAN_70."<br /><span class='smalltext'>".PRFLAN_71."</span></td>
-	<td style='text-align:right' class='r_header3'>
+	<td style='vertical-align:top' class='forumheader3'>".PRFLAN_70."<br /><span class='smalltext'>".PRFLAN_71."</span></td>
+	<td style='text-align:right' class='forumheader3'>
 	<select class='tbox' name='mailer' onchange='disp(this.value)'>\n";
 	$mailers = array("php","smtp","sendmail");
 	foreach($mailers as $opt){
@@ -612,23 +612,23 @@ $text = "
 	</tr>
 
 	<tr>
-		<td class='r_header3'>".MAILAN_25."</td>
-		<td class='r_header3' style='text-align: right;'> ".MAILAN_26."
+		<td class='forumheader3'>".MAILAN_25."</td>
+		<td class='forumheader3' style='text-align: right;'> ".MAILAN_26."
 		<input class='tbox' size='3' type='text' name='mail_pause' value='".$pref['mail_pause']."' /> ".MAILAN_27.".
 		</td>
 	</tr>\n
 
 	<tr>
-		<td class='r_header3'>".MAILAN_28."</td>
-		<td class='r_header3' style='text-align: right;'>
+		<td class='forumheader3'>".MAILAN_28."</td>
+		<td class='forumheader3' style='text-align: right;'>
 		<input class='tbox' size='3' type='text' name='mail_pausetime' value='".$pref['mail_pausetime']."' /> ".MAILAN_29.".<br />
 		<span class='smalltext'>".MAILAN_30."</span>
 		</td>
 	</tr>\n
 
 	<tr>
-	<td style='vertical-align:top' class='r_header3'>".MAILAN_31."</td>
-	<td style=' text-align:right' class='r_header3'>
+	<td style='vertical-align:top' class='forumheader3'>".MAILAN_31."</td>
+	<td style=' text-align:right' class='forumheader3'>
 		".MAILAN_32.": <input class='tbox' size='40' type='text' name='mail_bounce_email' value=\"".$pref['mail_bounce_email']."\" /><br />
 		".MAILAN_33." (POP3):  <input class='tbox' size='40' type='text' name='mail_bounce_pop3' value=\"".$pref['mail_bounce_pop3']."\" /><br />
 		".MAILAN_34.":  <input class='tbox' size='40' type='text' name='mail_bounce_user' value=\"".$pref['mail_bounce_user']."\" /><br />
@@ -642,7 +642,7 @@ $text = "
 
 
 	<tr>
-	<td style='text-align:center' colspan='2' class='r_header1'>
+	<td style='text-align:center' colspan='2' class='forumheader'>
 	<input class='button' type='submit' name='updateprefs' value=\"".PRFLAN_52."\" />
 	</td>
 	</tr>
@@ -674,7 +674,7 @@ function showList()
 		if (!$count)
 		{
 			$text = "
-			<div class='r_header2' style='text-align:center'>".MAILAN_22."</div>";
+			<div class='forumheader2' style='text-align:center'>".MAILAN_22."</div>";
 			$ns -> tablerender("<div style='text-align:center'>".MAILAN_21."</div>", $text);
 			require_once(e_ADMIN."footer.php");
 			exit;
@@ -685,14 +685,14 @@ function showList()
 			$text .= "
 
 			<form action='".e_SELF."' id='display' method='post'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_caption'>".MAILAN_49."</td>
-			<td style='width:10%' class='r_caption'>".MAILAN_50."</td>
-			<td style='width:40%' class='r_caption'>".MAILAN_51."</td>
-			<td style='width:20%; text-align: center;' class='r_caption'>".MAILAN_52."</td>
-			<td style='width:5%; text-align: center;' class='r_caption'>".LAN_OPTIONS."</td>
+			<td style='width:5%; text-align: center;' class='fcaption'>".MAILAN_49."</td>
+			<td style='width:10%' class='fcaption'>".MAILAN_50."</td>
+			<td style='width:40%' class='fcaption'>".MAILAN_51."</td>
+			<td style='width:20%; text-align: center;' class='fcaption'>".MAILAN_52."</td>
+			<td style='width:5%; text-align: center;' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>
 			";
 
@@ -703,13 +703,13 @@ function showList()
 				$datestamp = $gen->convert_date($row2['gen_datestamp'], "short");
 
 				$text .= "<tr>
-				<td class='r_header3' style='text-align: center;'>".$row2['gen_id'] ."</td>
-				<td class='r_header3'>".$row2['user_name']."</td>
-				<td class='r_header3'>".$row2['gen_ip']."</td>
+				<td class='forumheader3' style='text-align: center;'>".$row2['gen_id'] ."</td>
+				<td class='forumheader3'>".$row2['user_name']."</td>
+				<td class='forumheader3'>".$row2['gen_ip']."</td>
 
-				<td class='r_header3' style='text-align: center;'>".$datestamp."</td>
+				<td class='forumheader3' style='text-align: center;'>".$datestamp."</td>
 
-				<td style='width:50px;white-space:nowrap' class='r_header3'>
+				<td style='width:50px;white-space:nowrap' class='forumheader3'>
 				<div>
 				<input type='image' name='edit[{$row2['gen_id']}]' value='edit' src='".e_IMAGE."admin/edit_16.png' alt='".LAN_EDIT."' title='".LAN_EDIT."' style='border:0px' />
 				<input type='image' name='delete[{$row2['gen_id']}]' value='del' onclick='return jsconfirm(\"".$tp->toJS(LAN_CONFIRMDEL." [".$row2['gen_ip']."]")."\")'  src='".e_IMAGE."admin/delete_16.png' alt='".LAN_DELETE."' title='".LAN_DELETE."' style='border:0px' />
@@ -776,8 +776,8 @@ function sc_Select($container='sc_selector') {
 <!-- Start of Shortcode selector -->
 	<div style='margin-left:0px;margin-right:0px; position:relative;z-index:1000;float:right;display:none' id='{$container}'>
 	<div style='position:absolute; bottom:30px; right:125px'>
-	<table class='r_border' style='background-color: #fff'>
-	<tr><td class='r_header3'>
+	<table class='fborder' style='background-color: #fff'>
+	<tr><td class='forumheader3'>
 	<select class='tbox' name='sc_sel' onchange=\"addtext(this.value); this.selectedIndex= 0; expandit('{$container}')\">
 	<option value=''> -- </option>\n";
 

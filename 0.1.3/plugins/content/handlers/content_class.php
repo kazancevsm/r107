@@ -270,8 +270,8 @@ class content{
 			$content_pref['content_author_nextprev'] = "1";					//use next prev buttons
 			$content_pref['content_author_nextprev_number'] = "20";			//amount of items per page
 			$content_pref['content_author_index_caption'] = CONTENT_LAN_32;	//caption for author index page
-			$content_pref['content_author_caption'] = CONTENT_LAN_32;		//caption for single author page
-			$content_pref['content_author_caption_append_name'] = '1';		//append author name to caption
+			$content_pref['content_authofcaption'] = CONTENT_LAN_32;		//caption for single author page
+			$content_pref['content_authofcaption_append_name'] = '1';		//append author name to caption
 
 			//ARCHIVE PAGE
 			$content_pref['content_archive_nextprev'] = "1";				//archive : choose to show next/prev links

@@ -17,13 +17,13 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("1")) {
 	header("location:".e_BASE."index.php");
 	 exit ;
 }
 
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 	
 include_lan(e_PLUGIN."comment_menu/languages/".e_LANGUAGE.".php");
 
@@ -45,39 +45,39 @@ if (isset($_POST['update_menu'])) {
 	
 $text = "<div style='text-align:center'>
 	<form method=\"post\" action=\"".e_SELF."?".e_QUERY."\" name=\"menu_conf_form\">
-	<table style=\"width:85%\" class=\"r_border\" >
+	<table style=\"width:85%\" class=\"fborder\" >
 	 
 	<tr>
-	<td style=\"width:40%\" class='r_header3'>".CM_L3.": </td>
-	<td style=\"width:60%\" class='r_header3'>
+	<td style=\"width:40%\" class='forumheader3'>".CM_L3.": </td>
+	<td style=\"width:60%\" class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"comment_caption\" size=\"20\" value=\"".$menu_pref['comment_caption']."\" maxlength=\"100\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td style=\"width:40%\" class='r_header3'>".CM_L4.": </td>
-	<td style=\"width:60%\" class='r_header3'>
+	<td style=\"width:40%\" class='forumheader3'>".CM_L4.": </td>
+	<td style=\"width:60%\" class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"comment_display\" size=\"20\" value=\"".$menu_pref['comment_display']."\" maxlength=\"2\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td style=\"width:40%\" class='r_header3'>".CM_L5.": </td>
-	<td style=\"width:60%\" class='r_header3'>
+	<td style=\"width:40%\" class='forumheader3'>".CM_L5.": </td>
+	<td style=\"width:60%\" class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"comment_characters\" size=\"20\" value=\"".$menu_pref['comment_characters']."\" maxlength=\"4\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td style=\"width:40%\" class='r_header3'>".CM_L6.": </td>
-	<td style=\"width:60%\" class='r_header3'>
+	<td style=\"width:40%\" class='forumheader3'>".CM_L6.": </td>
+	<td style=\"width:60%\" class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"comment_postfix\" size=\"30\" value=\"".$menu_pref['comment_postfix']."\" maxlength=\"200\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td style=\"width:40%\" class='r_header3'>".CM_L7.": </td>
-	<td style=\"width:60%\" class='r_header3'>
+	<td style=\"width:40%\" class='forumheader3'>".CM_L7.": </td>
+	<td style=\"width:60%\" class='forumheader3'>
 	<input type=\"checkbox\" name=\"comment_title\" value=\"1\"";
 if ($menu_pref['comment_title']) {
 	$text .= " checked ";
@@ -87,7 +87,7 @@ $text .= " />
 	</tr>
 	 
 	<tr>
-	<td colspan=\"2\" class='r_header1' style=\"text-align:center\"><input class=\"button\" type=\"submit\" name=\"update_menu\" value=\"".CM_L9."\" /></td>
+	<td colspan=\"2\" class='forumheader' style=\"text-align:center\"><input class=\"button\" type=\"submit\" name=\"update_menu\" value=\"".CM_L9."\" /></td>
 	</tr>
 	</table>
 	</form>

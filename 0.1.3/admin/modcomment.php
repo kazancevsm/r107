@@ -24,14 +24,14 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("B")) {
 	header("location:".e_BASE."index.php");
 	exit;
 }
 require_once("auth.php");
 require_once(e_HANDLER."comment_handler.php");
-require_once(e_HANDLER.'ren_help.php');
+require_once(e_HANDLER."ren_help_handler.php");
 
 $cobj = new comment;
 global $tp;
@@ -95,12 +95,12 @@ $text = "
 <div style='text-align:center'>
 <form method='post' action='".e_SELF."?".e_QUERY."'>
 <input type='hidden' name='e-token' value='".e_TOKEN."' />
-<table class='r_border' style='".ADMIN_WIDTH."'>";
+<table class='fborder' >";
 
 if ($editid)
 {
 	if (!$sql->db_Select("comments", "*", "comment_id=$editid")) {
-		$text .= "<tr><td class='r_header3' style='text-align:center'>".MDCLAN_2.".</td></tr>";
+		$text .= "<tr><td class='forumheader3' style='text-align:center'>".MDCLAN_2.".</td></tr>";
 	}
 	else
 	{
@@ -117,7 +117,7 @@ if ($editid)
 
 if (!$sql->db_Select("comments", "*", "(comment_type='".$type."' OR comment_type='".$table."') AND comment_item_id={$id} ORDER BY `comment_datestamp` ")) 
 {
-	$text .= "<tr><td class='r_header3' style='text-align:center'>".MDCLAN_2.".</td></tr>";
+	$text .= "<tr><td class='forumheader3' style='text-align:center'>".MDCLAN_2.".</td></tr>";
 } 
 else 
 {
@@ -146,11 +146,11 @@ else
 
 		$comments .= "
 		<tr>
-			<td class='r_header3' style='width:5%; text-align:center;'>".($row['comment_blocked'] ? "<img src='".e_IMAGE."admin/blocked.png' />" : "&nbsp;")."</td>
-			<td class='r_header3' style='width:15%;'>".$datestamp."</td>
-			<td class='r_header3' style='width:15%;'><b>".$comment_nick."</b><br />".$comment_str."</td>
-			<td class='r_header3' style='width:40%;'>".$row['comment_comment']."</td>
-			<td class='r_header3' style='width:25%;'>
+			<td class='forumheader3' style='width:5%; text-align:center;'>".($row['comment_blocked'] ? "<img src='".e_IMAGE."admin/blocked.png' />" : "&nbsp;")."</td>
+			<td class='forumheader3' style='width:15%;'>".$datestamp."</td>
+			<td class='forumheader3' style='width:15%;'><b>".$comment_nick."</b><br />".$comment_str."</td>
+			<td class='forumheader3' style='width:40%;'>".$row['comment_comment']."</td>
+			<td class='forumheader3' style='width:25%;'>
 				<a href='".e_ADMIN."modcomment.php?{$table}.{$id}.".$row['comment_id']."'><img src='".e_IMAGE."admin/edit_16.png' alt='".LAN_EDIT."' title='".LAN_EDIT."' style='border:none' /></a>"
 				."&nbsp;".($row['comment_blocked'] ? "<input type='checkbox' name='comment_unblocked[]' value='".$row['comment_id']."' /> ".MDCLAN_5."" : "<input type='checkbox' name='comment_blocked[]' value='".$row['comment_id']."' /> ".MDCLAN_6."")
 				."&nbsp;<input type='checkbox' name='comment_delete[]' value='".$row['comment_id']."' /> ".LAN_DELETE."
@@ -158,19 +158,19 @@ else
 		</tr>";
 	}
 	$text .= "
-	<tr><td colspan='5' class='r_caption'>".MDCLAN_10."</td></tr>
+	<tr><td colspan='5' class='fcaption'>".MDCLAN_10."</td></tr>
 	<tr>
-	<td class='r_header3' style='text-align:right' colspan='4'>".MDCLAN_14.":</td>
-	<td style='width:25%;' class='r_header3'>
+	<td class='forumheader3' style='text-align:right' colspan='4'>".MDCLAN_14.":</td>
+	<td style='width:25%;' class='forumheader3'>
 	<input type='radio' name='comment_lock' value='0' ".(!$comment_lock ? " checked='checked'" : "")." /> ".MDCLAN_15." 
 	<input type='radio' name='comment_lock' value='1' ".($comment_lock ? " checked='checked'" : "")." /> ".MDCLAN_16."
 	<input type='hidden' name='current_lock' value='".$comment_lock."' />
 	</td>
 	</tr>
-	<tr><td colspan='5' class='r_caption'>".MDCLAN_12." (".$total_comments." ".($total_comments == "1" ? MDCLAN_11 : MDCLAN_12).", ".$total_blocked." ".MDCLAN_13.")</td></tr>
+	<tr><td colspan='5' class='fcaption'>".MDCLAN_12." (".$total_comments." ".($total_comments == "1" ? MDCLAN_11 : MDCLAN_12).", ".$total_blocked." ".MDCLAN_13.")</td></tr>
 	".$comments."
-	<tr><td colspan='5' class='r_header1' style='text-align:center'>".MDCLAN_9."</td></tr>
-	<tr><td colspan='5' class='r_header1' style='text-align:center'><input class='button' type='submit' name='moderate' value='".MDCLAN_8."' /></td></tr>
+	<tr><td colspan='5' class='forumheader' style='text-align:center'>".MDCLAN_9."</td></tr>
+	<tr><td colspan='5' class='forumheader' style='text-align:center'><input class='button' type='submit' name='moderate' value='".MDCLAN_8."' /></td></tr>
 	";
 }
 $text .= "</table></form></div>";

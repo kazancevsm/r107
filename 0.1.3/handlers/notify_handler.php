@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/notify_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/notify_handler.php $
 |     $Revision: 12061 $
-|     $Id: notify_class.php 12061 2011-01-30 21:42:15Z e107coders $
+|     $Id: notify_handler.php 12061 2011-01-30 21:42:15Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -43,7 +43,7 @@ class notify {
 				
 		$this->logData("Initiate Send - ".$id. " :: Subject: ".$tp->toEmail($subject));
 		
-		e107_require_once(e_HANDLER.'mail.php');
+		e107_require_once(e_HANDLER.'mail_handler.php');
 		$subject = SITENAME.': '.$subject;
 		if ($this -> notify_prefs['event'][$id]['type'] == 'main')
 		{

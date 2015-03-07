@@ -16,7 +16,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
@@ -92,26 +92,26 @@ if(!is_object($sql)){ $sql = new db; }
 $text = "
 <div style='text-align:center'>
 ".$rs -> form_open("post", e_SELF, "pdfform", "", "enctype='multipart/form-data'")."
-<table class='r_border' style='".ADMIN_WIDTH."'>
+<table class='fborder' >
 
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_5."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_margin_left", 74, $pdfpref['pdf_margin_left'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_5."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_margin_left", 74, $pdfpref['pdf_margin_left'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_6."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_margin_right", 74, $pdfpref['pdf_margin_right'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_6."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_margin_right", 74, $pdfpref['pdf_margin_right'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_7."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_margin_top", 74, $pdfpref['pdf_margin_top'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_7."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_margin_top", 74, $pdfpref['pdf_margin_top'], 250)."</td>
 </tr>";
 
 $fontlist=array("arial","times","courier","helvetica","symbol");
 $text .= "
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_8."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_8."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_select_open("pdf_font_family");
 		foreach($fontlist as $font){
 			$text .= $rs -> form_option($font, ($pdfpref['pdf_font_family'] == $font ? "1" : "0"), $font);
@@ -121,59 +121,59 @@ $text .= "
 </tr>
 
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_9."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_font_size", 74, $pdfpref['pdf_font_size'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_9."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_font_size", 74, $pdfpref['pdf_font_size'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_10."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_font_size_sitename", 74, $pdfpref['pdf_font_size_sitename'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_10."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_font_size_sitename", 74, $pdfpref['pdf_font_size_sitename'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_11."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_font_size_page_url", 74, $pdfpref['pdf_font_size_page_url'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_11."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_font_size_page_url", 74, $pdfpref['pdf_font_size_page_url'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_12."</td>
-	<td class='r_header3' style='width:70%;'>".$rs -> form_text("pdf_font_size_page_number", 74, $pdfpref['pdf_font_size_page_number'], 250)."</td>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_12."</td>
+	<td class='forumheader3' style='width:70%;'>".$rs -> form_text("pdf_font_size_page_number", 74, $pdfpref['pdf_font_size_page_number'], 250)."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_13."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_13."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_radio("pdf_show_logo", "1", ($pdfpref['pdf_show_logo'] ? "1" : "0"), "", "").PDF_LAN_3."
 		".$rs -> form_radio("pdf_show_logo", "0", ($pdfpref['pdf_show_logo'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_14."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_14."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_radio("pdf_show_sitename", "1", ($pdfpref['pdf_show_sitename'] ? "1" : "0"), "", "").PDF_LAN_3."
 		".$rs -> form_radio("pdf_show_sitename", "0", ($pdfpref['pdf_show_sitename'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_15."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_15."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_radio("pdf_show_page_url", "1", ($pdfpref['pdf_show_page_url'] ? "1" : "0"), "", "").PDF_LAN_3."
 		".$rs -> form_radio("pdf_show_page_url", "0", ($pdfpref['pdf_show_page_url'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_16."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_16."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_radio("pdf_show_page_number", "1", ($pdfpref['pdf_show_page_number'] ? "1" : "0"), "", "").PDF_LAN_3."
 		".$rs -> form_radio("pdf_show_page_number", "0", ($pdfpref['pdf_show_page_number'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:30%; white-space:nowrap;'>".PDF_LAN_20."</td>
-	<td class='r_header3' style='width:70%;'>
+	<td class='forumheader3' style='width:30%; white-space:nowrap;'>".PDF_LAN_20."</td>
+	<td class='forumheader3' style='width:70%;'>
 		".$rs -> form_radio("pdf_error_reporting", "1", ($pdfpref['pdf_error_reporting'] ? "1" : "0"), "", "").PDF_LAN_3."
 		".$rs -> form_radio("pdf_error_reporting", "0", ($pdfpref['pdf_error_reporting'] ? "0" : "1"), "", "").PDF_LAN_4."
 	</td>
 </tr>
 
 <tr>
-	<td style='text-align:center' class='r_header1' colspan='2'>".$rs -> form_button("submit", "update_pdf", PDF_LAN_17)."</td>
+	<td style='text-align:center' class='forumheader' colspan='2'>".$rs -> form_button("submit", "update_pdf", PDF_LAN_17)."</td>
 </tr>
 
 </table>

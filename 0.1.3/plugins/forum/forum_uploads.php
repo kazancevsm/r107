@@ -24,7 +24,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -80,15 +80,15 @@ if(is_array($fileList))
 	<form method='post' action='".e_SELF."'>
 	<table style='width:98%'>
 	<tr>
-		<td class='r_caption'>".FRMUP_5."</td>
-		<td class='r_caption'>".FRMUP_6."</td>
+		<td class='fcaption'>".FRMUP_5."</td>
+		<td class='fcaption'>".FRMUP_6."</td>
 	</tr>";
 	foreach($fileList as $finfo)
 	{
 		if($finfo['fname'])
 		{
 			$filecount++;
-			$txt .= "<tr><td class='r_header3'><a href='".e_FILE."public/{$finfo['fname']}'>{$finfo['fname']}</a></td>";
+			$txt .= "<tr><td class='forumheader3'><a href='".e_FILE."public/{$finfo['fname']}'>{$finfo['fname']}</a></td>";
 			$found = FALSE;
 			if(is_array($threadList))
 			{
@@ -105,17 +105,17 @@ if(is_array($fileList))
 			{
 				if($tinfo['thread_parent'])
 				{
-					$txt .= "<td class='r_header3'>".FRMUP_7.": <a href='".e_PLUGIN."forum/forum_viewtopic.php?{$tinfo['thread_id']}.post'>{$tinfo['thread_parent']}</a></td>";
+					$txt .= "<td class='forumheader3'>".FRMUP_7.": <a href='".e_PLUGIN."forum/forum_viewtopic.php?{$tinfo['thread_id']}.post'>{$tinfo['thread_parent']}</a></td>";
 				}
 				else
 				{
-					$txt .= "<td class='r_header3'>".FRMUP_7.": <a href='".e_PLUGIN."forum/forum_viewtopic.php?{$tinfo['thread_id']}'>{$tinfo['thread_id']}</a></td>";
+					$txt .= "<td class='forumheader3'>".FRMUP_7.": <a href='".e_PLUGIN."forum/forum_viewtopic.php?{$tinfo['thread_id']}'>{$tinfo['thread_id']}</a></td>";
 				}	
 			
 			}
 			else
 			{
-				$txt .= "<td class='r_header3'>".FRMUP_8." <input class='button' type='submit' name='delete[{$finfo['fname']}]' value='".FRMUP_10."' />
+				$txt .= "<td class='forumheader3'>".FRMUP_8." <input class='button' type='submit' name='delete[{$finfo['fname']}]' value='".FRMUP_10."' />
 				<input type='hidden' name='e-token' value='".e_TOKEN."' />
 				</td>";
 			}

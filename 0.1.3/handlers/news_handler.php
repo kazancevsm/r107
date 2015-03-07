@@ -9,9 +9,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/news_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/news_handler.php $
 |     $Revision: 11702 $
-|     $Id: news_class.php 11702 2010-08-25 11:36:42Z nlstart $
+|     $Id: news_handler.php 11702 2010-08-25 11:36:42Z nlstart $
 |     $Author: nlstart $
 +----------------------------------------------------------------------------+
 */

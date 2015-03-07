@@ -22,24 +22,24 @@ if (!defined('e107_INIT')) { exit; }
 $NEWSFEED_MAIN_CAPTION = NFLAN_38;
 
 $NEWSFEED_LIST_START = "
-<table style='width: 100%;' class='r_border'>\n";
+<table style='width: 100%;' class='fborder'>\n";
 
 $NEWSFEED_LIST = "
 <tr>
-<td style='width: 30%;' class='r_header3'>{FEEDNAME}</td>
-<td style='width: 70%;' class='r_header3'>{FEEDDESCRIPTION}</td>
+<td style='width: 30%;' class='forumheader3'>{FEEDNAME}</td>
+<td style='width: 70%;' class='forumheader3'>{FEEDDESCRIPTION}</td>
 </tr>\n";
 
 $NEWSFEED_LIST_END = "
 </table>\n";
 
 $NEWSFEED_MAIN_START = "
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1'>{FEEDIMAGE} {FEEDTITLE}</td>
+<td class='forumheader'>{FEEDIMAGE} {FEEDTITLE}</td>
 </tr>
 <tr>
-<td class='r_header3'>
+<td class='forumheader3'>
 <ul>\n";
 
 $NEWSFEED_MAIN = "
@@ -52,11 +52,11 @@ $NEWSFEED_MAIN_END = "
 </tr>
 
 <tr>
-<td class='r_header3' style='text-align: right;'><span class='smalltext'>{FEEDCOPYRIGHT} | {FEEDLASTBUILDDATE}</span></td>
+<td class='forumheader3' style='text-align: right;'><span class='smalltext'>{FEEDCOPYRIGHT} | {FEEDLASTBUILDDATE}</span></td>
 </tr>
 
 <tr>
-<td class='r_header3' style='text-align: center;'><span class='smalltext'>{BACKLINK}</span></td>
+<td class='forumheader3' style='text-align: center;'><span class='smalltext'>{BACKLINK}</span></td>
 </tr>
 </table>\n";
 

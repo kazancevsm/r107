@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/ren_help.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/ren_help_handler.php $
 |     $Revision: 12055 $
-|     $Id: ren_help.php 12055 2011-01-22 02:14:27Z e107coders $
+|     $Id: ren_help_handler.php 12055 2011-01-22 02:14:27Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -97,8 +97,8 @@ function Size_Select($formid='size_selector') {
 	$text ="<!-- Start of Size selector -->
 	<div style='margin-left:0px;margin-right:0px; position:relative;z-index:1000;float:right;display:none' id='{$formid}'>";
 	$text .="<div style='position:absolute; bottom:30px; right:125px'>";
-	$text .= "<table class='r_border' style='background-color: #fff'>
-	<tr><td class='r_header3'>
+	$text .= "<table class='fborder' style='background-color: #fff'>
+	<tr><td class='forumheader3'>
 	<select class='tbox bb-sizeselect' name='sizeselect' onchange=\"addtext(this.value); expandit('{$formid}')\">
 	<option value=''>".LANHELP_41."</option>";
 
@@ -201,8 +201,8 @@ function PreImage_Select($formid)
 	$text ="<!-- Start of PreImage selector -->
 	<div class='bb-preimageselect' style='margin-left:0px;margin-right:100px; position:relative;z-index:999;float:right;display:none' id='{$formid}'>";
 	$text .="<div style='position:absolute; bottom:30px; right:100px'>";
-	$text .= "<table class='r_border bb-preimageselect' style='background-color: #fff'>
-	<tr><td class='r_header3' style='white-space: nowrap'>";
+	$text .= "<table class='fborder bb-preimageselect' style='background-color: #fff'>
+	<tr><td class='forumheader3' style='white-space: nowrap'>";
 
 	if(!count($imagelist))
 	{
@@ -248,7 +248,7 @@ function PreImage_Select($formid)
 
 function PreFile_Select($formid='prefile_selector',$bbcode_filedir = '') 
 {
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	global $IMAGES_DIRECTORY, $fl, $sql;
 
 	$filelist = array();
@@ -275,8 +275,8 @@ function PreFile_Select($formid='prefile_selector',$bbcode_filedir = '')
 	$text ="<!-- Start of PreFile selector -->
 	<div class='bb-prefileselect' style='margin-left:0px;margin-right:100px; position:relative;z-index:1000;float:right;display:none' id='{$formid}'>";
 	$text .="<div style='position:absolute; bottom:30px; right:75px'>";
-	$text .= "<table class='r_border bb-prefileselect' style='background-color: #fff'>
-	<tr><td class='r_header3' style='white-space: nowrap'>";
+	$text .= "<table class='fborder bb-prefileselect' style='background-color: #fff'>
+	<tr><td class='forumheader3' style='white-space: nowrap'>";
 
 
 	if(!count($filelist))
@@ -325,8 +325,8 @@ function Emoticon_Select($formid='emoticon_selector')
 	$text ="<!-- Start of Emoticon selector -->
 	<div style='margin-left:0px;margin-right:0px; position:relative;z-index:1000;float:right;display:none' id='{$formid}' onclick=\"this.style.display='none'\" >
 		<div style='position:absolute; bottom:30px; right:75px; width:221px; height:133px; overflow:auto;'>
-			<table class='r_border' style='background-color:#fff;'>
-			<tr><td class='r_header3'>
+			<table class='fborder' style='background-color:#fff;'>
+			<tr><td class='forumheader3'>
 			".r_emote()."
 			</td></tr></table>
 		</div>

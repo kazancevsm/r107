@@ -26,7 +26,7 @@ Plugins should use an e_rss.php file in their plugin folder
 ----------------------------------------------------------------
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['rss_menu']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -36,7 +36,7 @@ if (!isset($pref['plug_installed']['rss_menu']))
 global $tp;
 
 require_once(e_PLUGIN."rss_menu/rss_shortcodes.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 if (!is_object($tp->e_bb)) {
 	require_once(e_HANDLER.'bbcode_handler.php');

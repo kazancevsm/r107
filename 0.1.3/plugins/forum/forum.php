@@ -18,7 +18,7 @@
 */
 if(!defined("e107_INIT")) 
 {
-	require_once("../../class.php");
+	require_once("../../class2.php");
 }
 if (!isset($pref['plug_installed']['forum']))
 {
@@ -241,7 +241,7 @@ foreach ($parent_list as $parent) {
 		//		$forums = $forum->forum_getforums($parent['forum_id']);
 		if (!count($forum_list[$parent['forum_id']]))
 		{
-			$text .= "<td colspan='5' style='text-align:center' class='r_header3'>".LAN_52."</td>";
+			$text .= "<td colspan='5' style='text-align:center' class='forumheader3'>".LAN_52."</td>";
 		}
 		else
 		{

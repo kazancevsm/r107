@@ -24,7 +24,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once('../class.php');
+require_once('../class2.php');
 if (!getperms('3'))
 {
 	header('location:'.e_BASE.'index.php');
@@ -121,32 +121,32 @@ function show_admins(){
 
 	$sql->db_Select("user", "*", "user_admin='1'");
 
-	$text = "<div style='text-align:center'><div style='padding: 1px; ".ADMIN_WIDTH."; margin-left: auto; margin-right: auto;'>
+	$text = "<div style='text-align:center'><div style='padding: 1px; margin-left: auto; margin-right: auto;'>
 	<form action='".e_SELF."' method='post' id='del_administrator'>
 	<div>
 	<input type='hidden' name='del_administrator_confirm' id='del_administrator_confirm' value='1' />
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
-	<table class='r_border' style='width:99%'>
+	<table class='fborder' style='width:99%'>
 	<tr>
-	<td style='width:5%' class='r_caption'>ID</td>
-	<td style='width:20%' class='r_caption'>".ADMSLAN_56."</td>
-	<td style='width:65%' class='r_caption'>".ADMSLAN_18."</td>
-	<td style='width:10%' class='r_caption'>".LAN_OPTIONS."</td>
+	<td style='width:5%' class='fcaption'>ID</td>
+	<td style='width:20%' class='fcaption'>".ADMSLAN_56."</td>
+	<td style='width:65%' class='fcaption'>".ADMSLAN_18."</td>
+	<td style='width:10%' class='fcaption'>".LAN_OPTIONS."</td>
 	</tr>";
 
 	while ($row = $sql->db_Fetch())
 	{
 
 		$text .= "<tr>
-		<td style='width:5%' class='r_header3'>".$row['user_id']."</td>
-		<td style='width:20%' class='r_header3'><a href='".e_BASE."user.php?id.".$row['user_id']."'>".$row['user_name']."</a></td>
-		<td style='width:65%' class='r_header3'>";
+		<td style='width:5%' class='forumheader3'>".$row['user_id']."</td>
+		<td style='width:20%' class='forumheader3'><a href='".e_BASE."user.php?id.".$row['user_id']."'>".$row['user_name']."</a></td>
+		<td style='width:65%' class='forumheader3'>";
 
 		$permtxt = "";
         $text .= renderperms($row['user_perms'],$row['user_id'],"words");
    		$text .= "</td>
 
-		<td style='width:10%; text-align:center' class='r_header3'>";
+		<td style='width:10%; text-align:center' class='forumheader3'>";
 		if($row['user_id'] != "1")
 		{
     		$text .= "
@@ -176,10 +176,10 @@ function edit_administrator($row){
 
 	$text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."' id='myform' >
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:25%' class='r_header3'>".ADMSLAN_16.": </td>
-	<td style='width:75%' class='r_header3'>
+	<td style='width:25%' class='forumheader3'>".ADMSLAN_16.": </td>
+	<td style='width:75%' class='forumheader3'>
 	";
 
 	$text .= $ad_name;
@@ -191,8 +191,8 @@ function edit_administrator($row){
 
 	$text .="
 	<tr>
-	<td style='width:25%;vertical-align:top' class='r_header3'>".ADMSLAN_18.": <br /></td>
-	<td style='width:75%' class='r_header3'>";
+	<td style='width:25%;vertical-align:top' class='forumheader3'>".ADMSLAN_18.": <br /></td>
+	<td style='width:75%' class='forumheader3'>";
 
 	$text .= checkb("1", $a_perms).ADMSLAN_19."<br />";			// Alter site preferences
 	$text .= checkb("2", $a_perms).ADMSLAN_20."<br />";			// Alter Menus
@@ -230,7 +230,7 @@ function edit_administrator($row){
 	$text .= checkb("N", $a_perms).ADMSLAN_47."<br /><br />";	// Moderate submitted news
 
 
-	$text .= "<br /><div class='r_caption'>".ADLAN_CL_7."</div><br />";
+	$text .= "<br /><div class='fcaption'>".ADLAN_CL_7."</div><br />";
 	$text .= checkb("Z", $a_perms).ADMSLAN_62."<br /><br />";	// Plugin Manager
 
 	$sql->db_Select("plugin", "*", "plugin_installflag='1'");
@@ -243,7 +243,7 @@ function edit_administrator($row){
 	if($pref['multilanguage'])
 	{
 		sort($lanlist);
-		$text .= "<br /><div class='r_caption'>".ADLAN_132."</div><br />\n";
+		$text .= "<br /><div class='fcaption'>".ADLAN_132."</div><br />\n";
 		$text .= checkb($pref['sitelanguage'], $a_perms).$pref['sitelanguage']."<br />\n";
 		foreach($lanlist as $langval)
 		{
@@ -259,7 +259,7 @@ function edit_administrator($row){
 
 	if (getperms('0'))
 	{
-		$text .= "<br /><br /><div class='r_caption'>".ADMSLAN_58."</div><br />";
+		$text .= "<br /><br /><div class='fcaption'>".ADMSLAN_58."</div><br />";
 		$text .= checkb("0", $a_perms).ADMSLAN_58."<br />";
 	}
 
@@ -271,7 +271,7 @@ function edit_administrator($row){
 	</tr>";
 
 	$text .= "<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:center' class='r_header1'>";
+	<td colspan='2' style='text-align:center' class='forumheader'>";
 
 	$text .= "<input class='button' type='submit' name='update_admin' value='".ADMSLAN_52."' />
 	<input type='hidden' name='a_id' value='$a_id' />

@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once('../../class.php');
+require_once('../../class2.php');
 if (!getperms("P")) 
 {
 	header('location:'.e_BASE.'index.php');
@@ -122,12 +122,12 @@ class newsletter
 		else
 		{
 			$text = "<form action='".e_SELF."' id='newsletterform' method='post'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_header1'>".NLLAN_55."</td>
-			<td style='width:65%' class='r_header1'>".NLLAN_06."</td>
-			<td style='width:20%; text-align: center;' class='r_header1'>".NLLAN_07."</td>
-			<td style='width:10%; text-align: center;' class='r_header1'>".NLLAN_08."</td>
+			<td style='width:5%; text-align: center;' class='forumheader'>".NLLAN_55."</td>
+			<td style='width:65%' class='forumheader'>".NLLAN_06."</td>
+			<td style='width:20%; text-align: center;' class='forumheader'>".NLLAN_07."</td>
+			<td style='width:10%; text-align: center;' class='forumheader'>".NLLAN_08."</td>
 			</tr>
 			";
 
@@ -135,10 +135,10 @@ class newsletter
 			foreach($nlArray as $data)
 			{
 				$text .= "<tr>
-				<td style='width:5%; text-align: center;' class='r_header3'>".$data['newsletter_id']."</td>
-				<td style='width:65%' class='r_header3'>".$data['newsletter_title']."</td>
-				<td style='width:20%; text-align: center;' class='r_header1'>".((substr_count($data['newsletter_subscribers'], chr(1))!= 0)?"<a href='".e_SELF."?vs.".$data['newsletter_id']."'>".substr_count($data['newsletter_subscribers'], chr(1))."</a>":substr_count($data['newsletter_subscribers'], chr(1)))."</td>
-				<td style='width:10%; text-align: center;' class='r_header3'>
+				<td style='width:5%; text-align: center;' class='forumheader3'>".$data['newsletter_id']."</td>
+				<td style='width:65%' class='forumheader3'>".$data['newsletter_title']."</td>
+				<td style='width:20%; text-align: center;' class='forumheader'>".((substr_count($data['newsletter_subscribers'], chr(1))!= 0)?"<a href='".e_SELF."?vs.".$data['newsletter_id']."'>".substr_count($data['newsletter_subscribers'], chr(1))."</a>":substr_count($data['newsletter_subscribers'], chr(1)))."</td>
+				<td style='width:10%; text-align: center;' class='forumheader3'>
 				<a href='".e_SELF."?edit.".$data['newsletter_id']."'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[newsletter_".$data['newsletter_id']."]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".$tp->toJS(NLLAN_09." [ID: ".$data['newsletter_id']." ]")."') \"/>
 				
@@ -162,13 +162,13 @@ class newsletter
 		else
 		{
 			$text = "<form action='".e_SELF."' id='newsletterform2' method='post'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_header1'>ID</td>
-			<td style='width:10%; text-align: center;' class='r_header1'>".NLLAN_12."</td>
-			<td style='width:65%' class='r_header1'>".NLLAN_13."</td>
-			<td style='width:10%; text-align: center;' class='r_header1'>".NLLAN_14."</td>
-			<td style='width:10%; text-align: center;' class='r_header1'>".NLLAN_15."</td>
+			<td style='width:5%; text-align: center;' class='forumheader'>ID</td>
+			<td style='width:10%; text-align: center;' class='forumheader'>".NLLAN_12."</td>
+			<td style='width:65%' class='forumheader'>".NLLAN_13."</td>
+			<td style='width:10%; text-align: center;' class='forumheader'>".NLLAN_14."</td>
+			<td style='width:10%; text-align: center;' class='forumheader'>".NLLAN_15."</td>
 			</tr>
 			";
 
@@ -177,11 +177,11 @@ class newsletter
 			foreach($nlArray as $data)
 			{
 				$text .= "<tr>
-				<td style='width:5%; text-align: center;' class='r_header3'>".$data['newsletter_id']."</td>
-				<td style='width:10%; text-align: center;' class='r_header3'>".$data['newsletter_issue']."</td>
-				<td style='width:65%' class='r_header3'>[ ".$data['newsletter_parent']." ] ".$data['newsletter_title']."</td>
-				<td style='width:10%; text-align: center;' class='r_header3'>".($data['newsletter_flag'] ? NLLAN_16 : "<input class='button' type='submit' name='nlmailnow_".$data['newsletter_id']."' value='".NLLAN_17."' onclick=\"return jsconfirm('".$tp->toJS(NLLAN_18)."') \" />")."</td>
-				<td style='width:10%; text-align: center;' class='r_header3'>
+				<td style='width:5%; text-align: center;' class='forumheader3'>".$data['newsletter_id']."</td>
+				<td style='width:10%; text-align: center;' class='forumheader3'>".$data['newsletter_issue']."</td>
+				<td style='width:65%' class='forumheader3'>[ ".$data['newsletter_parent']." ] ".$data['newsletter_title']."</td>
+				<td style='width:10%; text-align: center;' class='forumheader3'>".($data['newsletter_flag'] ? NLLAN_16 : "<input class='button' type='submit' name='nlmailnow_".$data['newsletter_id']."' value='".NLLAN_17."' onclick=\"return jsconfirm('".$tp->toJS(NLLAN_18)."') \" />")."</td>
+				<td style='width:10%; text-align: center;' class='forumheader3'>
 				<a href='".e_SELF."?edit.".$data['newsletter_id']."'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[issue_".$data['newsletter_id']."]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".$tp->toJS(NLLAN_19." [ID: ".$data['newsletter_id']." ]")."') \"/>
 				
@@ -216,25 +216,25 @@ class newsletter
 
 		$text .= "<div style='text-align:center; margin-left:auto; margin-right: auto;'>
 		<form action='".e_SELF."' id='newsletterform' method='post'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_21."</td>
-		<td style='width:70%' class='r_header3'><input class='tbox' type='text' name='newsletter_title' size='60' value='{$newsletter_title}' maxlength='200' /></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_21."</td>
+		<td style='width:70%' class='forumheader3'><input class='tbox' type='text' name='newsletter_title' size='60' value='{$newsletter_title}' maxlength='200' /></td>
 		</tr>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_22."</td>
-		<td style='width:70%' class='r_header3'><textarea class='tbox' id='data' name='newsletter_text' cols='80' rows='10' style='width:95%'>{$newsletter_text}</textarea></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_22."</td>
+		<td style='width:70%' class='forumheader3'><textarea class='tbox' id='data' name='newsletter_text' cols='80' rows='10' style='width:95%'>{$newsletter_text}</textarea></td>
 		</tr>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_23."</td>
-		<td style='width:70%' class='r_header3'><textarea class='tbox' id='data' name='newsletter_header' cols='80' rows='5' style='width:95%'>{$newsletter_header}</textarea></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_23."</td>
+		<td style='width:70%' class='forumheader3'><textarea class='tbox' id='data' name='newsletter_header' cols='80' rows='5' style='width:95%'>{$newsletter_header}</textarea></td>
 		</tr>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_24."</td>
-		<td style='width:70%' class='r_header3'><textarea class='tbox' id='data' name='newsletter_footer' cols='80' rows='5' style='width:95%'>{$newsletter_footer}</textarea></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_24."</td>
+		<td style='width:70%' class='forumheader3'><textarea class='tbox' id='data' name='newsletter_footer' cols='80' rows='5' style='width:95%'>{$newsletter_footer}</textarea></td>
 		</tr>
 		<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>
+		<td colspan='2' style='text-align:center' class='forumheader'>
 		".
 		($edit ? "<input class='button' type='submit' name='createNewsletter' value='".NLLAN_25."' />\n<input type='hidden' name='editid' value='{$edit['newsletter_id']}' />" : "<input class='button' type='submit' name='createNewsletter' value='".NLLAN_26."' />")."
 		</td>
@@ -298,11 +298,11 @@ class newsletter
 
 		$text .= "<div style='text-align:center; margin-left:auto; margin-right: auto;'>
 		<form action='".e_SELF."' id='newsletterform' method='post'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_30."</td>
-		<td style='width:70%' class='r_header3'>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_30."</td>
+		<td style='width:70%' class='forumheader3'>
 
 		<select name='newsletter_parent' class='tbox'>
 		";
@@ -315,19 +315,19 @@ class newsletter
 		$text .= "</select>
 
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_31."</td>
-		<td style='width:70%' class='r_header3'><input class='tbox' type='text' name='newsletter_title' size='60' value='{$newsletter_title}' maxlength='200' /></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_31."</td>
+		<td style='width:70%' class='forumheader3'><input class='tbox' type='text' name='newsletter_title' size='60' value='{$newsletter_title}' maxlength='200' /></td>
 		</tr>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_32."</td>
-		<td style='width:70%' class='r_header3'><input class='tbox' type='text' name='newsletter_issue' size='10' value='{$newsletter_issue}' maxlength='200' /></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_32."</td>
+		<td style='width:70%' class='forumheader3'><input class='tbox' type='text' name='newsletter_issue' size='10' value='{$newsletter_issue}' maxlength='200' /></td>
 		</tr>
 		<tr>
-		<td style='width:30%;' class='r_header3'>".NLLAN_33."</td>
-		<td style='width:70%' class='r_header3'><textarea class='tbox' id='data' name='newsletter_text' cols='80' rows='10' style='width:95%'>{$edit['newsletter_text']}</textarea></td>
+		<td style='width:30%;' class='forumheader3'>".NLLAN_33."</td>
+		<td style='width:70%' class='forumheader3'><textarea class='tbox' id='data' name='newsletter_text' cols='80' rows='10' style='width:95%'>{$edit['newsletter_text']}</textarea></td>
 		</tr>
 		<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>
+		<td colspan='2' style='text-align:center' class='forumheader'>
 		".
 		($edit ? "<input class='button' type='submit' name='createIssue' value='".NLLAN_34."' />\n<input type='hidden' name='editid' value='{$edit['newsletter_id']}' />" : "<input class='button' type='submit' name='createIssue' value='".NLLAN_35."' />")."
 		</td>
@@ -426,8 +426,8 @@ class newsletter
 		$mail_style = "<link rel=\"stylesheet\" href=\"".SITEURL.$theme."style.css\" type=\"text/css\" />";
 		$mail_style .= "<div style='width:100%'>";
 		$mail_style .= "<div style='width:90%; padding-top:10px'>";
-		$mail_style .= "<div class='r_caption'><b>$message_subject<br />[ ".NLLAN_12." ".$newsletterInfo['newsletter_issue']." ]</b></div><br /><br />";
-		$mail_style .= "<div class='r_header3'>";
+		$mail_style .= "<div class='fcaption'><b>$message_subject<br />[ ".NLLAN_12." ".$newsletterInfo['newsletter_issue']." ]</b></div><br /><br />";
+		$mail_style .= "<div class='forumheader3'>";
 		$message_body = $mail_style.$newsletter_header."<hr />".$message_body."<br /><br /><hr />".$newsletter_footer."<br /></div></div>";
 
 		$message_body = str_replace("\n", "<br />", $message_body);
@@ -548,12 +548,12 @@ class newsletter
 	{
 	  $vs_text .= "
 			<form action='".e_SELF."' id='newsletterform' method='post'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_header1'>".NLLAN_55."</td>
-			<td style='width:35%' class='r_header1'>".NLLAN_59."</td>
-			<td style='width:45%;' class='r_header1'>".NLLAN_60."</td>
-			<td style='width:15%; text-align: center;' class='r_header1'>".NLLAN_61."</td>
+			<td style='width:5%; text-align: center;' class='forumheader'>".NLLAN_55."</td>
+			<td style='width:35%' class='forumheader'>".NLLAN_59."</td>
+			<td style='width:45%;' class='forumheader'>".NLLAN_60."</td>
+			<td style='width:15%; text-align: center;' class='forumheader'>".NLLAN_61."</td>
 			</tr>";
 
 //		$nl_sql -> db_Select("newsletter", "*", "newsletter_id=".$p_id);		Already done
@@ -577,13 +577,13 @@ class newsletter
 				if($nl_row = $nl_sql-> db_Fetch())
 				{
 					$vs_text .= "<tr>
-						<td style='text-align: center;' class='r_header3'>{$val}
+						<td style='text-align: center;' class='forumheader3'>{$val}
 						</td>
-						<td class='r_header3'><a href='".e_BASE."user.php?id.{$val}'>".$nl_row['user_name']."</a>
+						<td class='forumheader3'><a href='".e_BASE."user.php?id.{$val}'>".$nl_row['user_name']."</a>
 						</td>
-						<td class='r_header3'>".$nl_row['user_email']."
+						<td class='forumheader3'>".$nl_row['user_email']."
 						</td>
-						<td style='text-align: center;' class='r_header3'><a href='".e_SELF."?remove.{$p_id}.{$val}'>".ADMIN_DELETE_ICON."</a>
+						<td style='text-align: center;' class='forumheader3'><a href='".e_SELF."?remove.{$p_id}.{$val}'>".ADMIN_DELETE_ICON."</a>
 					".(($nl_row['user_ban'] > 0) ? NLLAN_62 : "")."
 					</td>
 					</tr>";
@@ -594,7 +594,7 @@ class newsletter
 
 	$vs_text .= "
       <tr>
-      <td colspan='4' class='r_header1'>".NLLAN_63.": ".$subscribers_total_count."</td>
+      <td colspan='4' class='forumheader'>".NLLAN_63.": ".$subscribers_total_count."</td>
       </tr>
       <tr><td colspan='4' style='text-align:center;'><br /><input class='button' type='submit' value='".NLLAN_64."' /></td></tr>
       </table></form>

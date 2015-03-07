@@ -20,7 +20,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -156,7 +156,7 @@ if ($action == "move")
 	$text = "
 		<form method='post' action='".e_SELF."?".e_QUERY."'>
 		<div style='text-align:center'>
-		<table style='".ADMIN_WIDTH."'>
+		<table >
 		<tr>
 		<td style='text-align:right'>".FORLAN_24.": </td>
 		<td style='text-align:left'>

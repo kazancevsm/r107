@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("F")) 
 {
 	header("location:".e_BASE."index.php");
@@ -122,14 +122,14 @@ class emotec
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td style='width:30%' class='r_header3'>".EMOLAN_4.": </td>
-		<td style='width:70%' class='r_header3'>".($pref['smiley_activate'] ? "<input type='checkbox' name='smiley_activate' value='1'  checked='checked' />" : "<input type='checkbox' name='smiley_activate' value='1' />")."</td>
+		<td style='width:30%' class='forumheader3'>".EMOLAN_4.": </td>
+		<td style='width:70%' class='forumheader3'>".($pref['smiley_activate'] ? "<input type='checkbox' name='smiley_activate' value='1'  checked='checked' />" : "<input type='checkbox' name='smiley_activate' value='1' />")."</td>
 		</tr>
 
 		<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>
+		<td colspan='2' style='text-align:center' class='forumheader'>
 		<input class='button' type='submit' name='active' value='".LAN_UPDATE."' />
 		</td>
 		</tr>
@@ -143,12 +143,12 @@ class emotec
 
 		$text = "
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_caption' style='width: 20%;'>".EMOLAN_2."</td>
-		<td class='r_caption' style='width: 50%;'>".EMOLAN_3."</td>
-		<td class='r_caption' style='width: 10%; text-align: center;'>".EMOLAN_8."</td>
-		<td class='r_caption' style='width: 20%;'>".EMOLAN_9."</td>
+		<td class='fcaption' style='width: 20%;'>".EMOLAN_2."</td>
+		<td class='fcaption' style='width: 50%;'>".EMOLAN_3."</td>
+		<td class='fcaption' style='width: 10%; text-align: center;'>".EMOLAN_8."</td>
+		<td class='fcaption' style='width: 20%;'>".EMOLAN_9."</td>
 		</tr>
 		";
 
@@ -160,8 +160,8 @@ class emotec
 
 			$text .= "
 			<tr>
-			<td class='r_header3' style='width: 20%;'>{$pack}</td>
-			<td class='r_header3' style='width: 20%;'>
+			<td class='forumheader3' style='width: 20%;'>{$pack}</td>
+			<td class='forumheader3' style='width: 20%;'>
 			";
 
 			foreach($emoteArray as $emote)
@@ -179,8 +179,8 @@ class emotec
 			}
 
 			$text .= "</td>
-			<td class='r_header3' style='width: 10%; text-align: center;'>".($pref['emotepack'] == $pack ? EMOLAN_10 : "<input class='button' type='submit' name='defPack_".$pack."' value=\"".EMOLAN_11."\" />")."</td>
-			<td class='r_header3' style='width: 20%; text-align: center;'>
+			<td class='forumheader3' style='width: 10%; text-align: center;'>".($pref['emotepack'] == $pack ? EMOLAN_10 : "<input class='button' type='submit' name='defPack_".$pack."' value=\"".EMOLAN_11."\" />")."</td>
+			<td class='forumheader3' style='width: 20%; text-align: center;'>
 				<input class='button' type='submit' name='subPack_".$pack."' value=\"".EMOLAN_12."\" />";
 			if ($can_scan && ($pack != 'default'))
 			{
@@ -224,11 +224,11 @@ class emotec
 
 		$text = "
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_header1' style='width: 20%;'>".EMOLAN_2."</td>
-		<td class='r_header1' style='width: 20%; text-align: center;'>".EMOLAN_5."</td>
-		<td class='r_header1' style='width: 60%;'>".EMOLAN_6." <span class='smalltext'>( ".EMOLAN_7." )</a></td>
+		<td class='forumheader' style='width: 20%;'>".EMOLAN_2."</td>
+		<td class='forumheader' style='width: 20%; text-align: center;'>".EMOLAN_5."</td>
+		<td class='forumheader' style='width: 60%;'>".EMOLAN_6." <span class='smalltext'>( ".EMOLAN_7." )</a></td>
 		</tr>
 		";
 
@@ -249,17 +249,17 @@ class emotec
 			}
 			$text .= "
 			<tr>
-			<td class='r_header3' style='width: 20%;{$file_back}'>".$ename."</td>
-			<td class='r_header3' style='width: 20%; text-align: center;'><img src='".$emote['path'].$ename."' alt='' /></td>
-			<td class='r_header3' style='width: 60%;{$text_back}'><input style='width: 80%' class='tbox' type='text' name='{$evalue}' value='".$tp -> toForm(varset($emotecode[$evalue],''))."' maxlength='200' /></td>
+			<td class='forumheader3' style='width: 20%;{$file_back}'>".$ename."</td>
+			<td class='forumheader3' style='width: 20%; text-align: center;'><img src='".$emote['path'].$ename."' alt='' /></td>
+			<td class='forumheader3' style='width: 60%;{$text_back}'><input style='width: 80%' class='tbox' type='text' name='{$evalue}' value='".$tp -> toForm(varset($emotecode[$evalue],''))."' maxlength='200' /></td>
 			</tr>
 			";
 		}
 
 		$text .= "
 		<tr>
-		<td class='r_header1'>".count($eArray)." files</td>
-		<td style='text-align: center;' colspan='2' class='r_header1'><input class='button' type='submit' name='sub_conf' value='".EMOLAN_14."' /></td>
+		<td class='forumheader'>".count($eArray)." files</td>
+		<td style='text-align: center;' colspan='2' class='forumheader'><input class='button' type='submit' name='sub_conf' value='".EMOLAN_14."' /></td>
 		</tr>
 
 		</table>
@@ -380,14 +380,14 @@ class emotec
 				global $ns;
 				$msg = "
 				<div style='text-align:center;'><b>".EMOLAN_17."<br />".EMOLAN_18."</b><br /><br />
-					<table class='r_border'>
+					<table class='fborder'>
 					<tr>
-						<td class='r_caption'>".EMOLAN_19."</td>
-						<td class='r_caption'>".EMOLAN_20."</td>
+						<td class='fcaption'>".EMOLAN_19."</td>
+						<td class='fcaption'>".EMOLAN_20."</td>
 					</tr>
 					<tr>
-						<td class='r_header3'>".$value."</td>
-						<td class='r_header3'>".e_IMAGE."emotes/</td>
+						<td class='forumheader3'>".$value."</td>
+						<td class='forumheader3'>".e_IMAGE."emotes/</td>
 					</tr>
 					</table>
 				</div>";

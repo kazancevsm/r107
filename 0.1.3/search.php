@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('class.php');
+require_once('class2.php');
 
 if (!check_class($pref['search_restrict'])) {
 	require_once(HEADERF);
@@ -321,7 +321,7 @@ if (check_class($search_prefs['google'])) {
 
 if ($perform_search) {
 	$con = new convert;
-	e107_require(e_HANDLER.'search_class.php');
+	e107_require(e_HANDLER.'search_handler.php');
 	$sch = new e_search;
 
 	// omitted words message
@@ -437,7 +437,7 @@ if ($_GET['adv']) {
 					}
 					$SEARCH_ADV_B .= "</select>";
 				} else if ($adv_value['type'] == 'author') {
-					require_once(e_HANDLER.'user_select_class.php');
+					require_once(e_HANDLER."user_select_handler.php");
 					$us = new user_select;
 					$SEARCH_ADV_A = $adv_value['text'];
 					$SEARCH_ADV_B = $us -> select_form('popup', $adv_key, $_GET[$adv_key]);

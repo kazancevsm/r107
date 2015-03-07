@@ -14,7 +14,7 @@
 */
 
 $retrieve_prefs[] = 'pm_prefs';
-require_once('../../class.php');
+require_once('../../class2.php');
 
 
 if (!isset($pref['plug_installed']['pm']))

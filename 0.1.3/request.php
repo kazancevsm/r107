@@ -26,7 +26,7 @@ if($_SESSION['download_splash'])
 	define('e_NOCACHE',TRUE);
 }
 
-require_once("class.php");
+require_once("class2.php");
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_download.php");
 
 if (!e_QUERY || isset($_POST['userlogin'])) 

@@ -17,7 +17,6 @@
 +----------------------------------------------------------------------------+
 */
 if (!defined('e107_INIT')) { exit; }
-if(!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }
 
 if (!$FORUM_VIEW_START)
 {
@@ -25,19 +24,19 @@ $FORUM_VIEW_START = "
 
 	<div style='text-align:center'>
 	<div class='spacer'>
-	<table style='".USER_WIDTH."' class='r_border' >
+	<table class='fborder' >
 	<tr>
-	<td class='r_caption'>{BREADCRUMB}</td>
+	<td class='fcaption'>{BREADCRUMB}</td>
 	</tr>
 	{SUBFORUMS}
 	<tr>
-	<td style='width:80%' class='r_header1'>
+	<td style='width:80%' class='forumheader'>
 	<span class='mediumtext'>{FORUMTITLE}</span></td>
 	</tr>
 	</table>
 	</div>
 
-	<table style='".USER_WIDTH."'>
+	<table>
 	<tr>
 	<td style='width:80%'>
 	<span class='mediumtext'>{THREADPAGES}</span>
@@ -49,14 +48,14 @@ $FORUM_VIEW_START = "
 	</table>
 
 	<div class='spacer'>
-	<table style='".USER_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:3%' class='r_caption'>&nbsp;</td>
-	<td style='width:47%' class='r_caption'>{THREADTITLE}</td>
-	<td style='width:20%; text-align:center' class='r_caption'>{STARTERTITLE}</td>
-	<td style='width:5%; text-align:center' class='r_caption'>{REPLYTITLE}</td>
-	<td style='width:5%; text-align:center' class='r_caption'>{VIEWTITLE}</td>
-	<td style='width:20%; text-align:center' class='r_caption'>{LASTPOSTITLE}</td>
+	<td style='width:3%' class='fcaption'>&nbsp;</td>
+	<td style='width:47%' class='fcaption'>{THREADTITLE}</td>
+	<td style='width:20%; text-align:center' class='fcaption'>{STARTERTITLE}</td>
+	<td style='width:5%; text-align:center' class='fcaption'>{REPLYTITLE}</td>
+	<td style='width:5%; text-align:center' class='fcaption'>{VIEWTITLE}</td>
+	<td style='width:20%; text-align:center' class='fcaption'>{LASTPOSTITLE}</td>
 	</tr>";
 }
 
@@ -65,9 +64,9 @@ if(!$FORUM_VIEW_START_CONTAINER)
 	$FORUM_VIEW_START_CONTAINER = "
 	<div style='text-align:center'>
 	<div class='spacer'>
-	<table style='".USER_WIDTH."' class='r_border' >
+	<table class='fborder' >
 	<tr>
-	<td class='r_caption'>{BREADCRUMB}</td>
+	<td class='fcaption'>{BREADCRUMB}</td>
 	</tr>
 	{SUBFORUMS}
 	</table>
@@ -79,8 +78,8 @@ if(!$FORUM_VIEW_START_CONTAINER)
 if (!$FORUM_VIEW_FORUM) {
 	$FORUM_VIEW_FORUM = "
 		<tr>
-		<td style='vertical-align:middle; text-align:center; width:3%' class='r_header3'>{ICON}</td>
-		<td style='vertical-align:middle; text-align:left; width:47%' class='r_header3'>
+		<td style='vertical-align:middle; text-align:center; width:3%' class='forumheader3'>{ICON}</td>
+		<td style='vertical-align:middle; text-align:left; width:47%' class='forumheader3'>
 
 		<table style='width:100%'>
 		<tr>
@@ -91,18 +90,18 @@ if (!$FORUM_VIEW_FORUM) {
 
 		</td>
 
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{POSTER}<br />{THREADDATE}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{REPLIES}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{VIEWS}</td>
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{LASTPOST}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{POSTER}<br />{THREADDATE}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{REPLIES}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{VIEWS}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{LASTPOST}</td>
 		</tr>";
 }
 
 if (!$FORUM_VIEW_FORUM_STICKY) {
 	$FORUM_VIEW_FORUM_STICKY = "
 		<tr>
-		<td style='vertical-align:middle; text-align:center; width:3%' class='r_header3'>{ICON}</td>
-		<td style='vertical-align:middle; text-align:left; width:47%' class='r_header3'>
+		<td style='vertical-align:middle; text-align:center; width:3%' class='forumheader3'>{ICON}</td>
+		<td style='vertical-align:middle; text-align:left; width:47%' class='forumheader3'>
 
 		<table style='width:100%'>
 		<tr>
@@ -113,18 +112,18 @@ if (!$FORUM_VIEW_FORUM_STICKY) {
 
 		</td>
 
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{POSTER}<br />{THREADDATE}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{REPLIES}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{VIEWS}</td>
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{LASTPOST}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{POSTER}<br />{THREADDATE}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{REPLIES}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{VIEWS}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{LASTPOST}</td>
 		</tr>";
 }
 
 if (!$FORUM_VIEW_FORUM_ANNOUNCE) {
 	$FORUM_VIEW_FORUM_ANNOUNCE = "
 		<tr>
-		<td style='vertical-align:middle; text-align:center; width:3%' class='r_header3'>{ICON}</td>
-		<td style='vertical-align:middle; text-align:left; width:47%' class='r_header3'>
+		<td style='vertical-align:middle; text-align:center; width:3%' class='forumheader3'>{ICON}</td>
+		<td style='vertical-align:middle; text-align:left; width:47%' class='forumheader3'>
 
 		<table style='width:100%'>
 		<tr>
@@ -135,10 +134,10 @@ if (!$FORUM_VIEW_FORUM_ANNOUNCE) {
 
 		</td>
 
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{POSTER}<br />{THREADDATE}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{REPLIES}</td>
-		<td style='vertical-align:middle; text-align:center; width:5%' class='r_header3'>{VIEWS}</td>
-		<td style='vertical-align:middle; text-align:center; width:20%' class='r_header3'>{LASTPOST}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{POSTER}<br />{THREADDATE}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{REPLIES}</td>
+		<td style='vertical-align:middle; text-align:center; width:5%' class='forumheader3'>{VIEWS}</td>
+		<td style='vertical-align:middle; text-align:center; width:20%' class='forumheader3'>{LASTPOST}</td>
 		</tr>";
 }
 
@@ -147,7 +146,7 @@ if (!$FORUM_VIEW_END) {
 		</table>
 		</div>
 
-		<table style='".USER_WIDTH."'>
+		<table>
 		<tr>
 		<td style='width:80%'><span class='mediumtext'>{THREADPAGES}</span>
 		</td>
@@ -163,19 +162,19 @@ if (!$FORUM_VIEW_END) {
 		</table>
 
 		<div class='spacer'>
-		<table class='r_border' style='".USER_WIDTH."'>
+		<table class='fborder'>
 		<tr>
-		<td style='vertical-align:middle; width:50%' class='r_header3'><span class='smalltext'>{MODERATORS}</span></td>
-		<td style='vertical-align:middle; width:50%' class='r_header3'><span class='smalltext'>{BROWSERS}</span></td>
+		<td style='vertical-align:middle; width:50%' class='forumheader3'><span class='smalltext'>{MODERATORS}</span></td>
+		<td style='vertical-align:middle; width:50%' class='forumheader3'><span class='smalltext'>{BROWSERS}</span></td>
 		</tr>
 		</table>
 		</div>
 
 		<div class='spacer'>
-		<table class='r_border' style='".USER_WIDTH."'>
+		<table class='fborder'>
 		<tr>
-		<td style='vertical-align:middle; width:50%' class='r_header3'>{ICONKEY}</td>
-		<td style='vertical-align:middle; text-align:center; width:50%' class='r_header3'><span class='smallblacktext'>{PERMS}</span><br /><br />{SEARCH}
+		<td style='vertical-align:middle; width:50%' class='forumheader3'>{ICONKEY}</td>
+		<td style='vertical-align:middle; text-align:center; width:50%' class='forumheader3'><span class='smallblacktext'>{PERMS}</span><br /><br />{SEARCH}
 		</td>
 		</tr>
 		</table>
@@ -195,7 +194,7 @@ if (!$FORUM_VIEW_END) {
 if(!$FORUM_VIEW_END_CONTAINER)
 {
 	$FORUM_VIEW_END_CONTAINER = "
-		<table style='".USER_WIDTH."'>
+		<table>
 		<tr>
 		<td colspan ='2'>
 		{FORUMJUMP}
@@ -216,11 +215,11 @@ if (!$FORUM_VIEW_SUB_START)
 		<div>
 		<table style='width:100%'>
 		<tr>
-			<td class='r_caption' style='width: 5%'>&nbsp;</td>
-			<td class='r_caption' style='width: 45%'>".FORLAN_20."</td>
-			<td class='r_caption' style='width: 10%'>".FORLAN_21."</td>
-			<td class='r_caption' style='width: 10%'>".LAN_55."</td>
-			<td class='r_caption' style='width: 30%'>".FORLAN_22."</td>
+			<td class='fcaption' style='width: 5%'>&nbsp;</td>
+			<td class='fcaption' style='width: 45%'>".FORLAN_20."</td>
+			<td class='fcaption' style='width: 10%'>".FORLAN_21."</td>
+			<td class='fcaption' style='width: 10%'>".LAN_55."</td>
+			<td class='fcaption' style='width: 30%'>".FORLAN_22."</td>
 		</tr>
 	";
 }
@@ -228,11 +227,11 @@ if (!$FORUM_VIEW_SUB_START)
 if (!$FORUM_VIEW_SUB) {
 	$FORUM_VIEW_SUB = "
 	<tr>
-		<td class='r_header3' style='text-align:center'>{NEWFLAG}</td>
-		<td class='r_header3' style='text-align:left'><b>{SUB_FORUMTITLE}</b><br />{SUB_DESCRIPTION}</td>
-		<td class='r_header3' style='text-align:center'>{SUB_THREADS}</td>
-		<td class='r_header3' style='text-align:center'>{SUB_REPLIES}</td>
-		<td class='r_header3' style='text-align:center'>{SUB_LASTPOST}</td>
+		<td class='forumheader3' style='text-align:center'>{NEWFLAG}</td>
+		<td class='forumheader3' style='text-align:left'><b>{SUB_FORUMTITLE}</b><br />{SUB_DESCRIPTION}</td>
+		<td class='forumheader3' style='text-align:center'>{SUB_THREADS}</td>
+		<td class='forumheader3' style='text-align:center'>{SUB_REPLIES}</td>
+		<td class='forumheader3' style='text-align:center'>{SUB_LASTPOST}</td>
 	</tr>
 	";
 }
@@ -247,11 +246,11 @@ if (!$FORUM_VIEW_SUB_END) {
 }
 
 if (!$FORUM_IMPORTANT_ROW) {
-	$FORUM_IMPORTANT_ROW = "<tr><td class='r_header1'>&nbsp;</td><td colspan='5'  class='r_header1'><span class='mediumtext'><b>".LAN_411."</b></span></td></tr>";
+	$FORUM_IMPORTANT_ROW = "<tr><td class='forumheader'>&nbsp;</td><td colspan='5'  class='forumheader'><span class='mediumtext'><b>".LAN_411."</b></span></td></tr>";
 }
 
 if (!$FORUM_NORMAL_ROW) {
-	$FORUM_NORMAL_ROW = "<tr><td class='r_header1'>&nbsp;</td><td colspan='5'  class='r_header1'><span class='mediumtext'><b>".LAN_412."</b></span></td></tr>";
+	$FORUM_NORMAL_ROW = "<tr><td class='forumheader'>&nbsp;</td><td colspan='5'  class='forumheader'><span class='mediumtext'><b>".LAN_412."</b></span></td></tr>";
 }
 
 $FORUM_CRUMB['sitename']['value'] = "<a class='forumlink' {SITENAME_HREF}>{SITENAME}</a>";

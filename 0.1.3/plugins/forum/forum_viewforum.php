@@ -21,7 +21,7 @@ if(in_array('thread_action', $_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -244,7 +244,7 @@ if (count($thread_list) )
 			}
 			else
 			{
-				$forum_view_forum .= "<tr><td class='r_header1'>&nbsp;</td><td colspan='5'  class='r_header1'><span class='mediumtext'><b>".LAN_411."</b></span></td></tr>";
+				$forum_view_forum .= "<tr><td class='forumheader'>&nbsp;</td><td colspan='5'  class='forumheader'><span class='mediumtext'><b>".LAN_411."</b></span></td></tr>";
 			}
 			$stuck = TRUE;
 		}
@@ -260,7 +260,7 @@ if (count($thread_list) )
 			}
 			else
 			{
-				$forum_view_forum .= "<tr><td class='r_header1'>&nbsp;</td><td colspan='5'  class='r_header1'><span class='mediumtext'><b>".LAN_412."</b></span></td></tr>";
+				$forum_view_forum .= "<tr><td class='forumheader'>&nbsp;</td><td colspan='5'  class='forumheader'><span class='mediumtext'><b>".LAN_412."</b></span></td></tr>";
 			}
 			$unstuck = TRUE;
 		}
@@ -269,7 +269,7 @@ if (count($thread_list) )
 }
 else
 {
-	$forum_view_forum .= "<tr><td class='r_header1' colspan='6'>".LAN_58."</td></tr>";
+	$forum_view_forum .= "<tr><td class='forumheader' colspan='6'>".LAN_58."</td></tr>";
 }
 
 $sql->db_Select("forum", "*", "forum_parent !=0 AND forum_class!='255' ");
@@ -445,7 +445,7 @@ function parse_thread($thread_info)
 	}
 
 	$text .= "</td>
-		<td style='vertical-align:top; text-align:center; width:20%' class='r_header3'>".$THREADDATE."<br />
+		<td style='vertical-align:top; text-align:center; width:20%' class='forumheader3'>".$THREADDATE."<br />
 		";
 	$tmp = explode(".", $thread_info['thread_user'], 2);
 	if($thread_info['user_name'])

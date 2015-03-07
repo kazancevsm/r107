@@ -15,7 +15,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms('0'))
 {
     header("location:".e_BASE."index.php");
@@ -188,7 +188,7 @@ function share($newfile)
 	
 	
 	
-	require_once(e_HANDLER."mail.php");
+	require_once(e_HANDLER."mail_handler.php");
 	
 	$send_to = (!$_POST['contribute_pack']) ? "languagepacks@e107inc.org" : "certifiedpack@e107inc.org"; 
 	$to_name = "e107 Inc.";
@@ -244,14 +244,14 @@ if (isset($_POST['edit_existing']))
     $text .= "
     <form method='post' action='".e_SELF."?db' >
     <div style='text-align:center'>
-    <table class='r_border' style='".ADMIN_WIDTH."'>\n";
+    <table class='fborder' >\n";
 
     foreach ($tabs as $table_name) {
         $installed = strtolower($_POST['lang_choices'])."_".$table_name;
         if (stristr($_POST['lang_choices'], $installed) === FALSE) {
             $text .= "<tr>
-                <td style='width:30%' class='r_header3'>".ucfirst(str_replace("_", " ", $table_name))."</td>\n
-                <td style='width:70%' class='r_header3'>\n";
+                <td style='width:30%' class='forumheader3'>".ucfirst(str_replace("_", " ", $table_name))."</td>\n
+                <td style='width:70%' class='forumheader3'>\n";
             $selected = (db_Table_exists($installed)) ? "checked='checked'" : "";
             $text .= "<input type=\"checkbox\" id='$table_name' name=\"$table_name\" value=\"1\" $selected onclick=\"if(document.getElementById('$table_name').checked){document.getElementById('datacopy_$table_name').style.display = '';} \"  />";
             $text .= "<span id='datacopy_$table_name' style='display:none'>".LANG_LAN_15."<input type=\"checkbox\" name=\"copydata_$table_name\" value=\"1\" /> </span>";
@@ -260,25 +260,25 @@ if (isset($_POST['edit_existing']))
     }
 
     $text .= "
-    <tr><td class='r_header3' colspan='2'>&nbsp;
+    <tr><td class='forumheader3' colspan='2'>&nbsp;
     <input type='hidden' name='language' value='".$_POST['lang_choices']."' />
     </td></tr>";
 
     // ===========================================================================
 
     // Drop tables ?
-    $text .= "<tr><td class='r_header3'><b>".LANG_LAN_07."</b></td>
-        <td class='r_header3'>".$rs->form_checkbox("drop", 1)."\n
+    $text .= "<tr><td class='forumheader3'><b>".LANG_LAN_07."</b></td>
+        <td class='forumheader3'>".$rs->form_checkbox("drop", 1)."\n
         <span class=\"smalltext\" >".LANG_LAN_08."</span></td></tr>\n
 
         <tr>
-            <td class='r_header3'><b>".LANG_LAN_10."</b></td>
-            <td class='r_header3'>".$rs->form_checkbox("remove", 1)."\n
+            <td class='forumheader3'><b>".LANG_LAN_10."</b></td>
+            <td class='forumheader3'>".$rs->form_checkbox("remove", 1)."\n
             <span class=\"smalltext\" >".LANG_LAN_11."</span></td>
         </tr>
 
         <tr>
-            <td colspan='2' style='width:100%; text-align: center;' class='r_header1' >";
+            <td colspan='2' style='width:100%; text-align: center;' class='forumheader' >";
 
             $button_capt = LAN_CREATE. " / ". LAN_UPDATE;
             $text .="<input type='submit' class='button' name='kreate_tbl' value=\"".$button_capt."\" />";
@@ -300,13 +300,13 @@ function multilang_prefs() {
 
     $text = "<div style='text-align:center'>
         <form method='post' action='".e_SELF."' id='linkform'>
-        <table style='".ADMIN_WIDTH."' class='r_border'>";
+        <table class='fborder'>";
 
 
     $text .= "<tr>
 
-        <td style='width:80%' class='r_header3'>".LANG_LAN_14.": </td>
-        <td style='width:20%; text-align:center' class='r_header3'>";
+        <td style='width:80%' class='forumheader3'>".LANG_LAN_14.": </td>
+        <td style='width:20%; text-align:center' class='forumheader3'>";
 
 
     $text .= "
@@ -323,8 +323,8 @@ function multilang_prefs() {
 
     $text .= "
         <tr>
-        <td style='width:80%' class='r_header3'>".LANG_LAN_12.": </td>
-        <td style='width:20%;text-align:center' class='r_header3'>";
+        <td style='width:80%' class='forumheader3'>".LANG_LAN_12.": </td>
+        <td style='width:20%;text-align:center' class='forumheader3'>";
     $checked = ($pref['multilanguage'] == 1) ? "checked='checked'" : "";
     $text .= "<input type='checkbox' name='multilanguage'   value='1' $checked />
         </td>
@@ -333,9 +333,9 @@ function multilang_prefs() {
 
     $text .= "
     <tr>
-    <td style='width:80%' class='r_header3'>".LANG_LAN_18."<br />
+    <td style='width:80%' class='forumheader3'>".LANG_LAN_18."<br />
     <span class='smalltext'>".LANG_LAN_19."<br />".LANG_LAN_20."</span></td>
-    <td style='width:20%;text-align:center' class='r_header3'>";
+    <td style='width:20%;text-align:center' class='forumheader3'>";
     $text .= "<textarea name='multilanguage_subdomain' rows='5' cols='15' style='width:80%'>".$pref['multilanguage_subdomain']."</textarea>
     </td>
     </tr>
@@ -343,7 +343,7 @@ function multilang_prefs() {
 
 
     $text .= "<tr style='vertical-align:top'>
-        <td colspan='2' style='text-align:center' class='r_header1'>";
+        <td colspan='2' style='text-align:center' class='forumheader'>";
     $text .= "<input class='button' type='submit' name='submit_prefs' value='".LAN_SAVE."' />";
     $text .= "</td>
         </tr>
@@ -375,18 +375,18 @@ function show_tools()
 	$compat_diz = defined("LANG_LAN_31") ?  LANG_LAN_31 : "Compatibility";
 	
 	$text = "<form id='lancheck' method='post' action='".e_SELF."?tools'>
-			<table class='r_border' style='".ADMIN_WIDTH."'>";
+			<table class='fborder' >";
 	$text .= "
 		<tr>
-		<td class='r_caption'>".ADLAN_132."</td>
-		<td class='r_caption'>".$release_diz."</td>		
-		<td class='r_caption'>".$compat_diz."</td>
-		<td class='r_caption' style='text-align:center'>".ADLAN_134."</td>
-		<td class='r_caption' style='text-align:center;width:25%;white-space:nowrap'>".LAN_OPTIONS."</td>
+		<td class='fcaption'>".ADLAN_132."</td>
+		<td class='fcaption'>".$release_diz."</td>		
+		<td class='fcaption'>".$compat_diz."</td>
+		<td class='fcaption' style='text-align:center'>".ADLAN_134."</td>
+		<td class='fcaption' style='text-align:center;width:25%;white-space:nowrap'>".LAN_OPTIONS."</td>
 		</tr>
 		";
 	
-	require_once(e_HANDLER."xml_class.php");
+	require_once(e_HANDLER."xml_handler.php");
 	$xm = new XMLParse();
 	
 	foreach($lans as $language)
@@ -422,11 +422,11 @@ function show_tools()
 		}
 						
 		$text .= "<tr>
-			<td class='r_header3' >".$language."</td>
-			<td class='r_header3' >".$value['date']."</td>
-			<td class='r_header3' >".$value['compatibility']."</td>
-			<td class='r_header3' style='text-align:center' >".($ver == $value['compatibility'] || varset($_SESSION['lancheck_'.$language]['total']) =='0' ? ADMIN_TRUE_ICON : ADMIN_FALSE_ICON)."</td>
-			<td class='r_header3' style='text-align:center'><input type='submit' name='language_sel[{$language}]' value=\"".LAN_CHECK_2."\" class='button' /><br /><br />
+			<td class='forumheader3' >".$language."</td>
+			<td class='forumheader3' >".$value['date']."</td>
+			<td class='forumheader3' >".$value['compatibility']."</td>
+			<td class='forumheader3' style='text-align:center' >".($ver == $value['compatibility'] || varset($_SESSION['lancheck_'.$language]['total']) =='0' ? ADMIN_TRUE_ICON : ADMIN_FALSE_ICON)."</td>
+			<td class='forumheader3' style='text-align:center'><input type='submit' name='language_sel[{$language}]' value=\"".LAN_CHECK_2."\" class='button' /><br /><br />
 			<input type='submit' name='ziplang[{$language}]' value=\"".LANG_LAN_23."\" class='button' /></td>	
 			</tr>";
 		}
@@ -436,7 +436,7 @@ function show_tools()
 		$diz = (defsettrue("LANG_LAN_28")) ? LANG_LAN_28 : "Check this box if you're an [e107 certified translator].";
 	
 		$checked = varset($_COOKIE['e107_certified']) == 1 ? "checked='checked'" : "";
-		$text .= "<tr><td class='r_header1' colspan='5' style='text-align:center'>
+		$text .= "<tr><td class='forumheader' colspan='5' style='text-align:center'>
 		 <input type='checkbox' name='contribute_pack' value='1' {$checked} />".str_replace($srch,$repl,$diz);
 				
 		$text .= "</td></tr></table>";
@@ -554,18 +554,18 @@ function multilang_db(){
 
         // Choose Language to Edit:
         $text = "<div style='text-align:center'>
-        <div style='".ADMIN_WIDTH.";margin-left: auto; margin-right: auto;'>
-        <table class='r_border' style='width:99%; margin-top: 1px;'>
-        <tr><td class='r_caption'>".ADLAN_132."</td>
-        <td class='r_caption'>".LANG_LAN_03."</td>
-        <td class='r_caption'>".LAN_OPTIONS."</td>
+        <div style='margin-left: auto; margin-right: auto;'>
+        <table class='fborder' style='width:99%; margin-top: 1px;'>
+        <tr><td class='fcaption'>".ADLAN_132."</td>
+        <td class='fcaption'>".LANG_LAN_03."</td>
+        <td class='fcaption'>".LAN_OPTIONS."</td>
         </tr>\n\n";
         sort($lanlist);
         for($i = 0; $i < count($lanlist); $i++)
         {
             $installed = 0;
 
-            $text .= "<tr><td class='r_header3' style='width:30%'>".$lanlist[$i]."</td><td class='r_header3'>\n";
+            $text .= "<tr><td class='forumheader3' style='width:30%'>".$lanlist[$i]."</td><td class='forumheader3'>\n";
             foreach ($tabs as $tab_name) {
                 if (db_Table_exists(strtolower($lanlist[$i])."_".$tab_name)) {
                     $text .= $tab_name.", ";
@@ -577,7 +577,7 @@ function multilang_db(){
             }else{
                 $text .= (!$installed)? "<div style='text-align:center'><i>".LANG_LAN_05."</i></div>" : "";
             }
-            $text .= "</td><td class='r_header3' style='width:20%;white-space:nowrap;text-align:right'>\n";
+            $text .= "</td><td class='forumheader3' style='width:20%;white-space:nowrap;text-align:right'>\n";
             $text .= $rs->form_open("post", e_SELF."?modify", "lang_form_".str_replace(" ", "_", $lanlist[$i]));
             $text .= "<div style='text-align: center'>\n";
             if ($installed) {
@@ -686,7 +686,7 @@ function zip_up_lang($language)
 	 $core_themes = array("crahan","e107v4a","human_condition","interfectus","jayya",
 	 "khatru","kubrick","lamb","leaf","newsroom","reline","sebes","vekna_blue");
 
-	require_once(e_HANDLER.'pclzip.lib.php');
+	require_once(e_HANDLER."pclzip_handler.php");
 	list($ver, $tmp) = explode(" ", $e107info['e107_version']);
 	if(!$locale = find_locale($language))
 	{

@@ -24,7 +24,7 @@ if(isset($_POST['userlogin']) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("class.php");
+require_once("class2.php");
 
 if (USER || e_LOGIN !='login.php') // Disable page if user logged in, or some custom e_LOGIN value is used. 
 {

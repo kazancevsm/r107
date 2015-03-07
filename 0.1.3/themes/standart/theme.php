@@ -15,7 +15,6 @@ $xhtmlcompliant = TRUE;
 $csscompliant = TRUE;
 define('IMODE', 'lite');
 define('STANDARDS_MODE', TRUE);
-define('USER_WIDTH','width: 100%');
 define("NEXTPREV_NOSTYLE", TRUE);
 define("FS_LINK_SEPARATOR",'<div class="fs-linkSep"><!-- --></div>');
 define("FS_START_SEPARATOR", FALSE);
@@ -501,7 +500,7 @@ $CHATBOXSTYLE = "<br /><b>{USERNAME}</b>&nbsp;{TIMEDATE}<br />{MESSAGE}<br />";
 // Comment post style
 $sc_style["REPLY"]["pre"] = '<tr><td class="smallblacktext" style="padding: 10px 20px;">';
 $sc_style["REPLY"]["post"] = '</td></tr>';
-$sc_style["COMMENTEDIT"]["pre"] = '<tr><td class="r_header1" colspan="2" style="text-align: right">';
+$sc_style["COMMENTEDIT"]["pre"] = '<tr><td class="forumheader" colspan="2" style="text-align: right">';
 $sc_style["COMMENTEDIT"]["post"] = '</td></tr>';
 $sc_style["JOINED"]["post"] = '<br />';
 $sc_style["LOCATION"]["post"] = '<br />';
@@ -509,7 +508,7 @@ $sc_style["RATING"]["post"] = '<br /><br />';
 $sc_style["COMMENT"]["post"] = "<br />";
 $COMMENTSTYLE = '
 <div class="spacer" style="text-align:left; width: 100%; padding: 3px 0; margin: 5px 10px;">
-<table class="r_border" style="width: 98%; border-bottom: 1px solid #EEEEEE; background: transparent;">
+<table class="fborder" style="width: 98%; border-bottom: 1px solid #EEEEEE; background: transparent;">
   <tr>
     <td class=" r_header mediumtext" style="padding: 10px 10px;" colspan="2">
     	'.LAN_THEME_9.' {USERNAME} '.LAN_THEME_8.' {TIMEDATE}
@@ -517,7 +516,7 @@ $COMMENTSTYLE = '
   </tr>
   {REPLY}
   <tr>
-    <td class="r_header3" style="width: 25%; vertical-align: top; border: 0 none">
+    <td class="forumheader3" style="width: 25%; vertical-align: top; border: 0 none">
 	    <div style="text-align: center;">
 	    	{AVATAR}
 	    </div>
@@ -525,7 +524,7 @@ $COMMENTSTYLE = '
 				{JOINED}{COMMENTS}{LOCATION}{IPADDRESS}
 			</span>
     </td>
-    <td class="r_header3" style="width: 70%; vertical-align: top; border: 0 none;">
+    <td class="forumheader3" style="width: 70%; vertical-align: top; border: 0 none;">
     	{COMMENT}
     </td>
   </tr>

@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 $e_sub_cat = 'database';
 require_once("auth.php");
 
@@ -143,12 +143,12 @@ function check_tables($what)
 	
 	$text = "<form method='post' action='".e_SELF."' id='checktab'>
 		<div style='text-align:center'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_caption' style='text-align:center'>".DBLAN_4."</td>
-		<td class='r_caption' style='text-align:center'>".DBLAN_5."</td>
-		<td class='r_caption' style='text-align:center'>".DBLAN_6."</td>
-		<td class='r_caption' style='text-align:center'>".DBLAN_7."</td>
+		<td class='fcaption' style='text-align:center'>".DBLAN_4."</td>
+		<td class='fcaption' style='text-align:center'>".DBLAN_5."</td>
+		<td class='fcaption' style='text-align:center'>".DBLAN_6."</td>
+		<td class='fcaption' style='text-align:center'>".DBLAN_7."</td>
 		</tr>";
 	foreach(array_keys($table_list) as $k) 
 	{	// $k is the DB table name (less prefix)
@@ -194,13 +194,13 @@ function check_tables($what)
 
 				if(stristr($k, "lan_") !== FALSE && $cur != 1)
 				{
-					$text .= "<tr><td colspan='6' class='r_caption'>".ADLAN_132."</td></tr>";
+					$text .= "<tr><td colspan='6' class='fcaption'>".ADLAN_132."</td></tr>";
 					$cur = 1;
 				};
 
 
 
-				$text .= "<tr><td class='r_header3'>$k</td><td class='r_header3'>$fname";
+				$text .= "<tr><td class='forumheader3'>$k</td><td class='forumheader3'>$fname";
 				if (strpos($fparams, "KEY") !== FALSE) 
 				{
 					$text .= " $fparams";
@@ -278,27 +278,27 @@ function check_tables($what)
 
 						if ($fld_err)
 						{
-							$text .= "<td class='r_header1' style='text-align:center'>".DBLAN_8."</td>";
-							$text .= "<td class='r_header3' style='text-align:center'>".DBLAN_9."<div class='indent'>".$xfparams."</div><b>".DBLAN_10."</b><div class='indent'>".$fparams." <br />".fix_form($k,$fname,$fparams,"alter")."</div></td>";
+							$text .= "<td class='forumheader' style='text-align:center'>".DBLAN_8."</td>";
+							$text .= "<td class='forumheader3' style='text-align:center'>".DBLAN_9."<div class='indent'>".$xfparams."</div><b>".DBLAN_10."</b><div class='indent'>".$fparams." <br />".fix_form($k,$fname,$fparams,"alter")."</div></td>";
 							$fix_active = TRUE;
 						} 
 						elseif ($fieldnum != $xfieldnum) 
 						{  // Field numbers different - missing field?
-							$text .= "<td class='r_caption' style='text-align:center'>".DBLAN_5." ".DBLAN_8."</td>
-								<td class='r_header3' style='text-align:center'>".DBLAN_9." #{$xfieldnum}<br />".DBLAN_10." #{$fieldnum}</td>";
+							$text .= "<td class='fcaption' style='text-align:center'>".DBLAN_5." ".DBLAN_8."</td>
+								<td class='forumheader3' style='text-align:center'>".DBLAN_9." #{$xfieldnum}<br />".DBLAN_10." #{$fieldnum}</td>";
 						} 
 						else 
 						{
-							$text .= "<td class='r_header3' style='text-align:center;'>OK</td>
-								<td class='r_header3' style='text-align:center'>&nbsp;</td>";
+							$text .= "<td class='forumheader3' style='text-align:center;'>OK</td>
+								<td class='forumheader3' style='text-align:center'>&nbsp;</td>";
 						}
 					}
 				}		// Finished checking one field
 
 				if ($ffound == 0) 
 				{
-					$text .= "<td class='r_header1' style='text-align:center'><strong><em>".DBLAN_11."</em></strong></td>
-						<td class='r_header3' style='text-align:center'><b>".DBLAN_10." [$fparams]</b><br />".fix_form($k,$fname,$fparams,"insert",$prev_fname)."<br /></td>";
+					$text .= "<td class='forumheader' style='text-align:center'><strong><em>".DBLAN_11."</em></strong></td>
+						<td class='forumheader3' style='text-align:center'><b>".DBLAN_10." [$fparams]</b><br />".fix_form($k,$fname,$fparams,"insert",$prev_fname)."<br /></td>";
 					$fix_active = TRUE;
 				}
 				$prev_fname = $fname;
@@ -309,13 +309,13 @@ function check_tables($what)
 				if (!$fields[$tf] && $k != "user_extended") 
 				{
 					$fix_active = TRUE;
-					$text .= "<tr><td class='r_header3' style='text-align:center'>{$k}</td><td class='r_header3' style='text-align:center'>$tf</td><td class='r_header3' style='text-align:center'><strong><em>".DBLAN_12."</em></strong></td><td class='r_header3' style='text-align:center'>&nbsp;".fix_form($k,$tf,$fparams,"drop")."</td></tr>";
+					$text .= "<tr><td class='forumheader3' style='text-align:center'>{$k}</td><td class='forumheader3' style='text-align:center'>$tf</td><td class='forumheader3' style='text-align:center'><strong><em>".DBLAN_12."</em></strong></td><td class='forumheader3' style='text-align:center'>&nbsp;".fix_form($k,$tf,$fparams,"drop")."</td></tr>";
 				}
 			}
 		} 
 		else 
 		{	// Table Missing.  $k is table name.  $tf is field
-			$text .= "<tr><td class='r_header3' style='text-align:center'>{$k}</td><td class='r_header3' style='text-align:center'>&nbsp;</td><td class='r_header1' style='text-align:center'>".DBLAN_13."</td><td class='r_header3' style='text-align:center'>&nbsp;".fix_form($k,$tf,$tablines[$k],'create')."</td></tr>";
+			$text .= "<tr><td class='forumheader3' style='text-align:center'>{$k}</td><td class='forumheader3' style='text-align:center'>&nbsp;</td><td class='forumheader' style='text-align:center'>".DBLAN_13."</td><td class='forumheader3' style='text-align:center'>&nbsp;".fix_form($k,$tf,$tablines[$k],'create')."</td></tr>";
 			$fix_active = TRUE;
 		}
 	}
@@ -323,7 +323,7 @@ function check_tables($what)
 
 	if($fix_active)
 	{
-		$text .= "<div style='".ADMIN_WIDTH.";text-align:right'>
+		$text .= "<div style='text-align:right'>
 		<input class='button' type='submit' name='do_fix' value='".DBLAN_21."' /></div>\n";
 	}
 
@@ -350,7 +350,7 @@ global $table_list;
  */
 if(isset($_POST['do_fix']))
 {
-	$text = "<div><table class='r_border' style='".ADMIN_WIDTH."'>";
+	$text = "<div><table class='fborder' >";
 	foreach( $_POST['fix_active'] as $key=>$val)
 	{
 		if (MAGIC_QUOTES_GPC == TRUE) 
@@ -412,7 +412,7 @@ if(isset($_POST['do_fix']))
 		}
 
 
-		$text .= "<tr><td class='r_header3' style='vertical-align:top;width:70%'>".$query."</td><td class='r_header3' style='vertical-align:top;width:30%'>";
+		$text .= "<tr><td class='forumheader3' style='vertical-align:top;width:70%'>".$query."</td><td class='forumheader3' style='vertical-align:top;width:30%'>";
 		$text .= (mysql_query($query)) ? " - <b>".LAN_UPDATED."</b>" : " - <b>".LAN_UPDATED_FAILED."</b>";
 		$text .= "</td></tr>";
 

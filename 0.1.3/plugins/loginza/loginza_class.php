@@ -26,7 +26,7 @@ class loginza{
 		} else {
 			cookie($pref['cookie_name'], $cookieval, (time() + 3600 * 24 * 30));
 		}
-		return '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/apply.png" alt="OK" /> '
+		return '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/apply.png" alt="OK" /> '
 			.LOGINZA_LOGIN_OK.'</h3></div><script type="text/javascript">
 			setTimeout(\'location.replace("'.($url!=''?htmlspecialchars(urldecode($_GET['url']), ENT_QUOTES):SITEURL).'")\', 1000);
 			</script>';
@@ -40,7 +40,7 @@ class loginza{
 		
 		//���� ������ �����
 		if(!preg_match('#^[a-z0-9]{32}$#i',$token))
-			return '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_EMPTY_TOKEN.'</h3></div>';
+			return '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_EMPTY_TOKEN.'</h3></div>';
 			
 		if($pref['loginza_secure_login']=='1' && is_numeric($pref['loginza_widget_id']) && $pref['loginza_api_signature']!=''){
 			$sign = '&id='.$pref['loginza_widget_id'].'&sig='.md5($token.$pref['loginza_api_signature']);
@@ -91,7 +91,7 @@ class loginza{
 			}
 			return $data;
 		}else{
-			return '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'get data'.LOGINZA_ERR2.'</h3></div>';
+			return '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'get data'.LOGINZA_ERR2.'</h3></div>';
 		}
 	}
 	

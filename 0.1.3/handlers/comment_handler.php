@@ -55,7 +55,7 @@ class comment {
         	return;
 		}
 
-		require_once(e_HANDLER."ren_help.php");
+		require_once(e_HANDLER."ren_help_handler.php");
 		if (ANON == TRUE || USER == TRUE)
 		{
 			$itemid = $id;
@@ -129,7 +129,7 @@ class comment {
 			if($rating == TRUE && !(ANON == TRUE && USER == FALSE) )
 			{
 				global $rater;
-				require_once(e_HANDLER."rate_class.php");
+				require_once(e_HANDLER."rate_handler.php");
 				if(!is_object($rater)){ $rater = new rater; }
 				$rate = $rater -> composerating($table, $itemid, $enter=TRUE, USERID, TRUE);
 				$rate = "<tr><td style='width:20%; vertical-align:top;'>".COMLAN_327.":</td>\n<td style='width:80%;'>".$rate."</td></tr>\n";
@@ -195,7 +195,7 @@ class comment {
 		$thisaction			= $action;
 
 		if($addrating===TRUE){
-			require_once(e_HANDLER."rate_class.php");
+			require_once(e_HANDLER."rate_handler.php");
 			if(!$rater || !is_object($rater)){ $rater = new rater; }
 		}
 

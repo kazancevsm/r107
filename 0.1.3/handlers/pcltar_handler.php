@@ -67,11 +67,11 @@ if (!defined("PCL_TAR"))
   // Library in order to limit the potential 'lib' directory path problem.
   if (!defined("PCLERROR_LIB"))
   {
-    include_once("pclerror.lib.php");
+    include_once("pclerror_handler.php");
   }
   if (!defined("PCLTRACE_LIB"))
   {
-    include_once("pcltrace.lib.php");
+    include_once("pcltrace_handler.php");
   }
 
   // --------------------------------------------------------------------------------

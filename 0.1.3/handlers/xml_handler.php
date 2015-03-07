@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/xml_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/xml_handler.php $
 |     $Revision: 12289 $
-|     $Id: xml_class.php 12289 2011-06-29 01:07:28Z e107coders $
+|     $Id: xml_handler.php 12289 2011-06-29 01:07:28Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */

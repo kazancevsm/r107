@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("4")) 
 {
 	header("location:".e_BASE."index.php");
@@ -84,7 +84,7 @@ if (isset($_POST['updateclass']))
 	if ($_POST['notifyuser']) 
 	{
 		$message .= "<br />".UCSLAN_1.":</b> ".$row['user_name']."<br />";
-		require_once(e_HANDLER."mail.php");
+		require_once(e_HANDLER."mail_handler.php");
 		$messaccess = '';
 		for($a = 0; $a <= (count($class)-1); $a++) 
 		{
@@ -113,16 +113,16 @@ $caption = UCSLAN_6." <b>".$row['user_name']."</b> (".$row['user_class'].")";
 
 $text = "	<div style='text-align:center'>
 			<form method='post' action='".e_SELF."?".e_QUERY."'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>";
+			<table class='fborder'>";
 
 for($a = 0; $a <= (count($class)-1); $a++) {
-	$text .= "<tr><td style='width:30%' class='r_header3'>";
+	$text .= "<tr><td style='width:30%' class='forumheader3'>";
 	if (check_class($class[$a][0], $row['user_class'])) {
 		$text .= "<input type='checkbox' name='userclass[]' value='".$class[$a][0]."' checked='checked' />".$class[$a][1]." ";
 	} else {
 		$text .= "<input type='checkbox' name='userclass[]' value='".$class[$a][0]."' />".$class[$a][1]." ";
 	}
-	$text .= "</td><td style='width:70%' class='r_header3'> ".$class[$a][2]."</td></tr>";
+	$text .= "</td><td style='width:70%' class='forumheader3'> ".$class[$a][2]."</td></tr>";
 }
 
 $adminreturn = e_ADMIN.'users.php?cu';
@@ -135,7 +135,7 @@ if (isset($qs[1]))
 	$adminreturn .= (isset($qs[2]) && $qs[2] ? ".{$qs[2]}.{$qs[3]}.{$qs[4]}" : '');
 }
 
-$text .= "	<tr><td class='r_header1' colspan='2' style='text-align:center'>
+$text .= "	<tr><td class='forumheader' colspan='2' style='text-align:center'>
 			<input type='hidden' name='adminreturn' value='$adminreturn' />
 			<input type='checkbox' name='notifyuser' value='1' /> ".UCSLAN_8."&nbsp;&nbsp;
 			<input class='button' type='submit' name='updateclass' value='".UCSLAN_7."' />

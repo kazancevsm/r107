@@ -28,7 +28,7 @@ if($pm_info['from_name'])
 {
 	return "<input type='hidden' name='pm_to' value='{$pm_info['from_name']}' />{$pm_info['from_name']}";
 }
-require_once(e_HANDLER."user_select_class.php");
+require_once(e_HANDLER."user_select_handler.php");
 $us = new user_select;
 $type = ($pm_prefs['dropdown'] == TRUE ? 'list' : 'popup');
 if(check_class($pm_prefs['multi_class']))
@@ -52,7 +52,7 @@ if($pm_info['from_name'])
 if($pm_prefs['allow_userclass'] && check_class($pm_prefs['multi_class']))
 {
 	$ret = "<input type='checkbox' name='to_userclass' value='1' />".LAN_PM_4." ";
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	$args = (ADMIN ? "admin, classes" : "classes, matchclass");
 	if(check_class($pm_prefs['sendall_class']))
 	{

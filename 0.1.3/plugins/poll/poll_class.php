@@ -454,7 +454,7 @@ class poll
 		if($type == "preview")
 		{
 			$caption = POLLAN_23;
-			$text = "<div style='text-align:center; margin-left: auto; margin-right: auto;'>\n<table style='width:350px' class='r_border'>\n<tr>\n<td>\n$text\n</td></tr></table></div>";
+			$text = "<div style='text-align:center; margin-left: auto; margin-right: auto;'>\n<table style='width:350px' class='fborder'>\n<tr>\n<td>\n$text\n</td></tr></table></div>";
 		}
 		else if($type == "forum")
 		{
@@ -484,19 +484,19 @@ class poll
 		if($mode == "forum")
 		{
 			$text = "<tr>
-			<td colspan='2' class='nr_caption2'>".LAN_4."</td>
+			<td colspan='2' class='nfcaption2'>".LAN_4."</td>
 			</tr>
 			<tr>
-			<td colspan='2' class='r_header3'>
+			<td colspan='2' class='forumheader3'>
 			<span class='smalltext'>".LAN_386."</span>
 			</td>
 			</tr>
-			<tr><td style='width:20%' class='r_header3'><div class='normaltext'>".LAN_5."</div></td><td style='width:80%'class='r_header3'><input class='tbox' type='text' name='poll_title' size='70' value='".$tp->post_toForm($_POST['poll_title'])."' maxlength='200' /></td></tr>";
+			<tr><td style='width:20%' class='forumheader3'><div class='normaltext'>".LAN_5."</div></td><td style='width:80%'class='forumheader3'><input class='tbox' type='text' name='poll_title' size='70' value='".$tp->post_toForm($_POST['poll_title'])."' maxlength='200' /></td></tr>";
 
 			$option_count = (count($_POST['poll_option']) ? count($_POST['poll_option']) : 1);
 			$text .= "<tr>
-			<td style='width:20%' class='r_header3'>".LAN_391."</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".LAN_391."</td>
+			<td style='width:80%' class='forumheader3'>
 			<div id='pollsection'>";
 
 			for($count = 1; $count <= $option_count; $count++)
@@ -515,16 +515,16 @@ class poll
 
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".POLL_506."</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".POLL_506."</td>
+			<td style='width:80%' class='forumheader3'>
 			<input type='radio' name='multipleChoice' value='1'".($_POST['multipleChoice'] ? " checked='checked'" : "")." /> ".POLL_507."&nbsp;&nbsp;
 			<input type='radio' name='multipleChoice' value='0'".(!$_POST['multipleChoice'] ? " checked='checked'" : "")." /> ".POLL_508."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".POLLAN_16."</td>
-			<td class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".POLLAN_16."</td>
+			<td class='forumheader3'>
 			<input type='radio' name='storageMethod' value='0'".(!$_POST['storageMethod'] ? " checked='checked'" : "")." /> ".POLLAN_17."<br />
 			<input type='radio' name='storageMethod' value='1'".($_POST['storageMethod'] == 1 ? " checked='checked'" : "")." /> ".POLLAN_18."<br />
 			<input type='radio' name='storageMethod' value='2'".($_POST['storageMethod'] ==2 ? " checked='checked'" : "")." /> ".POLLAN_19."
@@ -539,17 +539,17 @@ class poll
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='$formgo'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td style='width:30%' class='r_header3'><div class='normaltext'>".POLLAN_3.":</div></td>
-		<td style='width:70%'class='r_header3'>
+		<td style='width:30%' class='forumheader3'><div class='normaltext'>".POLLAN_3.":</div></td>
+		<td style='width:70%'class='forumheader3'>
 		<input class='tbox' type='text' name='poll_title' size='70' value='".$tp -> post_toForm($_POST['poll_title'])."' maxlength='200' />";
 
 		$option_count = (count($_POST['poll_option']) ? count($_POST['poll_option']) : 1);
 
 		$text .= "<tr>
-		<td style='width:30%;vertical-align:top' class='r_header3'>".LAN_OPTIONS." :</td>
-		<td style='width:70%' class='r_header3'>
+		<td style='width:30%;vertical-align:top' class='forumheader3'>".LAN_OPTIONS." :</td>
+		<td style='width:70%' class='forumheader3'>
 		<div id='pollsection'>";
 
 		for($count = 1; $count <= $option_count; $count++)
@@ -567,29 +567,29 @@ class poll
 		</td></tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".POLLAN_9."</td>
-		<td style='width:70%' class='r_header3'>
+		<td style='width:30%' class='forumheader3'>".POLLAN_9."</td>
+		<td style='width:70%' class='forumheader3'>
 		<input type='radio' name='multipleChoice' value='1'".($_POST['multipleChoice'] ? " checked='checked'" : "")." /> ".POLLAN_10."&nbsp;&nbsp;
 		<input type='radio' name='multipleChoice' value='0'".(!$_POST['multipleChoice'] ? " checked='checked'" : "")." /> ".POLLAN_11."
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".POLLAN_12."</td>
-		<td style='width:70%' class='r_header3'>
+		<td style='width:30%' class='forumheader3'>".POLLAN_12."</td>
+		<td style='width:70%' class='forumheader3'>
 		<input type='radio' name='showResults' value='0'".(!$_POST['showResults'] ? " checked='checked'" : "")." /> ".POLLAN_13."<br />
 		<input type='radio' name='showResults' value='1'".($_POST['showResults'] ? " checked='checked'" : "")." /> ".POLLAN_14."
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".POLLAN_15."</td>
-		<td class='r_header3'>".r_userclass("pollUserclass", $_POST['pollUserclass'], 'off', "public,member,admin,classes,matchclass")."</td>
+		<td style='width:30%' class='forumheader3'>".POLLAN_15."</td>
+		<td class='forumheader3'>".r_userclass("pollUserclass", $_POST['pollUserclass'], 'off', "public,member,admin,classes,matchclass")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".POLLAN_16."</td>
-		<td class='r_header3'>
+		<td style='width:30%' class='forumheader3'>".POLLAN_16."</td>
+		<td class='forumheader3'>
 		<input type='radio' name='storageMethod' value='0'".(!$_POST['storageMethod'] ? " checked='checked'" : "")." /> ".POLLAN_17."<br />
 		<input type='radio' name='storageMethod' value='1'".($_POST['storageMethod'] ==1 ? " checked='checked'" : "")." /> ".POLLAN_18."<br />
 		<input type='radio' name='storageMethod' value='2'".($_POST['storageMethod'] ==2 ? " checked='checked'" : "")." /> ".POLLAN_19."
@@ -599,13 +599,13 @@ class poll
 
 
 		<tr>
-		<td class='r_header3'>".POLLAN_20.": </td><td class='r_header3'>
+		<td class='forumheader3'>".POLLAN_20.": </td><td class='forumheader3'>
 		<input type='radio' name='poll_comment' value='1'".($_POST['poll_comment'] ? " checked='checked'" : "")." /> ".POLLAN_10."
 		<input type='radio' name='poll_comment' value='0'".(!$_POST['poll_comment'] ? " checked='checked'" : "")." /> ".POLLAN_11."
 		</td>
 		</tr>
 		<tr style='vertical-align:top'>
-		<td colspan='2'  style='text-align:center' class='r_header1'>";
+		<td colspan='2'  style='text-align:center' class='forumheader'>";
 
 		if (isset($_POST['preview'])) {
 			$text .= "<input class='button' type='submit' name='preview' value='".POLLAN_21."' /> ";

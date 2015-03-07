@@ -297,7 +297,7 @@ SC_BEGIN USER_RATING
 global $pref, $user;
 if($pref['profile_rate'] && USER)
 {
-	include_once(e_HANDLER."rate_class.php");
+	include_once(e_HANDLER."rate_handler.php");
 	$rater = new rater;
 	$ret = "<span>";
 	if($rating = $rater->getrating('user', $user['user_id']))
@@ -414,7 +414,7 @@ $qry = "SELECT f.*, c.user_extended_struct_name AS category_name, c.user_extende
 
 
 
-require_once(e_HANDLER."user_extended_class.php");
+require_once(e_HANDLER."user_extended_handler.php");
 
 $ue = new e107_user_extended;
 $ueCatList = $ue->user_extended_get_categories();

@@ -16,7 +16,7 @@
 **
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
@@ -67,9 +67,9 @@ function getDefaultcr_prefs(){
 		$cr_pref['cr_overlay_color']			= 'black';
 		$cr_pref['cr_background_color']			= 'black';
 		$cr_pref['cr_overlay_text_color']		= 'white';
-		$cr_pref['cr_caption_text_color']		= 'yellow';
-		$cr_pref['cr_caption_text_color_active']= 'white';
-		$cr_pref['cr_border']					= '1px solid black';
+		$cr_pref['cfcaption_text_color']		= 'yellow';
+		$cr_pref['cfcaption_text_color_active']= 'white';
+		$cr_pref['cfborder']					= '1px solid black';
 		$cr_pref['cr_nav_theme']				= 'light';
 		$cr_pref['cr_easing']					= 'swing';
 		$cr_pref['cr_show_captions']			= 'false';
@@ -322,11 +322,11 @@ if(!is_object($sql)){ $sql = new db; }
 	</tr>
 	<tr>
 		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_25."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_caption_text_color", 10, $cr_pref['cr_caption_text_color'], 50)."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfcaption_text_color", 10, $cr_pref['cfcaption_text_color'], 50)."</td>
 	</tr>
 	<tr>
 		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_46."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_caption_text_color_active", 10, $cr_pref['cr_caption_text_color_active'], 50)."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfcaption_text_color_active", 10, $cr_pref['cfcaption_text_color_active'], 50)."</td>
 	</tr>
 	<tr>
 		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_44."</td>
@@ -335,7 +335,7 @@ if(!is_object($sql)){ $sql = new db; }
 	</tr>
 	<tr>
 		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_26."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_border", 10, $cr_pref['cr_border'], 50)."
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfborder", 10, $cr_pref['cfborder'], 50)."
 		</td>
 	</tr>
 	<tr>

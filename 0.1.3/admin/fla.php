@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("4")) 
 {
 	header("location:".e_BASE."index.php");
@@ -135,12 +135,12 @@ else
 
 	$text = "
 	<form method='post' action='".e_SELF."' id='flaform' >
-	<table class='r_border' style='width:99%;'>
+	<table class='fborder' style='width:99%;'>
 	<tr>
-	<td style='width: 20%;' class='r_header1'>".FLALAN_6."</td>
-	<td style='width: 50%;' class='r_header1'>".FLALAN_7."</td>
-	<td style='width: 20%;' class='r_header1'>".FLALAN_8."</td>
-	<td style='width: 10%; text-align: center;' class='r_header1'>".FLALAN_9."</td>
+	<td style='width: 20%;' class='forumheader'>".FLALAN_6."</td>
+	<td style='width: 50%;' class='forumheader'>".FLALAN_7."</td>
+	<td style='width: 20%;' class='forumheader'>".FLALAN_8."</td>
+	<td style='width: 10%; text-align: center;' class='forumheader'>".FLALAN_9."</td>
 	</tr>
 	";
 
@@ -150,10 +150,10 @@ else
 
 		$host = $e107->get_host_name(getenv($gen_ip));
 		$text .= "<tr>
-		<td style='width: 20%;' class='r_header3'>".$gen->convert_date($gen_datestamp, "forum")."</td>
-		<td style='width: 50%;' class='r_header3'>".str_replace(":::", "<br />", htmlentities($gen_chardata, ENT_QUOTES, CHARSET))."</td>
-		<td style='width: 20%;' class='r_header1'>".$fa['gen_ip']."<br />{$host}</td>
-		<td style='width: 10%; text-align: left;' class='r_header3'>
+		<td style='width: 20%;' class='forumheader3'>".$gen->convert_date($gen_datestamp, "forum")."</td>
+		<td style='width: 50%;' class='forumheader3'>".str_replace(":::", "<br />", htmlentities($gen_chardata, ENT_QUOTES, CHARSET))."</td>
+		<td style='width: 20%;' class='forumheader'>".$fa['gen_ip']."<br />{$host}</td>
+		<td style='width: 10%; text-align: left;' class='forumheader3'>
 		<label><input type='checkbox' name='fladelete[]' value='{$gen_id}' /> ".LAN_DELETE."</label><br />
 		<label><input type='checkbox' name='flaban[]' value='{$gen_id}' /> ".LAN_BAN."</label>
 		</td>
@@ -163,7 +163,7 @@ else
 
 	$text .= "
 	<tr>
-	<td colspan='4' class='r_header1' style='text-align: right;'>
+	<td colspan='4' class='forumheader' style='text-align: right;'>
 
 	<a href='".e_SELF."?checkall=1' onclick=\"setCheckboxes('flaform', true, 'fladelete[]'); return false;\">".FLALAN_11."</a> -
 	<a href='".e_SELF."' onclick=\"setCheckboxes('flaform', false, 'fladelete[]'); return false;\">".FLALAN_12."</a>
@@ -175,7 +175,7 @@ else
 	</tr>
 
 	<tr>
-	<td colspan='4' class='r_header1' style='text-align: center;'><input class='button' type='submit' name='delbanSubmit' value='".FLALAN_10."' /></td>
+	<td colspan='4' class='forumheader' style='text-align: center;'><input class='button' type='submit' name='delbanSubmit' value='".FLALAN_10."' /></td>
 	</tr>
 	</table>
 	</form>

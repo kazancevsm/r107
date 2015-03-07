@@ -1,6 +1,6 @@
 <?php
 define('e_TOKEN_FREEZE', true);
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_HANDLER."file_handler.php");
 if(!ADMIN){
 exit;

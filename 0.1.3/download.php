@@ -18,7 +18,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("class.php");
+require_once("class2.php");
 require_once(e_HANDLER."comment_handler.php");
 require_once(e_SYSTEM."shortcode/batch/download_shortcodes.php");
 
@@ -26,8 +26,6 @@ $cobj = new comment;
 global $tp;
 
 $dl_text = '';			// Output variable
-
-if(!defined("USER_WIDTH")) { define("USER_WIDTH","width:100%"); }
 
 // Following two now set in prefs
 // To prevent display of sub-categories on the main display, change the value in the following line from '1' to '0'
@@ -352,7 +350,7 @@ if ($action == "list")
     if(!defined("DL_IMAGESTYLE")){ define("DL_IMAGESTYLE","border:1px solid blue");}
 
 	$gen = new convert;
-	require_once(e_HANDLER."rate_class.php");
+	require_once(e_HANDLER."rate_handler.php");
 	$rater = new rater;
 	$tdownloads = 0;
 
@@ -474,7 +472,7 @@ $comment_edit_query = 'comment.download.'.$id;
 	{
     	$DL_VIEW_NEXTPREV = "
 		<div style='text-align:center'>
-			<table style='".USER_WIDTH."'>
+			<table>
 			<tr>
 			<td style='width:40%;'>{DOWNLOAD_VIEW_PREV}</td>
 			<td style='width:20%; text-align: center;'>{DOWNLOAD_BACK_TO_LIST}</td>
@@ -529,7 +527,7 @@ if ($action == "report" && check_class($pref['download_reportbroken']))
 		$user = USER ? USERNAME : LAN_dl_52;
 
 		if ($pref['download_email']) {    // this needs to be moved into the NOTIFY, with an event.
-			require_once(e_HANDLER."mail.php");
+			require_once(e_HANDLER."mail_handler.php");
 			$subject = LAN_dl_60." ".SITENAME;
 			$report = LAN_dl_58." ".SITENAME.":\n".(substr(SITEURL, -1) == "/" ? SITEURL : SITEURL."/")."download.php?view.".$download_id."\n
 			".LAN_dl_59." ".$user."\n".$report_add;
@@ -549,7 +547,7 @@ if ($action == "report" && check_class($pref['download_reportbroken']))
 		require_once(HEADERF);
 
 		$text = "<form action='".e_SELF."?report.{$download_id}' method='post'>
-		<table style='".USER_WIDTH."'>
+		<table>
 			<tr>
 			<td  style='width:50%' >
 			".LAN_dl_32.": ".$download_name."<br />
@@ -703,7 +701,7 @@ function parse_download_cat_parent_table($row)
 	extract($row);
 	$current_row = ($current_row) ? 0 : 1;  // Alternating CSS for each row.(backwards compatible)
 
-	$template = ($current_row == 1) ? $DOWNLOAD_CAT_PARENT_TABLE : str_replace("r_header3","r_header3 r_header3_alt",$DOWNLOAD_CAT_PARENT_TABLE);
+	$template = ($current_row == 1) ? $DOWNLOAD_CAT_PARENT_TABLE : str_replace("forumheader3","forumheader3 forumheader3_alt",$DOWNLOAD_CAT_PARENT_TABLE);
 
 	$tVars['DOWNLOAD_CAT_MAIN_ID'] = '';
 	$tVars['DOWNLOAD_CAT_MAIN_ICON'] = '';
@@ -752,7 +750,7 @@ function parse_download_cat_child_table($row)
 	global $tp,$current_row, $DOWNLOAD_CAT_CHILD_TABLE, $DOWNLOAD_CAT_SUBSUB_TABLE;
 
 	$current_row = ($current_row) ? 0 : 1;  // Alternating CSS for each row.(backwards compatible)
-	$template = ($current_row == 1) ? $DOWNLOAD_CAT_CHILD_TABLE : str_replace("r_header3","r_header3 r_header3_alt",$DOWNLOAD_CAT_CHILD_TABLE);
+	$template = ($current_row == 1) ? $DOWNLOAD_CAT_CHILD_TABLE : str_replace("forumheader3","forumheader3 forumheader3_alt",$DOWNLOAD_CAT_CHILD_TABLE);
 
 	$tVars['DOWNLOAD_CAT_SUB_ID'] = $row['download_category_id'];
 	$tVars['DOWNLOAD_CAT_SUB_ICON'] = get_cat_icons($row['download_category_icon'],$row['d_count']);
@@ -792,7 +790,7 @@ function parse_download_list_table($row)
 
 	$agreetext = $tp->toHTML(varset($pref['agree_text'], ''),TRUE,"parse_sc");
 	$current_row = ($current_row) ? 0 : 1;  // Alternating CSS for each row.(backwards compatible)
-	$template = ($current_row == 1) ? $DOWNLOAD_LIST_TABLE : str_replace("r_header3","r_header3 r_header3_alt",$DOWNLOAD_LIST_TABLE);
+	$template = ($current_row == 1) ? $DOWNLOAD_LIST_TABLE : str_replace("forumheader3","forumheader3 forumheader3_alt",$DOWNLOAD_LIST_TABLE);
 
 	return $tp->parseTemplate($template,TRUE,$download_shortcodes);
 

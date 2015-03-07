@@ -113,23 +113,23 @@ class auth
 
         $text = "<div style='padding:20px;text-align:center'>
             <form method='post' action='".e_SELF."'>\n
-            <table style='width:50%' class='r_border'>
+            <table style='width:50%' class='fborder'>
             <tr>
             <td rowspan='4' style='vertical-align:middle;width:65px'>".(file_exists(THEME."images/password.png") ? "<img src='".THEME_ABS."images/password.png' alt='' />\n" : "<img src='".e_IMAGE."generic/".IMODE."/password.png' alt='' />\n" )."</td>
-            <td style='width:35%' class='r_header3'>".ADLAN_89."</td>
-            <td class='r_header3' style='text-align:center'><input class='tbox' type='text' name='authname' size='30' value='$authname' maxlength='20' />\n</td>
+            <td style='width:35%' class='forumheader3'>".ADLAN_89."</td>
+            <td class='forumheader3' style='text-align:center'><input class='tbox' type='text' name='authname' size='30' value='$authname' maxlength='20' />\n</td>
 
             </tr>
             <tr>
-            <td style='width:35%' class='r_header3'>".ADLAN_90."</td>
-            <td class='r_header3' style='text-align:center'><input class='tbox' type='password' name='authpass' size='30' value='' maxlength='20' />\n</td>
+            <td style='width:35%' class='forumheader3'>".ADLAN_90."</td>
+            <td class='forumheader3' style='text-align:center'><input class='tbox' type='password' name='authpass' size='30' value='' maxlength='20' />\n</td>
             </tr>
             ";
 
         if ($use_imagecode) {
             $text .= "
             <tr>
-            <td style='width:35%' class='r_header3'>".ADLAN_152."</td>
+            <td style='width:35%' class='forumheader3'>".ADLAN_152."</td>
             <td style='text-align:center'>
             <input type='hidden' name='rand_num' value='".$sec_img->random_number."' />".
             $sec_img->r_image().
@@ -140,7 +140,7 @@ class auth
 
         $text .= "
             <tr>
-            <td colspan='2' style='text-align:center' class='r_header1'>
+            <td colspan='2' style='text-align:center' class='forumheader'>
 
             <input class='button' type='submit' name='authsubmit' value='".ADLAN_91."' />
 			<input type='hidden' name='e-token' value='".e_TOKEN."' />

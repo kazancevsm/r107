@@ -1100,7 +1100,7 @@ class e_parse
 		// profanity filter
         if ($pref['profanity_filter']) {
             if (!is_object($this->e_pf)) {
-                require_once(e_HANDLER."profanity_filter.php");
+                require_once(e_HANDLER."profanity_filter_handler.php");
                 $this->e_pf = new e_profanityFilter;
             }
             $text = $this->e_pf->filterProfanities($text);

@@ -1,5 +1,5 @@
 global $sql,$pref,$tp,$NEWSCAT,$NEWSCAT_ITEM;
-require_once(e_HANDLER."news_class.php");
+require_once(e_HANDLER."news_handler.php");
 $ix = new news;
 
 $nbr_cols = (isset($pref['nbr_cols'])) ? $pref['nbr_cols'] : 1;

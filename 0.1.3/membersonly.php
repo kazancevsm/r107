@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("class.php");
+require_once("class2.php");
 
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_membersonly.php");
 

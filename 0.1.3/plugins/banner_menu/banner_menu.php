@@ -92,7 +92,7 @@ else
 
 if (isset($menu_pref['banner_rendertype']) && $menu_pref['banner_rendertype'] == 2)
 {
-	$ns->tablerender($menu_pref['banner_caption'], $txt);
+	$ns->tablerender($menu_pref['bannefcaption'], $txt);
 }
 else
 {

@@ -27,7 +27,7 @@ if($_GET['mode'] == "e_advanced"){
 
 	$buts = "";
 	$text = "<div style='text-align:center;vertical-align:middle'><br /><br />
-	<table class='r_border'>";
+	<table class='fborder'>";
 
  	//	$newarray[28] = array(e_ADMIN."plugin.php", ADLAN_98, ADLAN_99, "Z", 2, E_16_PLUGMANAGER, E_32_PLUGMANAGER);
 
@@ -50,7 +50,7 @@ if($_GET['mode'] == "e_advanced"){
 	}
 
 	$text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 	$text .= render_links(e_ADMIN."plugin.php", ADLAN_98, ADLAN_99, "Z", E_32_PLUGMANAGER, "classis");
 

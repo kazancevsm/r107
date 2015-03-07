@@ -277,24 +277,24 @@ $text .="<img src='theme/images/step_2.png'><br><br>";
 $text .="<h2>Данные о покупателе</h2><hr>";
 $text .="<form enctype='multipart/form-data' name='form_profile' method='post' action='".$PHP_SELF."'>";
 $text .="<table width=100%>";
-$text .="<tr><td class='r_header3'>Ваше Имя *</td><td class='r_header3'><input class='tbox' type='text' name='order_fname' onblur='checkname()' size='40' value='$profile_fname' maxlength='200'/><span id='check_name'></span></td>";
-$text .="<tr><td class='r_header2'>Ваша Фамилия *</td><td class='r_header2'><input class='tbox' type='text' name='order_lname' size='40' value='$profile_lname' maxlength='200'/></td>";
+$text .="<tr><td class='forumheader3'>Ваше Имя *</td><td class='forumheader3'><input class='tbox' type='text' name='order_fname' onblur='checkname()' size='40' value='$profile_fname' maxlength='200'/><span id='check_name'></span></td>";
+$text .="<tr><td class='forumheader2'>Ваша Фамилия *</td><td class='forumheader2'><input class='tbox' type='text' name='order_lname' size='40' value='$profile_lname' maxlength='200'/></td>";
 
-$text .="<tr><td class='r_header3'>Название организации</td><td class='r_header3'><input class='tbox' type='text' name='order_org' onblur='checkname()' size='40' value='$profile_org'  maxlength='200'/><span id='check_name'></span></td>";
+$text .="<tr><td class='forumheader3'>Название организации</td><td class='forumheader3'><input class='tbox' type='text' name='order_org' onblur='checkname()' size='40' value='$profile_org'  maxlength='200'/><span id='check_name'></span></td>";
 
-$text .="<tr><td class='r_header2'>Индекс</td><td class='r_header2'><input class='tbox' type='text' name='order_index' size='40' value='$profile_index' maxlength='200'/></td>";
+$text .="<tr><td class='forumheader2'>Индекс</td><td class='forumheader2'><input class='tbox' type='text' name='order_index' size='40' value='$profile_index' maxlength='200'/></td>";
 
-//$text .="<tr><td class='r_header2'>Страна</td><td class='r_header2'><input class='tbox' type='text' name='profile_country' onblur='checkcity()' size='40' value='$profile_country' maxlength='200'/><span id='check_city'></span></td>";
+//$text .="<tr><td class='forumheader2'>Страна</td><td class='forumheader2'><input class='tbox' type='text' name='profile_country' onblur='checkcity()' size='40' value='$profile_country' maxlength='200'/><span id='check_city'></span></td>";
 
-$text .="<tr><td class='r_header3'>Область</td><td class='r_header3'><input class='tbox' type='text' name='order_state' onblur='checkcity()' size='40' value='$profile_state' maxlength='200'/><span id='check_city'></span></td>";
+$text .="<tr><td class='forumheader3'>Область</td><td class='forumheader3'><input class='tbox' type='text' name='order_state' onblur='checkcity()' size='40' value='$profile_state' maxlength='200'/><span id='check_city'></span></td>";
 
-$text .="<tr><td class='r_header2'>Адрес *</td><td class='r_header2'><input class='tbox' type='text' name='order_address' onblur='checkaddress()' size='40' value='$profile_address' maxlength='200'/><span id='check_address'></span></td>";
+$text .="<tr><td class='forumheader2'>Адрес *</td><td class='forumheader2'><input class='tbox' type='text' name='order_address' onblur='checkaddress()' size='40' value='$profile_address' maxlength='200'/><span id='check_address'></span></td>";
 
-$text .="<tr><td class='r_header3'>Электронный ящик *</td><td class='r_header3'><input class='tbox' type='text' name='order_email' size='40' value='$profile_email' maxlength='200'/></td>";
+$text .="<tr><td class='forumheader3'>Электронный ящик *</td><td class='forumheader3'><input class='tbox' type='text' name='order_email' size='40' value='$profile_email' maxlength='200'/></td>";
 
-$text .="<tr><td class='r_header2'>ICQ</td><td class='r_header2'><input class='tbox' type='text' name='order_icq' size='40' value='$profile_icq' maxlength='200'/></td>";
+$text .="<tr><td class='forumheader2'>ICQ</td><td class='forumheader2'><input class='tbox' type='text' name='order_icq' size='40' value='$profile_icq' maxlength='200'/></td>";
 
-$text .="<tr><td class='r_header3'>Телефон *</td><td class='r_header3'><input class='tbox' type='text' name='order_phone' onblur='phone()' size='40' value='$profile_phone' maxlength='200'/><span id='check_phone'></span></td>";
+$text .="<tr><td class='forumheader3'>Телефон *</td><td class='forumheader3'><input class='tbox' type='text' name='order_phone' onblur='phone()' size='40' value='$profile_phone' maxlength='200'/><span id='check_phone'></span></td>";
 $text .="</tr></table>";
 $text .="<br><center><input style='cursor:pointer' type='submit' value='Назад' name='to_step1'>";
 $text .="<input style='cursor:pointer' type='submit' value='Далее' name='to_step3'></center>";
@@ -322,20 +322,20 @@ $text .="<table>";
 $text .="<tr><td class='fcaption'>Место доставки</td>";
 $text .="<td class='fcaption'>Стоимость доставки</td>";
 $text .="<td class='fcaption'>Выбор</td>";
-$text .="<tr><td class='r_header2'>по Екатеринбургу, курьером</td><td class='r_header2'>".number_format($del_poekb,2)." руб</td><td class='r_header2'><input type='radio' name='order_group1' value='$del_poekb'></td>";
-$text .="<tr><td class='r_header3'>Березовский, Сысерть, Дегтярск, Верхняя Пышма, Арамиль, Первоуральск, Полевской</td><td class='r_header3'>".number_format($del_zaekb,2)." руб</td><td class='r_header3'><input type='radio' name='order_group1' value='$del_zaekb'></td></tr>";
-$text .="<tr><td class='r_header2'>Самовывоз</td><td class='r_header2'>".number_format($del_sam,2)." руб</td><td class='r_header2'><input type='radio' name='order_group1' value='$del_sam'></td>";
-//$text .="<tr><td class='r_header3'>Почта России</td><td class='r_header3'></td><td class='r_header3'><input type='radio' name='group1' value='Почта'></td>";
+$text .="<tr><td class='forumheader2'>по Екатеринбургу, курьером</td><td class='forumheader2'>".number_format($del_poekb,2)." руб</td><td class='forumheader2'><input type='radio' name='order_group1' value='$del_poekb'></td>";
+$text .="<tr><td class='forumheader3'>Березовский, Сысерть, Дегтярск, Верхняя Пышма, Арамиль, Первоуральск, Полевской</td><td class='forumheader3'>".number_format($del_zaekb,2)." руб</td><td class='forumheader3'><input type='radio' name='order_group1' value='$del_zaekb'></td></tr>";
+$text .="<tr><td class='forumheader2'>Самовывоз</td><td class='forumheader2'>".number_format($del_sam,2)." руб</td><td class='forumheader2'><input type='radio' name='order_group1' value='$del_sam'></td>";
+//$text .="<tr><td class='forumheader3'>Почта России</td><td class='forumheader3'></td><td class='forumheader3'><input type='radio' name='group1' value='Почта'></td>";
 
 $text .="</td></tr></table>";
 $text .="<h2>Оплата</h2><hr>";
 $text .="<table>";
-$text .="<tr><td class='r_header3'><img src='theme/images/money_ym_small.jpg'><br>YandexMoney<input type='radio' name='order_group2' value='YM'></td>";
-$text .="<td class='r_header3'><img src='theme/images/money_wm_small.jpg'><br>WebMoney <input type='radio' name='order_group2' value='WM'></td>";
-$text .="<td class='r_header3'><img src='theme/images/money_rc_small.jpg'><br>RoboCassa <input type='radio' name='order_group2' value='RC'></td>";
-$text .="<tr><td class='r_header2'><img src='theme/images/money_nal_small.jpg'><br>Наличный платеж<input type='radio' name='order_group2' value='NP'></td>";
-$text .="<td class='r_header2'><img src='theme/images/money_bank_small.jpg'><br>Счет для организаций<input type='radio' name='order_group2' value='NP'></td>";
-$text .="<td class='r_header2'><img src='theme/images/money_kvit_small.jpg'><br>Перевод для физ.лиц<input type='radio' name='order_group2' value='NP'></td>";
+$text .="<tr><td class='forumheader3'><img src='theme/images/money_ym_small.jpg'><br>YandexMoney<input type='radio' name='order_group2' value='YM'></td>";
+$text .="<td class='forumheader3'><img src='theme/images/money_wm_small.jpg'><br>WebMoney <input type='radio' name='order_group2' value='WM'></td>";
+$text .="<td class='forumheader3'><img src='theme/images/money_rc_small.jpg'><br>RoboCassa <input type='radio' name='order_group2' value='RC'></td>";
+$text .="<tr><td class='forumheader2'><img src='theme/images/money_nal_small.jpg'><br>Наличный платеж<input type='radio' name='order_group2' value='NP'></td>";
+$text .="<td class='forumheader2'><img src='theme/images/money_bank_small.jpg'><br>Счет для организаций<input type='radio' name='order_group2' value='NP'></td>";
+$text .="<td class='forumheader2'><img src='theme/images/money_kvit_small.jpg'><br>Перевод для физ.лиц<input type='radio' name='order_group2' value='NP'></td>";
 $text .="</table>";
 $text .="<br><center><input style='cursor:pointer' type='submit' value='Назад' name='to_step2'>";
 $text .="<input style='cursor:pointer' type='submit' value='Далее' name='to_step4'></center>";
@@ -357,14 +357,14 @@ include('discount.php');
 	$text .="<input class='tbox' type='hidden' name='discount' value='$discount'/>";
 $text .="<br>";
 $text .="<table width=100%><tr>";
-$text .="<td width=40% class='r_header2'>Покупатель</td><td width=60% class='r_header2'>".$_SESSION['order']['fname']." ".$_SESSION['order']['lname']."</td>";
-$text .="<tr><td class='r_header3'>Название организации</td><td class='r_header3'>".$_SESSION['order']['org']."</td>";
-$text .="<tr><td class='r_header2'>Адрес доставки</td><td class='r_header2'>".$_SESSION['order']['index']." ".$_SESSION['order']['state']." ".$_SESSION['order']['address']."</td>";
-$text .="<tr><td class='r_header3'>Электронный ящик</td><td class='r_header3'>".$_SESSION['order']['email']."</td>";
-$text .="<tr><td class='r_header2'>ICQ</td><td class='r_header2'>".$_SESSION['order']['icq']."</td>";
-$text .="<tr><td class='r_header3'>Телефон</td><td class='r_header3'>".$_SESSION['order']['phone']."</td></tr>";
-$text .="<tr><td class='r_header2'>Доставка</td><td class='r_header2'>".$_SESSION['order']['group1']."</td></tr>";
-$text .="<tr><td class='r_header3'>Оплата</td><td class='r_header3'>".$_SESSION['order']['group2']."</td></tr>
+$text .="<td width=40% class='forumheader2'>Покупатель</td><td width=60% class='forumheader2'>".$_SESSION['order']['fname']." ".$_SESSION['order']['lname']."</td>";
+$text .="<tr><td class='forumheader3'>Название организации</td><td class='forumheader3'>".$_SESSION['order']['org']."</td>";
+$text .="<tr><td class='forumheader2'>Адрес доставки</td><td class='forumheader2'>".$_SESSION['order']['index']." ".$_SESSION['order']['state']." ".$_SESSION['order']['address']."</td>";
+$text .="<tr><td class='forumheader3'>Электронный ящик</td><td class='forumheader3'>".$_SESSION['order']['email']."</td>";
+$text .="<tr><td class='forumheader2'>ICQ</td><td class='forumheader2'>".$_SESSION['order']['icq']."</td>";
+$text .="<tr><td class='forumheader3'>Телефон</td><td class='forumheader3'>".$_SESSION['order']['phone']."</td></tr>";
+$text .="<tr><td class='forumheader2'>Доставка</td><td class='forumheader2'>".$_SESSION['order']['group1']."</td></tr>";
+$text .="<tr><td class='forumheader3'>Оплата</td><td class='forumheader3'>".$_SESSION['order']['group2']."</td></tr>
 </table>";
 $text .="<br>";
 $text .="Дополнительная информация к заказу<br><textarea cols=48 rows=10 class='tbox' type='text' name='order_desc' maxlength='500'/>$profile_desc</textarea>";

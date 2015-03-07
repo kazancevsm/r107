@@ -23,9 +23,9 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 define("e_NOCACHE",TRUE);
-require_once("class.php");
-require_once(e_HANDLER."ren_help.php");
-require_once(e_HANDLER."user_extended_class.php");
+require_once("class2.php");
+require_once(e_HANDLER."ren_help_handler.php");
+require_once(e_HANDLER."user_extended_handler.php");
 $ue = new e107_user_extended;
 
 //define("US_DEBUG",TRUE);
@@ -43,7 +43,7 @@ if ((!ADMIN || !getperms('4')) && e_QUERY && e_QUERY != 'update' )
     exit;
 }
 
-require_once(e_HANDLER."ren_help.php");
+require_once(e_HANDLER."ren_help_handler.php");
 
 if(is_readable(THEME."usersettings_template.php"))
 {
@@ -717,7 +717,7 @@ $text = (e_QUERY ? $rs->form_open("post", e_SELF."?".e_QUERY, "dataform", "", " 
 
 if(e_QUERY == "update")
 {
-	$text .= "<div class='r_border' style='text-align:center'><br />".str_replace("*","<span style='color:red'>*</span>",LAN_USET_9)."<br />".LAN_USET_10."<br /><br /></div>";
+	$text .= "<div class='fborder' style='text-align:center'><br />".str_replace("*","<span style='color:red'>*</span>",LAN_USET_9)."<br />".LAN_USET_10."<br /><br /></div>";
 }
 
 $text .= $tp->parseTemplate($USERSETTINGS_EDIT, TRUE, $usersettings_shortcodes);

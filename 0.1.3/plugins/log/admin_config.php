@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("P")) 
 {
 	header("location:../../index.php");
@@ -30,7 +30,7 @@ if (isset($_POST['updateStats']))
 }
 
 require_once(e_ADMIN."auth.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 define("LOGPATH", e_PLUGIN."log/");
 
@@ -112,40 +112,40 @@ if (isset($message)) {
 
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L4."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L4."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	<input type='radio' name='statActivate' value='1'".($pref['statActivate'] ? " checked='checked'" : "")." /> ".ADSTAT_ON."&nbsp;&nbsp;
 	<input type='radio' name='statActivate' value='0'".(!$pref['statActivate'] ? " checked='checked'" : "")." /> ".ADSTAT_OFF."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L18."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>".r_userclass("statUserclass", $pref['statUserclass'],'off','public, member, admin, classes')."</td>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L18."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>".r_userclass("statUserclass", $pref['statUserclass'],'off','public, member, admin, classes')."</td>
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L20."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L20."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	<input type='radio' name='statCountAdmin' value='1'".($pref['statCountAdmin'] ? " checked='checked'" : "")." /> ".ADSTAT_ON."&nbsp;&nbsp;
 	<input type='radio' name='statCountAdmin' value='0'".(!$pref['statCountAdmin'] ? " checked='checked'" : "")." /> ".ADSTAT_OFF."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L21."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L21."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	<input class='tbox' type='text' name='statDisplayNumber' size='8' value='".$pref['statDisplayNumber']."' maxlength='3' />
 	</td>
 	</tr>
 
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L5."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L5."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	".ADSTAT_L6."&nbsp;&nbsp;
 	<input type='radio' name='statBrowser' value='1'".($pref['statBrowser'] ? " checked='checked'" : "")." /> ".ADSTAT_ON."&nbsp;&nbsp;
 	<input type='radio' name='statBrowser' value='0'".(!$pref['statBrowser'] ? " checked='checked'" : "")." /> ".ADSTAT_OFF."<br />
@@ -182,8 +182,8 @@ if ($pref['statBrowser'] == 1)
 {	// Only display option to show browser stats in a compact way if stats on browser is actived
 $text .= "
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L35."</td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L35."</td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	<input type='radio' name='statBrowserDispCompr' value='1'".($pref['statBrowserDispCompr'] ? " checked='checked'" : "")." /> ".ADSTAT_ON."&nbsp;&nbsp;
 	<input type='radio' name='statBrowserDispCompr' value='0'".(!$pref['statBrowserDispCompr'] ? " checked='checked'" : "")." /> ".ADSTAT_OFF."<br />
 	</td>
@@ -192,8 +192,8 @@ $text .= "
 	
 $text .= "
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L12."<br /><span class='smalltext'>".ADSTAT_L13."</span></td>
-	<td style='width:50%; text-align: right;' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L12."<br /><span class='smalltext'>".ADSTAT_L13."</span></td>
+	<td style='width:50%; text-align: right;' class='forumheader3'>
 	".ADSTAT_L14."<input type='checkbox' name='wipe[statWipePage]' value='1' /><br />
 	".ADSTAT_L6."<input type='checkbox' name='wipe[statWipeBrowser]' value='1' /><br />
 	".ADSTAT_L7." <input type='checkbox' name='wipe[statWipeOs]' value='1' /><br />
@@ -206,8 +206,8 @@ $text .= "
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".ADSTAT_L26."<br /><span class='smalltext'>".ADSTAT_L27."</span></td>
-	<td style='width:50%; text-align: right;' class='r_header3'><input class='button' type='submit' name='openRemPageD' value='".ADSTAT_L28."' />
+	<td style='width:50%' class='forumheader3'>".ADSTAT_L26."<br /><span class='smalltext'>".ADSTAT_L27."</span></td>
+	<td style='width:50%; text-align: right;' class='forumheader3'><input class='button' type='submit' name='openRemPageD' value='".ADSTAT_L28."' />
 	</td>
 	</tr>
 
@@ -218,7 +218,7 @@ $text .= "
 
 
 	<tr>
-	<td colspan='2'  style='text-align:center' class='r_header1'>
+	<td colspan='2'  style='text-align:center' class='forumheader'>
 	<input class='button' type='submit' name='updatesettings' value='".ADSTAT_L15."' />
 	</td>
 	</tr>
@@ -254,12 +254,12 @@ function rempage()
 
 	$text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-	<td style='width:30%' class='r_header1'>".ADSTAT_L29."</td>
-	<td style='width:50%' class='r_header1'>URL</td>
-	<td style='width:30%; text-align: center;' class='r_header1'>".ADSTAT_L30." ...</td>
+	<td style='width:30%' class='forumheader'>".ADSTAT_L29."</td>
+	<td style='width:50%' class='forumheader'>URL</td>
+	<td style='width:30%; text-align: center;' class='forumheader'>".ADSTAT_L30." ...</td>
 	</tr>
 	";
 
@@ -267,9 +267,9 @@ function rempage()
 	{
 		$text .= "
 		<tr>
-		<td style='width:30%' class='r_header3'>$key</td>
-		<td style='width:50%' class='r_header3'>".$page['url']."</td>
-		<td style='width:30%; text-align: center;' class='r_header3'><input type='checkbox' name='remcb[]' value='$key' /></td>
+		<td style='width:30%' class='forumheader3'>$key</td>
+		<td style='width:50%' class='forumheader3'>".$page['url']."</td>
+		<td style='width:30%; text-align: center;' class='forumheader3'><input type='checkbox' name='remcb[]' value='$key' /></td>
 		</tr>
 		";
 	}
@@ -277,7 +277,7 @@ function rempage()
 	$text .= "
 
 	<tr>
-	<td colspan='3' class='r_header3' style='text-align: center;'><input class='button' type='submit' name='remSelP' value='".ADSTAT_L31."' />
+	<td colspan='3' class='forumheader3' style='text-align: center;'><input class='button' type='submit' name='remSelP' value='".ADSTAT_L31."' />
 	</td>
 	</tr>
 

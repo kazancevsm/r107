@@ -7,7 +7,7 @@ if(isset($loop_uid) && intval($loop_uid) == 0) { return ""; }
 $key = $parms[0].".".$parms[1];
 $sc_style['USER_EXTENDED']['pre'] = (isset($sc_style['USER_EXTENDED'][$key]['pre']) ? $sc_style['USER_EXTENDED'][$key]['pre'] : "");
 $sc_style['USER_EXTENDED']['post'] = (isset($sc_style['USER_EXTENDED'][$key]['post']) ? $sc_style['USER_EXTENDED'][$key]['post'] : "");
-include_once(e_HANDLER."user_extended_class.php");
+include_once(e_HANDLER."user_extended_handler.php");
 $ueStruct = e107_user_extended::user_extended_getStruct();
 
 $uid = intval($parms[2]);

@@ -17,7 +17,7 @@
 if (!defined('e107_INIT')) { exit; }
 
 $ecal_dir	= e_PLUGIN . "calendar/";
-require_once($ecal_dir.'ecal_class.php');
+require_once($ecal_dir."ecal_class.php");
 $ecal_class = new ecal_class;
 
 $cache_tag = "nq_event_cal_cal";

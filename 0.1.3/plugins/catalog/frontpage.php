@@ -22,7 +22,7 @@ $catsql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY `cat_id` ASC");
 			$cat_pic = 'photo_emp.gif';
 		}
 		if ($i <= $conf_catshowcolscat){
-			$text .= "<td class='r_header1' width='$my_width%'><div>";
+			$text .= "<td class='forumheader' width='$my_width%'><div>";
 			$text .= "<center><a href=catalog.php?page=list&cat=$cat_id><img src='images/category/$cat_pic' alt='$cat_name'></a></center><br>";
 			$text .= "<center><a href=catalog.php?page=list&cat=$cat_id><b><font id='cat_name'>$cat_name</font></b></a></center>";
 			$text .= "</div></td>";

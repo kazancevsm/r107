@@ -24,7 +24,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once ('../class.php');
+require_once ('../class2.php');
 if(!getperms('9'))
 {
 	header('location:'.e_BASE.'index.php');
@@ -52,7 +52,7 @@ else
 		$pref['maintainance_flag'] = e_UC_ADMIN;
 	}
 }
-require_once (e_HANDLER.'ren_help.php');
+require_once (e_HANDLER.'ren_help_handler.php');
 
 require_once ('auth.php');
 
@@ -65,7 +65,7 @@ if(varset($message))
 $text = '
 	<div style="text-align:center">
 	<form method="post" action="'.e_SELF.'" id="dataform">
-	<table style="'.ADMIN_WIDTH.'" class="r_border">
+	<table class="fborder">
 		<colgroup span="2">
 			<col style="width:30%" />
 			<col style="width:70%" />
@@ -74,10 +74,10 @@ $text = '
 
 $text .= '
 		<tr>
-			<td class="r_header3">
+			<td class="forumheader3">
 			'.UGFLAN_2.'
 			</td>
-			<td class="r_header3">
+			<td class="forumheader3">
 ';
 
 $text .= '
@@ -114,11 +114,11 @@ $text .= '</td>
 
 $text .= '
 		<tr>
-			<td class="r_header3">
+			<td class="forumheader3">
 			'.UGFLAN_5.'<br />
 			<span class="smalltext">'.UGFLAN_6.'</span>
 		</td>
-		<td class="r_header3">
+		<td class="forumheader3">
 			<textarea id="maintainance_text" class="tbox" name="maintainance_text"
 			 cols="63" style="width:100%" rows="10"
 			 onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);">'.$pref['maintainance_text'].'</textarea>
@@ -129,7 +129,7 @@ $text .= '
 
 $text .= '
 			<tr>
-			<td colspan="2" style="text-align:center" class="r_header1">
+			<td colspan="2" style="text-align:center" class="forumheader">
 			<input class="button" type="submit" name="updatesettings" value="'.UGFLAN_3.'" />
 			<input type="hidden" name="e-token" value="'.e_TOKEN.'" />
 			</td>

@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['log']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -652,17 +652,17 @@ class siteStats {
 			$totalu += $info['unq'];
 		}
 
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'>".ADSTAT_L19."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L20."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'>".ADSTAT_L19."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L20."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		foreach($totalArray as $key => $info) 
 		{
 			if($info['ttl'])
 			{
 				$percentage = round(($info['ttl']/$totalv) * 100, 2);
-				$text .= "<tr>\n<td class='r_header3' style='width: 20%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."'>".$key."</a>
-				</td>\n<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info['ttl']." [".$info['unq']."]")."</td>\n<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>\n</tr>\n";
+				$text .= "<tr>\n<td class='forumheader3' style='width: 20%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."'>".$key."</a>
+				</td>\n<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info['ttl']." [".$info['unq']."]")."</td>\n<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>\n</tr>\n";
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21." [".ADSTAT_L22."]</td><td class='r_header1' style='text-align: center;'>{$totalv} [{$totalu}]</td><td class='r_header1'></td></tr></table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21." [".ADSTAT_L22."]</td><td class='forumheader' style='text-align: center;'>{$totalv} [{$totalu}]</td><td class='forumheader'></td></tr></table>";
 		return $text;
 	}
 
@@ -704,32 +704,32 @@ class siteStats {
 
 		$totalArray = $this -> arraySort($totalArray, "ttlv");
 
-		$text .= "<table class='r_border' style='width: 100%;'>\n
+		$text .= "<table class='fborder' style='width: 100%;'>\n
 			<colgroup>
 			  <col style='width: 20%;' />
 			  <col style='width: 60%;' />
 			  <col style='width: 10%;' />
 			  <col style='width: 10%;' />
 			</colgroup>
-			<tr>\n<td class='r_caption' >".ADSTAT_L19."</td>\n
-			<td class='r_caption' colspan='2'>".ADSTAT_L23."</td>\n<td class='r_caption' text-align: center;'>%</td>\n</tr>\n";
+			<tr>\n<td class='fcaption' >".ADSTAT_L19."</td>\n
+			<td class='fcaption' colspan='2'>".ADSTAT_L23."</td>\n<td class='fcaption' text-align: center;'>%</td>\n</tr>\n";
 		foreach($totalArray as $key => $info) 
 		{
 			if($info['ttlv'])
 			{
 				$percentage = round(($info['ttlv']/$total) * 100, 2);
 				$text .= "<tr>
-				<td class='r_header3' >
+				<td class='forumheader3' >
 				".($can_delete ? "<a href='".e_SELF."?{$action}.rem.".rawurlencode($key)."'><img src='".e_PLUGIN."log/images/remove.png' alt='".ADSTAT_L39."' title='".ADSTAT_L39."' style='vertical-align: middle; border: 0;' /></a> " : "")."
 				<img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."'>".$key."</a>
 				";
 				$text .= "</td>
-				<td class='r_header3' >".$this->bar($percentage, $info['ttlv'])."</td>
-				<td class='r_header3' style='text-align: center;'>".$percentage."%</td>
+				<td class='forumheader3' >".$this->bar($percentage, $info['ttlv'])."</td>
+				<td class='forumheader3' style='text-align: center;'>".$percentage."%</td>
 				</tr>\n";
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 
 
 		$uniqueArray = array();
@@ -745,20 +745,20 @@ class siteStats {
 		}
 		$uniqueArray = $this -> arraySort($uniqueArray, "unqv");
 
-		$text .= "<br /><table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'>Page</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L24."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text .= "<br /><table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'>Page</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L24."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		foreach($uniqueArray as $key => $info) 
 		{
 			if($info['ttlv'])
 			{
 				$percentage = round(($info['unqv']/$totalv) * 100, 2);
 				$text .= "<tr>
-				<td class='r_header3' style='width: 20%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."'>".$key."</a></td>
-				<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info['unqv'])."</td>
-				<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+				<td class='forumheader3' style='width: 20%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."'>".$key."</a></td>
+				<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info['unqv'])."</td>
+				<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 				</tr>\n";
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$totalv</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$totalv</td><td class='forumheader'></td></tr>\n</table>";
 		return $text;
 	}
 
@@ -808,7 +808,7 @@ class siteStats {
 				$browserArray = $this -> arraySort($statBrowser, 0);
 			}
 			$total = array_sum($browserArray);
-			$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?3".($this -> order ? "" : ".1" )."'>".ADSTAT_L26."</a></td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+			$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?3".($this -> order ? "" : ".1" )."'>".ADSTAT_L26."</a></td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 
 			foreach($browserArray as $key => $info) {
 				$image = "";
@@ -823,12 +823,12 @@ class siteStats {
 				}
 				$percentage = round(($info/$total) * 100, 2);
 				$text .= "<tr>
-				<td class='r_header3' style='width: 20%;'>".($image ? "<img src='".e_PLUGIN."log/images/$image' alt='' style='vertical-align: middle;' /> " : "").$key."</td>".
-				($entries == 1 ? "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
-				<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+				<td class='forumheader3' style='width: 20%;'>".($image ? "<img src='".e_PLUGIN."log/images/$image' alt='' style='vertical-align: middle;' /> " : "").$key."</td>".
+				($entries == 1 ? "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
+				<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 				</tr>\n";
 			}
-			$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+			$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 		}
 		return $text;
 	}
@@ -861,7 +861,7 @@ class siteStats {
 		}
 
 		$total = array_sum($osArray);
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?4".($this -> order ? "" : ".1" )."'>".ADSTAT_L27."</a></td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?4".($this -> order ? "" : ".1" )."'>".ADSTAT_L27."</a></td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		foreach($osArray as $key => $info) {
 
 			$image = "";
@@ -879,12 +879,12 @@ class siteStats {
 
 			$percentage = round(($info/$total) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 20%;'>".($image ? "<img src='".e_PLUGIN."log/images/$image' alt='' style='vertical-align: middle;' /> " : "").$key."</td>".
-			($entries == 1 ? "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
-			<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+			<td class='forumheader3' style='width: 20%;'>".($image ? "<img src='".e_PLUGIN."log/images/$image' alt='' style='vertical-align: middle;' /> " : "").$key."</td>".
+			($entries == 1 ? "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
+			<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 			</tr>\n";
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></tr></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></tr></tr>\n</table>";
 		return $text;
 	}
 
@@ -916,18 +916,18 @@ class siteStats {
 		}
 
 		$total = array_sum($domArray);
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?5".($this -> order ? "" : ".1" )."'>".ADSTAT_L28."</a></td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?5".($this -> order ? "" : ".1" )."'>".ADSTAT_L28."</a></td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		foreach($domArray as $key => $info) {
 			if($key = $this -> getcountry($key)) {
 				$percentage = round(($info/$total) * 100, 2);
 				$text .= "<tr>
-				<td class='r_header3' style='width: 20%;'>".$key."</td>
-				<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>
-				<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+				<td class='forumheader3' style='width: 20%;'>".$key."</td>
+				<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>
+				<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 				</tr>\n";
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 		return $text;
 	}
 
@@ -969,18 +969,18 @@ class siteStats {
 		}
 
 		$total = array_sum($screenArray);
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?6".($this -> order ? "" : ".1" )."'>".ADSTAT_L29."</a></td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 20%;'><a title='".($this -> order ? "sort by total" : "sort alphabetically")."'href='".e_SELF."?6".($this -> order ? "" : ".1" )."'>".ADSTAT_L29."</a></td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		foreach($screenArray as $key => $info) {
 			if(strstr($key, "@") && !strstr($key, "undefined") && preg_match("/(\d+)x(\d+)@(\d+)/", $key)) {
 				$percentage = round(($info/$total) * 100, 2);
 				$text .= "<tr>
-				<td class='r_header3' style='width: 20%;'><img src='".e_PLUGIN."log/images/screen.png' alt='' style='vertical-align: middle;' /> ".$key."</td>".
-				($entries == 1 ? "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='r_header3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
-				<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+				<td class='forumheader3' style='width: 20%;'><img src='".e_PLUGIN."log/images/screen.png' alt='' style='vertical-align: middle;' /> ".$key."</td>".
+				($entries == 1 ? "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>" : "<td class='forumheader3' style='width: 70%;'>".$this -> bar($percentage, $info)."</td>")."
+				<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 				</tr>\n";
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 		return $text;
 	}
 
@@ -1013,7 +1013,7 @@ class siteStats {
 			$total += $info['ttl'];
 		}
 
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 40%;'><a title='".($this -> order ? "show cropped url" : "show full url")."'href='".e_SELF."?7".($this -> order ? "" : ".1" )."'>".ADSTAT_L30."</a></td>\n<td class='r_caption' style='width: 50%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 40%;'><a title='".($this -> order ? "show cropped url" : "show full url")."'href='".e_SELF."?7".($this -> order ? "" : ".1" )."'>".ADSTAT_L30."</a></td>\n<td class='fcaption' style='width: 50%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		$count = 0;
 		foreach($statArray as $key => $info) {
 			$percentage = round(($info['ttl']/$total) * 100, 2);
@@ -1021,16 +1021,16 @@ class siteStats {
 				$key = substr($key, 0, 50)." ...";
 			}
 			$text .= "<tr>
-			<td class='r_header3'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."' rel='external'>".$key."</a></td>
-			<td class='r_header3'>".$this -> bar($percentage, $info['ttl'])."</td>
-			<td class='r_header3' style='text-align: center;'>".$percentage."%</td>
+			<td class='forumheader3'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> <a href='".$info['url']."' rel='external'>".$key."</a></td>
+			<td class='forumheader3'>".$this -> bar($percentage, $info['ttl'])."</td>
+			<td class='forumheader3' style='text-align: center;'>".$percentage."%</td>
 			</tr>\n";
 			$count++;
 			if($count == $pref['statDisplayNumber']) {
 				break;
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 		return $text;
 	}
 
@@ -1055,22 +1055,22 @@ class siteStats {
 
 		$queryArray = $this -> arraySort($statQuery, 0);
 		$total = array_sum($queryArray);
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 60%;'>".ADSTAT_L31."</td>\n<td class='r_caption' style='width: 30%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='r_caption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 60%;'>".ADSTAT_L31."</td>\n<td class='fcaption' style='width: 30%;' colspan='2'>".ADSTAT_L21."</td>\n<td class='fcaption' style='width: 10%; text-align: center;'>%</td>\n</tr>\n";
 		$count = 1;
 		foreach($queryArray as $key => $info) {
 			$percentage = round(($info/$total) * 100, 2);
 			$key = str_replace("%20", " ", $key);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 60%;'><img src='".e_PLUGIN."log/images/screen.png' alt='' style='vertical-align: middle;' /> ".$key."</td>
-			<td class='r_header3' style='width: 30%;'>".$this -> bar($percentage, $info)."</td>
-			<td class='r_header3' style='width: 10%; text-align: center;'>".$percentage."%</td>
+			<td class='forumheader3' style='width: 60%;'><img src='".e_PLUGIN."log/images/screen.png' alt='' style='vertical-align: middle;' /> ".$key."</td>
+			<td class='forumheader3' style='width: 30%;'>".$this -> bar($percentage, $info)."</td>
+			<td class='forumheader3' style='width: 10%; text-align: center;'>".$percentage."%</td>
 			</tr>\n";
 			$count ++;
 			if($count == $pref['statDisplayNumber']) {
 				break;
 			}
 		}
-		$text .= "<tr><td class='r_header1' colspan='2'>".ADSTAT_L21."</td><td class='r_header1' style='text-align: center;'>$total</td><td class='r_header1'></td></tr>\n</table>";
+		$text .= "<tr><td class='forumheader' colspan='2'>".ADSTAT_L21."</td><td class='forumheader' style='text-align: center;'>$total</td><td class='forumheader'></td></tr>\n</table>";
 		return $text;
 	}
 
@@ -1083,7 +1083,7 @@ class siteStats {
 
 		$gen = new convert;
 		$recentArray = array_reverse($this -> fileRecent, TRUE);
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L18."</td>\n<td class='r_caption' style='width: 70%;'>Information</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L18."</td>\n<td class='fcaption' style='width: 70%;'>Information</td>\n</tr>\n";
 
 		foreach($recentArray as $key => $info) {
 			if(is_array($info)) {
@@ -1099,8 +1099,8 @@ class siteStats {
 			$datestamp = $gen -> convert_date($datestamp, "long");
 
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'>$datestamp</td>
-			<td class='r_header3' style='width: 70%;'>Host: $host<br />".ADSTAT_L26.": $browser<br />".ADSTAT_L27.": $os<br />".ADSTAT_L29.": $screen".($referer ? "<br />".ADSTAT_L32.": <a href='$referer' rel='external'>$referer</a>" : "")."</td>
+			<td class='forumheader3' style='width: 30%;'>$datestamp</td>
+			<td class='forumheader3' style='width: 70%;'>Host: $host<br />".ADSTAT_L26.": $browser<br />".ADSTAT_L27.": $os<br />".ADSTAT_L29.": $screen".($referer ? "<br />".ADSTAT_L32.": <a href='$referer' rel='external'>$referer</a>" : "")."</td>
 			</tr>\n";
 		}
 
@@ -1178,7 +1178,7 @@ class siteStats {
 			$utotal += $fvalue['unq'];
 		}
 
-		$text = "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L33." ".($amount+1)." ".ADSTAT_L40."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text = "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L33." ".($amount+1)." ".ADSTAT_L40."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 
 		foreach($dayarray as $date => $total) {
 
@@ -1186,13 +1186,13 @@ class siteStats {
 			$date = strftime ("%A, %B %d", mktime (0,0,0,$month,$day,$year));
 			$barWidth = round(($total['daytotal']/$ttotal) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'>$date</td>
-			<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['daytotal'])."</td>
+			<td class='forumheader3' style='width: 30%;'>$date</td>
+			<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['daytotal'])."</td>
 			</tr>\n";
 		}
 
 		$text .= "</table>";
-		$text .= "<br /><table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L35." ".($amount+1)." ".ADSTAT_L40."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text .= "<br /><table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L35." ".($amount+1)." ".ADSTAT_L40."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 
 
 		foreach($dayarray as $date => $total) {
@@ -1200,32 +1200,32 @@ class siteStats {
 			$date = strftime ("%A, %B %d", mktime (0,0,0,$month,$day,$year));
 			$barWidth = round(($total['dayunique']/$utotal) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'>$date</td>
-			<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['dayunique'])."</td>
+			<td class='forumheader3' style='width: 30%;'>$date</td>
+			<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['dayunique'])."</td>
 			</tr>\n";
 		}
 		$text .= "</table>";
 
-		$text .= "<br /><table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L33." ".($amount+1)." ".ADSTAT_L36."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text .= "<br /><table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L33." ".($amount+1)." ".ADSTAT_L36."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 
 		$newArray = $this -> arraySort($pagearray, "total");
 		foreach($newArray as $key => $total) {
 			$barWidth = round(($total['total']/$ttotal) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> $key</td>
-			<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['total'])."</td>
+			<td class='forumheader3' style='width: 30%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> $key</td>
+			<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['total'])."</td>
 			</tr>\n";
 
 		}
 		$text .= "</table>";
-		$text .= "<br /><table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L35." ".($amount+1)." ".ADSTAT_L36."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text .= "<br /><table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L35." ".($amount+1)." ".ADSTAT_L36."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 		$newArray = $this -> arraySort($pagearray, "unique");
 
 		foreach($newArray as $key => $total) {
 			$barWidth = round(($total['unique']/$utotal) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> $key</td>
-			<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['unique'])."</td>
+			<td class='forumheader3' style='width: 30%;'><img src='".e_PLUGIN."log/images/html.png' alt='' style='vertical-align: middle;' /> $key</td>
+			<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['unique'])."</td>
 			</tr>\n";
 		}
 		$text .= "</table>";
@@ -1273,7 +1273,7 @@ class siteStats {
 
 		$tmpArray = $this -> arraySort($monthTotal, "totalv");
 
-		$text .= "<table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L37."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text .= "<table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L37."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 
 		foreach($monthTotal as $date => $total) {
 
@@ -1281,21 +1281,21 @@ class siteStats {
 			$date = strftime ("%B %Y", mktime (0,0,0,$month,1,$year));
 			$barWidth = round(($total['totalv']/$mtotal) * 100, 2);
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'>$date</td>".
-			($entries == 1 ? "<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['totalv'])."</td>" : "<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['totalv'])."</td>")."
+			<td class='forumheader3' style='width: 30%;'>$date</td>".
+			($entries == 1 ? "<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['totalv'])."</td>" : "<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['totalv'])."</td>")."
 			</tr>\n";
 		}
 		$text .= "</table>";
 
-		$text .= "<br /><table class='r_border' style='width: 100%;'>\n<tr>\n<td class='r_caption' style='width: 30%;'>".ADSTAT_L38."</td>\n<td class='r_caption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
+		$text .= "<br /><table class='fborder' style='width: 100%;'>\n<tr>\n<td class='fcaption' style='width: 30%;'>".ADSTAT_L38."</td>\n<td class='fcaption' style='width: 70%;' colspan='2'>".ADSTAT_L34."</td>\n</tr>\n";
 
 		foreach($monthTotal as $date => $total) {
 			$barWidth = round(($total['uniquev']/$utotal) * 100, 2);
 			list($year, $month) = explode("-", $date);
 			$date = strftime ("%B %Y", mktime (0,0,0,$month,1,$year));
 			$text .= "<tr>
-			<td class='r_header3' style='width: 30%;'>$date</td>".
-			($entries == 1 ? "<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['uniquev'])."</td>" : "<td class='r_header3' style='width: 70%;'>".$this -> bar($barWidth, $total['uniquev'])."</td>")."
+			<td class='forumheader3' style='width: 30%;'>$date</td>".
+			($entries == 1 ? "<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['uniquev'])."</td>" : "<td class='forumheader3' style='width: 70%;'>".$this -> bar($barWidth, $total['uniquev'])."</td>")."
 			</tr>\n";
 		}
 		$text .= "</table>";
@@ -1333,7 +1333,7 @@ class siteStats {
 	{
 		return "<div class='b' style='width: ".intval($percen)."%'></div>
 		</td>
-		<td style='width:10%; text-align:center' class='r_header3'>".$val;
+		<td style='width:10%; text-align:center' class='forumheader3'>".$val;
 	}
 
 	function remove_entry($toremove) 

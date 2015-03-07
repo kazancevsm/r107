@@ -19,7 +19,7 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-require_once(e_HANDLER."news_class.php");
+require_once(e_HANDLER."news_handler.php");
 
 function alt_news($news_category) {
 	global $sql, $aj, $ns;

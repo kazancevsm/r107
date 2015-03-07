@@ -71,12 +71,7 @@ echo (defined("STANDARDS_MODE") ? "" : "<?xml version='1.0' encoding='".CHARSET.
 //
 
 include_lan(e_LANGUAGEDIR.e_LANGUAGE."/admin/lan_header.php");
-include_lan(e_LANGUAGEDIR.e_LANGUAGE.'/admin/lan_footer.php');
-
-if (!defined('ADMIN_WIDTH'))
-{
-	define('ADMIN_WIDTH', 'width: 95%');
-}
+include_lan(e_LANGUAGEDIR.e_LANGUAGE."/admin/lan_footer.php");
 
 if (!defined('ADMIN_TRUE_ICON'))
 {
@@ -318,7 +313,7 @@ if (!function_exists('show_admin_menu')) {
 		$id_title = "yop_".str_replace(" ", "", $title);
 						
 		if (!isset($BUTTONS_START)) {
-			$BUTTONS_START = "<div style='text-align:center; width:100%'><table class='r_border' style='width:98%;'>\n";
+			$BUTTONS_START = "<div style='text-align:center; width:100%'><table class='fborder' style='width:98%;'>\n";
 		}
 		if (!isset($BUTTON)) {
 			$BUTTON = "<tr><td class='button'><div style='width:100%; text-align:center'><a style='cursor:hand; cursor:pointer; text-decoration:none;' {ONCLICK} >{LINK_TEXT}</a></div></td></tr>\n";
@@ -336,10 +331,10 @@ if (!function_exists('show_admin_menu')) {
 			$SUB_BUTTON_OVER = "<b> &laquo; <a style='text-decoration:none;' href='{LINK_URL}'>{LINK_TEXT}</a> &raquo; </b><br />";
 		}
 		if (!isset($SUB_BUTTONS_START)) {
-			$SUB_BUTTONS_START = "<div style='text-align:center; width:100%'><table class='r_border' style='width:98%;'>
+			$SUB_BUTTONS_START = "<div style='text-align:center; width:100%'><table class='fborder' style='width:98%;'>
 			<tr><td class='button'><a style='text-align:center; cursor:hand; cursor:pointer; text-decoration:none;'
 			onclick=\"expandit('{SUB_HEAD_ID}');\" >{SUB_HEAD}</a></td></tr>
-			<tr id='{SUB_HEAD_ID}' style='display: none' ><td class='r_header3' style='text-align:left;'>";
+			<tr id='{SUB_HEAD_ID}' style='display: none' ><td class='forumheader3' style='text-align:left;'>";
 		}
 		if (!isset($SUB_BUTTONS_END)) {
 			$SUB_BUTTONS_END = "</td></tr></table></div>";
@@ -477,7 +472,7 @@ function admin_purge_related($table, $id)
 	}
 
 	// Delete any related ratings
-	require_once(e_HANDLER."rate_class.php");
+	require_once(e_HANDLER."rate_handler.php");
 	$_rate = new rater;
 	$num = $_rate->delete_ratings($table, $id);
 	if($num)

@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("0")) {
 	header("location:".e_BASE."index.php");
 	exit;
@@ -30,12 +30,12 @@ $phpinfo .= ob_get_contents();
 $phpinfo = preg_replace("#^.*<body>#is", "", $phpinfo);
 $phpinfo = str_replace("font","span",$phpinfo);
 $phpinfo = str_replace("</body></html>","",$phpinfo);
-$phpinfo = str_replace('border="0"','class="r_border"',$phpinfo);
+$phpinfo = str_replace('border="0"','class="fborder"',$phpinfo);
 $phpinfo = str_replace('name=','id=',$phpinfo);
-$phpinfo = str_replace('class="e"','class="r_header2"',$phpinfo);
-$phpinfo = str_replace('class="v"','class="r_header3"',$phpinfo);
-$phpinfo = str_replace('class="v"','class="r_header3"',$phpinfo);
-$phpinfo = str_replace('class="h"','class="r_caption"',$phpinfo);
+$phpinfo = str_replace('class="e"','class="forumheader2"',$phpinfo);
+$phpinfo = str_replace('class="v"','class="forumheader3"',$phpinfo);
+$phpinfo = str_replace('class="v"','class="forumheader3"',$phpinfo);
+$phpinfo = str_replace('class="h"','class="fcaption"',$phpinfo);
 
 
 
@@ -51,8 +51,8 @@ $security_risks = array(
 	{
 		if(ini_get($risk))
 		{
-			$srch = '<tr><td class="r_header2">'.$risk.'</td><td class="r_header3">';
-			$repl = '<tr><td class="r_header2">'.$risk.'</td><td title="'.$diz.'" class="r_header3" style="background-color:red">';
+			$srch = '<tr><td class="forumheader2">'.$risk.'</td><td class="forumheader3">';
+			$repl = '<tr><td class="forumheader2">'.$risk.'</td><td title="'.$diz.'" class="forumheader3" style="background-color:red">';
 			$phpinfo = str_replace($srch,$repl,$phpinfo);	
 		}	
 	}

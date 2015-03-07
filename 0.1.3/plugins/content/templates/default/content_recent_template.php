@@ -22,7 +22,7 @@
 
 global $sc_style, $content_shortcodes;
 
-$sc_style['CONTENT_RECENT_TABLE_ICON']['pre'] = "<td class='r_header3' rowspan='7' style='vertical-align:top; width:10%; white-space:nowrap; padding-right:10px;'>";
+$sc_style['CONTENT_RECENT_TABLE_ICON']['pre'] = "<td class='forumheader3' rowspan='7' style='vertical-align:top; width:10%; white-space:nowrap; padding-right:10px;'>";
 $sc_style['CONTENT_RECENT_TABLE_ICON']['post'] = "</td>";
 
 $sc_style['CONTENT_RECENT_TABLE_DATE']['pre'] = CONTENT_LAN_10." ";
@@ -37,19 +37,19 @@ $sc_style['CONTENT_RECENT_TABLE_REFER']['post'] = ")";
 $sc_style['CONTENT_RECENT_TABLE_AUTHORDETAILS']['pre'] = CONTENT_LAN_11." ";
 $sc_style['CONTENT_RECENT_TABLE_AUTHORDETAILS']['post'] = "";
 
-$sc_style['CONTENT_RECENT_TABLE_SUBHEADING']['pre'] = "<tr><td class='r_header3'>";
+$sc_style['CONTENT_RECENT_TABLE_SUBHEADING']['pre'] = "<tr><td class='forumheader3'>";
 $sc_style['CONTENT_RECENT_TABLE_SUBHEADING']['post'] = "</td></tr>";
 
-$sc_style['CONTENT_RECENT_TABLE_SUMMARY']['pre'] = "<tr><td class='r_header3'>";
+$sc_style['CONTENT_RECENT_TABLE_SUMMARY']['pre'] = "<tr><td class='forumheader3'>";
 $sc_style['CONTENT_RECENT_TABLE_SUMMARY']['post'] = "</td></tr>";
 
-$sc_style['CONTENT_RECENT_TABLE_TEXT']['pre'] = "<tr><td class='r_header3'>";
+$sc_style['CONTENT_RECENT_TABLE_TEXT']['pre'] = "<tr><td class='forumheader3'>";
 $sc_style['CONTENT_RECENT_TABLE_TEXT']['post'] = "</td></tr>";
 
-$sc_style['CONTENT_RECENT_TABLE_RATING']['pre'] = "<tr><td class='r_header3'>";
+$sc_style['CONTENT_RECENT_TABLE_RATING']['pre'] = "<tr><td class='forumheader3'>";
 $sc_style['CONTENT_RECENT_TABLE_RATING']['post'] = "</td></tr>";
 
-$sc_style['CONTENT_RECENT_TABLE_INFOPRE']['pre'] = "<tr><td class='r_header3'>";
+$sc_style['CONTENT_RECENT_TABLE_INFOPRE']['pre'] = "<tr><td class='forumheader3'>";
 $sc_style['CONTENT_RECENT_TABLE_INFOPRE']['post'] = "";
 
 $sc_style['CONTENT_RECENT_TABLE_INFOPOST']['pre'] = "";
@@ -60,10 +60,10 @@ if(!isset($CONTENT_RECENT_TABLE_START)){
 }
 if(!isset($CONTENT_RECENT_TABLE)){
 	$CONTENT_RECENT_TABLE = "
-	<table class='r_border' style='width:98%; text-align:left;margin-bottom:5px;'>
+	<table class='fborder' style='width:98%; text-align:left;margin-bottom:5px;'>
 		<tr>
 			{CONTENT_RECENT_TABLE_ICON}
-			<td class='r_caption'>{CONTENT_RECENT_TABLE_HEADING} {CONTENT_RECENT_TABLE_REFER}</td>
+			<td class='fcaption'>{CONTENT_RECENT_TABLE_HEADING} {CONTENT_RECENT_TABLE_REFER}</td>
 		</tr>
 		{CONTENT_RECENT_TABLE_SUBHEADING}
 		

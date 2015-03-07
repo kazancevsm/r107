@@ -1,5 +1,5 @@
 <?php
-require_once("class.php");
+require_once("class2.php");
 $tmp = explode(".", e_QUERY);
 $thread_id = intval($tmp[1]);
 if($thread_id)

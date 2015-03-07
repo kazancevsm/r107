@@ -78,7 +78,7 @@ $sc_style['CONTENT_CONTENT_TABLE_INFO_PRE']['post'] = "";
 $sc_style['CONTENT_CONTENT_TABLE_INFO_POST']['pre'] = "";
 $sc_style['CONTENT_CONTENT_TABLE_INFO_POST']['post'] = "</tr></table>";
 
-$CONTENT_CONTENT_TABLE = "<table class='r_border' cellpadding='0' cellspacing='0' style='font-size:16px;'><tr><td>
+$CONTENT_CONTENT_TABLE = "<table class='fborder' cellpadding='0' cellspacing='0' style='font-size:16px;'><tr><td>
 <div style='clear:both;'>
 
 	{CONTENT_CONTENT_TABLE_INFO_PRE}

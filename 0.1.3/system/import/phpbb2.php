@@ -42,16 +42,16 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 
 if(!isset($_POST['do_conversion']))
 {
 
 	$text = "
-	<table style='width: 100%;' class='r_border'>
+	<table style='width: 100%;' class='fborder'>
 	<tr>
-	<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+	<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 	This script will import your phpBB2 database to e107. It will copy over users, forums, forum posts and polls.<br /><br /><br /><b>*** IMPORTANT ***<br />Running this script will empty your e107 forum, users and polls table - make sure you have a backup before continuing!</b>
 
 	<br /><br /><br />\n
@@ -60,7 +60,7 @@ if(!isset($_POST['do_conversion']))
 	<form method='post' action='".e_SELF."'>
 	Please enter the details for your phpBB2 database ...<br /><br />
 
-	<table style='width: 50%;' class='r_border'>
+	<table style='width: 50%;' class='fborder'>
 	<tr>
 	<td style='width: 50%; text-align: right;'>Host&nbsp;&nbsp;</td>
 	<td style='width: 50%; text-align: left;'><input class='tbox' type='text' name='phpbb2Host' size='30' value='localhost' maxlength='100' />
@@ -107,9 +107,9 @@ if(!isset($_POST['phpbb2Prefix']))
 
 extract($_POST);
 
-echo "<table style='width: 100%;' class='r_border'>
+echo "<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 Attempting to connect to phpBB database [ {$phpbb2Database} @ {$phpbb2Host} ] ...<br />\n";
 flush();
 

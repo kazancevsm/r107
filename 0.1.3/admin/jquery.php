@@ -19,7 +19,7 @@
 +-------------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 
    if (!getperms("P")) {
       header("location:".e_HTTP."index.php");
@@ -39,10 +39,10 @@ require_once("../class.php");
 }
 
   $text .= "
-	<div class='r_header3'>
+	<div class='forumheader3'>
 	    <div style='text-align:center'>
 	<form method='post' action='".e_SELF."?".e_QUERY."' enctype='multipart/form-data'>
-    <table style='width:100%;' class='r_border' cellspacing='0' cellpadding='0'>
+    <table style='width:100%;' class='fborder' cellspacing='0' cellpadding='0'>
 	
 	<tr>
 		<td style='vertical-align: top; width:50%'>

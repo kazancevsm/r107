@@ -16,7 +16,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 include_lan(e_PLUGIN . "calendar/languages/".e_LANGUAGE.".php");
 
 define("PAGE_NAME", EC_LAN_80);
@@ -41,17 +41,17 @@ if (isset($_POST['upsubs']))
         } 
         // print $cal_row .  $cal_subs[$cal_row] . "<br>";
     } 
-    $caltext = "<table class='r_border' width='97%'>
-<tr><td class='r_caption' >" . EC_LAN_130 . "</td></tr>
-<tr><td class='r_header3' ><a href='calendar.php'>" . EC_LAN_131 . "</a></tr>
-<tr><td class='r_caption' >&nbsp;</td></tr></table>";
+    $caltext = "<table class='fborder' width='97%'>
+<tr><td class='fcaption' >" . EC_LAN_130 . "</td></tr>
+<tr><td class='forumheader3' ><a href='calendar.php'>" . EC_LAN_131 . "</a></tr>
+<tr><td class='fcaption' >&nbsp;</td></tr></table>";
 } 
 else
 {
     $caltext = "<form id='calsubs' action='" . e_SELF . "' method='post' >
-<table class='r_border' width='97%'>
-<tr><td class='r_caption' colspan='3'>" . EC_LAN_125 . "</td></tr>
-<tr><td class='r_header2' >" . EC_LAN_126 . "</td><td class='r_header2' >" . EC_LAN_127 . "</td><td class='r_header2' >" . EC_LAN_136 . "</td></tr>"; 
+<table class='fborder' width='97%'>
+<tr><td class='fcaption' colspan='3'>" . EC_LAN_125 . "</td></tr>
+<tr><td class='forumheader2' >" . EC_LAN_126 . "</td><td class='forumheader2' >" . EC_LAN_127 . "</td><td class='forumheader2' >" . EC_LAN_136 . "</td></tr>"; 
     // Get list of currently subscribed
   $cal_db->db_Select("event_subs", "event_cat", "where event_userid='" . USERID . "'", "nowhere");
   while ($cal_s = $cal_db->db_Fetch())
@@ -69,7 +69,7 @@ else
     while ($cal_row = $cal_db->db_Fetch())
     {
       extract($cal_row);
-      $caltext .= "<tr><td class='r_header3' style='width:10%;'>";
+      $caltext .= "<tr><td class='forumheader3' style='width:10%;'>";
 	  if (check_class($event_cat_force_class))
 	  {
 	    $caltext .= EC_LAN_126;
@@ -79,14 +79,14 @@ else
 	    $caltext .= "<input type='hidden' name='event_list[]' value='" . $event_cat_id . "' />
 	    <input type='checkbox' class='tbox' value='1' name='event_subd[$event_cat_id]' " . (in_array($event_cat_id, $cal_array)?"checked='checked' ":"") . " /> </td>";
 	  }
-	  $caltext .= "<td class='r_header3'>{$event_cat_name}</td><td class='r_header3'>{$event_cat_description}</td></tr>";
+	  $caltext .= "<td class='forumheader3'>{$event_cat_name}</td><td class='forumheader3'>{$event_cat_description}</td></tr>";
     } 
   } 
   else
   {
-    $caltext .= "<tr><td class='r_header3' colspan='3'>" . EC_LAN_128 . "</td></tr>";
+    $caltext .= "<tr><td class='forumheader3' colspan='3'>" . EC_LAN_128 . "</td></tr>";
   } 
-  $caltext .= "<tr><td class='r_header3' colspan='3'><input class='tbox' type='submit' value='" . EC_LAN_129 . "' name='upsubs' /></td></tr>";
+  $caltext .= "<tr><td class='forumheader3' colspan='3'><input class='tbox' type='submit' value='" . EC_LAN_129 . "' name='upsubs' /></td></tr>";
   $caltext .= "</table></form>";
 }
 }

@@ -16,16 +16,16 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 
 if(!isset($_POST['do_conversion']))
 {
 
 	$text = "
-	<table style='width: 100%;' class='r_border'>
+	<table style='width: 100%;' class='fborder'>
 	<tr>
-	<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+	<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 	This script will import your Mambo database to e107. It will copy over users only.<br /><br /></b>
 
 	<br /><br />\n
@@ -34,7 +34,7 @@ if(!isset($_POST['do_conversion']))
 	<form method='post' action='".e_SELF."'>
 	Please enter the details for your Mambo database ...<br /><br />
 
-	<table style='width: 50%;' class='r_border'>
+	<table style='width: 50%;' class='fborder'>
 	<tr>
 	<td style='width: 50%; text-align: right;'>Host&nbsp;&nbsp;</td>
 	<td style='width: 50%; text-align: left;'><input class='tbox' type='text' name='mamboHost' size='30' value='localhost' maxlength='100' />
@@ -75,9 +75,9 @@ if(!isset($_POST['mamboHost']) || !isset($_POST['mamboUsername']) || !isset($_PO
 
 extract($_POST);
 
-$text .= "<table style='width: 100%;' class='r_border'>
+$text .= "<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 Attempting to connect to Mambo database [ {$mamboDatabase} @ {$mamboHost} ] ...<br />\n";
 flush();
 
@@ -101,33 +101,33 @@ if(!$phpbb_res){
 
 
 
-$text = "<div><table class='r_border'>";
+$text = "<div><table class='fborder'>";
 $text .= "<tr>";
-$text .= "<td class='r_caption'>name</td>";
-$text .= "<td class='r_caption'>username</td>";
-$text .= "<td class='r_caption'>email</td>";
-$text .= "<td class='r_caption'>password</td>";
-$text .= "<td class='r_caption'>usertype</td>";
-$text .= "<td class='r_caption'>block</td>";
-$text .= "<td class='r_caption'>sendEmail</td>";
-$text .= "<td class='r_caption'>gid</td>";
-$text .= "<td class='r_caption'>regDate</td>";
-$text .= "<td class='r_caption'>lvDate</td>";
+$text .= "<td class='fcaption'>name</td>";
+$text .= "<td class='fcaption'>username</td>";
+$text .= "<td class='fcaption'>email</td>";
+$text .= "<td class='fcaption'>password</td>";
+$text .= "<td class='fcaption'>usertype</td>";
+$text .= "<td class='fcaption'>block</td>";
+$text .= "<td class='fcaption'>sendEmail</td>";
+$text .= "<td class='fcaption'>gid</td>";
+$text .= "<td class='fcaption'>regDate</td>";
+$text .= "<td class='fcaption'>lvDate</td>";
 $text .= "</tr>";
 
 $result = mysql_query("SELECT name,username,email,block,sendEmail,gid,password,usertype,UNIX_TIMESTAMP(registerDate) AS regDate,UNIX_TIMESTAMP(lastvisitDate) AS lvDate FROM {$mamboPrefix}users", $phpbbConnection);
 while ($mos = mysql_fetch_array($result, MYSQL_ASSOC)) {
 $text .= "<tr>";
-$text .= "<td class='r_header3'>".$mos['name']."</td>";
-$text .= "<td class='r_header3'>".$mos['username']."</td>";
-$text .= "<td class='r_header3'>".$mos['email']."</td>";
-$text .= "<td class='r_header3'>".$mos['password']."</td>";
-$text .= "<td class='r_header3'>".$mos['usertype']."</td>";
-$text .= "<td class='r_header3'>".$mos['block']."</td>";
-$text .= "<td class='r_header3'>".$mos['sendEmail']."</td>";
-$text .= "<td class='r_header3'>".$mos['gid']."</td>";
-$text .= "<td class='r_header3'>".$mos['regDate']."</td>";
-$text .= "<td class='r_header3'>".$mos['lvDate']."</td>";
+$text .= "<td class='forumheader3'>".$mos['name']."</td>";
+$text .= "<td class='forumheader3'>".$mos['username']."</td>";
+$text .= "<td class='forumheader3'>".$mos['email']."</td>";
+$text .= "<td class='forumheader3'>".$mos['password']."</td>";
+$text .= "<td class='forumheader3'>".$mos['usertype']."</td>";
+$text .= "<td class='forumheader3'>".$mos['block']."</td>";
+$text .= "<td class='forumheader3'>".$mos['sendEmail']."</td>";
+$text .= "<td class='forumheader3'>".$mos['gid']."</td>";
+$text .= "<td class='forumheader3'>".$mos['regDate']."</td>";
+$text .= "<td class='forumheader3'>".$mos['lvDate']."</td>";
 $text .= "</tr>";
 
 $block = ($mos['block']) ? 2 : 0;

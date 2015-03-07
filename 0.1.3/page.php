@@ -25,7 +25,7 @@ if(isset($_POST['submit_page_pw']) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("class.php");
+require_once("class2.php");
 $page = new pageClass();
 
 if(!e_QUERY)
@@ -332,7 +332,7 @@ class pageClass
 		$rate_text = '';      // Notice removal
 		if($page_rating_flag)
 		{
-			require_once(e_HANDLER."rate_class.php");
+			require_once(e_HANDLER."rate_handler.php");
 			$rater = new rater;
 			$rate_text = "<br /><table style='width:100%'><tr><td style='width:50%'>";
 
@@ -438,17 +438,17 @@ class pageClass
 		$pw_entry_text = "
 		<div style='text-align:center; margin-left:auto; margin-right: auto;'>
 		<form method='post' action='".e_SELF."?".e_QUERY."' id='pwform'>
-		<table style='width:100%;' class='r_border'>
+		<table style='width:100%;' class='fborder'>
 		<tr>
-		<td class='r_header1' colspan='3' style='text-align:center; white-space:nowrap'>".LAN_PAGE_8."</td>
+		<td class='forumheader' colspan='3' style='text-align:center; white-space:nowrap'>".LAN_PAGE_8."</td>
 		</tr>
 		<tr>
-		<td class='r_header3' style='width:20%;'>".LAN_PAGE_9.":</td>
-		<td class='r_header3' style='width: 60%;'><input type='password' id='page_pw' name='page_pw' style='width: 90%;'/></td>
-		<td class='r_header3' style='width:20%; vertical-align:middle; margin-left:auto; margin-right:auto; text-align:center;'><img src='".e_IMAGE."generic/".IMODE."/password.png' alt='' /></td>
+		<td class='forumheader3' style='width:20%;'>".LAN_PAGE_9.":</td>
+		<td class='forumheader3' style='width: 60%;'><input type='password' id='page_pw' name='page_pw' style='width: 90%;'/></td>
+		<td class='forumheader3' style='width:20%; vertical-align:middle; margin-left:auto; margin-right:auto; text-align:center;'><img src='".e_IMAGE."generic/".IMODE."/password.png' alt='' /></td>
 		</tr>
 		<tr>
-		<td class='r_header1' colspan='3' style='text-align:center;'><input class='button' type='submit' name='submit_page_pw' value='".LAN_PAGE_10."' />
+		<td class='forumheader' colspan='3' style='text-align:center;'><input class='button' type='submit' name='submit_page_pw' value='".LAN_PAGE_10."' />
 		<input type='hidden' name='e-token' value='".e_TOKEN."' /></td>
 		</tr>
 		</table>

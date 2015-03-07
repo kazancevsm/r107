@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/e107_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/r107_handler.php $
 |     $Revision: 11909 $
-|     $Id: e107_class.php 11909 2010-10-21 18:03:31Z e107steved $
+|     $Id: r107_handler.php 11909 2010-10-21 18:03:31Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
@@ -57,7 +57,7 @@ class e107{
 		global $ADMIN_DIRECTORY, $DOCS_DIRECTORY, $DOWNLOADS_DIRECTORY, $IMAGES_DIRECTORY, $FILES_DIRECTORY, $HANDLERS_DIRECTORY, 
 		$LANGUAGES_DIRECTORY, $PLUGINS_DIRECTORY, $SYSTEM_DIRECTORY, $THEMES_DIRECTORY;
 		$path = ""; $i = 0;
-		while (!file_exists("{$path}class.php")) {
+		while (!file_exists("{$path}class2.php")) {
 			$path .= "../";
 			$i++;
 		}

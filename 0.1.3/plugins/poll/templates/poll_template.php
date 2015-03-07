@@ -118,14 +118,14 @@ $POLL_DISALLOWED_END = "
 
 $POLL_FORUM_NOTVOTED_START = "
 <div style='text-align:center; margin-left: auto; margin-right: auto;'>
-<table class='r_border' style='width: 350px;'>
+<table class='fborder' style='width: 350px;'>
 <tr>
-<td class='r_header1' style='width: 100%; text-align: center;'>
+<td class='forumheader' style='width: 100%; text-align: center;'>
 <b><i>{QUESTION}</i></b>
 </td>
 </tr>
 <tr>
-<td class='r_header3' style='width: 100%;'>";
+<td class='forumheader3' style='width: 100%;'>";
 
 $POLL_FORUM_NOTVOTED_LOOP = "
 {OPTIONBUTTON}<b>{OPTION}</b>
@@ -136,7 +136,7 @@ $POLL_FORUM_NOTVOTED_END = "
 </tr>
 
 <tr>
-<td class='r_header1' style='width: 100%;'>
+<td class='forumheader' style='width: 100%;'>
 <div style='text-align:center' class='smalltext'>
 {SUBMITBUTTON}
 </div>
@@ -151,14 +151,14 @@ $POLL_FORUM_NOTVOTED_END = "
 
 $POLL_FORUM_VOTED_START = "
 <div style='text-align:center; margin-left: auto; margin-right: auto;'>
-<table class='r_border' style='width: 350px;'>
+<table class='fborder' style='width: 350px;'>
 <tr>
-<td class='r_header1' style='width: 100%; text-align: center;'>
+<td class='forumheader' style='width: 100%; text-align: center;'>
 <b><i>{QUESTION}</i></b>
 </td>
 </tr>
 <tr>
-<td class='r_header3' style='width: 100%;'>
+<td class='forumheader3' style='width: 100%;'>
 ";
 
 $POLL_FORUM_VOTED_LOOP = "
@@ -173,7 +173,7 @@ $POLL_FORUM_VOTED_END = "
 </tr>
 
 <tr>
-<td class='r_header1' style='width: 100%;'>
+<td class='forumheader' style='width: 100%;'>
 <div style='text-align:center' class='smalltext'>
 {VOTE_TOTAL}
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-require_once('./../../class.php');
+require_once('./../../class2.php');
 
 if (!ADMIN)
 {

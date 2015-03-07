@@ -93,7 +93,7 @@ class private_message
 		{
 			if(isset($vars['to_userclass']))
 			{
-				require_once(e_HANDLER."userclass_class.php");
+				require_once(e_HANDLER."userclass_handler.php");
 				$toclass = r_userclass_name($vars['pm_userclass']);
 				$tolist = $this->get_users_inclass($vars['pm_userclass']);
 				$ret .= LAN_PM_38.": {$vars['to_userclass']}<br />";
@@ -200,7 +200,7 @@ class private_message
 
 	function pm_send_notify($uid, $pminfo, $pmid, $attach_count = 0)
 	{
-		require_once(e_HANDLER.'mail.php');
+		require_once(e_HANDLER.'mail_handler.php');
 		global $PLUGINS_DIRECTORY;
 		$subject = LAN_PM_100.SITENAME;
 		$pmlink = SITEURL.$PLUGINS_DIRECTORY."pm/pm.php?show.{$pmid}";
@@ -217,7 +217,7 @@ class private_message
 
 	function pm_send_receipt($pminfo)
 	{
-		require_once(e_HANDLER."mail.php");
+		require_once(e_HANDLER."mail_handler.php");
 		global $PLUGINS_DIRECTORY;
 		$subject = LAN_PM_106.$pminfo['sent_name'];
 		$pmlink = SITEURL.$PLUGINS_DIRECTORY."pm/pm.php?show.{$pminfo['pm_id']}";

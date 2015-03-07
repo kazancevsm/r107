@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once('../class.php');
+require_once('../class2.php');
 $e_sub_cat = 'main';
 require_once('auth.php');
 require_once(e_HANDLER.'admin_handler.php');
@@ -216,7 +216,7 @@ function render_links($link, $title, $description, $perms, $icon = FALSE, $mode 
 	$text = '';
 	if (getperms($perms)) {
 		if ($mode == 'adminb') {
-			$text = "<tr><td class='r_header3'>
+			$text = "<tr><td class='forumheader3'>
 				<div class='td' style='text-align:left; vertical-align:top; width:100%'
 				onmouseover=\"eover(this, 'r_header5')\" onmouseout=\"eover(this, 'td')\" onclick=\"document.location.href='".$link."'\">
 				".$icon." <b>".$title."</b> ".($description ? "[ <span class='smalltext'>".$description."</span> ]" : "")."</div></td></tr>";

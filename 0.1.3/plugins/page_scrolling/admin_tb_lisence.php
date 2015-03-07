@@ -11,7 +11,7 @@
 +-------------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 include_once(e_PLUGIN."page_scrolling/languages/".e_LANGUAGE.".php");
 
    if (!getperms("P")) {
@@ -22,8 +22,8 @@ include_once(e_PLUGIN."page_scrolling/languages/".e_LANGUAGE.".php");
    require_once(e_ADMIN."auth.php");
 
    $text = "
-   <div class='r_header1' style='text-align: center; font-weight: bold; font-size: 12px;'>".LAN_TB_LISENCE_02."</div><br />
-<div class='r_header3' style='text-align: left;'>
+   <div class='forumheader' style='text-align: center; font-weight: bold; font-size: 12px;'>".LAN_TB_LISENCE_02."</div><br />
+<div class='forumheader3' style='text-align: left;'>
 <ol>
 	<li>".LAN_TB_LISENCE_03."</li>
 	<li>".LAN_TB_LISENCE_04."</li>
@@ -36,7 +36,7 @@ include_once(e_PLUGIN."page_scrolling/languages/".e_LANGUAGE.".php");
 	<li>".LAN_TB_LISENCE_11."</li>
 </ol>
 </div>
-<br /><div class='r_header1' style='text-align: center;'>".LAN_TB_COPYRIGHT."</div><br />
+<br /><div class='forumheader' style='text-align: center;'>".LAN_TB_COPYRIGHT."</div><br />
 
 ";
 

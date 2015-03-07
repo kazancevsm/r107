@@ -172,7 +172,7 @@ class userlogin {
 	function update_xup($user_id, $user_xup = "") {
 		global $sql, $tp;
 		if($user_xup) {
-			require_once(e_HANDLER."xml_class.php");
+			require_once(e_HANDLER."xml_handler.php");
 			$xml = new parseXml;
 			if($rawData = $xml -> getRemoteXmlFile($user_xup)) {
 				preg_match_all("#\<meta name=\"(.*?)\" content=\"(.*?)\" \/\>#si", $rawData, $match);
@@ -192,7 +192,7 @@ class userlogin {
 					"YAHOO" => "yahoo",
 					"GEO" => "location",
 					"BDAY" => "birthday");
-					include_once(e_HANDLER."user_extended_class.php");
+					include_once(e_HANDLER."user_extended_handler.php");
 					$usere = new e107_user_extended;
 					$extList = $usere->user_extended_get_fieldList();
 					$extName = array();

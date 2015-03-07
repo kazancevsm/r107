@@ -218,7 +218,7 @@ SC_BEGIN SIGNUP_SIGNATURE
 global $pref, $SIGNUP_SIGNATURE_START, $SIGNUP_SIGNATURE_END, $signupValue;
 if($pref['signup_option_signature'])
 {
-	require_once(e_HANDLER."ren_help.php");
+	require_once(e_HANDLER."ren_help_handler.php");
 	$SIGNUP_SIGNATURE_START = str_replace("{REN_HELP}", display_help('helpb', 2), $SIGNUP_SIGNATURE_START);
 	$SIGNUP_SIGNATURE_END = str_replace("{REN_HELP}", display_help('helpb', 2), $SIGNUP_SIGNATURE_END);
 	$sig = ($_POST['signature'] ? $_POST['signature'] : varset($signupValue['signature']));

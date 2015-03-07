@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("class.php");
+require_once("class2.php");
 require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 require_once(HEADERF);
@@ -129,7 +129,7 @@ if ($action == "forums" || isset($_POST['fsearch']))
 		$user_id = intval($id);
 		$sql->db_Select("user", "user_name", "user_id=".$id);
 		$row = $sql->db_Fetch();
-		$r_caption = UP_LAN_0." ".$row['user_name'];
+		$fcaption = UP_LAN_0." ".$row['user_name'];
 	}
 	else
 	{
@@ -153,7 +153,7 @@ if ($action == "forums" || isset($_POST['fsearch']))
 	{
 		$f_query = $tp -> toDB($_POST['f_query']);
 		$s_info = "AND (ft.thread_name REGEXP('".$f_query."') OR ft.thread_thread REGEXP('".$f_query."'))";
-		$r_caption = UP_LAN_12." ".$row['user_name'];
+		$fcaption = UP_LAN_12." ".$row['user_name'];
 	}
 	$qry = "
 	SELECT ft.*, f.* FROM #forum_t AS ft
@@ -205,7 +205,7 @@ if ($action == "forums" || isset($_POST['fsearch']))
 		$userposts_forum_table_end = $tp->simpleParse($USERPOSTS_FORUM_TABLE_END);
 		$ftext .= $userposts_forum_table_start."".$userposts_forum_table_string."".$userposts_forum_table_end;
 	}
-	$ns->tablerender($r_caption, $ftext);
+	$ns->tablerender($fcaption, $ftext);
 
 	$parms = $ftotal.",10,".$from.",".e_SELF."?[FROM].forums.".$id;
 	$USERPOSTS_NEXTPREV = $tp->parseTemplate("{NEXTPREV={$parms}}");

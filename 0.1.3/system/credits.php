@@ -15,7 +15,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 $e_sub_cat = 'credits';
 include(e_SYSTEM."version.php");
 

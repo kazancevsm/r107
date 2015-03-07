@@ -17,7 +17,7 @@
 */
 
 //include and require several classes
-require_once("../../class.php");
+require_once("../../class2.php");
 if(!getperms("1")){ header("location:".e_BASE."index.php"); exit ;}
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
@@ -66,16 +66,16 @@ $styletable = "style='width:90%; border:1px solid #444; border-collapse:collapse
 //template for non expanding row
 $TOPIC_ROW_NOEXPAND = "
 <tr>
-	<td class='r_header3' style='width:20%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
-	<td class='r_header3'>{TOPIC_FIELD}</td>
+	<td class='forumheader3' style='width:20%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
+	<td class='forumheader3'>{TOPIC_FIELD}</td>
 </tr>
 ";
 
 //template for expanding row
 $TOPIC_ROW = "
 <tr>
-	<td class='r_header3' style='width:20%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
-	<td class='r_header3'>
+	<td class='forumheader3' style='width:20%; white-space:nowrap; vertical-align:top;'>{TOPIC_TOPIC}</td>
+	<td class='forumheader3'>
 		<a style='cursor: pointer; cursor: hand' onclick='expandit(this);'>{TOPIC_HEADING}</a>
 		<div style='display: none;'>
 			<div class='smalltext'>{TOPIC_HELP}</div><br />
@@ -91,7 +91,7 @@ $TOPIC_ROW_SPACER = "<tr><td $stylespacer colspan='2'></td></tr>";
 $TOPIC_TABLE_START = "
 <div style='text-align:center;'>
 ".$rs -> form_open("post", e_SELF, "menu_conf_form", "", "enctype='multipart/form-data'")."
-<table style='".ADMIN_WIDTH."' class='r_border'>";
+<table class='fborder'>";
 
 //$TOPIC_TABLE_END = "
 //</table>
@@ -193,8 +193,8 @@ function parse_global_options($type){
 	for($i=0;$i<count($sections);$i++){
 		$TOPIC_FIELD .= "
 		<tr>
-		<td class='r_header3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
-		<td class='r_header3'>
+		<td class='forumheader3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
+		<td class='forumheader3'>
 			".$rs -> form_text($sections[$i]."_".$type."_icon", 15, $list_pref[$sections[$i]."_".$type."_icon"], 100)."
 			<input class='button' type='button' style='cursor:hand' size='30' value='".LIST_ADMIN_12."' onClick=\"expandit('div_".$sections[$i]."_".$type."_icon')\" />
 			<div id='div_".$sections[$i]."_".$type."_icon' style='display:none;'>";
@@ -217,8 +217,8 @@ function parse_global_options($type){
 	for($i=0;$i<count($sections);$i++){
 		$TOPIC_FIELD .= "
 		<tr>
-		<td class='r_header3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
-		<td class='r_header3'>
+		<td class='forumheader3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
+		<td class='forumheader3'>
 			".$rs -> form_select_open($sections[$i]."_".$type."_amount");
 			for($a=1; $a<=$maxitems_amount; $a++){
 				$TOPIC_FIELD .= ($list_pref[$sections[$i]."_".$type."_amount"] == $a ? $rs -> form_option($a, 1, $a) : $rs -> form_option($a, 0, $a));
@@ -239,8 +239,8 @@ function parse_global_options($type){
 	for($i=0;$i<count($sections);$i++){
 		$TOPIC_FIELD .= "
 		<tr>
-		<td class='r_header3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
-		<td class='r_header3'>
+		<td class='forumheader3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
+		<td class='forumheader3'>
 		".$rs -> form_select_open($sections[$i]."_".$type."_order");
 		for($a=1; $a<=$max; $a++){
 			$TOPIC_FIELD .= ($list_pref[$sections[$i]."_".$type."_order"] == $a ? $rs -> form_option($a, 1, $a) : $rs -> form_option($a, 0, $a));
@@ -260,8 +260,8 @@ function parse_global_options($type){
 	for($i=0;$i<count($sections);$i++){
 		$TOPIC_FIELD .= "
 		<tr>
-		<td class='r_header3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
-		<td class='r_header3'>
+		<td class='forumheader3' style='width:10%; white-space:nowrap; vertical-align:top;'>".$titles[$i]."</td>
+		<td class='forumheader3'>
 			".$rs -> form_text($sections[$i]."_".$type."_caption", 30, $tp->toHTML($list_pref[$sections[$i]."_".$type."_caption"],"","defs"), "50", "tbox")."
 		</td>
 		</tr>";
@@ -281,7 +281,7 @@ function parse_menu_options($type){
 
 	$text = "
 	<div id='".$type."' style='display:none; text-align:center'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>";
+	<table class='fborder'>";
 
 	if($type == "new_menu"){
 		$text .= $rc -> parse_headerrow_title(LIST_ADMIN_OPT_5);
@@ -386,7 +386,7 @@ function parse_page_options($type){
 
 	$text = "
 	<div id='".$type."' style='".$display." text-align:center'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>";
+	<table class='fborder'>";
 
 	if($type == "new_page"){
 		$text .= $rc -> parse_headerrow_title(LIST_ADMIN_OPT_4);

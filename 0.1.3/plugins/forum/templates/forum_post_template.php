@@ -18,15 +18,14 @@
 */
 
 if (!defined('e107_INIT')) { exit; }
-if(!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }
 
 // the user box and subject box are not always displayed, therefore we need to define them /in case/ they are, if not they'll be ignored.
 
 if(!$userbox)
 {
 $userbox = "<tr>
-<td class='r_header2' style='width:20%'>".LAN_61."</td>
-<td class='r_header2' style='width:80%'>
+<td class='forumheader2' style='width:20%'>".LAN_61."</td>
+<td class='forumheader2' style='width:80%'>
 <input class='tbox' type='text' name='anonname' size='71' value='".$anonname."' maxlength='20' style='width:95%' />
 </td>
 </tr>";
@@ -35,8 +34,8 @@ $userbox = "<tr>
 if(!$subjectbox)
 {
 $subjectbox = "<tr>
-<td class='r_header2' style='width:20%'>".LAN_62."</td>
-<td class='r_header2' style='width:80%'>
+<td class='forumheader2' style='width:20%'>".LAN_62."</td>
+<td class='forumheader2' style='width:80%'>
 <input class='tbox' type='text' name='subject' size='71' value='".$subject."' maxlength='100' style='width:95%' />
 </td>
 </tr>";
@@ -57,11 +56,11 @@ if(!$fileattach)
 {
 $fileattach = "
 <tr>
-	<td colspan='2' class='nr_caption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td>
+	<td colspan='2' class='nfcaption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td>
 </tr>
 <tr>
-	<td style='width:20%' class='r_header3'>".LAN_392."</td>
-	<td style='width:80%' class='r_header3'>".LAN_393." | ".$allowed_filetypes." |<br />".LAN_394."<br />".LAN_395.": ".($pref['upload_maxfilesize'] ? $pref['upload_maxfilesize'].LAN_396 : ini_get('upload_max_filesize'))."
+	<td style='width:20%' class='forumheader3'>".LAN_392."</td>
+	<td style='width:80%' class='forumheader3'>".LAN_393." | ".$allowed_filetypes." |<br />".LAN_394."<br />".LAN_395.": ".($pref['upload_maxfilesize'] ? $pref['upload_maxfilesize'].LAN_396 : ini_get('upload_max_filesize'))."
 		<br />
 		<div id='fiupsection'>
 		<span id='fiupopt'>
@@ -80,10 +79,10 @@ if(!$fileattach_alert)
 {
 	$fileattach_alert = "
 	<tr>
-		<td colspan='2' class='nr_caption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td>
+		<td colspan='2' class='nfcaption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td>
 	</tr>
 	<tr>
-		<td colspan='2' class='r_header3'>".LAN_FORUM_1."</td>
+		<td colspan='2' class='forumheader3'>".LAN_FORUM_1."</td>
 	</tr>\n";
 }
 // ------------
@@ -94,16 +93,16 @@ $FORUMPOST = "
 <div style='text-align:center'>
 <div class='spacer'>
 {FORMSTART}
-<table style='".USER_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-<td colspan='2' class='r_caption'>{BACKLINK}
+<td colspan='2' class='fcaption'>{BACKLINK}
 </td>
 </tr>
 {USERBOX}
 {SUBJECTBOX}
 <tr>
-<td class='r_header2' style='width:20%'>{POSTTYPE}</td>
-<td class='r_header2' style='width:80%'>
+<td class='forumheader2' style='width:20%'>{POSTTYPE}</td>
+<td class='forumheader2' style='width:80%'>
 {POSTBOX}<br />{EMAILNOTIFY}<br />{POSTTHREADAS}
 </td>
 </tr>
@@ -113,14 +112,14 @@ $FORUMPOST = "
 {FILEATTACH}
 
 <tr style='vertical-align:top'>
-<td colspan='2' class='r_header1' style='text-align:center'>
+<td colspan='2' class='forumheader' style='text-align:center'>
 {BUTTONS}
 </td>
 </tr>
 </table>
 {FORMEND}
 
-<table style='".USER_WIDTH."'>
+<table>
 <tr>
 <td>
 {FORUMJUMP}
@@ -137,16 +136,16 @@ $FORUMPOST_REPLY = "
 <div style='text-align:center'>
 <div class='spacer'>
 {FORMSTART}
-<table style='".USER_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-<td colspan='2' class='r_caption'>{BACKLINK}
+<td colspan='2' class='fcaption'>{BACKLINK}
 </td>
 </tr>
 {USERBOX}
 {SUBJECTBOX}
 <tr>
-<td class='r_header2' style='width:20%'>{POSTTYPE}</td>
-<td class='r_header2' style='width:80%'>
+<td class='forumheader2' style='width:20%'>{POSTTYPE}</td>
+<td class='forumheader2' style='width:80%'>
 {POSTBOX}<br />{EMAILNOTIFY}<br />{POSTTHREADAS}
 </td>
 </tr>
@@ -156,14 +155,14 @@ $FORUMPOST_REPLY = "
 {FILEATTACH}
 
 <tr style='vertical-align:top'>
-<td colspan='2' class='r_header1' style='text-align:center'>
+<td colspan='2' class='forumheader' style='text-align:center'>
 {BUTTONS}
 </td>
 </tr>
 </table>
 {FORMEND}
 
-<table style='".USER_WIDTH."'>
+<table>
 <tr>
 <td>
 {FORUMJUMP}
@@ -181,9 +180,9 @@ $FORUMPOST_REPLY = "
 if(!$LATESTPOSTS_START)
 {
 $LATESTPOSTS_START = "
-<table style='".USER_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-<td colspan='2' class='r_caption' style='vertical-align:top'>".
+<td colspan='2' class='fcaption' style='vertical-align:top'>".
 LAN_101."{LATESTPOSTSCOUNT}".LAN_102."
 </td>
 </tr>";
@@ -193,8 +192,8 @@ if(!$LATESTPOSTS_POST)
 {
 $LATESTPOSTS_POST = "
 <tr>
-<td class='r_header3' style='width:20%;vertical-align:top'><b>{POSTER}</b></td>
-<td class='r_header3' style='width:80%'>
+<td class='forumheader3' style='width:20%;vertical-align:top'><b>{POSTER}</b></td>
+<td class='forumheader3' style='width:80%'>
 	<div class='smallblacktext' style='text-align:right'>".IMAGE_post2." ".LAN_322."{THREADDATESTAMP}</div>
 	{POST}
 </td>
@@ -212,13 +211,13 @@ $LATESTPOSTS_END = "
 if(!$THREADTOPIC_REPLY)
 {
 $THREADTOPIC_REPLY = "
-<table style='".USER_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-	<td colspan='2' class='r_caption' style='vertical-align:top'>".LAN_100."</td>
+	<td colspan='2' class='fcaption' style='vertical-align:top'>".LAN_100."</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:20%;vertical-align:top'><b>{POSTER}</b></td>
-	<td class='r_header3' style='width:80%'>
+	<td class='forumheader3' style='width:20%;vertical-align:top'><b>{POSTER}</b></td>
+	<td class='forumheader3' style='width:80%'>
 		<div class='smallblacktext' style='text-align:right'>".IMAGE_post2." ".LAN_322."{THREADDATESTAMP}</div>{POST}
 	</td>
 </tr>

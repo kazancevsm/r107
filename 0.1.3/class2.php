@@ -9,9 +9,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/class2.php $
 |     $Revision: 12328 $
-|     $Id: class.php 12328 2011-08-12 19:26:40Z nlstart $
+|     $Id: class2.php 12328 2011-08-12 19:26:40Z nlstart $
 |     $Author: nlstart $
 +----------------------------------------------------------------------------+
 */
@@ -293,13 +293,13 @@ if (!$ADMIN_DIRECTORY && !$DOWNLOADS_DIRECTORY) {
 //
 // J: MYSQL INITIALIZATION
 //
-@require_once(e_HANDLER.'traffic_class.php');
+@require_once(e_HANDLER."traffic_handler.php");
 $eTraffic=new e107_traffic; // We start traffic counting ASAP
 $eTraffic->Calibrate($eTraffic);
 
 define("MPREFIX", $mySQLprefix);
 
-e107_require_once(e_HANDLER."mysql_class.php");
+e107_require_once(e_HANDLER."mysql_handler.php");
 
 $sql = new db;
 $sql2 = new db;
@@ -314,11 +314,11 @@ require_once(e_HANDLER.'admin_log_handler.php');
 $admin_log = new e_admin_log();
 
 if ($merror == "e1") {
-	message_handler("CRITICAL_ERROR", 6, ": generic, ", "class.php");
+	message_handler("CRITICAL_ERROR", 6, ": generic, ", "class2.php");
 	exit;
 }
 else if ($merror == "e2") {
-	message_handler("CRITICAL_ERROR", 7, ": generic, ", "class.php");
+	message_handler("CRITICAL_ERROR", 7, ": generic, ", "class2.php");
 	exit;
 }
 
@@ -335,7 +335,7 @@ $aj = new textparse; // required for backwards compatibility with 0.6 plugins.
 // L: Extract core prefs from the database
 //
 $sql->db_Mark_Time('Start: Extract Core Prefs');
-e107_require_once(e_HANDLER."pref_class.php");
+e107_require_once(e_HANDLER."pref_handler.php");
 $sysprefs = new prefs;
 
 e107_require_once(e_HANDLER.'cache_handler.php');
@@ -429,7 +429,7 @@ define("e_PAGE", $page);
  * 1. Any file in the admin directory (check for non-plugin added to avoid mismatches)
  * 2. any plugin file starting with 'admin_'
  * 3. any plugin file in a folder called admin/
- * 4. any file that specifies $eplug_admin = TRUE before class.php is included.
+ * 4. any file that specifies $eplug_admin = TRUE before class2.php is included.
  */
 $inAdminDir = FALSE;
 $isPluginDir = strpos(e_SELF,'/'.$PLUGINS_DIRECTORY) !== FALSE;		// True if we're in a plugin
@@ -619,15 +619,15 @@ if (isset($pref['del_unv']) && $pref['del_unv'] && $pref['user_reg_veri'] != 2)
 	$sql->db_Delete('user', "user_ban = 2 AND user_join < ".$threshold);
 }
 
-e107_require_once(e_HANDLER.'override_class.php');
+e107_require_once(e_HANDLER."override_handler.php");
 $override=new override;
 
-e107_require_once(e_HANDLER.'event_handler.php');
+e107_require_once(e_HANDLER."event_handler.php");
 $e_event=new e107_event;
 
 if (isset($pref['notify']) && $pref['notify'] == true) 
 {
-	e107_require_once(e_HANDLER.'notify_class.php');
+	e107_require_once(e_HANDLER."notify_handler.php");
 }
 
 //
@@ -1938,18 +1938,18 @@ class error_handler {
 		if (E107_DBG_ERRBACKTRACE)
 		{
 			foreach ($this->errors as $key => $value) {
-				$ret .= "\t<tr>\n\t\t<td class='r_header3' >{$value['short']}</td><td><input class='button' type ='button' style='cursor: hand; cursor: pointer;' size='30' value='Back Trace' onclick=\"expandit('bt_{$key}')\" /></td>\n\t</tr>\n";
+				$ret .= "\t<tr>\n\t\t<td class='forumheader3' >{$value['short']}</td><td><input class='button' type ='button' style='cursor: hand; cursor: pointer;' size='30' value='Back Trace' onclick=\"expandit('bt_{$key}')\" /></td>\n\t</tr>\n";
 				$ret .= "\t<tr>\n<td style='display: none;' colspan='2' id='bt_{$key}'>".print_a($value['trace'], true)."</td></tr>\n";
 				if($index == 0) { $index = 1; } else { $index = 0; }
 			}
 		} else {
 			foreach ($this->errors as $key => $value)
 			{
-				$ret .= "<tr class='r_header3'><td>{$value['short']}</td></tr>\n";
+				$ret .= "<tr class='forumheader3'><td>{$value['short']}</td></tr>\n";
 			}
 		}
 
-		return ($ret) ? "<table class='r_border'>\n".$ret."</table>" : "";
+		return ($ret) ? "<table class='fborder'>\n".$ret."</table>" : "";
 	}
 
 	function trigger_error($information, $level) {

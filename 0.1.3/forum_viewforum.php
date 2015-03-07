@@ -1,5 +1,5 @@
 <?php
-require_once("class.php");
+require_once("class2.php");
 $tmp = explode(".", e_QUERY);
 $forum_id = intval($tmp[0]);
 if($forum_id)

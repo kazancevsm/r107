@@ -18,7 +18,7 @@
 */
 if (!defined('e107_INIT')) { exit; }
 
-require_once(e_HANDLER.'userclass_class.php');
+require_once(e_HANDLER."userclass_handler.php");
 $query = ($pref['nfp_posts'] ? 'thread_lastpost' : 'thread_datestamp');
 include_lan(e_PLUGIN.'newforumposts_main/languages/'.e_LANGUAGE.'.php');
 
@@ -27,36 +27,36 @@ global $sql, $ns;
 // get template ...
 
 if (file_exists(THEME.'newforumpost.php')) {
-	require_once(THEME.'newforumpost.php');
+	require_once(THEME."newforumpost.php");
 }
 else if(!isset($NEWFORUMPOSTSTYLE_HEADER)) {
 	// no template found - use default ...
 	$NEWFORUMPOSTSTYLE_HEADER = "
 		<!-- newforumposts -->
 		<div style='text-align:center'>
-		<table style='width:auto' class='r_border'>
+		<table style='width:auto' class='fborder'>
 		<tr>
-		<td style='width:5%' class='r_header1'>&nbsp;</td>
-		<td style='width:45%' class='r_header1'>".NFPM_LAN_1."</td>
-		<td style='width:15%; text-align:center' class='r_header1'>".NFPM_LAN_2."</td>
-		<td style='width:5%; text-align:center' class='r_header1'>".NFPM_LAN_3."</td>
-		<td style='width:5%; text-align:center' class='r_header1'>".NFPM_LAN_4."</td>
-		<td style='width:25%; text-align:center' class='r_header1'>".NFPM_LAN_5."</td>
+		<td style='width:5%' class='forumheader'>&nbsp;</td>
+		<td style='width:45%' class='forumheader'>".NFPM_LAN_1."</td>
+		<td style='width:15%; text-align:center' class='forumheader'>".NFPM_LAN_2."</td>
+		<td style='width:5%; text-align:center' class='forumheader'>".NFPM_LAN_3."</td>
+		<td style='width:5%; text-align:center' class='forumheader'>".NFPM_LAN_4."</td>
+		<td style='width:25%; text-align:center' class='forumheader'>".NFPM_LAN_5."</td>
 		</tr>";
 
 	$NEWFORUMPOSTSTYLE_MAIN = "
 		<tr>
-		<td style='width:5%; text-align:center' class='r_header3'>{ICON}</td>
-		<td style='width:45%' class='r_header3'><b>{THREAD}</b> <span class='smalltext'>({FORUM})</span></td>
-		<td style='width:15%; text-align:center' class='r_header3'>{POSTER}</td>
-		<td style='width:5%; text-align:center' class='r_header3'>{VIEWS}</td>
-		<td style='width:5%; text-align:center' class='r_header3'>{REPLIES}</td>
-		<td style='width:25%; text-align:center' class='r_header3'>{LASTPOST}<br /><span class='smalltext'>{LASTPOSTDATE}&nbsp;</span></td>
+		<td style='width:5%; text-align:center' class='forumheader3'>{ICON}</td>
+		<td style='width:45%' class='forumheader3'><b>{THREAD}</b> <span class='smalltext'>({FORUM})</span></td>
+		<td style='width:15%; text-align:center' class='forumheader3'>{POSTER}</td>
+		<td style='width:5%; text-align:center' class='forumheader3'>{VIEWS}</td>
+		<td style='width:5%; text-align:center' class='forumheader3'>{REPLIES}</td>
+		<td style='width:25%; text-align:center' class='forumheader3'>{LASTPOST}<br /><span class='smalltext'>{LASTPOSTDATE}&nbsp;</span></td>
 		</tr>";
 
 	$NEWFORUMPOSTSTYLE_FOOTER = "
 		<tr>
-		<td colspan='6' style='text-align:center' class='r_header2'>
+		<td colspan='6' style='text-align:center' class='forumheader2'>
 		<span class='smalltext'>".NFPM_LAN_6.": <b>{TOTAL_TOPICS}</b> | ".NFPM_LAN_4.": <b>{TOTAL_REPLIES}</b> | ".NFPM_LAN_3.": <b>{TOTAL_VIEWS}</b></span>
 		</td>
 		</tr>

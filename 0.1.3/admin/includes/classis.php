@@ -28,14 +28,14 @@ while (list($key, $funcinfo) = each($newarray))
 if($buts != "")
 {
     $text = "<div style='text-align:center'>
-			<table class='r_border'>";
+			<table class='fborder'>";
 	$text .= $buts;
  	$text .= render_clean();
  	$text .= "</table></div>";
 	$ns->tablerender(ADLAN_47." ".ADMINNAME, $text);
 }
 $text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 $text .= render_links(e_ADMIN."plugin.php", ADLAN_98, ADLAN_99, "Z", E_32_PLUGMANAGER, "classis");
 

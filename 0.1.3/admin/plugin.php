@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("Z")) 
 {
 	header("location:".e_BASE."index.php");
@@ -25,8 +25,8 @@ if (!getperms("Z"))
 }
 $e_sub_cat = 'plug_manage';
 require_once("auth.php");
-require_once(e_HANDLER.'plugin_class.php');
-require_once(e_HANDLER.'file_handler.php');
+require_once(e_HANDLER."plugin_handler.php");
+require_once(e_HANDLER."file_handler.php");
 $plugin = new e107plugin;
 
 $tmp = explode('.', e_QUERY);
@@ -86,13 +86,13 @@ if (isset($_POST['upload']))
 
 			if($fileType == "zip")
 			{
-				require_once(e_HANDLER."pclzip.lib.php");
+				require_once(e_HANDLER."pclzip_handler.php");
 				$archive = new PclZip(e_PLUGIN.$archiveName);
 				$unarc = ($fileList = $archive -> extract(PCLZIP_OPT_PATH, e_PLUGIN, PCLZIP_OPT_SET_CHMOD, 0666));
 			}
 			else
 			{
-				require_once(e_HANDLER."pcltar.lib.php");
+				require_once(e_HANDLER."pcltar_handler.php");
 				$unarc = ($fileList = PclTarExtract($archiveName, e_PLUGIN));
 			}
 
@@ -448,17 +448,17 @@ else
 {
 	$text = "<div style='text-align:center'>
 	<form enctype='multipart/form-data' method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td class='r_header3' style='width: 50%;'>".EPL_ADLAN_37."</td>
-	<td class='r_header3' style='width: 50%;'>
+	<td class='forumheader3' style='width: 50%;'>".EPL_ADLAN_37."</td>
+	<td class='forumheader3' style='width: 50%;'>
 	<input type='hidden' name='MAX_FILE_SIZE' value='1000000' />
 	<input type='hidden' name='ac' value='".md5(ADMINPWCHANGE)."' />
 	<input class='tbox' type='file' name='file_userfile[]' size='50' />
 	</td>
 	</tr>
 	<tr>
-	<td colspan='2' style='text-align:center' class='r_header1'>
+	<td colspan='2' style='text-align:center' class='forumheader'>
 	<input class='button' type='submit' name='upload' value='".EPL_ADLAN_38."' />
 	</td>
 	</tr>
@@ -470,10 +470,10 @@ else
 $installed = $plugin->getall(1);
 $uninstalled = $plugin->getall(0);
 
-$text .= "<table style='".ADMIN_WIDTH."' class='r_border'>";
-$text .= "<tr><td class='r_caption' colspan='3'>".EPL_ADLAN_22."</td></tr>";
+$text .= "<table class='fborder'>";
+$text .= "<tr><td class='fcaption' colspan='3'>".EPL_ADLAN_22."</td></tr>";
 $text .= render_plugs($installed);
-$text .= "<tr><td class='r_caption' colspan='3'>".EPL_ADLAN_23."</td></tr>";
+$text .= "<tr><td class='fcaption' colspan='3'>".EPL_ADLAN_23."</td></tr>";
 $text .= render_plugs($uninstalled);
 
 
@@ -514,7 +514,7 @@ function render_plugs($pluginList)
 
 		$text .= "
 		<tr>
-		<td class='r_header3' style='width:25%; text-align:left; vertical-align:top'>
+		<td class='forumheader3' style='width:25%; text-align:left; vertical-align:top'>
 		<table style='width:100%'><tr><td style='text-align:left;width:50px;vertical-align:top'>
 		<span class='plugin-manager-icon'>".$plugin_icon."</span>
 		</td><td>
@@ -524,7 +524,7 @@ function render_plugs($pluginList)
 		$text .="</td>
 		</tr></table>
 		</td>
-		<td class='r_header3' style='vertical-align:top'>
+		<td class='forumheader3' style='vertical-align:top'>
 		<table cellspacing='3' style='width:98%'>
 		<tr><td style='vertical-align:top;width:15%'><b>".EPL_ADLAN_12."</b>:</td><td style='vertical-align:top'><a href='mailto:$eplug_email' title='$eplug_email'>$eplug_author</a>&nbsp;";
         if($eplug_url){
@@ -545,7 +545,7 @@ function render_plugs($pluginList)
 
 
 		$text .= "</table></td>";
-		$text .= "<td class='r_header3' style='width:25%;text-align:center'>";
+		$text .= "<td class='forumheader3' style='width:25%;text-align:center'>";
     	if ($eplug_conffile || $eplug_module || $eplug_link || is_array($eplug_table_names) || is_array($eplug_prefs) || is_array($eplug_user_prefs) || is_array($eplug_sc) || is_array($eplug_bb) || $eplug_status || $eplug_latest) {
 			$text .= ($plug['plugin_installflag'] ? "<input type='button' class='button' onclick=\"location.href='".e_SELF."?uninstall.{$plug['plugin_id']}'\" title='".EPL_ADLAN_1."' value='".EPL_ADLAN_1."' /> " : "<input type='button' class='button' onclick=\"location.href='".e_SELF."?install.{$plug['plugin_id']}'\" title='".EPL_ADLAN_0."' value='".EPL_ADLAN_0."' />");
 		} 
@@ -622,19 +622,19 @@ function show_uninstall_confirm()
 
 	$text = "
 	<form action='".e_SELF."?".e_QUERY."' method='post'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-		<td colspan='2' class='r_header1'>".EPL_ADLAN_54." ".$tp->toHtml($eplug_name,"","defs,emotes_off, no_make_clickable")."</td>
+		<td colspan='2' class='forumheader'>".EPL_ADLAN_54." ".$tp->toHtml($eplug_name,"","defs,emotes_off, no_make_clickable")."</td>
 	</tr>
 	<tr>
-		<td class='r_header3'>".EPL_ADLAN_55."</td>
-		<td class='r_header3'>".LAN_YES."</td>
+		<td class='forumheader3'>".EPL_ADLAN_55."</td>
+		<td class='forumheader3'>".LAN_YES."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>
+		<td class='forumheader3' style='width:75%'>
 			".EPL_ADLAN_57."<div class='smalltext'>".EPL_ADLAN_58."</div>
 		</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 			<select class='tbox' name='delete_tables'>
 			<option value='1'>".LAN_YES."</option>
 			<option value='0'>".LAN_NO."</option>
@@ -642,11 +642,11 @@ function show_uninstall_confirm()
 		</td>
 	</tr>
 	<tr>
-		<td class='r_header3'>".EPL_ADLAN_59."<div class='smalltext'>".EPL_ADLAN_60."</div></td>
-		<td class='r_header3'>{$del_text}</td>
+		<td class='forumheader3'>".EPL_ADLAN_59."<div class='smalltext'>".EPL_ADLAN_60."</div></td>
+		<td class='forumheader3'>{$del_text}</td>
 	</tr>
 	<tr>
-		<td colspan='2' class='r_header1' style='text-align:center'><input class='button' type='submit' name='uninstall_confirm' value=\"".EPL_ADLAN_3."\" />&nbsp;&nbsp;<input class='button' type='submit' name='uninstall_cancel' value='".EPL_ADLAN_62."' onclick=\"location.href='".e_SELF."'; return false;\"/></td>
+		<td colspan='2' class='forumheader' style='text-align:center'><input class='button' type='submit' name='uninstall_confirm' value=\"".EPL_ADLAN_3."\" />&nbsp;&nbsp;<input class='button' type='submit' name='uninstall_cancel' value='".EPL_ADLAN_62."' onclick=\"location.href='".e_SELF."'; return false;\"/></td>
 	</tr>
 	</table>
 	</form>

@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['chatbox_menu']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -133,7 +133,7 @@ foreach ($chatList as $row)
 	}
 
 	$CHAT_TABLE_MESSAGE = $cb_message;
-	$CHAT_TABLE_FLAG = ($flag ? "r_header3" : "r_header4");
+	$CHAT_TABLE_FLAG = ($flag ? "forumheader3" : "r_header4");
 
 	if (!$CHAT_TABLE) {
 		if (file_exists(THEME."chat_template.php"))
@@ -164,7 +164,7 @@ if($message)
 $ns->tablerender(CHATBOX_L20, $text);
 
 
-require_once(e_HANDLER."np_class.php");
+require_once(e_HANDLER."np_handler.php");
 $ix = new nextprev("chat.php", $from, 30, $chat_total, CHATBOX_L21);
 
 require_once(FOOTERF);

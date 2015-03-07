@@ -85,7 +85,7 @@ if(isset($linkspage_pref['link_menu_navigator_manager']) && $linkspage_pref['lin
 }
 
 if($mains){
-	$cap = (isset($linkspage_pref['link_menu_navigator_caption']) && $linkspage_pref['link_menu_navigator_caption'] ? $linkspage_pref['link_menu_navigator_caption'] : LCLAN_OPT_82);
+	$cap = (isset($linkspage_pref['link_menu_navigatofcaption']) && $linkspage_pref['link_menu_navigatofcaption'] ? $linkspage_pref['link_menu_navigatofcaption'] : LCLAN_OPT_82);
 	if(isset($linkspage_pref['link_menu_navigator_rendertype']) && $linkspage_pref['link_menu_navigator_rendertype'] == "1"){
 		$selectjs = "style='width:100%;' onchange=\"if(this.options[this.selectedIndex].value != ''){ return document.location=this.options[this.selectedIndex].value; }\" ";
 		$text .= $rs -> form_select_open("navigator", $selectjs);

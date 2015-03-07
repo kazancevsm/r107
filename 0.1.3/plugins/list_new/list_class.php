@@ -367,7 +367,7 @@ class listclass {
 		{
             if (!is_object($tp->e_pf)) 
 			{
-                require_once(e_HANDLER.'profanity_filter.php');
+                require_once(e_HANDLER."profanity_filter_handler.php");
                 $tp->e_pf = new e_profanityFilter;
             }
         }
@@ -599,7 +599,7 @@ class listclass {
 	function parse_headerrow_title($title){
 		global $rs, $list_pref;
 
-		$text = "<tr><td colspan='4' class='r_header1'>".$title."</td></tr>";
+		$text = "<tr><td colspan='4' class='forumheader'>".$title."</td></tr>";
 
 		return $text;
 	}

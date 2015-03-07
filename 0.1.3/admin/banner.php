@@ -19,7 +19,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	// set e-token so it can be processed by class2
 	$_POST['e-token'] = ''; 
 }
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("D")) 
 {
 	header("location:".e_BASE."index.php");
@@ -37,7 +37,7 @@ if(e_QUERY) // must be before auth.php
 require_once("auth.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once(e_HANDLER."file_handler.php");
 $fl = new e_file;
 
@@ -54,7 +54,7 @@ $images = $fl->get_files(e_FILE."banners/","","standard");
 
 if (isset($_POST['update_menu'])) {
 
-	$menu_pref['banner_caption']	= $tp->toDB($_POST['banner_caption']);
+	$menu_pref['bannefcaption']	= $tp->toDB($_POST['bannefcaption']);
 	$menu_pref['banner_amount']	= intval($_POST['banner_amount']);
 	$menu_pref['banner_rendertype']	= intval($_POST['banner_rendertype']);
 
@@ -167,20 +167,20 @@ if ($sql->db_Select("banner")) {
 
 if (!$action) {
 	$text = "
-		<table class='r_border'>
-		<tr><td colspan='7' style='text-align:center' class='r_caption'>".BNRLAN_7."</td></tr>
+		<table class='fborder'>
+		<tr><td colspan='7' style='text-align:center' class='fcaption'>".BNRLAN_7."</td></tr>
 		<tr>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_8."</td>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_9."</td>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_10."</td>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_11."</td>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_12."</td>
-		<td class='r_header1' style='text-align:center'>".BNRLAN_13."</td>
-		<td class='r_header1' style='text-align:center'>".LAN_OPTIONS."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_8."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_9."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_10."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_11."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_12."</td>
+		<td class='forumheader' style='text-align:center'>".BNRLAN_13."</td>
+		<td class='forumheader' style='text-align:center'>".LAN_OPTIONS."</td>
 		</tr>";
 
 	if (!$banner_total = $sql->db_Select("banner")) {
-		$text .= "<tr><td colspan='7' class='r_header3' style='text-align:center'>".BNRLAN_15."</td></tr>";
+		$text .= "<tr><td colspan='7' class='forumheader3' style='text-align:center'>".BNRLAN_15."</td></tr>";
 	} else {
 		while ($row = $sql->db_Fetch()) {
 			extract($row);
@@ -201,19 +201,19 @@ if (!$action) {
 			}
 
 			$text .= "<tr>
-				<td class='r_header3' style='text-align:center'>".$banner_id."</td>
-				<td class='r_header3' style='text-align:center'>".$banner_clientname."</td>
-				<td class='r_header3' style='text-align:center'>".$banner_clicks."</td>
-				<td class='r_header3' style='text-align:center'>".$clickpercentage."</td>
-				<td class='r_header3' style='text-align:center'>".$impressions_purchased."</td>
-				<td class='r_header3' style='text-align:center'>".$impressions_left."</td>
-				<td class='r_header3' style='text-align:center'><a href='".e_SELF."?create.edit.".$banner_id."'>".ADMIN_EDIT_ICON."</a> <a href='".e_SELF."?delete.".$banner_id."'>".ADMIN_DELETE_ICON."</a></td>
+				<td class='forumheader3' style='text-align:center'>".$banner_id."</td>
+				<td class='forumheader3' style='text-align:center'>".$banner_clientname."</td>
+				<td class='forumheader3' style='text-align:center'>".$banner_clicks."</td>
+				<td class='forumheader3' style='text-align:center'>".$clickpercentage."</td>
+				<td class='forumheader3' style='text-align:center'>".$impressions_purchased."</td>
+				<td class='forumheader3' style='text-align:center'>".$impressions_left."</td>
+				<td class='forumheader3' style='text-align:center'><a href='".e_SELF."?create.edit.".$banner_id."'>".ADMIN_EDIT_ICON."</a> <a href='".e_SELF."?delete.".$banner_id."'>".ADMIN_DELETE_ICON."</a></td>
 				</tr>
 				<tr>
-				<td class='r_header3' style='text-align:center'>&nbsp;</td>
-				<td class='r_header3' style='text-align:center'>".$banner_place."</td>
-				<td colspan='2' class='r_header3' style='text-align:center'>".r_userclass_name($banner_active)." ".$textvisivilitychanged."</td>
-				<td colspan='3' class='r_header3' style='text-align:center'>".BNRLAN_45.": ".$start_date." &lt;&gt; ".BNRLAN_21.": ".$end_date."</td>
+				<td class='forumheader3' style='text-align:center'>&nbsp;</td>
+				<td class='forumheader3' style='text-align:center'>".$banner_place."</td>
+				<td colspan='2' class='forumheader3' style='text-align:center'>".r_userclass_name($banner_active)." ".$textvisivilitychanged."</td>
+				<td colspan='3' class='forumheader3' style='text-align:center'>".BNRLAN_45.": ".$start_date." &lt;&gt; ".BNRLAN_21.": ".$end_date."</td>
 				</tr>
 				<tr><td colspan='8'>&nbsp;</td></tr>";
 		}
@@ -279,11 +279,11 @@ if ($action == "create") {
 	$text = "
 		<div style='text-align: center;'>
 		<form method='post' action='".e_SELF."'>
-		<table class='r_border'>
-		<tr><td colspan='2' style='text-align:center' class='r_caption'>".($sub_action == "edit" ? BNRLAN_22 : BNRLAN_23)."</td></tr>
+		<table class='fborder'>
+		<tr><td colspan='2' style='text-align:center' class='fcaption'>".($sub_action == "edit" ? BNRLAN_22 : BNRLAN_23)."</td></tr>
 		<tr>
-		<td class='r_header3'>".BNRLAN_24."</td>
-		<td class='r_header3'>";
+		<td class='forumheader3'>".BNRLAN_24."</td>
+		<td class='forumheader3'>";
 	if (count($campaigns)) {
 		$text .= "<select name='banner_place_sel' class='tbox'><option></option>";
 		$c = 0;
@@ -304,8 +304,8 @@ if ($action == "create") {
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_27."</td>
-		<td class='r_header3'>";
+		<td class='forumheader3'>".BNRLAN_27."</td>
+		<td class='forumheader3'>";
 
 	if (count($clients)) {
 		$text .= "<select name='banner_client_sel' class='tbox' onchange=\"Change_Details(this.form)\"><option></option>";
@@ -357,20 +357,20 @@ if ($action == "create") {
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_30."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_30."</td>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' size='30' maxlength='20' id='clientlogin' name='client_login' value='".$_POST['client_login']."' />
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_31."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_31."</td>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' size='30' maxlength='50' id='clientpassword' name='client_password' value='".$_POST['client_password']."' />
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_32."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_32."</td>
+		<td class='forumheader3'>
 		<input class='button' type ='button' value='".BNRLAN_43."' onclick='expandit(this)' />
 		<div style='display:none'><br />";
 	$c = 0;
@@ -405,27 +405,27 @@ if ($action == "create") {
 	$text .= "</div></td></tr>
 		
 		<tr>
-		<td class='r_header3'>".BNRLAN_14."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_14."</td>
+		<td class='forumheader3'>
 			".BNRLAN_17." <input class='tbox' type='text' size='10' maxlength='10' name='banner_imageheight' value='".$_POST['banner_imageheight']."' />
 			".BNRLAN_18." <input class='tbox' type='text' size='10' maxlength='10' name='banner_imagewidth' value='".$_POST['banner_imagewidth']."' />
 		</td></tr>
 		
 		<tr>
-		<td class='r_header3'>".BNRLAN_33."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_33."</td>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' size='70' maxlength='150' name='click_url' value='".$_POST['click_url']."' />
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_34."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_34."</td>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' size='10' maxlength='10' name='impressions_purchased' value='".$_POST['impressions_purchased']."' /> 0 = ".BNRLAN_35."
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_36."</td>
-		<td class='r_header3'><select name='startday' class='tbox'><option selected='selected'> </option>";
+		<td class='forumheader3'>".BNRLAN_36."</td>
+		<td class='forumheader3'><select name='startday' class='tbox'><option selected='selected'> </option>";
 	for($a = 1; $a <= 31; $a++) {
 		$text .= ($a == $_POST['startday'] ? "<option selected='selected'>".$a."</option>" : "<option>".$a."</option>");
 	}
@@ -441,8 +441,8 @@ if ($action == "create") {
 		</td></tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_37."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_37."</td>
+		<td class='forumheader3'>
 		<select name='endday' class='tbox'><option selected='selected'> </option>";
 	for($a = 1; $a <= 31; $a++) {
 		$text .= ($a == $_POST['endday'] ? "<option selected='selected'>".$a."</option>" : "<option>".$a."</option>");
@@ -460,15 +460,15 @@ if ($action == "create") {
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".BNRLAN_39."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".BNRLAN_39."</td>
+		<td class='forumheader3'>
 		".MENLAN_4."
 		".r_userclass("banner_class", $_POST['banner_active'], "off", "public,member,guest,admin,classes,nobody,classes")."
 		</td></tr>
 
 
 
-		<tr><td colspan='2' style='text-align:center' class='r_header1'>
+		<tr><td colspan='2' style='text-align:center' class='forumheader'>
 		<input type='hidden' name='e-token' value='".e_TOKEN."' />";
 	$text .= ($sub_action == "edit" && $id ? "<input class='button' type='submit' name='updatebanner' value='".BNRLAN_40."' /><input type='hidden' name='eid' value='".$id."' />" : "<input class='button' type='submit' name='createbanner' value='".BNRLAN_41."' />");
 
@@ -487,9 +487,9 @@ if ($action == "menu")
   $out_catname = array();
 
 	$array_cat_in = explode("|", $menu_pref['banner_place']);
-	if (!$menu_pref['banner_caption'])
+	if (!$menu_pref['bannefcaption'])
 	{
-		$menu_pref['banner_caption'] = BANNER_MENU_L1;
+		$menu_pref['bannefcaption'] = BANNER_MENU_L1;
 	}
 
 	$category_total = $sql -> db_Select("banner", "DISTINCT(banner_place) as banner_place", "ORDER BY banner_place", "mode=no_where");
@@ -507,18 +507,18 @@ if ($action == "menu")
 
 	$text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."?menu' name='menu_conf_form'>
-	<table style='".ADMIN_WIDTH."' class='r_border' >
+	<table class='fborder' >
 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L3.": </td>
-	<td style='width:60%' class='r_header3'>
-	<input class='tbox' type='text' name='banner_caption' size='20' value='".$menu_pref['banner_caption']."' maxlength='100' />
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L3.": </td>
+	<td style='width:60%' class='forumheader3'>
+	<input class='tbox' type='text' name='bannefcaption' size='20' value='".$menu_pref['bannefcaption']."' maxlength='100' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L6."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L6."</td>
+	<td style='width:60%' class='forumheader3'>
 
 	<table style='width:90%'>
 	<tr>
@@ -553,15 +553,15 @@ if ($action == "menu")
 	</tr>
 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L19."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L19."</td>
+	<td style='width:60%' class='forumheader3'>
 	<input class='tbox' type='text' name='banner_amount' size='10' value='".$menu_pref['banner_amount']."' maxlength='2' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:40%' class='r_header3'>".BANNER_MENU_L10."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".BANNER_MENU_L10."</td>
+	<td style='width:60%' class='forumheader3'>
 	<select class='tbox' id='banner_rendertype' name='banner_rendertype' size='1'  >
 	".$rs->form_option(BANNER_MENU_L11, (!$menu_pref['banner_rendertype'] || $menu_pref['banner_rendertype'] == "0" ? "1" : "0"), 0)."
 	".$rs->form_option("1 - ".BANNER_MENU_L12."", ($menu_pref['banner_rendertype'] == "1" ? "1" : "0"), 1)."
@@ -572,7 +572,7 @@ if ($action == "menu")
 	</tr>
 
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'>
+	<td colspan='2' class='forumheader' style='text-align:center'>
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	<input class='button' type='submit' name='update_menu' value='".BANNER_MENU_L18."' />
 	</td>

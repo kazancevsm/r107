@@ -23,7 +23,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../class.php");
+require_once("../class2.php");
 if(count($_POST) && !varset($_POST['e-token']))
 {
 	die('Access denied');
@@ -81,24 +81,24 @@ $text = "";
 
 $text .= "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-	<td style='width:30%' class='r_header3'>".BANLAN_5.": {$rdns_warn}</td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>".BANLAN_5.": {$rdns_warn}</td>
+	<td style='width:70%' class='forumheader3'>
 	<input class='tbox' type='text' name='ban_ip' size='40' value='".$banlist_ip."' maxlength='200' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:20%' class='r_header3'>".BANLAN_7.": </td>
-	<td style='width:80%' class='r_header3'>
+	<td style='width:20%' class='forumheader3'>".BANLAN_7.": </td>
+	<td style='width:80%' class='forumheader3'>
 	<textarea class='tbox' name='ban_reason' cols='50' rows='4'>$banlist_reason</textarea>
 	</td>
 	</tr>
 
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:center' class='r_header1'>".
+	<td colspan='2' style='text-align:center' class='forumheader'>".
 ($action == "edit" ? "<input type='hidden' name='old_ip' value='$banlist_ip' /><input class='button' type='submit' name='update_ban' value='".LAN_UPDATE."' />" : "<input class='button' type='submit' name='add_ban' value='".BANLAN_8."' />")."
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 
@@ -121,17 +121,17 @@ if ($action != "edit") {
 	if (!$ban_total = $sql->db_Select("banlist","*","ORDER BY banlist_ip","nowhere")) {
 		$text .= "<div style='text-align:center'>".BANLAN_2."</div>";
 	} else {
-		$text .= "<table class='r_border' style='".ADMIN_WIDTH."'>
+		$text .= "<table class='fborder' >
 			<tr>
-			<td style='width:70%' class='r_caption'>".BANLAN_10."</td>
-			<td style='width:30%' class='r_caption'>".LAN_OPTIONS."</td>
+			<td style='width:70%' class='fcaption'>".BANLAN_10."</td>
+			<td style='width:30%' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>";
 		$count = 0;
 		while ($row = $sql->db_Fetch()) {
 			extract($row);
 			$banlist_reason = str_replace("LAN_LOGIN_18", BANLAN_11, $banlist_reason);
-			$text .= "<tr><td style='width:70%' class='r_header3'>$banlist_ip<br />".BANLAN_7.": $banlist_reason</td>
-				<td style='width:30%; text-align:center' class='r_header3'>
+			$text .= "<tr><td style='width:70%' class='forumheader3'>$banlist_ip<br />".BANLAN_7.": $banlist_reason</td>
+				<td style='width:30%; text-align:center' class='forumheader3'>
 				<input type='hidden' name='e-token' value='".e_TOKEN."' />
 				".
 				$rs->form_button("submit", "main_edit_$count", LAN_EDIT, "onclick=\"document.getElementById('ban_form').action='".e_SELF."?edit-$banlist_ip'\"").

@@ -300,7 +300,7 @@ return ($dl['download_filesize']) ? parsesize($dl['download_filesize']) : "";
 SC_END
 
 SC_BEGIN DOWNLOAD_VIEW_RATING
-	require_once(e_HANDLER."rate_class.php");
+	require_once(e_HANDLER."rate_handler.php");
 	$rater = new rater;
 global $dl;
 	$text = "

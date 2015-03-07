@@ -19,7 +19,7 @@ if(isset($_POST['pwsubmit']) && !isset($_POST['e-token']))
 {
 	$_POST['e-token'] = '';
 }
-require_once("class.php");
+require_once("class2.php");
 
 if(USER)
 {
@@ -126,7 +126,7 @@ if (e_QUERY)
 //--------------------------
 if (isset($_POST['pwsubmit']))
 {	// Request for password reset submitted
-	require_once(e_HANDLER."mail.php");
+	require_once(e_HANDLER."mail_handler.php");
 	$email = $_POST['email'];
 
 	if ($pref['fpwcode'] && extension_loaded("gd"))

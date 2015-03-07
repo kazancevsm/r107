@@ -18,7 +18,6 @@
 */
 
 if (!defined('e107_INIT')) { exit; }
-if (!defined("USER_WIDTH")){ define("USER_WIDTH","width:100%"); }
 
 global $sc_style, $comment_shortcodes;
 global $pref, $comrow, $row2, $tp, $NEWIMAGE, $USERNAME, $RATING;
@@ -64,9 +63,9 @@ $sc_style['SIGNATURE']['post'] = "<br />";
 
 
 $COMMENTSTYLE = "
-<table class='r_border' style='".USER_WIDTH."'>
+<table class='fborder'>
 <tr>
-	<td colspan='2' class='r_header1'>
+	<td colspan='2' class='forumheader'>
 		{SUBJECT} {USERNAME} {TIMEDATE} {REPLY} {COMMENTEDIT}
 	</td>
 </tr>

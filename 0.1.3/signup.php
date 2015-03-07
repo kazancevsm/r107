@@ -22,7 +22,7 @@ if((isset($_POST['newver']) || isset($_POST['register']) || isset($_POST['submit
 	$_POST['e-token'] = '';
 }
 define("e_NOCACHE",TRUE);
-require_once("class.php");
+require_once("class2.php");
 $qs = explode(".", e_QUERY);
 //@TODO what fix?
 if($qs[0] != "activate"){   // multi-language fix.
@@ -31,7 +31,7 @@ if($qs[0] != "activate"){   // multi-language fix.
 	e107_include_once(e_LANGUAGEDIR.e_LANGUAGE."/lan_usersettings.php");
 }
 
-include_once(e_HANDLER."user_extended_class.php");
+include_once(e_HANDLER."user_extended_handler.php");
 $usere = new e107_user_extended;
 require_once(e_HANDLER."calendar/calendar_class.php");
 $cal = new DHTML_Calendar(true);
@@ -112,7 +112,7 @@ if(e_QUERY == "resend" && !USER && ($pref['user_reg_veri'] == 1))
 
 			$eml = render_email();
         	$mailheader_e107id = $nid;
-			require_once(e_HANDLER."mail.php");
+			require_once(e_HANDLER."mail_handler.php");
 
 /*
             echo "Sending to: ".$row['user_email'];
@@ -145,29 +145,29 @@ if(e_QUERY == "resend" && !USER && ($pref['user_reg_veri'] == 1))
 
 		$text .= "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."?resend' id='resend_form'>
-		<table style='".USER_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-			<td class='r_header3' style='text-align:right'>".LAN_SIGNUP_48."</td>
-        <td class='r_header3'>
+			<td class='forumheader3' style='text-align:right'>".LAN_SIGNUP_48."</td>
+        <td class='forumheader3'>
 		<input type='text' name='resend_email' class='tbox' size='50' style='max-width:80%' value='' maxlength='80' />
 		</td>
 		</tr>
 
 		<tr>
-			<td class='r_header3' colspan='2'>".LAN_SIGNUP_49."</td>
+			<td class='forumheader3' colspan='2'>".LAN_SIGNUP_49."</td>
 		</tr>
 		<tr>
-			<td class='r_header3' style='text-align:right;width:30%'>".LAN_SIGNUP_50."</td>
-			<td class='r_header3'><input type='text' name='resend_newemail' class='tbox' size='50' style='max-width:80%' value='' maxlength='80' /></td>
+			<td class='forumheader3' style='text-align:right;width:30%'>".LAN_SIGNUP_50."</td>
+			<td class='forumheader3'><input type='text' name='resend_newemail' class='tbox' size='50' style='max-width:80%' value='' maxlength='80' /></td>
 		</tr>
 		<tr>
-			<td class='r_header3' style='text-align:right'>".LAN_SIGNUP_51."</td>
-			<td class='r_header3'><input type='text' name='resend_password' class='tbox' size='50' style='max-width:80%' value='' maxlength='80' /></td>
+			<td class='forumheader3' style='text-align:right'>".LAN_SIGNUP_51."</td>
+			<td class='forumheader3'><input type='text' name='resend_password' class='tbox' size='50' style='max-width:80%' value='' maxlength='80' /></td>
 		</tr>
 		";
 
 		$text .="<tr style='vertical-align:top'>
-		<td colspan='2' style='text-align:center' class='r_header1'>";
+		<td colspan='2' style='text-align:center' class='forumheader'>";
 		$text .= "<input class='button' type='submit' name='submit_resend' value=\"".LAN_SIGNUP_47."\" />
 		<input type='hidden' name='e-token' value='".e_TOKEN."' />";  // resend activation email.
 		$text .= "</td>
@@ -240,7 +240,7 @@ if(ADMIN && (e_QUERY == "preview" || e_QUERY == "test"  || e_QUERY == "preview.a
 
 	if(e_QUERY == "test")
 	{
-		require_once(e_HANDLER."mail.php");
+		require_once(e_HANDLER."mail_handler.php");
 		$message = $eml['message'];
 		$subj = $eml['subject'];
 		$inline = $eml['inline-images'];
@@ -366,7 +366,7 @@ if (isset($_POST['register']))
 
 	if(varsettrue($pref['xup_enabled']) && $_POST['xupexist'])
 	{
-		require_once(e_HANDLER."xml_class.php");
+		require_once(e_HANDLER."xml_handler.php");
 		$xml = new parseXml;
 		if(!$rawData = $xml -> getRemoteXmlFile($_POST['xupexist']))
 		{
@@ -616,7 +616,7 @@ function make_email_query($email, $fieldname = 'banlist_ip')
 	// Check email address on remote server (if enabled) - but only if previous checks passed.
 	if ($do_email_validate && $email_address_OK && varsettrue($pref['signup_remote_emailcheck']) && $error != TRUE)
 	{
-		require_once(e_HANDLER."mail_validation_class.php");
+		require_once(e_HANDLER."mail_validation_handler.php");
 		list($adminuser,$adminhost) = split ("@", SITEADMINEMAIL);
 		$validator = new email_validation_class;
 		$validator->localuser= $adminuser;
@@ -853,7 +853,7 @@ function checkRemoteImage($imageName)
 			{
                 $eml = render_email();
 				$mailheader_e107id = $eml['userid'];
-				require_once(e_HANDLER."mail.php");
+				require_once(e_HANDLER."mail_handler.php");
 
 
 				if(!sendemail($_POST['email'], $eml['subject'], $eml['message'], "", "", "", $eml['attachments'], $eml['cc'], $eml['bcc'], "", "", $eml['inline-images']))

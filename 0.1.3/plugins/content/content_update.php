@@ -149,13 +149,13 @@ if($newcontent == 0){
 			showlink();
 			$SPACER = "<tr><td $stylespacer colspan='2'>&nbsp;</td></tr>";
 			$text = "
-			<table class='r_border' style='width:95%; padding:0px;'>";
+			<table class='fborder' style='width:95%; padding:0px;'>";
 
 			//conversion analysis
 			$text .= "
 			<tr>
-				<td class='r_header1' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_11."</td>
-				<td class='r_header3'>
+				<td class='forumheader' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_11."</td>
+				<td class='forumheader3'>
 					<a style='cursor: pointer; cursor: hand' onclick=\"expandit('analysisconvert');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 					<div id='analysisconvert' style='display: none;'>
 						".CONTENT_ADMIN_CONVERSION_LAN_12.": ".$conversion_analyses_rows_total."<br />
@@ -171,8 +171,8 @@ if($newcontent == 0){
 			//old content table : analysis
 			$text .= "
 			<tr>
-				<td class='r_header1' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_16."</td>
-				<td class='r_header3'>
+				<td class='forumheader' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_16."</td>
+				<td class='forumheader3'>
 					<a style='cursor: pointer; cursor: hand' onclick=\"expandit('analysisold');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 					<div id='analysisold' style='display: none;'>
 						".CONTENT_ADMIN_CONVERSION_LAN_17.": ".$totaloldcontentrows."<br />
@@ -198,11 +198,11 @@ if($newcontent == 0){
 
 			//unknown rows
 			if(count($unknown_array[0]) > 0){
-				$text .= "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_51."</td></tr>";
+				$text .= "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_51."</td></tr>";
 				$text .= "
 				<tr>
-					<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ICON_ERROR." ".count($unknown_array[0])." ".CONTENT_ADMIN_CONVERSION_LAN_51."</td>
-					<td class='r_header3'>
+					<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ICON_ERROR." ".count($unknown_array[0])." ".CONTENT_ADMIN_CONVERSION_LAN_51."</td>
+					<td class='forumheader3'>
 						<a style='cursor: pointer; cursor: hand' onclick=\"expandit('unknownrows');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 						<div id='unknownrows' style='display: none;'>
 							<table style='width:100%; border:0;'>";
@@ -224,18 +224,18 @@ if($newcontent == 0){
 			
 			".$SPACER."			
 			
-			<tr><td class='r_caption' colspan='2'>content : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
+			<tr><td class='fcaption' colspan='2'>content : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
 			".$ac -> results_conversion_row("content", $content_array, $totaloldrowsitem_content)."
 			
 			".$SPACER."			
 			
-			<tr><td class='r_caption' colspan='2'>review : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
+			<tr><td class='fcaption' colspan='2'>review : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
 			".$ac -> results_conversion_category("review", $review_cat_array, $totaloldrowscat_review)."
 			".$ac -> results_conversion_row("review", $review_array, $totaloldrowsitem_review)."
 			
 			".$SPACER."			
 			
-			<tr><td class='r_caption' colspan='2'>article : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
+			<tr><td class='fcaption' colspan='2'>article : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td></tr>
 			".$ac -> results_conversion_category("article", $article_cat_array, $totaloldrowscat_article)."
 			".$ac -> results_conversion_row("article", $article_array, $totaloldrowsitem_article)."
 			
@@ -325,7 +325,7 @@ function create_defaults()
 	if ($pref['developer']) {
 		showlink();
 	
-		$text = "<table class='r_border' style='width:95%; padding:0px;'>";
+		$text = "<table class='fborder' style='width:95%; padding:0px;'>";
 		$text .= $ac -> results_conversion_mainparent($content_mainarray, $review_mainarray, $article_mainarray);
 		$text .= "</table>";
 

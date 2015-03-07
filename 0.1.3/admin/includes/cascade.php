@@ -20,14 +20,14 @@
 if (!defined('e107_INIT')) { exit; }
 
 $text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 while (list($key, $funcinfo) = each($newarray)) {
 	$text .= render_links($funcinfo[0], $funcinfo[1], $funcinfo[2], $funcinfo[3], $funcinfo[5], 'adminb');
 }
 
 $text .= "<tr>
-	<td class='r_caption' colspan='5'>
+	<td class='fcaption' colspan='5'>
 	".ADLAN_CL_7."
 	</td>
 	</tr>";

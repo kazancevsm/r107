@@ -63,12 +63,12 @@ if (IsSet($cat) && $cat == 0) {
 		$cat_id = $row['cat_id'];
 		$cat_pic = $row['cat_pic'];
 		$cat_desc = $row['cat_desc'];
-		$text .= "<tr><td class='r_header1 width=100px>";
+		$text .= "<tr><td class='forumheader width=100px>";
 		if ($cat_pic !== '') {
 			$text.="<div style='background:#fff; overflow:hidden;'><a href=catalog.php?page=list&cat=$cat_id><img src='images/category/$cat_pic' alt='$cat_name'></a></div>";
 		}
 		$text.="</td>";
-		$text .= "<td class='r_header1' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
+		$text .= "<td class='forumheader' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
 		$short_desc = f_short_desc($cat_desc,40);
 		$parseBB = $tp->toHTML($short_desc,true,'body');
 		if (!empty($cat_desc)) {
@@ -85,12 +85,12 @@ if (IsSet($cat) && $cat <> 0) {
 		$cat_id = $row['cat_id'];
 		$cat_pic = $row['cat_pic'];
 		$cat_desc = $row['cat_desc'];
-		$text .= "<tr><td class='r_header1 width=100px>";
+		$text .= "<tr><td class='forumheader width=100px>";
 		if ($cat_pic !== '') {
 			$text.="<div style='background:#fff; overflow:hidden;'><a href=catalog.php?page=list&cat=$cat_id><img src='images/category/$cat_pic' height='100px' alt='$cat_name'></a></div>";
 		}
 		$text.="</td>";
-		$text .= "<td class='r_header1' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
+		$text .= "<td class='forumheader' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
 		
 		$short_desc = f_short_desc($cat_desc,30);
 		$parseBB = $tp->toHTML($short_desc,true,'body');
@@ -112,7 +112,7 @@ if (IsSet($cat) && $cat <> 0) {
 		$nom_pic = $row['nom_pic'];
 		$nom_price = $row['nom_price'];
 		$desc_short = substr ($nom_desc, 0, 100);
-	$text .= "<tr><td class='r_header1' width=100px>";
+	$text .= "<tr><td class='forumheader' width=100px>";
 
 	/*
 	if ($nom_pic == '') {
@@ -123,13 +123,13 @@ if (IsSet($cat) && $cat <> 0) {
 		$text .="<div style=' background:#fff; overflow:hidden;'><a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'><img src='images/product_icons/$nom_pic' height=100px></a></div>";
 	}
 	$text .= "</td>";	
-	$text .= "<td class='r_header1' width=500px><a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'><font size=2><b>$nom_name</b></font></a><br>";
+	$text .= "<td class='forumheader' width=500px><a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'><font size=2><b>$nom_name</b></font></a><br>";
 	$short_desc = f_short_desc($nom_desc,30);
 	
 	$parseBB = $tp->toHTML($short_desc,true,'body');
 	$text .= "$parseBB...<a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'>Подробное описание >>></a>";
 	
-	$text .= "</td><td class='r_header1' width=140px>";
+	$text .= "</td><td class='forumheader' width=140px>";
 	if (IsSet($nom_price) && !empty($nom_price)) {
 
 	$text .= "<b>".number_format($nom_price,2)." руб.</b>";

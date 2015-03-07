@@ -18,7 +18,7 @@
 
 define('DOWNLOAD_DEBUG',FALSE);
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("R"))
 {
 	header("location:".e_BASE."index.php");
@@ -36,13 +36,13 @@ function headerjs()
 $e_sub_cat = 'download';
 
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once(e_HANDLER."file_handler.php");
 
 $fl = new e_file;
 
 // -------- Presets. ------------
-require_once(e_HANDLER."preset_class.php");
+require_once(e_HANDLER."preset_handler.php");
 $pst = new e_preset;
 $pst->form = array("myform","dlform"); // form id of the form that will have it's values saved.
 $pst->page = array("download.php?create","download.php?cat"); // display preset options on which page(s).
@@ -297,14 +297,14 @@ if ($action == "opt")
 	$agree_text = $pref['agree_text'];
 	$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."?".e_QUERY."'>\n
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<colgroup>
 		<col style='width:70%' />
 		<col style='width:30%' />
 		</colgroup>
 		<tr>
-		<td class='r_header3'>".DOWLAN_69."</td>
-		<td class='r_header3' style='text-align:left'>";
+		<td class='forumheader3'>".DOWLAN_69."</td>
+		<td class='forumheader3' style='text-align:left'>";
 	$c = $pref['download_php'] ? " checked = 'checked' " : "";
 	$ssc = ((!isset($pref['download_subsub'])) || ($pref['download_subsub'] == '1')) ? " checked = 'checked' " : "";
 	$sacc = (varset($pref['download_incinfo'],0) == '1') ? " checked = 'checked' " : "";
@@ -312,31 +312,31 @@ if ($action == "opt")
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_158."</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3'>".DOWLAN_158."</td>
+		<td class='forumheader3' style='text-align:left'>
 		<input type='checkbox' name='download_subsub' value='1' {$ssc} /> </td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_159."</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3'>".DOWLAN_159."</td>
+		<td class='forumheader3' style='text-align:left'>
 		<input type='checkbox' name='download_incinfo' value='1' {$sacc} /> </td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		".DOWLAN_55."
 		</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3' style='text-align:left'>
 		<select name='download_view' class='tbox'>". ($pref['download_view'] == 5 ? "<option selected='selected'>5</option>" : "<option>5</option>"). ($pref['download_view'] == 10 ? "<option selected='selected'>10</option>" : "<option>10</option>"). ($pref['download_view'] == 15 ? "<option selected='selected'>15</option>" : "<option>15</option>"). ($pref['download_view'] == 20 ? "<option selected='selected'>20</option>" : "<option>20</option>"). ($pref['download_view'] == 50 ? "<option selected='selected'>50</option>" : "<option>50</option>")."
 		</select>
 		</td>
 		</tr>
 
-		<tr><td class='r_header3'>
+		<tr><td class='forumheader3'>
 		".DOWLAN_56."
 		</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3' style='text-align:left'>
 
 		<select name='download_order' class='tbox'>";
 		$order_options = array("download_id"=>"Id No.","download_datestamp"=>LAN_DATE,"download_requested"=>ADLAN_24,"download_name"=>DOWLAN_59,"download_author"=>DOWLAN_15);
@@ -348,60 +348,60 @@ if ($action == "opt")
 		$text .= "</select>
 		</td>
 		</tr>
-		<tr><td class='r_header3'>
+		<tr><td class='forumheader3'>
 		".LAN_ORDER."
 		</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3' style='text-align:left'>
 		<select name='download_sort' class='tbox'>". ($pref['download_sort'] == "ASC" ? "<option value='ASC' selected='selected'>".DOWLAN_62."</option>" : "<option value='ASC'>".DOWLAN_62."</option>"). ($pref['download_sort'] == "DESC" ? "<option value='DESC' selected='selected'>".DOWLAN_63."</option>" : "<option value='DESC'>".DOWLAN_63."</option>")."
 		</select>
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_151."</td>
-		<td class='r_header3' style='text-align:left'>". r_userclass("download_reportbroken", $pref['download_reportbroken'])."</td>
+		<td class='forumheader3'>".DOWLAN_151."</td>
+		<td class='forumheader3' style='text-align:left'>". r_userclass("download_reportbroken", $pref['download_reportbroken'])."</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_150."</td>
-		<td class='r_header3' style='text-align:left'>". ($pref['download_email'] ? "<input type='checkbox' name='download_email' value='1' checked='checked' />" : "<input type='checkbox' name='download_email' value='1' />")."</td>
+		<td class='forumheader3'>".DOWLAN_150."</td>
+		<td class='forumheader3' style='text-align:left'>". ($pref['download_email'] ? "<input type='checkbox' name='download_email' value='1' checked='checked' />" : "<input type='checkbox' name='download_email' value='1' />")."</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_100."</td>
-		<td class='r_header3' style='text-align:left'>". ($agree_flag ? "<input type='checkbox' name='agree_flag' value='1' checked='checked' />" : "<input type='checkbox' name='agree_flag' value='1' />")."</td>
+		<td class='forumheader3'>".DOWLAN_100."</td>
+		<td class='forumheader3' style='text-align:left'>". ($agree_flag ? "<input type='checkbox' name='agree_flag' value='1' checked='checked' />" : "<input type='checkbox' name='agree_flag' value='1' />")."</td>
 		</tr>
 		
 		<tr>
-		<td class='r_header3'>".DOWLAN_160."</td>
-		<td class='r_header3' style='text-align:left'>". ($pref['download_nomultiple'] ? "<input type='checkbox' name='download_nomultiple' value='1' checked='checked' />" : "<input type='checkbox' name='download_nomultiple' value='1' />")."</td>
+		<td class='forumheader3'>".DOWLAN_160."</td>
+		<td class='forumheader3' style='text-align:left'>". ($pref['download_nomultiple'] ? "<input type='checkbox' name='download_nomultiple' value='1' checked='checked' />" : "<input type='checkbox' name='download_nomultiple' value='1' />")."</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".DOWLAN_161."</td>
-		<td class='r_header3' style='text-align:left'>". ($pref['download_splashdelay'] ? "<input type='checkbox' name='download_splashdelay' value='1' checked='checked' />" : "<input type='checkbox' name='download_splashdelay' value='1' />")."</td>
+		<td class='forumheader3'>".DOWLAN_161."</td>
+		<td class='forumheader3' style='text-align:left'>". ($pref['download_splashdelay'] ? "<input type='checkbox' name='download_splashdelay' value='1' checked='checked' />" : "<input type='checkbox' name='download_splashdelay' value='1' />")."</td>
 		</tr>
 
 
 
-		<tr><td class='r_header3'>
+		<tr><td class='forumheader3'>
 		".DOWLAN_101."
 		</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3' style='text-align:left'>
 		<textarea class='tbox' name='agree_text' cols='59' rows='3'>{$agree_text}</textarea>
 		</td>
 		</tr>
 
-		<tr><td class='r_header3'>
+		<tr><td class='forumheader3'>
 		".DOWLAN_146."
 		</td>
-		<td class='r_header3' style='text-align:left'>
+		<td class='forumheader3' style='text-align:left'>
 		<textarea class='tbox' name='download_denied' cols='59' rows='3'>".$pref['download_denied']."</textarea>
 		</td>
 		</tr>
 
 		<tr style='vertical-align:top'>
-		<td colspan='2'  style='text-align:center' class='r_header1'>
+		<td colspan='2'  style='text-align:center' class='forumheader'>
 		<input class='button' type='submit' name='updateoptions' value='".DOWLAN_64."' />
 		</td>
 		</tr>
@@ -429,9 +429,9 @@ if($action == 'limits')
 	}
 	$txt = "
 		<form method='post' action='".e_SELF."?".e_QUERY."'>
-		<table class='r_border' style='width:100%'>
+		<table class='fborder' style='width:100%'>
 		<tr>
-			<td colspan='4' class='r_header3' style='text-align:left'>
+			<td colspan='4' class='forumheader3' style='text-align:left'>
 		";
 		if($pref['download_limits'] == 1)
 		{
@@ -447,10 +447,10 @@ if($action == 'limits')
 			</td>
 		</tr>
 		<tr>
-			<td class='r_caption'>".DOWLAN_67."</td>
-			<td class='r_caption'>".DOWLAN_113."</td>
-			<td class='r_caption'>".DOWLAN_107."</td>
-			<td class='r_caption'>".DOWLAN_108."</td>
+			<td class='fcaption'>".DOWLAN_67."</td>
+			<td class='fcaption'>".DOWLAN_113."</td>
+			<td class='fcaption'>".DOWLAN_107."</td>
+			<td class='fcaption'>".DOWLAN_108."</td>
 		</tr>
 	";
 
@@ -458,13 +458,13 @@ if($action == 'limits')
 	{
 		$txt .= "
 		<tr>
-		<td class='r_header3'>".$row['limit_id']."</td>
-		<td class='r_header3'>".r_userclass_name($row['limit_classnum'])."</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>".$row['limit_id']."</td>
+		<td class='forumheader3'>".r_userclass_name($row['limit_classnum'])."</td>
+		<td class='forumheader3'>
 			<input type='text' class='tbox' size='5' name='count_num[{$row['limit_id']}]' value='".($row['limit_count_num'] ? $row['limit_count_num'] : "")."' /> ".DOWLAN_109."
 			<input type='text' class='tbox' size='5' name='count_days[{$row['limit_id']}]' value='".($row['limit_count_days'] ? $row['limit_count_days'] : "")."' /> ".DOWLAN_110."
 		</td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 			<input type='text' class='tbox' size='5' name='bw_num[{$row['limit_id']}]' value='".($row['limit_bw_num'] ? $row['limit_bw_num'] : "")."' /> ".DOWLAN_111." ".DOWLAN_109."
 			<input type='text' class='tbox' size='5' name='bw_days[{$row['limit_id']}]' value='".($row['limit_bw_days'] ? $row['limit_bw_days'] : "")."' /> ".DOWLAN_110."
 		</td>
@@ -474,7 +474,7 @@ if($action == 'limits')
 
 	$txt .= "
 	<tr>
-	<td class='r_header1' colspan='4' style='text-align:center'>
+	<td class='forumheader' colspan='4' style='text-align:center'>
 	<input type='submit' class='button' name='updatelimits' value='".DOWLAN_115."' />
 	</td>
 	</tr>
@@ -482,18 +482,18 @@ if($action == 'limits')
 	<td colspan='4'><br /><br /></td>
 	</tr>
 	<tr>
-	<td colspan='2' class='r_header3'>".r_userclass("newlimit_class", 0, "off", "guest, member, admin, classes, language")."</td>
-	<td class='r_header3'>
+	<td colspan='2' class='forumheader3'>".r_userclass("newlimit_class", 0, "off", "guest, member, admin, classes, language")."</td>
+	<td class='forumheader3'>
 		<input type='text' class='tbox' size='5' name='new_count_num' value='' /> ".DOWLAN_109."
 		<input type='text' class='tbox' size='5' name='new_count_days' value='' /> ".DOWLAN_110."
 	</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>
 		<input type='text' class='tbox' size='5' name='new_bw_num' value='' /> ".DOWLAN_111." ".DOWLAN_109."
 		<input type='text' class='tbox' size='5' name='new_bw_days' value='' /> ".DOWLAN_110."
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header1' colspan='4' style='text-align:center'>
+	<td class='forumheader' colspan='4' style='text-align:center'>
 	<input type='submit' class='button' name='addlimit' value='".DOWLAN_114."' />
 	</td>
 	</tr>
@@ -517,7 +517,7 @@ class download
 	function show_existing_items($action, $sub_action, $id, $from, $amount)
 	{
 		global $sql, $rs, $ns, $tp, $mySQLdefaultdb, $pref;
-		$text = "<div style='text-align:center'><div style='padding : 1px; ".ADMIN_WIDTH."; margin-left: auto; margin-right: auto;'>";
+		$text = "<div style='text-align:center'><div style='padding : 1px; margin-left: auto; margin-right: auto;'>";
         $sortorder = ($pref['download_order']) ? $pref['download_order'] : "download_datestamp";
 		$sortdirection = ($pref['download_sort']) ? strtolower($pref['download_sort']) : "desc";
 		if ($sortdirection != 'desc') $sortdirection = 'asc';
@@ -555,9 +555,9 @@ class download
       	if ($dl_count = $sql->db_Select_gen($query))
 		{
 		  $text .= $rs->form_open("post", e_SELF."?".e_QUERY, "myform")."
-				<table class='r_border' style='width:99%'>
+				<table class='fborder' style='width:99%'>
 				<tr>
-				<td style='width:5%' class='r_caption'>ID</td>
+				<td style='width:5%' class='fcaption'>ID</td>
 				";
 
 			// Search Display Column header.----------
@@ -565,26 +565,26 @@ class download
 		  {
 			if($disp == "download_name")
 			{  // Toggle direction
-			  $text .= "<td class='r_caption'><a href='".e_SELF."?main.download_name.".($id == "desc" ? "asc" : "desc").".$from'>".DOWLAN_27."</a></td>";
+			  $text .= "<td class='fcaption'><a href='".e_SELF."?main.download_name.".($id == "desc" ? "asc" : "desc").".$from'>".DOWLAN_27."</a></td>";
 			}
 			else
 			{
 			  $repl = array("download_","_");
-			  $text .= "<td class='r_caption'><a href='".e_SELF."?main.{$disp}.".($id == "desc" ? "asc" : "desc").".$from'>".ucwords(str_replace($repl," ",$disp))."</a></td>";
+			  $text .= "<td class='fcaption'><a href='".e_SELF."?main.{$disp}.".($id == "desc" ? "asc" : "desc").".$from'>".ucwords(str_replace($repl," ",$disp))."</a></td>";
 			}
 		  }
 
 
-		  $text .="<td style='width:10%' class='r_caption'>".LAN_OPTIONS."</td></tr>";
+		  $text .="<td style='width:10%' class='fcaption'>".LAN_OPTIONS."</td></tr>";
 
 		  while ($row = $sql->db_Fetch())
 		  {
-			$text .= "<tr><td style='width:5%;vertical-align:top' class='r_header3'>".$row['download_id']."</td>";
+			$text .= "<tr><td style='width:5%;vertical-align:top' class='forumheader3'>".$row['download_id']."</td>";
 
 			// Display Chosen options
 			foreach($search_display as $disp)
 			{
-			  $text .= "<td class='r_header3' style='vertical-align:top'>";
+			  $text .= "<td class='forumheader3' style='vertical-align:top'>";
 			  switch ($disp)
 			  {
 			    case "download_name" :
@@ -637,7 +637,7 @@ class download
 
 
 			$text .= "
-					<td style='width:20%;vertical-align:top; text-align:center' class='r_header3'>
+					<td style='width:20%;vertical-align:top; text-align:center' class='forumheader3'>
 					<a href='".e_SELF."?create.edit.".$row['download_id']."'>".ADMIN_EDIT_ICON."</a>
 					<input type='image' title='".LAN_DELETE."' name='delete[main_".$row['download_id']."]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".$tp->toJS(DOWLAN_33." [ID: ".$row['download_id']." ]")."') \" />
 					</td>
@@ -665,7 +665,7 @@ class download
 
 		$text .= "<div style='cursor:pointer' onclick=\"expandit('sdisp')\">".LAN_DISPLAYOPT."</div>";
 		$text .= "<div id='sdisp' style='padding-top:4px;display:none;text-align:center;margin-left:auto;margin-right:auto'>
-		<table class='r_header3' style='width:95%'>";
+		<table class='forumheader3' style='width:95%'>";
 
 /*
 		$fields = mysql_list_fields($mySQLdefaultdb, MPREFIX."download");
@@ -836,10 +836,10 @@ class download
 		$text = "
 			<div style='text-align:center'>
 			<form method='post' action='".e_SELF."?".e_QUERY."' id='myform'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_11."</td>
-			<td style='width:80%' class='r_header3'>";
+			<td style='width:20%' class='forumheader3'>".DOWLAN_11."</td>
+			<td style='width:80%' class='forumheader3'>";
 
         $text .= $tp->parseTemplate("{DOWNLOAD_CATEGORY_SELECT={$download_category}}",true,$download_shortcodes);
 
@@ -847,15 +847,15 @@ class download
 			</tr>
 
 			<tr>
-			<td style='width:20%; vertical-align:top' class='r_header3'><span style='text-decoration:underline'>".DOWLAN_12."</span>:</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%; vertical-align:top' class='forumheader3'><span style='text-decoration:underline'>".DOWLAN_12."</span>:</td>
+			<td style='width:80%' class='forumheader3'>
 			<input class='tbox' type='text' name='download_name' size='60' value=\"".$tp->toForm($download_name)."\" maxlength='200' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:20%; vertical-align:top' class='r_header3'><span style='text-decoration:underline;cursor:help' title='".DOWLAN_127."' >".DOWLAN_13."</span>:</td>
-			<td style='width:80%' class='r_header3'><div style='padding-bottom:5px'>".DOWLAN_131."&nbsp;&nbsp;
+			<td style='width:20%; vertical-align:top' class='forumheader3'><span style='text-decoration:underline;cursor:help' title='".DOWLAN_127."' >".DOWLAN_13."</span>:</td>
+			<td style='width:80%' class='forumheader3'><div style='padding-bottom:5px'>".DOWLAN_131."&nbsp;&nbsp;
 
 		   <select name='download_url' class='tbox'>
 			<option value=''>&nbsp;</option>
@@ -927,8 +927,8 @@ class download
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'><span title='".DOWLAN_129."' style='cursor:help'>".DOWLAN_128."</span>:</td>
-			<td style='width:80%' class='r_header3'>";
+			<td style='width:20%' class='forumheader3'><span title='".DOWLAN_129."' style='cursor:help'>".DOWLAN_128."</span>:</td>
+			<td style='width:80%' class='forumheader3'>";
 
 
 		// See if any mirrors to display
@@ -982,8 +982,8 @@ class download
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3' ><span style='cursor:help' title='".DOWLAN_154."'>".DOWLAN_155."</span></td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3' ><span style='cursor:help' title='".DOWLAN_154."'>".DOWLAN_155."</span></td>
+			<td style='width:80%' class='forumheader3'>
 
 			<input type='radio' name='download_mirror_type' value='1'".($download_mirror_type ? " checked='checked'" : "")." /> ".DOWLAN_156."<br />
 			<input type='radio' name='download_mirror_type' value='0'".(!$download_mirror_type ? " checked='checked'" : "")." /> ".DOWLAN_157."
@@ -992,36 +992,36 @@ class download
 		}		// End of mirror-related stuff
 
 			$text .= "<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_15.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_15.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<input class='tbox' type='text' name='download_author' size='60' value='$download_author' maxlength='100' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_16.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_16.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<input class='tbox' type='text' name='download_author_email' size='60' value='$download_author_email' maxlength='100' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_17.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_17.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<input class='tbox' type='text' name='download_author_website' size='60' value='$download_author_website' maxlength='100' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'><span style='text-decoration:underline'>".DOWLAN_18."</span>: </td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'><span style='text-decoration:underline'>".DOWLAN_18."</span>: </td>
+			<td style='width:80%' class='forumheader3'>
 			<textarea class='tbox' name='download_description' cols='50' rows='5' style='width:90%'>$download_description</textarea>
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_19.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_19.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<select name='download_image' class='tbox'>
 			<option value=''>&nbsp;</option>";
 
@@ -1046,8 +1046,8 @@ class download
 			</tr>
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_20.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_20.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<select name='download_thumb' class='tbox'>
 			<option value=''>&nbsp;</option>
 			";
@@ -1064,8 +1064,8 @@ class download
 
 
 		<tr>
-		<td style='width:20%' class='r_header3'>".LAN_DATESTAMP.":</td>
-		<td style='width:80%' class='r_header3'>
+		<td style='width:20%' class='forumheader3'>".LAN_DATESTAMP.":</td>
+		<td style='width:80%' class='forumheader3'>
 		";
         if(!$download_datestamp)
 		{
@@ -1091,8 +1091,8 @@ class download
 
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_21.":</td>
-			<td style='width:80%' class='r_header3'>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_21.":</td>
+			<td style='width:80%' class='forumheader3'>
 			<select name='download_active' class='tbox'>
 			";
 
@@ -1107,8 +1107,8 @@ class download
 
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_102.":</td>
-			<td style='width:80%' class='r_header3'>";
+			<td style='width:20%' class='forumheader3'>".DOWLAN_102.":</td>
+			<td style='width:80%' class='forumheader3'>";
 
 
 		if ($download_comment == "0") {
@@ -1125,14 +1125,14 @@ class download
 
 		$text .= "
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_145.":</td>
-			<td style='width:80%' class='r_header3'>".r_userclass('download_visible', $download_visible, 'off', 'public, nobody, member, admin, main, classes, language')."</td>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_145.":</td>
+			<td style='width:80%' class='forumheader3'>".r_userclass('download_visible', $download_visible, 'off', 'public, nobody, member, admin, main, classes, language')."</td>
 			</tr>
 
 
 			<tr>
-			<td style='width:20%' class='r_header3'>".DOWLAN_106.":</td>
-			<td style='width:80%' class='r_header3'>".r_userclass('download_class', $download_class, 'off', 'public, nobody, member, admin, main, classes, language')."</td>
+			<td style='width:20%' class='forumheader3'>".DOWLAN_106.":</td>
+			<td style='width:80%' class='forumheader3'>".r_userclass('download_class', $download_class, 'off', 'public, nobody, member, admin, main, classes, language')."</td>
 			</tr>
 			";
 
@@ -1140,8 +1140,8 @@ class download
 			$text .= "
 
 			<tr>
-				<td style='width:30%' class='r_header3'>".DOWLAN_153.":<br /></td>
-				<td style='width:70%' class='r_header3'>
+				<td style='width:30%' class='forumheader3'>".DOWLAN_153.":<br /></td>
+				<td style='width:70%' class='forumheader3'>
 				<select name='move_file' class='tbox'>
 				<option value=''>".LAN_NO."</option>
 				";
@@ -1166,8 +1166,8 @@ class download
 
 
 			<tr>
-				<td style='width:30%' class='r_header3'>".DOWLAN_103.":<br /></td>
-				<td style='width:70%' class='r_header3'>
+				<td style='width:30%' class='forumheader3'>".DOWLAN_103.":<br /></td>
+				<td style='width:70%' class='forumheader3'>
 				<input type='checkbox' name='remove_upload' value='1' />
 				<input type='hidden' name='remove_id' value='{$id}' />
 				</td>
@@ -1177,7 +1177,7 @@ class download
 
 		$text .= "
 			<tr style='vertical-align:top'>
-			<td colspan='2' style='text-align:center' class='r_header1'>";
+			<td colspan='2' style='text-align:center' class='forumheader'>";
 
 
 		if ($id && $sub_action == "edit") 
@@ -1421,7 +1421,7 @@ class download
 			$sql2 = new db;
 		}
 		$text = $rs->form_open("post", e_SELF."?".e_QUERY, "myform");
-		$text .= "<div style='padding : 1px; ".ADMIN_WIDTH."; height : 200px; overflow : auto; margin-left: auto; margin-right: auto;'>";
+		$text .= "<div style='padding : 1px; height : 200px; overflow : auto; margin-left: auto; margin-right: auto;'>";
 
 		$qry = "
 		SELECT dc.*, COUNT(d.download_id) AS filecount FROM #download_category AS dc
@@ -1438,13 +1438,13 @@ class download
 			}
 
 			$text .= "
-			<table class='r_border' style='width:99%'>
+			<table class='fborder' style='width:99%'>
 				<tr>
-				<td style='width:5%; text-align:center' class='r_caption'>&nbsp;</td>
-				<td style='width:70%; text-align:center' class='r_caption'>".DOWLAN_11."</td>
-				<td style='width:5%; text-align:center' class='r_caption'>".DOWLAN_52."</td>
-				<td style='width:5%; text-align:center' class='r_caption'>".LAN_ORDER."</td>
-				<td style='width:20%; text-align:center' class='r_caption'>".LAN_OPTIONS."</td>
+				<td style='width:5%; text-align:center' class='fcaption'>&nbsp;</td>
+				<td style='width:70%; text-align:center' class='fcaption'>".DOWLAN_11."</td>
+				<td style='width:5%; text-align:center' class='fcaption'>".DOWLAN_52."</td>
+				<td style='width:5%; text-align:center' class='fcaption'>".LAN_ORDER."</td>
+				<td style='width:20%; text-align:center' class='fcaption'>".LAN_OPTIONS."</td>
 				</tr>";
 
 
@@ -1457,12 +1457,12 @@ class download
 				}
 
 				$text .= "<tr>
-					<td style='width:5%; text-align:center' class='r_header1'>".($parent['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$parent['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
-					<td colspan='2' style='width:70%' class='r_header1'><b>{$parent['download_category_name']}</b></td>
-					<td class='r_header3'>
+					<td style='width:5%; text-align:center' class='forumheader'>".($parent['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$parent['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+					<td colspan='2' style='width:70%' class='forumheader'><b>{$parent['download_category_name']}</b></td>
+					<td class='forumheader3'>
 					 <input class='tbox' type='text' name='catorder[{$parent['download_category_id']}]' value='{$parent['download_category_order']}' size='3' />
 					</td>
-					<td style='text-align:left;padding-left:12px' class='r_header1'>
+					<td style='text-align:left;padding-left:12px' class='forumheader'>
 					<a href='".e_SELF."?cat.edit.{$parent['download_category_id']}'>".ADMIN_EDIT_ICON."</a>
 					";
 					if(!is_array($cat_array[$parent['download_category_id']]))
@@ -1486,13 +1486,13 @@ class download
 							list($main['download_category_icon'], $main['download_category_icon_empty']) = explode(chr(1), $main['download_category_icon']);
 						}
 						$text .= "<tr>
-						<td style='width:5%; text-align:center' class='r_header3'>".($main['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$main['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
-						<td style='width:70%' class='r_header3'>{$main['download_category_name']}<br /><span class='smalltext'>{$main['download_category_description']}</span></td>
-						<td style='width:5%; text-align:center' class='r_header3'>{$main['filecount']}</td>
-						<td class='r_header3'>
+						<td style='width:5%; text-align:center' class='forumheader3'>".($main['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$main['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+						<td style='width:70%' class='forumheader3'>{$main['download_category_name']}<br /><span class='smalltext'>{$main['download_category_description']}</span></td>
+						<td style='width:5%; text-align:center' class='forumheader3'>{$main['filecount']}</td>
+						<td class='forumheader3'>
 							<input class='tbox' type='text' name='catorder[{$main['download_category_id']}]' value='{$main['download_category_order']}' size='3' />
 						</td>
-						<td style='width:20%; text-align:left;padding-left:12px' class='r_header3'>
+						<td style='width:20%; text-align:left;padding-left:12px' class='forumheader3'>
 						<a href='".e_SELF."?cat.edit.{$main['download_category_id']}'>".ADMIN_EDIT_ICON."</a>";
 						if(!is_array($cat_array[$main['download_category_id']]) && !$main['filecount'])
 						{
@@ -1513,13 +1513,13 @@ class download
 									list($sub['download_category_icon'], $sub['download_category_icon_empty']) = explode(chr(1), $sub['download_category_icon']);
 								}
 								$text .= "<tr>
-									<td style='width:5%; text-align:center' class='r_header3'>".($sub['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$sub['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
-									<td style='width:70%' class='r_header3'>&nbsp;&nbsp;&nbsp;&nbsp;".DOWLAN_53.": {$sub['download_category_name']}<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class='smalltext'>{$sub['download_category_description']}</span></td>
-									<td style='width:5%; text-align:center' class='r_header3'>{$sub['filecount']}</td>
-									<td class='r_header3'>
+									<td style='width:5%; text-align:center' class='forumheader3'>".($sub['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$sub['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+									<td style='width:70%' class='forumheader3'>&nbsp;&nbsp;&nbsp;&nbsp;".DOWLAN_53.": {$sub['download_category_name']}<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class='smalltext'>{$sub['download_category_description']}</span></td>
+									<td style='width:5%; text-align:center' class='forumheader3'>{$sub['filecount']}</td>
+									<td class='forumheader3'>
 										<input class='tbox' type='text' name='catorder[{$sub['download_category_id']}]' value='{$sub['download_category_order']}' size='3' />
 									</td>
-									<td style='width:20%; text-align:left;padding-left:12px' class='r_header3'>
+									<td style='width:20%; text-align:left;padding-left:12px' class='forumheader3'>
 									<a href='".e_SELF."?cat.edit.{$sub['download_category_id']}'>".ADMIN_EDIT_ICON."</a>
 									";
 									if(!$sub['filecount'])
@@ -1580,10 +1580,10 @@ class download
 		$frm_action = (isset($_POST['add_category'])) ? e_SELF."?cat" : e_SELF."?".e_QUERY;
 		$text = "<div style='text-align:center'>
 			<form method='post' action='{$frm_action}' id='dlform'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_37.": </td>
-			<td style='width:70%' class='r_header3'>";
+			<td style='width:30%' class='forumheader3'>".DOWLAN_37.": </td>
+			<td style='width:70%' class='forumheader3'>";
 
 		if (!$download_cats = $sql->db_Select("download_category")) {
 			$text .= "
@@ -1606,22 +1606,22 @@ class download
 			$text .= "</select>";
 		}
 		$text .= "</td></tr><tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_12.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".DOWLAN_12.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' name='download_category_name' size='40' value='$download_category_name' maxlength='100' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_18.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".DOWLAN_18.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<textarea class='tbox' name='download_category_description' cols='59' rows='3'>$download_category_description</textarea>
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_41.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".DOWLAN_41.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' id='download_category_icon' name='download_category_icon' size='60' value='$download_category_icon' maxlength='100' />
 
 			<br />
@@ -1639,8 +1639,8 @@ class download
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_147.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".DOWLAN_147.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' id='download_category_icon_empty' name='download_category_icon_empty' size='60' value='$download_category_icon_empty' maxlength='100' />
 
 			<br />
@@ -1658,15 +1658,15 @@ class download
 
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".DOWLAN_43.":<br /><span class='smalltext'>(".DOWLAN_44.")</span></td>
-			<td style='width:70%' class='r_header3'>".r_userclass("download_category_class", $download_category_class, 'off', 'public, nobody, member, admin, main, classes, language')."
+			<td style='width:30%' class='forumheader3'>".DOWLAN_43.":<br /><span class='smalltext'>(".DOWLAN_44.")</span></td>
+			<td style='width:70%' class='forumheader3'>".r_userclass("download_category_class", $download_category_class, 'off', 'public, nobody, member, admin, main, classes, language')."
 
 			</td></tr>";
 
 
 		$text .= "
 			<tr style='vertical-align:top'>
-			<td colspan='2' style='text-align:center' class='r_header1'>";
+			<td colspan='2' style='text-align:center' class='forumheader'>";
 		if ($id && $sub_action == "edit" && !isset($_POST['add_category'])) {
 			$text .= "<input class='button' type='submit' name='add_category' value='".DOWLAN_46."' /> ";
 		} else {
@@ -1728,12 +1728,12 @@ class download
 
 			$text = "<div style='text-align:center'>
 			<form method='post' action='".e_SELF."?".e_QUERY."'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width: 10%; text-align: center;' class='r_header1'>ID</td>
-			<td style='width: 30%;' class='r_header1'>".DOWLAN_12."</td>
-			<td style='width: 30%;' class='r_header1'>".DOWLAN_136."</td>
-			<td style='width: 30%; text-align: center;' class='r_header1'>".LAN_OPTIONS."</td>
+			<td style='width: 10%; text-align: center;' class='forumheader'>ID</td>
+			<td style='width: 30%;' class='forumheader'>".DOWLAN_12."</td>
+			<td style='width: 30%;' class='forumheader'>".DOWLAN_136."</td>
+			<td style='width: 30%; text-align: center;' class='forumheader'>".LAN_OPTIONS."</td>
 			</tr>
 			";
 
@@ -1745,10 +1745,10 @@ class download
 				$text .= "
 
 				<tr>
-				<td style='width: 10%; text-align: center;' class='r_header3'>$mirror_id</td>
-				<td style='width: 30%;' class='r_header3'>".$tp -> toHTML($mirror_name)."</td>
-				<td style='width: 30%;' class='r_header3'>".($mirror_image ? "<img src='".e_FILE."downloadimages/".$mirror_image."' alt='' />" : DOWLAN_28)."</td>
-				<td style='width: 30%; text-align: center;' class='r_header3'>
+				<td style='width: 10%; text-align: center;' class='forumheader3'>$mirror_id</td>
+				<td style='width: 30%;' class='forumheader3'>".$tp -> toHTML($mirror_name)."</td>
+				<td style='width: 30%;' class='forumheader3'>".($mirror_image ? "<img src='".e_FILE."downloadimages/".$mirror_image."' alt='' />" : DOWLAN_28)."</td>
+				<td style='width: 30%; text-align: center;' class='forumheader3'>
 				<a href='".e_SELF."?mirror.edit.{$mirror_id}'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[mirror_{$mirror_id}]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".DOWLAN_137." [ID: $mirror_id ]')\"/>
 				</td>
@@ -1781,25 +1781,25 @@ class download
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."?".e_QUERY."' id='dataform'>\n
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td style='width: 30%;' class='r_header3'>".DOWLAN_12."</td>
-		<td style='width: 70%;' class='r_header3'>
+		<td style='width: 30%;' class='forumheader3'>".DOWLAN_12."</td>
+		<td style='width: 70%;' class='forumheader3'>
 		<input class='tbox' type='text' name='mirror_name' size='60' value='$mirror_name' maxlength='200' />
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width: 30%;' class='r_header3'>".DOWLAN_139."</td>
-		<td style='width: 70%;' class='r_header3'>
+		<td style='width: 30%;' class='forumheader3'>".DOWLAN_139."</td>
+		<td style='width: 70%;' class='forumheader3'>
 		<input class='tbox' type='text' name='mirror_url' size='70' value='$mirror_url' maxlength='200' />
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width: 30%;' class='r_header3'>".DOWLAN_136."</td>
-		<td style='width: 70%;' class='r_header3'>
+		<td style='width: 30%;' class='forumheader3'>".DOWLAN_136."</td>
+		<td style='width: 70%;' class='forumheader3'>
 		<input class='tbox' type='text' id='mirror_image' name='mirror_image' size='60' value='$mirror_image' maxlength='200' />
 
 
@@ -1817,21 +1817,21 @@ class download
 		</tr>
 
 		<tr>
-		<td style='width: 30%;' class='r_header3'>".DOWLAN_141."</td>
-		<td style='width: 70%;' class='r_header3'>
+		<td style='width: 30%;' class='forumheader3'>".DOWLAN_141."</td>
+		<td style='width: 70%;' class='forumheader3'>
 		<input class='tbox' type='text' name='mirror_location' size='60' value='$mirror_location' maxlength='200' />
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width: 30%;' class='r_header3'>".DOWLAN_18."</td>
-		<td style='width: 70%;' class='r_header3'>
+		<td style='width: 30%;' class='forumheader3'>".DOWLAN_18."</td>
+		<td style='width: 70%;' class='forumheader3'>
 		<textarea class='tbox' name=' mirror_description' cols='70' rows='6'>$mirror_description</textarea>
 		</td>
 		</tr>
 
 		<tr>
-		<td colspan='2' class='r_header1' style='text-align:center;'>
+		<td colspan='2' class='forumheader' style='text-align:center;'>
 		".($edit ? "<input class='button' type='submit' name='submit_mirror' value='".DOWLAN_142."' /><input type='hidden' name='id' value='$mirror_id' />" : "<input class='button' type='submit' name='submit_mirror' value='".DOWLAN_143."' />")."
 		</td>
 		</tr>

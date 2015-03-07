@@ -18,9 +18,9 @@
 */
 $retrieve_prefs[] = 'pm_prefs';
 $eplug_admin = TRUE;
-require_once('../../class.php');
+require_once('../../class2.php');
 require_once(e_PLUGIN.'pm/pm_class.php');
-require_once(e_HANDLER.'userclass_class.php');
+require_once(e_HANDLER.'userclass_handler.php');
 require_once(e_HANDLER.'form_handler.php');
 
 if (!getperms("P"))
@@ -148,73 +148,73 @@ function show_options()
 	global $pm_prefs;
 	$txt = "
 	<form method='post' action='".e_SELF."'>
-	<table class='r_border' style='width:95%'>
+	<table class='fborder' style='width:95%'>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_16."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[title]', 20, $pm_prefs['title'], 50)."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_16."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[title]', 20, $pm_prefs['title'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_17."</td>
-		<td class='r_header3' style='width:25%'>".yes_no('animate')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_17."</td>
+		<td class='forumheader3' style='width:25%'>".yes_no('animate')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_18."</td>
-		<td class='r_header3' style='width:25%'>".yes_no('dropdown')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_18."</td>
+		<td class='forumheader3' style='width:25%'>".yes_no('dropdown')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_19."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[read_timeout]', 5, $pm_prefs['read_timeout'], 5)."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_19."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[read_timeout]', 5, $pm_prefs['read_timeout'], 5)."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_20."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[unread_timeout]', 5, $pm_prefs['unread_timeout'], 5)."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_20."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[unread_timeout]', 5, $pm_prefs['unread_timeout'], 5)."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_21."</td>
-		<td class='r_header3' style='width:25%'>".yes_no('popup')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_21."</td>
+		<td class='forumheader3' style='width:25%'>".yes_no('popup')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_22."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[popup_delay]', 5, $pm_prefs['popup_delay'], 5)." ".ADLAN_PM_44."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_22."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[popup_delay]', 5, $pm_prefs['popup_delay'], 5)." ".ADLAN_PM_44."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_23."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[pm_class]', $pm_prefs['pm_class'], 'off', 'member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_23."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[pm_class]', $pm_prefs['pm_class'], 'off', 'member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_24."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[perpage]', 5, $pm_prefs['perpage'], 5)."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_24."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[perpage]', 5, $pm_prefs['perpage'], 5)."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_25."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[notify_class]', $pm_prefs['notify_class'], 'off', 'nobody,member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_25."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[notify_class]', $pm_prefs['notify_class'], 'off', 'nobody,member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_26."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[receipt_class]', $pm_prefs['receipt_class'], 'off', 'nobody,member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_26."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[receipt_class]', $pm_prefs['receipt_class'], 'off', 'nobody,member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_27."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[attach_class]', $pm_prefs['attach_class'], 'off', 'nobody,member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_27."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[attach_class]', $pm_prefs['attach_class'], 'off', 'nobody,member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_28."</td>
-		<td class='r_header3' style='width:25%'>".form::form_text('option[attach_size]', 8, $pm_prefs['attach_size'], 8)." kB</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_28."</td>
+		<td class='forumheader3' style='width:25%'>".form::form_text('option[attach_size]', 8, $pm_prefs['attach_size'], 8)." kB</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_29."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[sendall_class]', $pm_prefs['sendall_class'], 'off', 'nobody,member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_29."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[sendall_class]', $pm_prefs['sendall_class'], 'off', 'nobody,member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_30."</td>
-		<td class='r_header3' style='width:25%'>".r_userclass('option[multi_class]', $pm_prefs['multi_class'], 'off', 'nobody,member,admin,classes')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_30."</td>
+		<td class='forumheader3' style='width:25%'>".r_userclass('option[multi_class]', $pm_prefs['multi_class'], 'off', 'nobody,member,admin,classes')."</td>
 	</tr>
 	<tr>
-		<td class='r_header3' style='width:75%'>".ADLAN_PM_31."</td>
-		<td class='r_header3' style='width:25%'>".yes_no('allow_userclass')."</td>
+		<td class='forumheader3' style='width:75%'>".ADLAN_PM_31."</td>
+		<td class='forumheader3' style='width:25%'>".yes_no('allow_userclass')."</td>
 	</tr>
 	<tr>
-		<td class='r_header1' colspan='2' style='text-align:center'><input type='submit' class='button' name='update_prefs' value='".ADLAN_PM_32."' /></td>
+		<td class='forumheader' colspan='2' style='text-align:center'><input type='submit' class='button' name='update_prefs' value='".ADLAN_PM_32."' /></td>
 	</tr>
 	</table>
 	</form>
@@ -238,9 +238,9 @@ function show_limits()
 	}
 	$txt = "
 		<form method='post' action='".e_SELF."?".e_QUERY."'>
-		<table class='r_border' style='width:95%'>
+		<table class='fborder' style='width:95%'>
 		<tr>
-			<td colspan='3' class='r_header3' style='text-align:left'>".ADLAN_PM_45." 
+			<td colspan='3' class='forumheader3' style='text-align:left'>".ADLAN_PM_45." 
 			<select name='pm_limits' class='tbox'>
 		";
 		$sel = ($pref['pm_limits'] == 0 ? "selected='selected'" : "");
@@ -258,9 +258,9 @@ function show_limits()
 			</td>
 		</tr>
 		<tr>
-			<td class='r_caption'>".ADLAN_PM_36."</td>
-			<td class='r_caption'>".ADLAN_PM_37."</td>
-			<td class='r_caption'>".ADLAN_PM_38."</td>
+			<td class='fcaption'>".ADLAN_PM_36."</td>
+			<td class='fcaption'>".ADLAN_PM_37."</td>
+			<td class='fcaption'>".ADLAN_PM_38."</td>
 		</tr>
 	";
 
@@ -269,12 +269,12 @@ function show_limits()
 		{
 			$txt .= "
 			<tr>
-			<td class='r_header3'>".r_userclass_name($row['limit_classnum'])."</td>
-			<td class='r_header3'>
+			<td class='forumheader3'>".r_userclass_name($row['limit_classnum'])."</td>
+			<td class='forumheader3'>
 			".ADLAN_PM_39."<input type='text' class='tbox' size='5' name='inbox_count[{$row['limit_id']}]' value='{$row['inbox_count']}' /> 
 			".ADLAN_PM_40."<input type='text' class='tbox' size='5' name='outbox_count[{$row['limit_id']}]' value='{$row['outbox_count']}' /> 
 			</td>
-			<td class='r_header3'>
+			<td class='forumheader3'>
 			".ADLAN_PM_39."<input type='text' class='tbox' size='5' name='inbox_size[{$row['limit_id']}]' value='{$row['inbox_size']}' /> 
 			".ADLAN_PM_40."<input type='text' class='tbox' size='5' name='outbox_size[{$row['limit_id']}]' value='{$row['outbox_size']}' /> 
 			</td>
@@ -284,14 +284,14 @@ function show_limits()
 	} else {
 		$txt .= "
 		<tr>
-		<td class='r_header3' colspan='3' style='text-align: center'>".ADLAN_PM_41."</td>
+		<td class='forumheader3' colspan='3' style='text-align: center'>".ADLAN_PM_41."</td>
 		</tr>
 		";
 	}
 
 	$txt .= "
 	<tr>
-	<td class='r_header1' colspan='3' style='text-align:center'>
+	<td class='forumheader' colspan='3' style='text-align:center'>
 	<input type='submit' class='button' name='updatelimits' value='".ADLAN_PM_42."' />
 	</td>
 	</tr>
@@ -313,28 +313,28 @@ function add_limit()
 	}
 	$txt = "
 		<form method='post' action='".e_SELF."?".e_QUERY."'>
-		<table class='r_border' style='width:95%'>
+		<table class='fborder' style='width:95%'>
 		<tr>
-			<td class='r_caption'>".ADLAN_PM_36."</td>
-			<td class='r_caption'>".ADLAN_PM_37."</td>
-			<td class='r_caption'>".ADLAN_PM_38."</td>
+			<td class='fcaption'>".ADLAN_PM_36."</td>
+			<td class='fcaption'>".ADLAN_PM_37."</td>
+			<td class='fcaption'>".ADLAN_PM_38."</td>
 		</tr>
 	";
 
 	$txt .= "
 	<tr>
-	<td class='r_header3'>".r_userclass("newlimit_class", 0, "off", "guest,member,admin,classes,language")."</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".r_userclass("newlimit_class", 0, "off", "guest,member,admin,classes,language")."</td>
+	<td class='forumheader3'>
 		".ADLAN_PM_39."<input type='text' class='tbox' size='5' name='new_inbox_count' value='' /> 
 		".ADLAN_PM_40."<input type='text' class='tbox' size='5' name='new_outbox_count' value='' /> 
 	</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>
 		".ADLAN_PM_39."<input type='text' class='tbox' size='5' name='new_inbox_size' value='' /> 
 		".ADLAN_PM_40."<input type='text' class='tbox' size='5' name='new_outbox_size' value='' /> 
 	</td>
 	</tr>
 	<tr>
-	<td class='r_header1' colspan='3' style='text-align:center'>
+	<td class='forumheader' colspan='3' style='text-align:center'>
 	<input type='submit' class='button' name='addlimit' value='".ADLAN_PM_43."' />
 	</td>
 	</tr>

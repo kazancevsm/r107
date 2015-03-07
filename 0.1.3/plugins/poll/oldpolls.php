@@ -16,12 +16,11 @@
  |     $Author: e107coders $
  +----------------------------------------------------------------------------+
  */
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(HEADERF);
 require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
 $gen = new convert;
-if(!defined("USER_WIDTH")){ define("USER_WIDTH","width:95%"); }
 
 include_lan(e_PLUGIN."poll/languages/".e_LANGUAGE.".php");
 
@@ -52,7 +51,7 @@ if(e_QUERY)
 		$start_datestamp = $gen->convert_date($poll_datestamp, "long");
 		$end_datestamp = $gen->convert_date($poll_end_datestamp, "long");
 
-		$text = "<table style='".USER_WIDTH."'>
+		$text = "<table>
 		<tr>
 		<td colspan='2' class='mediumtext' style='text-align:center'>
 		<b>".$tp -> toHTML($poll_title,TRUE,'TITLE')."</b>
@@ -127,11 +126,11 @@ if(!count($oldpollArray))
 	exit;
 }
 
-$text = "<table class='r_border' style='".USER_WIDTH."'>
+$text = "<table class='fborder'>
 <tr>
-<td class='r_caption' style='width: 55%;'>".POLLAN_34."</td>
-<td class='r_caption' style='width: 15%;'>".POLLAN_35."</td>
-<td class='r_caption' style='width: 30%;'>".POLLAN_36."</td>
+<td class='fcaption' style='width: 55%;'>".POLLAN_34."</td>
+<td class='fcaption' style='width: 15%;'>".POLLAN_35."</td>
+<td class='fcaption' style='width: 30%;'>".POLLAN_36."</td>
 </tr>\n";
 
 if (!is_object($tp->e_bb))
@@ -149,9 +148,9 @@ foreach($oldpollArray as $oldpoll)
 	$poll_title = $tp->e_bb->parseBBCodes($poll_title, 0,TRUE,TRUE);		// Strip bbcodes
 
 	$text .= "<tr>
-	<td class='r_header3' style='width: 55%;'><a href='".e_SELF."?{$poll_id}'>{$poll_title}</a></td>
-	<td class='r_header3' style='width: 15%;'><a href='".e_BASE."user.php?id.{$poll_admin_id}'>{$user_name}</a></td>
-	<td class='r_header3' style='width: 30%;'>{$from} ".POLLAN_38." {$to}</td>
+	<td class='forumheader3' style='width: 55%;'><a href='".e_SELF."?{$poll_id}'>{$poll_title}</a></td>
+	<td class='forumheader3' style='width: 15%;'><a href='".e_BASE."user.php?id.{$poll_admin_id}'>{$user_name}</a></td>
+	<td class='forumheader3' style='width: 30%;'>{$from} ".POLLAN_38." {$to}</td>
 	</tr>\n";
 }
 

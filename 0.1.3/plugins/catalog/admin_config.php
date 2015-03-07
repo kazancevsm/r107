@@ -5,13 +5,13 @@
 //	sunout@osgroup.pro, stalker@osgroup.pro
 //	license GNU GPL
 //==================== the project started in May 2014 ===========================
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("5")) { header("location:".e_BASE."index.php"); exit; }
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once(e_PLUGIN."catalog/cat_class.php");
 require_once(e_HANDLER."file_handler.php");
-require_once(e_HANDLER.'ren_help.php');
+require_once(e_HANDLER.'ren_help_handler.php');
 require_once(e_ADMIN."auth.php");
 require_once("languages/".e_LANGUAGE.".php");
 require_once(e_HANDLER."tiny_mce/wysiwyg.php");
@@ -131,11 +131,11 @@ $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Категории</div>";
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
 $text.="<div class='r_window_scroll'>";
-$text .="<form name='config' method='post' action='". $PHP_SELF ."'><table class='r_header3' style='width:100%'>";
-	$text .= "<tr><td width='30%' class='r_header3'>".LAN_CAT_NAME."</td><td class='r_header3' width='70%'>
+$text .="<form name='config' method='post' action='". $PHP_SELF ."'><table class='forumheader3' style='width:100%'>";
+	$text .= "<tr><td width='30%' class='forumheader3'>".LAN_CAT_NAME."</td><td class='forumheader3' width='70%'>
 			<input size='40' class='tbox' type='text' name='cat_name' value='$cat_name'>
 			<input type='text' name='cat_id' value='$cat_id' style='display:none;'></td></tr>";
-	$text .= "<tr><td class='r_header3'>".LAN_CAT_SUB."</td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".LAN_CAT_SUB."</td><td class='forumheader3'>";
 	$text .= "<select class='tbox' name='cat_sub'>";
 	if($sub_action == 'edit') {
 	$sql -> db_Select("catalog_cat", "*", "cat_id='$cat_sub' ORDER BY cat_name ASC");
@@ -165,15 +165,15 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
         sort($imglist);
 }
 	$text .= "<tr>
-			<td class='r_header3'>".LAN_IMG_02."</td>
-			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_pic' value='$cat_pic' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
+			<td class='forumheader3'>".LAN_IMG_02."</td>
+			<td class='forumheader3'><input class='tbox' type='text' id='cat_pic' name='cat_pic' value='$cat_pic' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
 			<div id='linkimg' style='display:none;{head}'>";
 	foreach($imglist as $img){
 			$list_img = str_replace(e_PLUGIN."catalog/images/category/","",$img['path'].$img['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_img."','cat_pic','linkimg')\"><img src='".$img['path'].$img['fname']."' style='border:0' width=50px alt='' /></a> ";
 	}
 	$text .= "</div></td></tr>";
-	$text .= "<tr><td class='r_header3'>".LAN_CAT_DESC." </td><td class='r_header3'>";
+	$text .= "<tr><td class='forumheader3'>".LAN_CAT_DESC." </td><td class='forumheader3'>";
 	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='cat_desc' cols='80' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$cat_desc</textarea><br>".display_help('')."";
@@ -192,11 +192,11 @@ $text .= "<a href='".e_PLUGIN."catalog/admin_config.php?cat.create' style='curso
 $text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.load'>Загрузить изображения</a>";
 
 $text.="<table width=100%>";
-$text.="<tr><td class='r_caption' width='5%'>ID</td>";
-$text.="<td class='r_caption' width='10%'>Картинка</td>";
-$text.="<td class='r_caption' width='75%'>Наименование категории</td>";
-$text.="<td class='r_caption' width='10%'>Опции</td>";
-$text.="<td class='r_caption' width='7px'></td>";
+$text.="<tr><td class='fcaption' width='5%'>ID</td>";
+$text.="<td class='fcaption' width='10%'>Картинка</td>";
+$text.="<td class='fcaption' width='75%'>Наименование категории</td>";
+$text.="<td class='fcaption' width='10%'>Опции</td>";
+$text.="<td class='fcaption' width='7px'></td>";
 $text.="</table>";
 $text.="<div class='r_frame_scroll'>";
 $text.="<table width=100%>";
@@ -208,10 +208,10 @@ $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 	$cat_name = $row['cat_name'];
 	$cat_pic = $row['cat_pic'];
 	$text .="<tr>";
-	$text .="<td class='r_header1' width='5%'><b>$cat_id</b></td>";
-	$text .="<td class='r_header1' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
-	$text .="<td class='r_header1' width='75%'>❖<b> $cat_name</b></td>";
-	$text .= "<td class='r_header1' width='10%'>
+	$text .="<td class='forumheader' width='5%'><b>$cat_id</b></td>";
+	$text .="<td class='forumheader' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
+	$text .="<td class='forumheader' width='75%'>❖<b> $cat_name</b></td>";
+	$text .= "<td class='forumheader' width='10%'>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
 		  </td></tr>";
@@ -221,10 +221,10 @@ $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 		$cat_name1 = $row['cat_name'];
 		$cat_pic1 = $row['cat_pic'];
 		$text .="<tr>";
-		$text .="<td class='r_header2' width='5%'><i>$cat_id1</i></td>";
-		$text .="<td class='r_header2' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic1' height='16' alt='$cat_name' /></td>";
-		$text .="<td class='r_header2' width='75%'>❖❖<i> $cat_name1</i></td>";
-		$text .= "<td class='r_header2' width='10%'>
+		$text .="<td class='forumheader2' width='5%'><i>$cat_id1</i></td>";
+		$text .="<td class='forumheader2' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic1' height='16' alt='$cat_name' /></td>";
+		$text .="<td class='forumheader2' width='75%'>❖❖<i> $cat_name1</i></td>";
+		$text .= "<td class='forumheader2' width='10%'>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id1' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id1' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id1] ]')\">".ADMIN_DELETE_ICON."</a>
 		  </td></tr>";	  
@@ -240,10 +240,10 @@ $text.="<div class='r_window_caption'>Загрузить изображения<
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
 $text.="<div class='r_window_scroll'>";
 // ------form for loading of images---------------------------------------------------
-	$text .="<form name='cat_upload_img' method='post' action='". $PHP_SELF ."' enctype=multipart/form-data><table class='r_header3' style='width:100%'>";
+	$text .="<form name='cat_upload_img' method='post' action='". $PHP_SELF ."' enctype=multipart/form-data><table class='forumheader3' style='width:100%'>";
 	$text .= "<tr>
-			<td class='r_header3'>".LAN_UPLOAD_IMAGES."</td>
-			<td class='r_header3'>".$tp->parseTemplate("{UPLOADFILE=".e_PLUGIN."catalog/images/category/}")."</td>
+			<td class='forumheader3'>".LAN_UPLOAD_IMAGES."</td>
+			<td class='forumheader3'>".$tp->parseTemplate("{UPLOADFILE=".e_PLUGIN."catalog/images/category/}")."</td>
 			</tr>";
 	$text .="</table></form>";
 	$text.="</div>";
@@ -348,22 +348,22 @@ $text.="<div class='r_window_caption'>Номенклатура</div>";
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
 $text.="<div class='r_window_scroll'>";
 	$text .= "<form method='post' action='". $PHP_SELF ."' id='dataform' enctype='multipart/form-data'>
-		<table style='".ADMIN_WIDTH."' class='r_border' style='width:640px'>";
+		<table class='fborder' style='width:640px'>";
 	$text .= "<tr>
-		<td width='25%' class='r_header3'>Артикул</td>
-		<td width='75%' class='r_header3'><input class='tbox' type='text' name='nom_art' size='50' value='".$nom_art."' maxlength='250' /></td>
+		<td width='25%' class='forumheader3'>Артикул</td>
+		<td width='75%' class='forumheader3'><input class='tbox' type='text' name='nom_art' size='50' value='".$nom_art."' maxlength='250' /></td>
 		</tr>";
 	$text .= "<tr>
-		<td width='25%' class='r_header3'>Наименование товара</td>
-		<td width='75%' class='r_header3'><input class='tbox' type='text' name='nom_name' size='50' value='".$nom_name."' maxlength='250' /></td>
+		<td width='25%' class='forumheader3'>Наименование товара</td>
+		<td width='75%' class='forumheader3'><input class='tbox' type='text' name='nom_name' size='50' value='".$nom_name."' maxlength='250' /></td>
 		</tr>";
 	$catsql -> db_Select("catalog_cat", "*", "cat_id='$cat_sub'");
 		while($row = $catsql -> db_Fetch()){
 		$Cat_id = $row['cat_id'];
 		$Cat_name = $row['cat_name'];
 		}
-	$text .="<tr><td class='r_header3'>Категории</td>";
-	$text .="<td class='r_header3'>";
+	$text .="<tr><td class='forumheader3'>Категории</td>";
+	$text .="<td class='forumheader3'>";
 	
 	$text .="<select class='tbox' name='nom_cat'>";
 	if($sub_action == 'edit') {
@@ -389,7 +389,7 @@ $text.="<div class='r_window_scroll'>";
 		}
 	$text .="</select></td></tr>";
 	$text .= "<tr>";
-	$text .="<td style='width:25%' class='r_header3'>Описание</td> <td style='width:75%' class='r_header3'>";
+	$text .="<td style='width:25%' class='forumheader3'>Описание</td> <td style='width:75%' class='forumheader3'>";
 		
 	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
@@ -401,8 +401,8 @@ $text.="<div class='r_window_scroll'>";
 }
 	
 	$text .= "<tr>
-		<td style='width:30%' class='r_header3'>Выбрать иконку для товара</td>
-		<td style='width:70%' class='r_header3'><input class='tbox' type='text' id='nom_pic' name='nom_pic' value='$nom_pic' size='40' maxlength='100' />
+		<td style='width:30%' class='forumheader3'>Выбрать иконку для товара</td>
+		<td style='width:70%' class='forumheader3'><input class='tbox' type='text' id='nom_pic' name='nom_pic' value='$nom_pic' size='40' maxlength='100' />
 		<input type ='button' class='button' style='cursor:pointer' size='30' value='Обзор' onclick='expandit(this)' />
 		<div id='linkicn' style='display:none;{head}'>";
 		foreach($iconlist as $icon){
@@ -411,11 +411,11 @@ $text.="<div class='r_window_scroll'>";
 		}
 	$text .= "</div></td></tr>";
 	$text .= "<tr>
-		<td style='width:25%' class='r_header3'>Цена товара</td>
-		<td style='width:75%' class='r_header3'><input class='tbox' type='text' name='nom_price' size='40' value='".$nom_price."' maxlength='250' /></td>
+		<td style='width:25%' class='forumheader3'>Цена товара</td>
+		<td style='width:75%' class='forumheader3'><input class='tbox' type='text' name='nom_price' size='40' value='".$nom_price."' maxlength='250' /></td>
 		</tr>";
 	$text .= "<input type='hidden' name='nom_id' value='".$id."'>";
-	$text .= "<tr><td colspan=2 class='r_header3'><center>";
+	$text .= "<tr><td colspan=2 class='forumheader3'><center>";
 		if($sub_action =="create") {
 	$text .="<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_AGR." name='submit_insert'>";
 		}
@@ -435,13 +435,13 @@ $text .= "<a href='".e_PLUGIN."catalog/admin_config.php?nom.create' style='curso
 $text .="<a href='#'>Загрузить изображения</a>";
 
 $text.="<table width=100%>";
-$text.="<tr><td class='r_caption' width='5%'>№</td>";
-$text.="<td class='r_caption' width='10%'>Фото</td>";
-$text.="<td class='r_caption' width='40%'>Наименование номенклатуры</td>";
-$text.="<td class='r_caption' width='25%'>Категория</td>";
-$text.="<td class='r_caption' width='10%'>Цена</td>";
-$text.="<td class='r_caption' width='10%'>Опции</td>";
-$text.="<td class='r_caption' width=0px padding=0px></td>";
+$text.="<tr><td class='fcaption' width='5%'>№</td>";
+$text.="<td class='fcaption' width='10%'>Фото</td>";
+$text.="<td class='fcaption' width='40%'>Наименование номенклатуры</td>";
+$text.="<td class='fcaption' width='25%'>Категория</td>";
+$text.="<td class='fcaption' width='10%'>Цена</td>";
+$text.="<td class='fcaption' width='10%'>Опции</td>";
+$text.="<td class='fcaption' width=0px padding=0px></td>";
 $text.="</table>";
 $text.="<div class='r_frame_scroll'>";
 $text.="<table width=100%>";
@@ -466,10 +466,10 @@ $catsql -> db_Select("catalog_nom", "*", "nom_id ORDER BY `nom_id` ASC");
 	$nom_price = $row['nom_price'];
 		
 		if($count==1){
-			  $style = "r_header1";
+			  $style = "forumheader";
 			  }
 		if($count==2){
-			  $style = "r_header2";
+			  $style = "forumheader2";
 			  $count = 0;
 		}
 			  $text.="<tr><td class='$style' width='5%' >$nom_id</td>";
@@ -690,9 +690,9 @@ if (IsSet($_POST['submit_clearcat'])){
       }
 }
 //======form import or export csv=============================.
-$text ="<form enctype='multipart/form-data' name='form_nom_import' method='post' action='". $PHP_SELF ."'><table class='r_header3' style='width:100%'>";
+$text ="<form enctype='multipart/form-data' name='form_nom_import' method='post' action='". $PHP_SELF ."'><table class='forumheader3' style='width:100%'>";
 	$text .="<tr><td class='r_header' style='text-align:center' colspan='2'>";
-	$text .="<tr><td class='r_header3'>" .LAN_AI_01." *
+	$text .="<tr><td class='forumheader3'>" .LAN_AI_01." *
 	<select class='tbox' name='catId' id='cat'>
 	<option value=''>" .LAN_AI_01."";
 		$sql -> db_Select("catalog_cat", "*", "cat_sub='0'");
@@ -739,47 +739,47 @@ $message = LAN_MES_00;
 $caption = LAN_MES_CAP;
 $ns -> tablerender($caption,$message);
 }
-	$text ="<form enctype='multipart/form-data' name='config_form' method='post' action=''><table class='r_border' style='width:100%' align='center'>";
+	$text ="<form enctype='multipart/form-data' name='config_form' method='post' action=''><table class='fborder' style='width:100%' align='center'>";
 	$text .="<input type='hidden' name='conf_id' value='$conf_id'>";
-	$text .= "<tr><td colspan=2 class='r_caption' width='60%'>".LAN_CONF_GNL_CAP."</td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_02."</td><td class='r_header1'><input class='tbox' size='40' type='text' name='conf_cathead' value='".$pref['conf_cathead']."'></input></td></tr>";
+	$text .= "<tr><td colspan=2 class='fcaption' width='60%'>".LAN_CONF_GNL_CAP."</td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_02."</td><td class='forumheader'><input class='tbox' size='40' type='text' name='conf_cathead' value='".$pref['conf_cathead']."'></input></td></tr>";
 
 //	$text .= "<tr><td colspan=2 class='fcaption'>".LAN_CONF_03."</td></tr>";
 
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_05."</td><td class='r_header2'><input class='tbox' size='40' type='text' name='conf_catadmail' value='".$pref['conf_catadmail']."'></input></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_05."</td><td class='forumheader2'><input class='tbox' size='40' type='text' name='conf_catadmail' value='".$pref['conf_catadmail']."'></input></td></tr>";
 
 //	$text .= "<tr><td colspan=2 class='fcaption'>".LAN_CONF_07."</td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_08."</td><td class='r_header1'><input type='text' name='conf_catsizepicbig' class='tbox' value='".$pref['conf_catsizepicbig']."' size='40'></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_09."</td><td class='r_header2'><input type='text' name='conf_catsizepicsmall' class='tbox' value='".$pref['conf_catsizepicsmall']."' size='40'></td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_10."</td><td class='r_header1'><input type='text' name='conf_catshowcolscat' class='tbox' value='".$pref['conf_catshowcolscat']."' size='40'></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_11."</td><td class='r_header2'><input type='text' name='conf_catshowrowscat' class='tbox' value='".$pref['conf_catshowrowscat']."' size='40'></td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_12."</td><td class='r_header1'><input type='text' name='conf_catshowcolsitems' class='tbox' value='".$pref['conf_catshowcolsitems']."' size='40'></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_13."</td><td class='r_header2'><input type='text' name='conf_catshowrowsitems' class='tbox' value='".$pref['conf_catshowrowsitems']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_08."</td><td class='forumheader'><input type='text' name='conf_catsizepicbig' class='tbox' value='".$pref['conf_catsizepicbig']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_09."</td><td class='forumheader2'><input type='text' name='conf_catsizepicsmall' class='tbox' value='".$pref['conf_catsizepicsmall']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_10."</td><td class='forumheader'><input type='text' name='conf_catshowcolscat' class='tbox' value='".$pref['conf_catshowcolscat']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_11."</td><td class='forumheader2'><input type='text' name='conf_catshowrowscat' class='tbox' value='".$pref['conf_catshowrowscat']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_12."</td><td class='forumheader'><input type='text' name='conf_catshowcolsitems' class='tbox' value='".$pref['conf_catshowcolsitems']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_13."</td><td class='forumheader2'><input type='text' name='conf_catshowrowsitems' class='tbox' value='".$pref['conf_catshowrowsitems']."' size='40'></td></tr>";
 	$text .= "<tr><td colspan=2 class='catalog_caption'>".LAN_CONF_NEW_CAP."</td></tr>";
-        $text .= "<tr><td class='r_header1'>".LAN_CONF_NEW_01."</td>
-	<td class='r_header1'><select class='tbox' type='text' name='conf_catnewshow'><option selected value='".$pref['conf_catnewshow']."'>".$pref['conf_catnewshow']."
+        $text .= "<tr><td class='forumheader'>".LAN_CONF_NEW_01."</td>
+	<td class='forumheader'><select class='tbox' type='text' name='conf_catnewshow'><option selected value='".$pref['conf_catnewshow']."'>".$pref['conf_catnewshow']."
 		<option value=".LAN_YES.">".LAN_YES."
 		<option value=".LAN_NO.">".LAN_NO."
 	</select></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_NEW_02."</td><td class='r_header2'><input class='tbox' size='40' type='text' name='conf_catnewhead' value='".$pref['conf_catnewhead']."'></input></td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_NEW_03."</td><td class='r_header1'><input type='text' name='conf_catnewitems' class='tbox' value='".$pref['conf_catnewitems']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_NEW_02."</td><td class='forumheader2'><input class='tbox' size='40' type='text' name='conf_catnewhead' value='".$pref['conf_catnewhead']."'></input></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_NEW_03."</td><td class='forumheader'><input type='text' name='conf_catnewitems' class='tbox' value='".$pref['conf_catnewitems']."' size='40'></td></tr>";
 
 	$text .= "<tr><td colspan=2 class='catalog_caption'>".LAN_CONF_SALE_CAP."</td></tr>";
-        $text .= "<tr><td class='r_header1'>".LAN_CONF_SALE_01."</td>
-	<td class='r_header1'><select class='tbox' type='text' name='conf_catsaleshow'><option selected value='".$pref['conf_catsaleshow']."'>".$pref['conf_catsaleshow']."
+        $text .= "<tr><td class='forumheader'>".LAN_CONF_SALE_01."</td>
+	<td class='forumheader'><select class='tbox' type='text' name='conf_catsaleshow'><option selected value='".$pref['conf_catsaleshow']."'>".$pref['conf_catsaleshow']."
 		<option value=".LAN_YES.">".LAN_YES."
 		<option value=".LAN_NO.">".LAN_NO."
 	</select></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_SALE_02."</td><td class='r_header2'><input class='tbox' size='40' type='text' name='conf_catsalehead' value='".$pref['conf_catsalehead']."'></input></td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_SALE_03."</td><td class='r_header1'><input type='text' name='conf_catsaleitems' class='tbox' value='".$pref['conf_catsaleitems']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_SALE_02."</td><td class='forumheader2'><input class='tbox' size='40' type='text' name='conf_catsalehead' value='".$pref['conf_catsalehead']."'></input></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_SALE_03."</td><td class='forumheader'><input type='text' name='conf_catsaleitems' class='tbox' value='".$pref['conf_catsaleitems']."' size='40'></td></tr>";
 	$text .= "<tr><td colspan=2 class='catalog_caption'>".LAN_CONF_HIT_CAP."</td></tr>";
-        $text .= "<tr><td class='r_header1'>".LAN_CONF_HIT_01."</td>
-	<td class='r_header1'><select class='tbox' type='text' name='conf_hitshow'><option selected value='".$pref['conf_hitshow']."'>".$pref['conf_hitshow']."
+        $text .= "<tr><td class='forumheader'>".LAN_CONF_HIT_01."</td>
+	<td class='forumheader'><select class='tbox' type='text' name='conf_hitshow'><option selected value='".$pref['conf_hitshow']."'>".$pref['conf_hitshow']."
 		<option value=".LAN_YES.">".LAN_YES."
 		<option value=".LAN_NO.">".LAN_NO."
 	</select></td></tr>";
-	$text .= "<tr><td class='r_header2'>".LAN_CONF_HIT_02."</td><td class='r_header2'><input class='tbox' size='40' type='text' name='conf_catsalehead' value='".$pref['conf_hithead']."'></input></td></tr>";
-	$text .= "<tr><td class='r_header1'>".LAN_CONF_HIT_03."</td><td class='r_header1'><input type='text' name='conf_catsaleitems' class='tbox' value='".$pref['conf_hititems']."' size='40'></td></tr>";
+	$text .= "<tr><td class='forumheader2'>".LAN_CONF_HIT_02."</td><td class='forumheader2'><input class='tbox' size='40' type='text' name='conf_catsalehead' value='".$pref['conf_hithead']."'></input></td></tr>";
+	$text .= "<tr><td class='forumheader'>".LAN_CONF_HIT_03."</td><td class='forumheader'><input type='text' name='conf_catsaleitems' class='tbox' value='".$pref['conf_hititems']."' size='40'></td></tr>";
 	$text .= "<tr><td class='r_header' colspan='2' style='text-align:center'><input class='button' name='savesettings' type='submit' value= ".LAN_BUT_AGR."></td></tr></table></form>";
 	
 	$caption = LAN_MENU_ABOUT;

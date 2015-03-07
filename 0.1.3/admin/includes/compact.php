@@ -20,7 +20,7 @@
 if (!defined('e107_INIT')) { exit; }
 $buts = "";
 $text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 while (list($key, $funcinfo) = each($newarray)) {
 	$buts .= render_links($funcinfo[0], $funcinfo[1], $funcinfo[2], $funcinfo[3], $funcinfo[5], 'default');
@@ -41,7 +41,7 @@ if($buts !=""){
 }
 
 $text = "<div style='text-align:center'>
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 $text .= render_links(e_ADMIN."plugin.php", ADLAN_98, ADLAN_99, "Z", E_16_PLUGMANAGER, 'default');
 

@@ -23,7 +23,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once('../class.php');
+require_once('../class2.php');
 $e_sub_cat = 'admin_pass';
 require_once('auth.php');
 
@@ -41,29 +41,29 @@ if (isset($_POST['update_settings']))
 } else {
 	$text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>\n
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:30%' class='r_header3'>".UDALAN_4.": </td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>".UDALAN_4.": </td>
+	<td style='width:70%' class='forumheader3'>
 	".ADMINNAME."
 	</td>
 	</tr>
 	<tr>
-	<td style='width:30%' class='r_header3'>".UDALAN_5.": </td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>".UDALAN_5.": </td>
+	<td style='width:70%' class='forumheader3'>
 	<input class='tbox' type='password' name='a_password' size='60' value='' maxlength='20' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:30%' class='r_header3'>".UDALAN_6.": </td>
-	<td style='width:70%' class='r_header3'>
+	<td style='width:30%' class='forumheader3'>".UDALAN_6.": </td>
+	<td style='width:70%' class='forumheader3'>
 	<input class='tbox' type='password' name='a_password2' size='60' value='' maxlength='20' />
 	</td>
 	</tr>
 
 	<tr>
-	<td colspan='2' style ='text-align:center'  class='r_header1'>
+	<td colspan='2' style ='text-align:center'  class='forumheader'>
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	<input class='button' type='submit' name='update_settings' value='".UDALAN_7."' />
 	<input type='hidden' name='ac' value='".md5(ADMINPWCHANGE)."' />

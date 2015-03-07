@@ -11,9 +11,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/mysql_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/mysql_handler.php $
 |     $Revision: 12047 $
-|     $Id: mysql_class.php 12047 2011-01-16 22:07:13Z e107coders $
+|     $Id: mysql_handler.php 12047 2011-01-16 22:07:13Z e107coders $
 |     $Author: e107coders $
 |
 +----------------------------------------------------------------------------+

@@ -16,13 +16,13 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 
 if (!getperms("1")) {
 	header("location:".e_BASE."index.php");
 	 exit ;
 }
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 	
 include_lan(e_PLUGIN."newforumposts_main/languages/".e_LANGUAGE.".php");
 require_once(e_ADMIN."auth.php");
@@ -46,11 +46,11 @@ if ($message) {
 	
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."?".e_QUERY."' id='menu_conf_form'>
-	<table style='width:85%' class='r_border'>
+	<table style='width:85%' class='fborder'>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".NFPM_L4."</td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".NFPM_L4."</td>
+	<td style='width:60%' class='forumheader3'>
 	<select class='tbox' name='nfp_display'>" .($pref['nfp_display'] == "0" ? "<option value='0' selected='selected'>".NFPM_L5."</option>" : "<option value='0'>".NFPM_L5."</option>")
 .($pref['nfp_display'] == "1" ? "<option value='1' selected='selected'>".NFPM_L6."</option>" : "<option value='1'>".NFPM_L6."</option>")
 .($pref['nfp_display'] == "2" ? "<option value='2' selected='selected'>".NFPM_L7."</option>" : "<option value='2'>".NFPM_L7."</option>")
@@ -59,33 +59,33 @@ $text = "<div style='text-align:center'>
 	</tr>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".NFPM_L8.": </td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".NFPM_L8.": </td>
+	<td style='width:60%' class='forumheader3'>
 	<input class='tbox' type='text' name='nfp_caption' size='20' value='".$pref['nfp_caption']."' maxlength='100' />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td style='width:40%' class='r_header3'>".NFPM_L9.": </td>
-	<td style='width:60%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>".NFPM_L9.": </td>
+	<td style='width:60%' class='forumheader3'>
 	<input class='tbox' type='text' name='nfp_amount' size='6' value='".$pref['nfp_amount']."' maxlength='3' />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3' style='width:40%'>".NFPM_L15." </td>
-	<td class='r_header3' style='width:60%'>". ($pref['nfp_posts'] ? "<input type='checkbox' name='nfp_posts' value='1' checked='checked' />" : "<input type='checkbox' name='nfp_posts' value='1' />")."
+	<td class='forumheader3' style='width:40%'>".NFPM_L15." </td>
+	<td class='forumheader3' style='width:60%'>". ($pref['nfp_posts'] ? "<input type='checkbox' name='nfp_posts' value='1' checked='checked' />" : "<input type='checkbox' name='nfp_posts' value='1' />")."
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3' style='width:40%'>".NFPM_L10.": </td>
-	<td class='r_header3' style='width:60%'>". ($pref['nfp_layer'] ? "<input type='checkbox' name='nfp_layer' value='1' checked='checked' />" : "<input type='checkbox' name='nfp_layer' value='1' />")."&nbsp;&nbsp;".NFPM_L11.": <input class='tbox' type='text' name='nfp_layer_height' size='8' value='".$pref['nfp_layer_height']."' maxlength='3' />
+	<td class='forumheader3' style='width:40%'>".NFPM_L10.": </td>
+	<td class='forumheader3' style='width:60%'>". ($pref['nfp_layer'] ? "<input type='checkbox' name='nfp_layer' value='1' checked='checked' />" : "<input type='checkbox' name='nfp_layer' value='1' />")."&nbsp;&nbsp;".NFPM_L11.": <input class='tbox' type='text' name='nfp_layer_height' size='8' value='".$pref['nfp_layer_height']."' maxlength='3' />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'><input class='button' type='submit' name='updatesettings' value='".NFPM_L13."' /></td>
+	<td colspan='2' class='forumheader' style='text-align:center'><input class='button' type='submit' name='updatesettings' value='".NFPM_L13."' /></td>
 	</tr>
 	</table>
 	</form>

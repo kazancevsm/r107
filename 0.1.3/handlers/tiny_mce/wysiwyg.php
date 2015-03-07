@@ -196,7 +196,7 @@ class wysiwyg
 			'remove_script_host'				=> 'true',
 			'relative_urls'						=> 'true',
 			'document_base_url'					=> SITEURL,
-			'theme_advanced_styles'				=> 'border=border;r_border=r_border;tbox=tbox;caption=caption;r_caption=r_caption;r_header=r_header;r_header3=r_header3',
+			'theme_advanced_styles'				=> 'border=border;fborder=fborder;tbox=tbox;caption=caption;fcaption=fcaption;r_header=r_header;forumheader3=forumheader3',
 			//'popup_css'						=> '".THEME_ABS."style.css',
 			'verify_css_classes'				=> 'false',
 			'cleanup_callback'					 => 'tinymce_html_bbcode_control',

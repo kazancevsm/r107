@@ -10,15 +10,15 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/user_select_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/user_select_handler.php $
 |     $Revision: 12033 $
-|     $Id: user_select_class.php 12033 2011-01-12 14:12:32Z e107steved $
+|     $Id: user_select_handler.php 12033 2011-01-12 14:12:32Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
 
 if (!defined("e_THEME")) {
-	require_once('../class.php');
+	require_once("../class2.php");
 	include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_user_select.php");
 	$us = new user_select;
 	$us -> popup();
@@ -147,7 +147,7 @@ class user_select
 			}
 			$text .= "<img src='".e_IMAGE_ABS."generic/".IMODE."/user_select.png'
 			style='width: 16px; height: 16px; vertical-align: top' alt='".US_LAN_4."...'
-			title='".US_LAN_4."...' onclick=\"window.open('".e_HANDLER_ABS."user_select_class.php?".$user_form."','user_search', 'toolbar=no,location=no,status=yes,scrollbars=yes,resizable=yes,width=300,height=200,left=100,top=100'); return false;\" />";
+			title='".US_LAN_4."...' onclick=\"window.open('".e_HANDLER_ABS."user_select_handler.php?".$user_form."','user_search', 'toolbar=no,location=no,status=yes,scrollbars=yes,resizable=yes,width=300,height=200,left=100,top=100'); return false;\" />";
 		}
 
 		/*
@@ -223,9 +223,9 @@ class user_select
 		";
 
 		$text = "<form action='".e_SELF."?".e_QUERY."' method='POST'>
-			<table style='width:100%' class='r_border'>
+			<table style='width:100%' class='fborder'>
 			<tr>
-			<td class='r_header3' style='text-align: center'><input type='text' name='srch' class='tbox' value='".$tp -> post_toForm($_POST['srch'])."' size='40'>
+			<td class='forumheader3' style='text-align: center'><input type='text' name='srch' class='tbox' value='".$tp -> post_toForm($_POST['srch'])."' size='40'>
 			<input class='button' type='submit' name='dosrch' class='tbox' value='".US_LAN_6."' />
 			<input type='hidden' name='e-token' value='".e_TOKEN."' />
 			</td>
@@ -246,10 +246,10 @@ class user_select
 				$fcount = count($userlist);
 			}
 			$text .= "<br /><form name='results' action='".e_SELF."?".e_QUERY."' method='POST'>
-			<table style='width:100%' class='r_border'>
-			<tr><td class='r_caption'>{$fcount} ".US_LAN_5."</td></tr>
+			<table style='width:100%' class='fborder'>
+			<tr><td class='fcaption'>{$fcount} ".US_LAN_5."</td></tr>
 			<tr>
-			<td class='r_header3'>
+			<td class='forumheader3'>
 			<select class='tbox' name='usersel' width='60' ondblclick='SelectUser()'>
 			";
 			foreach($userlist as $u) {

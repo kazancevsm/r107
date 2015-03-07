@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../class.php");
+require_once("../class2.php");
 
 if (isset($pref['signup_options'])) // CONVERT 0.6 STYLE SIGNUP OPTIONS
 {
@@ -216,7 +216,7 @@ function update_70x_to_706($type='') {
 
 
 		// update new fields
-        require_once(e_HANDLER."plugin_class.php");
+        require_once(e_HANDLER."plugin_handler.php");
 		$ep = new e107plugin;
 		$ep->update_plugins_table();
 		$ep->save_addon_prefs();
@@ -638,7 +638,7 @@ function update_617_to_700($type='') {
 
 
 			//Begin Extended user field conversion
-			require_once(e_HANDLER."user_extended_class.php");
+			require_once(e_HANDLER."user_extended_handler.php");
 			$ue = new e107_user_extended;
 
 			if($sql->db_Select("core", " e107_value", " e107_name='user_entended'", 'default'))
@@ -1234,7 +1234,7 @@ function update_617_to_700($type='') {
 
 			if($sql->db_Field("user", 8) == "user_icq")
 			{
-				require_once(e_HANDLER."user_extended_class.php");
+				require_once(e_HANDLER."user_extended_handler.php");
 				$ue = new e107_user_extended;
 				$ue->convert_old_fields();
 			}

@@ -39,7 +39,7 @@
 
 	//if ((strpos(e_SELF,'localhost') !== FALSE) || (strpos(e_SELF,'127.0.0.1') !== FALSE)) return '';
 
-	require_once(e_HANDLER."xml_class.php");
+	require_once(e_HANDLER."xml_handler.php");
 	
 	$xml = new parseXml;
 	$xm = new XMLParse();

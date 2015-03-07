@@ -15,7 +15,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 
 $listplugindir = e_PLUGIN."list_new/";
 

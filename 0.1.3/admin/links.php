@@ -19,7 +19,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../class.php');
+require_once('../class2.php');
 if (!getperms('I'))
 {
   header('location:'.e_BASE.'index.php');
@@ -31,7 +31,7 @@ $e_sub_cat = 'links';
 if (!is_object($tp)) $tp = new e_parse;
 
 // ----- Presets.----------
-require_once(e_HANDLER."preset_class.php");
+require_once(e_HANDLER."preset_handler.php");
 $pst = new e_preset;
 $pst->form = "linkform";
 $pst->page = "links.php?create";
@@ -51,8 +51,8 @@ require_once('auth.php');
 // --------------------
 $pst->save_preset();
 
-require_once(e_HANDLER.'userclass_class.php');
-require_once(e_HANDLER.'form_handler.php');
+require_once(e_HANDLER."userclass_handler.php");
+require_once(e_HANDLER."form_handler.php");
 
 $rs = new form;
 $linkpost = new links;
@@ -302,7 +302,7 @@ class links
 			$this->prepIdOpts(); // Prepare the options list for all links
 			$text = $rs->form_open("post", e_SELF, "myform_{$link_id}", "", "");
 			$text .= "<div style='text-align:center'>
-				<table class='r_border' style='".ADMIN_WIDTH."'>
+				<table class='fborder' >
 				<colgroup>
       		<col width=\"5%\" />
       		<col width=\"60%\" />
@@ -312,17 +312,17 @@ class links
       		<col width=\"5%\" />
 				</colgroup>
 				<tr>
-				<td class='r_caption'>".LCLAN_89."</td>
-				<td class='r_caption'>".LCLAN_15."</td>
-				<td class='r_caption'>".LAN_OPTIONS."</td>
-				<td class='r_caption'>".LCLAN_95."</td>
-				<td class='r_caption'>".LCLAN_91."</td>
-				<td class='r_caption'>".LAN_ORDER."</td>
+				<td class='fcaption'>".LCLAN_89."</td>
+				<td class='fcaption'>".LCLAN_15."</td>
+				<td class='fcaption'>".LAN_OPTIONS."</td>
+				<td class='fcaption'>".LCLAN_95."</td>
+				<td class='fcaption'>".LCLAN_91."</td>
+				<td class='fcaption'>".LAN_ORDER."</td>
 				</tr>";
 				$text .= $this->existing(0);
 
 			$text .= "<tr>
-				<td class='r_header1' colspan='6' style='text-align:center'><input class='button' type='submit' name='update' value='".LAN_UPDATE."' /></td>
+				<td class='forumheader' colspan='6' style='text-align:center'><input class='button' type='submit' name='update' value='".LAN_UPDATE."' /></td>
 				</tr>";
 			$text .= "</table></div>";
 			$text .= $rs->form_close();
@@ -350,12 +350,12 @@ class links
 		{
         	$text .= "
 				<tr>
-					<td class='r_caption'>".LCLAN_89."</td>
-					<td class='r_caption'>".LCLAN_15." (".LCLAN_12.": ".$link_category.")</td>
-					<td class='r_caption'>".LAN_OPTIONS."</td>
-					<td class='r_caption'>".LCLAN_95."</td>
-					<td class='r_caption'>".LCLAN_91."</td>
-					<td class='r_caption'>".LAN_ORDER."</td>
+					<td class='fcaption'>".LCLAN_89."</td>
+					<td class='fcaption'>".LCLAN_15." (".LCLAN_12.": ".$link_category.")</td>
+					<td class='fcaption'>".LAN_OPTIONS."</td>
+					<td class='fcaption'>".LCLAN_95."</td>
+					<td class='fcaption'>".LCLAN_91."</td>
+					<td class='fcaption'>".LAN_ORDER."</td>
 				</tr>";
 			$previous_cat = $link_category;
 		}
@@ -377,10 +377,10 @@ class links
 		  $subindent = "<td".$subspacer.">".$subimage."</td>";
 		}
 
-		$text .= "<tr><td class='r_header3' style='text-align: center; vertical-align: middle' title='".$link_description."'>";
+		$text .= "<tr><td class='forumheader3' style='text-align: center; vertical-align: middle' title='".$link_description."'>";
 		$text .= $link_button ? "<img src='".e_FILE."icons/".$link_button."' alt='' /> ":
 		"";
-		$text .= "</td><td class='r_header3' title='".$link_description."'>
+		$text .= "</td><td class='forumheader3' title='".$link_description."'>
 				<table cellspacing='0' cellpadding='0' border='0' style='width: 100%'>
 				<tr>
 			".$subindent."
@@ -388,18 +388,18 @@ class links
 				</tr>
 				</table>
 				</td>";
-		$text .= "<td style='text-align:center; white-space: nowrap' class='r_header3'>";
+		$text .= "<td style='text-align:center; white-space: nowrap' class='forumheader3'>";
 		$text .= "<a href='".e_SELF."?create.sub.{$link_id}'><img src='".e_IMAGE."admin/sublink_16.png' title='".LINKLAN_10."' alt='".LINKLAN_10."' /></a>&nbsp;";
 		$text .= "<a href='".e_SELF."?create.edit.{$link_id}'>".ADMIN_EDIT_ICON."</a>&nbsp;";
 		$text .= "<input type='image' title='".LAN_DELETE."' name='main_delete_{$link_id}' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".$tp->toJS(LCLAN_58." [ $link_name ]")."') \" />";
 		$text .= "</td>";
-		$text .= "<td style='text-align:center' class='r_header3'>".r_userclass("link_class[".$link_id."]", $link_class, "off", "public,guest,nobody,main,member,admin,classes")."</td>";
-		$text .= "<td style='text-align:center; white-space: nowrap' class='r_header3'>";
+		$text .= "<td style='text-align:center' class='forumheader3'>".r_userclass("link_class[".$link_id."]", $link_class, "off", "public,guest,nobody,main,member,admin,classes")."</td>";
+		$text .= "<td style='text-align:center; white-space: nowrap' class='forumheader3'>";
 		$name_suffix = URL_SEPARATOR.$link_id.URL_SEPARATOR.$link_order;
 		$text .= "<input name='inc".$name_suffix."' type='image' src='".e_IMAGE."admin/up.png' title='".LCLAN_30."' />";
 		$text .= "<input name='dec".$name_suffix."' type='image' src='".e_IMAGE."admin/down.png' title='".LCLAN_31."' />";
 		$text .= "</td>";
-		$text .= "<td style='text-align:center' class='r_header3'>";
+		$text .= "<td style='text-align:center' class='forumheader3'>";
 		$text .= "<select name='link_order[]' class='tbox'>\n";
 		$text .= $this->genOpts( $this->aIdOptPrep, $this->aIdOptTest, $link_order, $link_id );
 		$text .= "</select>";
@@ -449,26 +449,26 @@ class links
 
 		$text = "<div style='text-align:center'>
 			<form method='post' action='".e_SELF."' id='linkform'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>";
+			<table class='fborder'>";
 
 		$text .= "<tr>
-			<td style='width:30%' class='r_header3'>".LINKLAN_2.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LINKLAN_2.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<select class='tbox' name='link_parent' >";
 			$text .= $this->dropdown($link_parent);
 
 		$text .= "</select></td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_15.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_15.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' name='link_name' size='60' value='$link_name' maxlength='100' />
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_16.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_16.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' name='link_url' size='60' value='".$tp->replaceConstants($link_url,TRUE)."' maxlength='200' />";
             if(e_MENU == "debug")
 			{
@@ -479,15 +479,15 @@ class links
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_17.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_17.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<textarea class='tbox' name='link_description' cols='59' rows='3'>$link_description</textarea>
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_18.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_18.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<input class='tbox' type='text' id='link_button' name='link_button' size='42' value='$link_button' maxlength='100' />
 
 					<input class='button' type ='button' style='cursor:pointer' size='30' value='".LCLAN_39."' onclick='expandit(this)' />
@@ -510,8 +510,8 @@ class links
 		$text .= "</div></td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_19.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_19.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<select name='linkopentype' class='tbox'>\n";
 			foreach($linkop as $key=>$val){
 				$selectd = ($link_open == $key) ? "selected='selected'" : "";
@@ -522,8 +522,8 @@ class links
 			</td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_12.": </td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".LCLAN_12.": </td>
+			<td style='width:70%' class='forumheader3'>
 			<select name='linkrender' class='tbox'>";
 			$rentype = array("","Main","Alt","Alt", "Alt");
 			for ($i=1; $i<count($rentype); $i++) {
@@ -535,12 +535,12 @@ class links
 			</td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".LCLAN_25.":<br /><span class='smalltext'>(".LCLAN_26.")</span></td>
-			<td style='width:70%' class='r_header3'>".r_userclass("link_class", $link_class, "off", "public,guest,nobody,member,main,admin,classes")."
+			<td style='width:30%' class='forumheader3'>".LCLAN_25.":<br /><span class='smalltext'>(".LCLAN_26.")</span></td>
+			<td style='width:70%' class='forumheader3'>".r_userclass("link_class", $link_class, "off", "public,guest,nobody,member,main,admin,classes")."
 			</td></tr>
 
 			<tr style='vertical-align:top'>
-			<td colspan='2' style='text-align:center' class='r_header1'>";
+			<td colspan='2' style='text-align:center' class='forumheader'>";
 		if ($id && $sub_action == "edit") {
 			$text .= "<input class='button' type='submit' name='add_link' value='".LCLAN_27."' />\n
 						<input type='hidden' name='link_id' value='$link_id' />";
@@ -600,29 +600,29 @@ class links
 		global $pref, $ns;
 		$text = "<div style='text-align:center'>
 			<form method='post' action='".e_SELF."?".e_QUERY."'>\n
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:70%' class='forumheader3'>
 			".LCLAN_78."<br />
 			<span class='smalltext'>".LCLAN_79."</span>
 			</td>
-			<td class='r_header3' style='width:30%;text-align:center'>". ($pref['linkpage_screentip'] ? "<input type='checkbox' name='linkpage_screentip' value='1' checked='checked' />" : "<input type='checkbox' name='linkpage_screentip' value='1' />")."
+			<td class='forumheader3' style='width:30%;text-align:center'>". ($pref['linkpage_screentip'] ? "<input type='checkbox' name='linkpage_screentip' value='1' checked='checked' />" : "<input type='checkbox' name='linkpage_screentip' value='1' />")."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:70%' class='forumheader3'>
 			".LCLAN_80."<br />
 			<span class='smalltext'>".LCLAN_81."</span>
 			</td>
-			<td class='r_header3' style='width:30%;text-align:center'>". ($pref['sitelinks_expandsub'] ? "<input type='checkbox' name='sitelinks_expandsub' value='1' checked='checked' />" : "<input type='checkbox' name='sitelinks_expandsub' value='1' />")."
+			<td class='forumheader3' style='width:30%;text-align:center'>". ($pref['sitelinks_expandsub'] ? "<input type='checkbox' name='sitelinks_expandsub' value='1' checked='checked' />" : "<input type='checkbox' name='sitelinks_expandsub' value='1' />")."
 			</td>
 			</tr>
 
 
 
 			<tr style='vertical-align:top'>
-			<td colspan='2' style='text-align:center' class='r_header1'>
+			<td colspan='2' style='text-align:center' class='forumheader'>
 			<input class='button' type='submit' name='updateoptions' value='".LAN_UPDATE."' />
 			</td>
 			</tr>
@@ -674,13 +674,13 @@ function show_sublink_generator()
 
 	$text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."?".e_QUERY."'>\n
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>
 	".LINKLAN_6."<br />
 	</td>
-	<td class='r_header3' style='width:50%;text-align:center'>
+	<td class='forumheader3' style='width:50%;text-align:center'>
 	<select name='sublink_type' class='tbox'>\n
 	<option value=''></option>";
     foreach($sublinks as $key=>$type){
@@ -691,10 +691,10 @@ function show_sublink_generator()
 	</tr>
 
     	<tr>
-	<td style='width:50%' class='r_header3'>
+	<td style='width:50%' class='forumheader3'>
 	".LINKLAN_7."<br />
 	</td>
-	<td class='r_header3' style='width:50%;text-align:center'>
+	<td class='forumheader3' style='width:50%;text-align:center'>
 	<select name='sublink_parent' class='tbox'>\n
 	<option value=''></option>";
     $sql -> db_Select("links", "*", "link_parent='0' ORDER BY link_name ASC");
@@ -706,7 +706,7 @@ function show_sublink_generator()
 	</tr>
 
 	<tr style='vertical-align:top'>
-	<td colspan='2' style='text-align:center' class='r_header1'>
+	<td colspan='2' style='text-align:center' class='forumheader'>
 	<input class='button' type='submit' name='generate_sublinks' value='".LINKLAN_5."' />
 	</td>
 	</tr>

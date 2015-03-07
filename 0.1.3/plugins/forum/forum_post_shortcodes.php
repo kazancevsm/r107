@@ -96,7 +96,7 @@ if ($pref['forum_attach'] && strpos(e_QUERY, "edit") === FALSE && (check_class($
 		{
 			if(!$fileattach_alert)
 			{
-				$fileattach_alert = "<tr><td colspan='2' class='nr_caption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td></tr><tr><td colspan='2' class='r_header3'>".LAN_FORUM_1."</td></tr>\n";
+				$fileattach_alert = "<tr><td colspan='2' class='nfcaption2'>".($pref['image_post'] ? LAN_390 : LAN_416)."</td></tr><tr><td colspan='2' class='forumheader3'>".LAN_FORUM_1."</td></tr>\n";
 			}
 			return $fileattach_alert;
 		}

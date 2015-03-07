@@ -24,7 +24,7 @@ if (ADMIN == TRUE)
 	// We're not in admin - load generic admin phrases
 	include_lan(e_LANGUAGEDIR.e_LANGUAGE.'/admin/lan_admin.php');
 
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	require_once(e_ADMIN."ad_links.php");
 	require_once(e_HANDLER.'admin_handler.php');
 

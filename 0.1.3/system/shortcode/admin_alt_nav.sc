@@ -123,7 +123,7 @@ if (ADMIN) {
 	$text .= "</div>
 	</td>";
 	
-	require_once(e_HANDLER."sitelinks_class.php");
+	require_once(e_HANDLER."sitelinks_handler.php");
 	$slinks = new sitelinks;
 	$slinks->getlinks(1);
 

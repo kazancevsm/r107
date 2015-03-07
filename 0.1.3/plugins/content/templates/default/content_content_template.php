@@ -89,7 +89,7 @@ $sc_style['CONTENT_CONTENT_TABLE_INFO_POST_HEADDATA']['pre'] = "";
 $sc_style['CONTENT_CONTENT_TABLE_INFO_POST_HEADDATA']['post'] = "</td>";
 
 
-$CONTENT_CONTENT_TABLE = "<table class='r_border' cellpadding='0' cellspacing='0' style='width:100%;'><tr><td>
+$CONTENT_CONTENT_TABLE = "<table class='fborder' cellpadding='0' cellspacing='0' style='width:100%;'><tr><td>
 <div style='clear:both;'>
 
 	{CONTENT_CONTENT_TABLE_INFO_PRE}
@@ -102,7 +102,7 @@ $CONTENT_CONTENT_TABLE = "<table class='r_border' cellpadding='0' cellspacing='0
 		{CONTENT_CONTENT_TABLE_INFO_POST_HEADDATA}
 	{CONTENT_CONTENT_TABLE_INFO_POST}
 	<div style='clear:both;'><br /></div>
-	<table class='r_border' cellpadding='0' cellspacing='0' style='width:100%;'><tr><td class='r_header3'>
+	<table class='fborder' cellpadding='0' cellspacing='0' style='width:100%;'><tr><td class='forumheader3'>
 		{CONTENT_CONTENT_TABLE_IMAGES}
 		{CONTENT_CONTENT_TABLE_SUMMARY}
 		{CONTENT_CONTENT_TABLE_TEXT}

@@ -30,7 +30,7 @@ if(isset($_POST['verify_sql']) || isset($_POST['db_update']) || isset($_POST['ch
 	unset($_POST['e-token']);
 }	
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms('0')) 
 {
 	header('location:'.e_BASE.'index.php');
@@ -109,41 +109,41 @@ if (isset($_POST['plugin_scan']) || e_QUERY == "plugin" || $_POST['delplug'])
 
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>\n
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_15."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='db_update' value='".DBLAN_16."' /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_15."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='db_update' value='".DBLAN_16."' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_4."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='verify_sql' value='".DBLAN_5."' /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_4."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='verify_sql' value='".DBLAN_5."' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_6."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='optimize_sql' value='".DBLAN_7."' /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_6."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='optimize_sql' value='".DBLAN_7."' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_28."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='plugin_scan' value=\"".DBLAN_29."\" /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_28."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='plugin_scan' value=\"".DBLAN_29."\" /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_19."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='pref_editor' value='".DBLAN_20."' /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_19."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='pref_editor' value='".DBLAN_20."' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_35."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='check_user' value='".DBLAN_36."' /></td>
+	<td style='width:70%' class='forumheader3'>".DBLAN_35."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='check_user' value='".DBLAN_36."' /></td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".DBLAN_8."</td>
-	<td class='r_header3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='backup_core' value='".DBLAN_9."' />
+	<td style='width:70%' class='forumheader3'>".DBLAN_8."</td>
+	<td class='forumheader3' style='width:30%;text-align:center'><input class='button' style='width: 100%' type='submit' name='backup_core' value='".DBLAN_9."' />
 	<input type='hidden' name='sqltext' value='{$sqltext}' />
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />
 	</td></tr>
@@ -192,7 +192,7 @@ function plugin_viewscan()
 
 
 		global $sql, $pref, $ns, $tp;
-		require_once(e_HANDLER."plugin_class.php");
+		require_once(e_HANDLER."plugin_handler.php");
 		$ep = new e107plugin;
 		$ep->update_plugins_table(); // scan for e_xxx changes and save to plugin table.
 		$ep->save_addon_prefs();  // generate global e_xxx_list prefs from plugin table.
@@ -200,19 +200,19 @@ function plugin_viewscan()
 		$ns -> tablerender(DBLAN_22, "<div style='text-align:center'>".DBLAN_23."<br /><br /><a href='".e_SELF."'>".DBLAN_13."</a></div>");
 
 		$text = "<form method='post' action='".e_ADMIN."db.php' id='plug_edit'>
-				<div style='text-align:center'>  <table class='r_border' style='".ADMIN_WIDTH."'>
-				<tr><td class='r_caption'>".DBLAN_24."</td>
-				<td class='r_caption'>".DBLAN_25."</td>
-				<td class='r_caption'>".DBLAN_26."<br />".DBLAN_30."</td>
-				<td class='r_caption'>".DBLAN_27."</td>";
+				<div style='text-align:center'>  <table class='fborder'>
+				<tr><td class='fcaption'>".DBLAN_24."</td>
+				<td class='fcaption'>".DBLAN_25."</td>
+				<td class='fcaption'>".DBLAN_26."<br />".DBLAN_30."</td>
+				<td class='fcaption'>".DBLAN_27."</td>";
 
         $sql -> db_Select("plugin", "*", "plugin_id !='' order by plugin_path ASC"); // Must order by path to pick up duplicates. (plugin names may change).
 		while($row = $sql-> db_Fetch())
 		{
 			$text .= "<tr>
-				<td class='r_header3'>".$tp->toHtml($row['plugin_name'],FALSE,"defs,emotes_off")."</td>
-                <td class='r_header3'>".$row['plugin_path']."</td>
-				<td class='r_header3'>";
+				<td class='forumheader3'>".$tp->toHtml($row['plugin_name'],FALSE,"defs,emotes_off")."</td>
+                <td class='forumheader3'>".$row['plugin_path']."</td>
+				<td class='forumheader3'>";
 				
 			if (trim($row['plugin_addons']))
 			{
@@ -233,7 +233,7 @@ function plugin_viewscan()
 			}
 			
 			$text .= "</td>
-				<td class='r_header3' style='text-align:center'>";
+				<td class='forumheader3' style='text-align:center'>";
             if($previous == $row['plugin_path'])
 			{
 				$delid 	= $row['plugin_id'];
@@ -248,7 +248,7 @@ function plugin_viewscan()
 			</tr>";
 			$previous = $row['plugin_path'];
 		}
-//		$text .= "<tr><td colspan='4' class='r_header3'>".DBLAN_30."</td></tr>";
+//		$text .= "<tr><td colspan='4' class='forumheader3'>".DBLAN_30."</td></tr>";
         $text .= "</table></div><input type='hidden' name='e-token' value='".e_TOKEN."' /></form>";
         $ns -> tablerender(ADLAN_CL_7, $text);
 
@@ -262,12 +262,12 @@ function pref_editor()
 
 		$text = "<form method='post' action='".e_ADMIN."db.php' id='pref_edit'>
 				<div style='text-align:center'>
-				<table class='r_border' style='".ADMIN_WIDTH."'>
+				<table class='fborder'>
                 <tr>
-					<td class='r_caption'>".LAN_DELETE."</td>
-					<td class='r_caption'>".DBLAN_17."</td>
-					<td class='r_caption'>".DBLAN_18."</td>
-					<td class='r_caption'>".LAN_OPTIONS."</td>
+					<td class='fcaption'>".LAN_DELETE."</td>
+					<td class='fcaption'>".DBLAN_17."</td>
+					<td class='fcaption'>".DBLAN_18."</td>
+					<td class='fcaption'>".LAN_OPTIONS."</td>
 				</tr>";
 
          foreach($pref as $key=>$val)
@@ -277,15 +277,15 @@ function pref_editor()
 
 			$text .= "
 				<tr>
-				<td class='r_header3' style='width:40px;text-align:center'><input type='checkbox' name='delpref2[$key]' value='1' /></td>
-				<td class='r_header3'>".$key."</td>
-                <td class='r_header3' style='width:50%'>".$ptext."</td>
-				<td class='r_header3' style='width:20px;text-align:center'>
+				<td class='forumheader3' style='width:40px;text-align:center'><input type='checkbox' name='delpref2[$key]' value='1' /></td>
+				<td class='forumheader3'>".$key."</td>
+                <td class='forumheader3' style='width:50%'>".$ptext."</td>
+				<td class='forumheader3' style='width:20px;text-align:center'>
 					<input type='image' title='".LAN_DELETE."' src='".ADMIN_DELETE_ICON_PATH."' name='delpref[$key]' onclick=\"return jsconfirm('".LAN_CONFIRMDEL." [$key]')\" />
        			</td>
 			</tr>";
 		}
-        $text .= "<tr><td class='r_header1' colspan='4' style='text-align:center'>
+        $text .= "<tr><td class='forumheader' colspan='4' style='text-align:center'>
 			<input class='button' type='submit' title='".LAN_DELETE."' value=\"".DBLAN_21."\" name='delpref_checked' onclick=\"return jsconfirm('".LAN_CONFIRMDEL."')\" />
 			<input type='hidden' name='e-token' value='".e_TOKEN."' />
 			</tr>

@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("P")) {
 	header("location:".e_BASE."index.php");
 	 exit ;
@@ -152,32 +152,32 @@ if (($action == 'words') || ($action == 'edit'))
 $text = "
 <div class='center'>
 <form method='post' action='".e_SELF."?words'>
-<table style='".ADMIN_WIDTH."' class='r_border'>
+<table class='fborder'>
 
 <tr>
-<td style='width:50%' class='r_header3'>".LWLAN_21."</td>
-<td style='width:50%' class='r_header3'>
+<td style='width:50%' class='forumheader3'>".LWLAN_21."</td>
+<td style='width:50%' class='forumheader3'>
 <input class='tbox' type='text' name='linkword_word' size='40' value='".$linkword_word."' maxlength='100' />
 </td>
 </tr>
 
 <tr>
-<td style='width:50%' class='r_header3'>".LWLAN_6."</td>
-<td style='width:50%' class='r_header3'>
+<td style='width:50%' class='forumheader3'>".LWLAN_6."</td>
+<td style='width:50%' class='forumheader3'>
 <input class='tbox' type='text' name='linkword_link' size='60' value='".$linkword_link."' maxlength='150' />
 </td>
 </tr>
 
 <tr>
-<td style='width:50%' class='r_header3'>".LWLAN_22."</td>
-<td style='width:50%; text-align:right' class='r_header3'>
+<td style='width:50%' class='forumheader3'>".LWLAN_22."</td>
+<td style='width:50%; text-align:right' class='forumheader3'>
 <input type='radio' name='linkword_active' value='0'".(!$linkword_active ? " checked='checked'" : "")." /> ".LWLAN_9."&nbsp;&nbsp;
 <input type='radio' name='linkword_active' value='1'".($linkword_active ? " checked='checked'" : "")." /> ".LWLAN_10."
 </td>
 </tr>
 
 <tr>
-<td colspan='2' style='text-align:center' class='r_header1'>".
+<td colspan='2' style='text-align:center' class='forumheader'>".
 (defined("LW_EDIT") ? "<input class='button' type='submit' name='update_linkword' value='".LWLAN_15."' /><input type='hidden' name='id' value='$id' />" : "<input class='button' type='submit' name='submit_linkword' value='".LWLAN_14."' />")."
 </td>
 </tr>
@@ -200,12 +200,12 @@ if (($action == 'words') || ($action == 'edit'))
   else
   {
 	$text = "
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td class='r_header1' style='width: 20%;'>".LWLAN_5."</td>
-	<td class='r_header1' style='width: 40%;'>".LWLAN_6."</td>
-	<td class='r_header1' style='width: 10%; text-align: center;'>".LWLAN_7."</td>
-	<td class='r_header1' style='width: 30%; text-align: center;'>".LWLAN_8."</td>
+	<td class='forumheader' style='width: 20%;'>".LWLAN_5."</td>
+	<td class='forumheader' style='width: 40%;'>".LWLAN_6."</td>
+	<td class='forumheader' style='width: 10%; text-align: center;'>".LWLAN_7."</td>
+	<td class='forumheader' style='width: 30%; text-align: center;'>".LWLAN_8."</td>
 	</tr>\n";
 
 	while($row = $sql -> db_Fetch())
@@ -215,10 +215,10 @@ if (($action == 'words') || ($action == 'edit'))
 		
 		<form action='".e_SELF."' method='post' id='myform_$linkword_id'  onsubmit=\"return jsconfirm('".LWLAN_18." [ID: $linkword_id ]')\">
 		<tr>
-		<td class='r_header1' style='width: 20%;'>$linkword_word</td>
-		<td class='r_header1' style='width: 40%;'>$linkword_link</td>
-		<td class='r_header1' style='width: 10%; text-align: center;'>".(!$linkword_active ? LWLAN_12 : LWLAN_13)."</td>
-		<td class='r_header1' style='width: 30%; text-align: center;'>
+		<td class='forumheader' style='width: 20%;'>$linkword_word</td>
+		<td class='forumheader' style='width: 40%;'>$linkword_link</td>
+		<td class='forumheader' style='width: 10%; text-align: center;'>".(!$linkword_active ? LWLAN_12 : LWLAN_13)."</td>
+		<td class='forumheader' style='width: 30%; text-align: center;'>
 		<input class='button' type='button' onclick=\"document.location='".e_SELF."?edit.$linkword_id'\" value='".LWLAN_16."' id='edit_$linkword_id' name='edit_linkword_id' />
 		<input class='button' type='submit'  value='".LWLAN_17."' id='delete_$linkword_id' name='delete_$linkword_id' />
 		</td>
@@ -241,33 +241,33 @@ if ($action=='options')
   $text = "
   <div class='center'>
   <form method='post' action='".e_SELF."?options'>
-  <table style='".ADMIN_WIDTH."' class='r_border'>
+  <table class='fborder'>
 	<colgroup>
 	<col style='width: 30%; vertical-align:top;' />
 	<col style='width: 40%; vertical-align:top;' />
 	<col style='width: 30%; vertical-align:top;' />
 	</colgroup>
   <tr>
-  <td class='r_header3'>".LWLAN_26."</td>
-  <td class='r_header3'>";
+  <td class='forumheader3'>".LWLAN_26."</td>
+  <td class='forumheader3'>";
   foreach ($lw_context_areas as $lw_key=>$lw_desc)
   {
     $checked = $pref['lw_context_visibility'][$lw_key] ? 'checked=checked' : '';
 	$text .= "<input type='checkbox' name='lw_visibility_area[]' value={$lw_key} {$checked} />{$lw_desc}<br />";
   }
   $text .= "</td>
-  <td class='r_header3'>".LWLAN_27."
+  <td class='forumheader3'>".LWLAN_27."
   </tr>
 
   <tr>
-  <td class='r_header3'>".LWLAN_28."</td>
-  <td class='r_header3'><textarea rows='5' cols='60' class='tbox' name='linkword_omit_pages' >".$menu_pages."</textarea>
+  <td class='forumheader3'>".LWLAN_28."</td>
+  <td class='forumheader3'><textarea rows='5' cols='60' class='tbox' name='linkword_omit_pages' >".$menu_pages."</textarea>
   </td>
-  <td class='r_header3'>".LWLAN_29."
+  <td class='forumheader3'>".LWLAN_29."
   </tr>
 
 <tr>
-<td colspan='3' style='text-align:center' class='r_header1'>
+<td colspan='3' style='text-align:center' class='forumheader'>
 <input class='button' type='submit' name='saveopts_linkword' value='".LWLAN_30."' />
 </td>
 </tr>

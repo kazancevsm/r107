@@ -153,7 +153,7 @@ function forum_stage6()
 function mods_to_userclass()
 {
 	global $sql;
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	$_uc = new e_userclass;
 	if($sql->db_Select("forum", "forum_id, forum_moderators","forum_parent != 0"))
 	{

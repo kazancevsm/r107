@@ -14,7 +14,7 @@
 +-------------------------------------------------------------------------
 */
 
-	@require_once('../../class.php');
+	@require_once('../../class2.php');
 	
 	global $sql, $tp, $pref, $PLUGINS_DIRECTORY;
 	
@@ -25,7 +25,7 @@
 	@session_start();
 	
 	if(USER){ //���� ��� �����
-		$text = '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/about.png" alt="INFO" /> '
+		$text = '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/about.png" alt="INFO" /> '
 		.LOGINZA_LOGIN_OK.'</h3></div><script type="text/javascript">
 		setTimeout(\'location.replace("'.SITEURL.'")\', 1000);
 		</script>';
@@ -51,7 +51,7 @@
 						list($e_pass) = $sql->db_Fetch();
 						$text .= $loginza->loginza_e107($e_user_id, $e_pass, $_GET['url']);
 					}else{
-						$text .= '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'User with ID '.intval($e_user_id).' is not found'.LOGINZA_ERR2.'</h3></div>';
+						$text .= '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'User with ID '.intval($e_user_id).' is not found'.LOGINZA_ERR2.'</h3></div>';
 					}
 					unset($_SESSION['loginza']);
 				}else{ //���� ��� ������ ������������ => ��������� ����+����� � ������
@@ -73,15 +73,15 @@
 							}
 							//���� ���� ������ => �������
 							if(is_array($err_nick)){
-								$text .= '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/about.png" alt="INFO" /> ';
+								$text .= '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/about.png" alt="INFO" /> ';
 								for($b=0;$b<count($err_nick);$b++){
 									$text .= $err_nick[$b];
 								}
 								$text .= '</h3></div><form action="'.e_SELF.'?'.e_QUERY.'" method="POST">
 								<input type="hidden" name="token" value="'.htmlspecialchars($_POST['token'], ENT_QUOTES).'" />
 								'.(isset($_POST['email'])?'<input type="hidden" name="email" value="'.htmlspecialchars($_POST['email'], ENT_QUOTES).'">':'').'
-								<div class="r_header3">'.LOGINZA_ENTER_NICK.': <input class="tbox" type="text" name="nickname" value="'.htmlspecialchars($data['nickname'], ENT_QUOTES).'" /></div>
-								<br /><div class="r_header3"><input type="submit" class="button" value="'.LOGINZA_OK.'" /></div>
+								<div class="forumheader3">'.LOGINZA_ENTER_NICK.': <input class="tbox" type="text" name="nickname" value="'.htmlspecialchars($data['nickname'], ENT_QUOTES).'" /></div>
+								<br /><div class="forumheader3"><input type="submit" class="button" value="'.LOGINZA_OK.'" /></div>
 								</form>';
 							}else{
 								$uniq = md5(md5(uniqid(rand(),1)));
@@ -146,33 +146,33 @@
 										$text .= $loginza->loginza_e107($niq, $uniq, $_GET['url']);
 									
 									}else{
-										$text .= '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'Failed to add bind: '.intval($niq).' is not found'.LOGINZA_ERR2.'</h3></div>';
+										$text .= '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.LOGINZA_ERR.'Failed to add bind: '.intval($niq).' is not found'.LOGINZA_ERR2.'</h3></div>';
 									}
 									unset($_SESSION['loginza']);
 								}else{
-									$text = '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
+									$text = '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
 									.LOGINZA_NEWUSER_FAIL.'</h3></div></div>';
 									unset($_SESSION['loginza']);
 								}
 							}
 						}else{
-							$text = '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
+							$text = '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
 							.LOGINZA_HAS_MAIL_OR_LOGIN.'</h3></div></div>';
 							unset($_SESSION['loginza']);
 						}
 					}else{ //������ ������� ����
-						if(isset($_POST['email']) && !check_email($_POST['email'])) $text .= '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.
+						if(isset($_POST['email']) && !check_email($_POST['email'])) $text .= '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '.
 						LOGINZA_INVALID_EMAIL.'</h3></div><br />'; //���� ��� ��������� ������������
 						$text .= '<form action="'.e_SELF.'?'.e_QUERY.'" method="POST">
 						<input type="hidden" name="token" value="'.htmlspecialchars($_POST['token'], ENT_QUOTES).'" />
-						<div class="r_header3">'.LOGINZA_ENTER_EMAIL.' <input type="text" class="tbox" name="email" value="'.htmlspecialchars($_POST['email'], ENT_QUOTES).'" /></div>
-						<br /><div class="r_header3"><input type="submit" class="button" value="'.LOGINZA_OK.'" /></div>
+						<div class="forumheader3">'.LOGINZA_ENTER_EMAIL.' <input type="text" class="tbox" name="email" value="'.htmlspecialchars($_POST['email'], ENT_QUOTES).'" /></div>
+						<br /><div class="forumheader3"><input type="submit" class="button" value="'.LOGINZA_OK.'" /></div>
 						</form>';
 					}
 				}
 				
 			}else{ //���� ������ � ������ ��� "������" �����
-				$text = '<div class="r_header3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
+				$text = '<div class="forumheader3"><h3><img src="'.e_PLUGIN.'loginza/images/abort.png" alt="STOP" /> '
 				.(isset($data['error_message'])?htmlspecialchars($data['error_message'], ENT_QUOTES):LOGINZA_ERR.'empty provider or identity'.LOGINZA_ERR2).'</h3></div>';
 			}
 		}else{

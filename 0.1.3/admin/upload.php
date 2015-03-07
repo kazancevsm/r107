@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("V")) {
 	header("location:".e_BASE."index.php");
 	exit;
@@ -79,7 +79,7 @@ if ($action == "dl") {
 }
 
 require_once("auth.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 $gen = new convert;
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
@@ -125,71 +125,71 @@ if ($action == "view") {
 	$upload_datestamp = $gen->convert_date($upload_datestamp, "long");
 
 	$text = "<div style='text-align:center'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_3."</td>
-		<td style='width:70%' class='r_header3'>$upload_id</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_3."</td>
+		<td style='width:70%' class='forumheader3'>$upload_id</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".LAN_DATE."</td>
-		<td style='width:70%' class='r_header3'>$upload_datestamp</td>
+		<td style='width:30%' class='forumheader3'>".LAN_DATE."</td>
+		<td style='width:70%' class='forumheader3'>$upload_datestamp</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_5."</td>
-		<td style='width:70%' class='r_header3'>$poster</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_5."</td>
+		<td style='width:70%' class='forumheader3'>$poster</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_6."</td>
-		<td style='width:70%' class='r_header3'><a href='mailto:$upload_email'>$upload_email</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_6."</td>
+		<td style='width:70%' class='forumheader3'><a href='mailto:$upload_email'>$upload_email</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_7."</td>
-		<td style='width:70%' class='r_header3'>".($upload_website ? "<a href='$upload_website'>$upload_website</a>" : " - ")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_7."</td>
+		<td style='width:70%' class='forumheader3'>".($upload_website ? "<a href='$upload_website'>$upload_website</a>" : " - ")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_8."</td>
-		<td style='width:70%' class='r_header3'>".($upload_name ? $upload_name: " - ")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_8."</td>
+		<td style='width:70%' class='forumheader3'>".($upload_name ? $upload_name: " - ")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_9."</td>
-		<td style='width:70%' class='r_header3'>".($upload_version ? $upload_version : " - ")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_9."</td>
+		<td style='width:70%' class='forumheader3'>".($upload_version ? $upload_version : " - ")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_10."</td>
-		<td style='width:70%' class='r_header3'>".(is_numeric($upload_file) ? "Binary file ID ".$upload_file : "<a href='".e_SELF."?dl.$upload_file'>$upload_file</a>")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_10."</td>
+		<td style='width:70%' class='forumheader3'>".(is_numeric($upload_file) ? "Binary file ID ".$upload_file : "<a href='".e_SELF."?dl.$upload_file'>$upload_file</a>")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_11."</td>
-		<td style='width:70%' class='r_header3'>".parsesize($upload_filesize)."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_11."</td>
+		<td style='width:70%' class='forumheader3'>".parsesize($upload_filesize)."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_12."</td>
-		<td style='width:70%' class='r_header3'>".($upload_ss ? "<a href='".e_BASE."request.php?upload.".$upload_id."'>".$upload_ss."</a>" : " - ")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_12."</td>
+		<td style='width:70%' class='forumheader3'>".($upload_ss ? "<a href='".e_BASE."request.php?upload.".$upload_id."'>".$upload_ss."</a>" : " - ")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_13."</td>
-		<td style='width:70%' class='r_header3'>$upload_description</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_13."</td>
+		<td style='width:70%' class='forumheader3'>$upload_description</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".UPLLAN_14."</td>
-		<td style='width:70%' class='r_header3'>".($upload_demo ? $upload_demo : " - ")."</td>
+		<td style='width:30%' class='forumheader3'>".UPLLAN_14."</td>
+		<td style='width:70%' class='forumheader3'>".($upload_demo ? $upload_demo : " - ")."</td>
 		</tr>
 
 		<tr>
-		<td style='width:30%' class='r_header3'>".LAN_OPTIONS."</td>
-		<td style='width:70%' class='r_header3'><a href='".e_SELF."?dlm.$upload_id'>".UPLAN_COPYTODLM."</a> | <a href='".e_SELF."?news.$upload_id'>".UPLLAN_16."</a> | <a href='".e_SELF."?dis.$upload_id'>".UPLLAN_17."</a></td>
+		<td style='width:30%' class='forumheader3'>".LAN_OPTIONS."</td>
+		<td style='width:70%' class='forumheader3'><a href='".e_SELF."?dlm.$upload_id'>".UPLAN_COPYTODLM."</a> | <a href='".e_SELF."?news.$upload_id'>".UPLLAN_16."</a> | <a href='".e_SELF."?dis.$upload_id'>".UPLLAN_17."</a></td>
 		</tr>
 
 		</table>
@@ -203,17 +203,17 @@ if ($action == "view") {
 // list -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 $imgd = e_BASE.$IMAGES_DIRECTORY;
 $text = "<div style='text-align:center'>
-<table style='".ADMIN_WIDTH."' class='r_border'>
+<table class='fborder'>
 <tr>
-<td style='width:5%' class='r_caption'>".UPLLAN_22."</td>
-<td style='width:10%' class='r_caption'>".LAN_DATE."</td>
-<td style='width:20%' class='r_caption'>".UPLLAN_5."</td>
-<td style='width:20%' class='r_caption'>".UPLLAN_23."</td>
-<td style='width:30%' class='r_caption'>".UPLLAN_24."</td>
-<td style='width:18px' class='r_caption'>".UPLLAN_42."</td>
+<td style='width:5%' class='fcaption'>".UPLLAN_22."</td>
+<td style='width:10%' class='fcaption'>".LAN_DATE."</td>
+<td style='width:20%' class='fcaption'>".UPLLAN_5."</td>
+<td style='width:20%' class='fcaption'>".UPLLAN_23."</td>
+<td style='width:30%' class='fcaption'>".UPLLAN_24."</td>
+<td style='width:18px' class='fcaption'>".UPLLAN_42."</td>
 </tr>";
 
-$text .= "<tr><td class='r_header3' style='text-align:center' colspan='6'>";
+$text .= "<tr><td class='forumheader3' style='text-align:center' colspan='6'>";
 
 if (!$active_uploads = $sql->db_Select("upload", "*", "upload_active=0 ORDER BY upload_id ASC")) {
 	$text .= UPLLAN_19.".\n</td>\n</tr>";
@@ -233,12 +233,12 @@ if (!$active_uploads = $sql->db_Select("upload", "*", "upload_active=0 ORDER BY 
 		$poster = (!$post_author_id ? "<b>".$post_author_name."</b>" : "<a href='".e_BASE."user.php?id.".$post_author_id."'><b>".$post_author_name."</b></a>");
 		$upload_datestamp = $gen->convert_date($upload_datestamp, "short");
 		$text .= "<tr>
-		<td style='width:5%' class='r_header3'>".$upload_id ."</td>
-		<td style='width:20%' class='r_header3'>".$upload_datestamp."</td>
-		<td style='width:15%' class='r_header3'>".$poster."</td>
-		<td style='width:20%' class='r_header3'><a href='".e_SELF."?view.".$upload_id."'>".$upload_name ."</a></td>
-		<td style='width:20%' class='r_header3'>".$upload_file ."</td>
-		<td style='width:50px;white-space:nowrap' class='r_header3'>
+		<td style='width:5%' class='forumheader3'>".$upload_id ."</td>
+		<td style='width:20%' class='forumheader3'>".$upload_datestamp."</td>
+		<td style='width:15%' class='forumheader3'>".$poster."</td>
+		<td style='width:20%' class='forumheader3'><a href='".e_SELF."?view.".$upload_id."'>".$upload_name ."</a></td>
+		<td style='width:20%' class='forumheader3'>".$upload_file ."</td>
+		<td style='width:50px;white-space:nowrap' class='forumheader3'>
 		<form action='".e_SELF."?dis.$upload_id' id='uploadform_{$upload_id}' method='post'>
 		<div><a href='".e_SELF."?dlm.$upload_id'><img src='".e_IMAGE."admin/downloads_16.png' alt='".UPLAN_COPYTODLS."' title='".UPLAN_COPYTODLS."' style='border:0' /></a>
 		<a href='".e_SELF."?news.$upload_id'><img src='".e_IMAGE."admin/news_16.png' alt='".UPLLAN_16."' title='".UPLLAN_16."' style='border:0' /></a>
@@ -262,45 +262,45 @@ if (is_readable(e_SYSTEM.'filetypes.php'))
 
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td style='width:50%' class='r_header3'>".UPLLAN_25."<br />
+	<td style='width:50%' class='forumheader3'>".UPLLAN_25."<br />
 	<span class='smalltext'>".UPLLAN_26."</span></td>
-	<td style='width:50%' class='r_header3'>". ($pref['upload_enabled'] == 1 ? $rs->form_radio("upload_enabled", 1, 1)." ".LAN_YES.$rs->form_radio("upload_enabled", 0)." ".LAN_NO : $rs->form_radio("upload_enabled", 1)." ".LAN_YES.$rs->form_radio("upload_enabled", 0, 1)." ".LAN_NO)."
+	<td style='width:50%' class='forumheader3'>". ($pref['upload_enabled'] == 1 ? $rs->form_radio("upload_enabled", 1, 1)." ".LAN_YES.$rs->form_radio("upload_enabled", 0)." ".LAN_NO : $rs->form_radio("upload_enabled", 1)." ".LAN_YES.$rs->form_radio("upload_enabled", 0, 1)." ".LAN_NO)."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:50%' class='r_header3'>".UPLLAN_29."<br />
+	<td style='width:50%' class='forumheader3'>".UPLLAN_29."<br />
 	<span class='smalltext'>".UPLLAN_30."</span></td>
-	<td style='width:50%' class='r_header3'>". ($pref['upload_storagetype'] == 1 ? $rs->form_radio("upload_storagetype", 1, 1)." ".UPLLAN_31."<br />".$rs->form_radio("upload_storagetype", 2)." ".UPLLAN_32 : $rs->form_radio("upload_storagetype", 1)." ".UPLLAN_31."<br />".$rs->form_radio("upload_storagetype", 2, 1)." ".UPLLAN_32)."
+	<td style='width:50%' class='forumheader3'>". ($pref['upload_storagetype'] == 1 ? $rs->form_radio("upload_storagetype", 1, 1)." ".UPLLAN_31."<br />".$rs->form_radio("upload_storagetype", 2)." ".UPLLAN_32 : $rs->form_radio("upload_storagetype", 1)." ".UPLLAN_31."<br />".$rs->form_radio("upload_storagetype", 2, 1)." ".UPLLAN_32)."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".UPLLAN_33."<br />
+	<td style='width:70%' class='forumheader3'>".UPLLAN_33."<br />
 	<span class='smalltext'>".UPLLAN_34." (upload_max_filesize = ".ini_get('upload_max_filesize').", post_max_size = ".ini_get('post_max_size')." )</span></td>
-	<td style='width:30%' class='r_header3'>". $rs->form_text("upload_maxfilesize", 10, $pref['upload_maxfilesize'], 10)."
+	<td style='width:30%' class='forumheader3'>". $rs->form_text("upload_maxfilesize", 10, $pref['upload_maxfilesize'], 10)."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".UPLLAN_35."<br />
+	<td style='width:70%' class='forumheader3'>".UPLLAN_35."<br />
 	<span class='smalltext'>".UPLLAN_48."</span></td>
-	<td style='width:30%' class='r_header3'>".$allowed_filetypes."
+	<td style='width:30%' class='forumheader3'>".$allowed_filetypes."
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:70%' class='r_header3'>".UPLLAN_37."<br />
+	<td style='width:70%' class='forumheader3'>".UPLLAN_37."<br />
 	<span class='smalltext'>".UPLLAN_38."</span></td>
-	<td style='width:30%' class='r_header3'>".r_userclass("upload_class", $pref['upload_class'],"off","nobody,public,guest,member,admin,main,classes")."
+	<td style='width:30%' class='forumheader3'>".r_userclass("upload_class", $pref['upload_class'],"off","nobody,public,guest,member,admin,main,classes")."
 
 	</td>
 	</tr>
 
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'>". $rs->form_button("submit", "optionsubmit", UPLLAN_39)."
+	<td colspan='2' class='forumheader' style='text-align:center'>". $rs->form_button("submit", "optionsubmit", UPLLAN_39)."
 	</td>
 	</tr>
 	</table>". $rs->form_close()."

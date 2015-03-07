@@ -1,6 +1,6 @@
 <?php
 /* $Id: content_preset.php 11346 2010-02-17 18:56:14Z secretr $ */
-require_once("../../../class.php");
+require_once("../../../class2.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
 
@@ -138,12 +138,12 @@ td{
 	font-size:11px;
 	text-align:left;
 }
-.r_border{
+.fborder{
 	width:80%;
 	margin:0;
 	padding:0;
 }
-.r_caption{
+.fcaption{
 	font-size:12px;
 	font-weight:bold;
 	white-space:nowrap;
@@ -175,9 +175,9 @@ $qs = explode(".", e_QUERY);
 
 $text .= "
 <form method='post' action='".e_SELF."?".e_QUERY."'>\n
-<table class='r_border' style='width:350px;'>
+<table class='fborder' style='width:350px;'>
 ".($err ? "<tr><td colspan='2' class='err' style='padding-bottom:10px;'>".$err."</td></tr>" : "")."
-<tr><td colspan='2' class='r_caption' style='padding-bottom:10px;'>".CONTENT_PRESET_LAN_8." : ".$qs[0]."</td></tr>
+<tr><td colspan='2' class='fcaption' style='padding-bottom:10px;'>".CONTENT_PRESET_LAN_8." : ".$qs[0]."</td></tr>
 <tr><td class='leftcell'>".CONTENT_PRESET_LAN_9."</td><td>".$rs -> form_text("field", 40, $_POST['field'], 50)."</td></tr>";
 
 if($qs[0] == "text"){

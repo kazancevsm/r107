@@ -16,7 +16,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../../class.php');
+require_once('../../class2.php');
 if (!isset($pref['plug_installed']['content']))
 {
 	header('location:'.e_BASE.'index.php');
@@ -29,7 +29,7 @@ require_once(e_HANDLER."emailprint_handler.php");
 $ep = new emailprint;
 require_once(e_HANDLER."comment_handler.php");
 $cobj = new comment;
-require_once(e_HANDLER."rate_class.php");
+require_once(e_HANDLER."rate_handler.php");
 $rater = new rater;
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
@@ -1009,8 +1009,8 @@ function show_content_author(){
 			$authorqry		= $qry." ".$order." ".$nextprevquery;
 			$text			= displayPreview($authorqry);
 			$text			= $aa -> getCrumbPage("author", $array, $mainparent).$text;
-			$caption		= $content_pref['content_author_caption'];
-			if(isset($content_pref['content_author_caption_append_name']) && $content_pref['content_author_caption_append_name']){
+			$caption		= $content_pref['content_authofcaption'];
+			if(isset($content_pref['content_authofcaption_append_name']) && $content_pref['content_authofcaption_append_name']){
 				$caption .= " ".$authordetails[1];
 			}
 			$ns -> tablerender($caption, $text);

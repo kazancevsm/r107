@@ -4,7 +4,7 @@ if (!defined('e107_INIT')) { exit; }
 
 
 
-require_once('ecal_class.php');
+require_once("ecal_class.php");
 $ecal_class = new ecal_class;
 
 $LIST_CAPTION = $arr[0];

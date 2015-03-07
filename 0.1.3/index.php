@@ -18,7 +18,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('class.php');
+require_once("class2.php");
 
 if (file_exists('index_include.php')) {
 	include('index_include.php');
@@ -53,7 +53,7 @@ if ($pref['membersonly_enabled'] && !USER) {
 } else if (ADMIN) {
 	$location =  ((strpos($pref['frontpage']['254'], 'http') === FALSE) ? e_BASE : '').$pref['frontpage']['254'].$query;
 } else if (USER) {
-	require_once(e_HANDLER.'userclass_class.php');
+	require_once(e_HANDLER."userclass_handler.php");
 	$class_list = get_userclass_list();
 	foreach ($class_list as $fp_class) {
 		$inclass = false;

@@ -1,6 +1,6 @@
 <?php
 /*************************************************************************************
- * email.php
+ * email_handler.php
  * ---------------
  * Author: Benny Baumann (BenBE@geshi.org)
  * Copyright: (c) 2008 Benny Baumann (http://qbnz.com/highlighter/)

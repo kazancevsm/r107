@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------+
 |     e107 website system
-|     /sitelinks_class.php
+|     /sitelinks_handler.php
 |
 |     Copyright (C) 2001-2002 Steve Dunstan (jalist@e107.org)
 |     Copyright (C) 2008-2010 e107 Inc (e107.org)
@@ -11,9 +11,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/sitelinks_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/sitelinks_handler.php $
 |     $Revision: 12129 $
-|     $Id: sitelinks_class.php 12129 2011-04-12 00:34:14Z e107coders $
+|     $Id: sitelinks_handler.php 12129 2011-04-12 00:34:14Z e107coders $
 |     $Author: e107coders $
 +---------------------------------------------------------------+
 */

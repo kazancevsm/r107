@@ -142,7 +142,7 @@ if ($num_cat_proc = $sql->db_Select_gen($cal_query))
       if ($run_from_menu) if (!($handle = fopen($log_filename, 'a'))) $log_requirement = 0;
       if (fwrite($handle," - ".$num_cat_proc." categories found to process\r\n") === false)  $log_requirement = 0;
     }
-    require_once(e_HANDLER . "mail.php");
+    require_once(e_HANDLER . "mail_handler.php");
     while ($cal_row = $sql->db_Fetch())
     {  // Process one event at a time
       extract($cal_row);

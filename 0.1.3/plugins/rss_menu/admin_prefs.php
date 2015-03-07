@@ -28,7 +28,7 @@ Notes:
 
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if(!getperms("P")){ header("location:".e_BASE."index.php"); exit(); }
 
 include_lan(e_PLUGIN.'rss_menu/languages/'.e_LANGUAGE.'.php');

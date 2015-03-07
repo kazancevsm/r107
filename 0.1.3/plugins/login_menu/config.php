@@ -19,7 +19,7 @@
 */
 
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("4")) { header("location:".e_BASE."index.php"); exit ;}
 
 include_lan(e_PLUGIN."login_menu/languages/".e_LANGUAGE.".php");
@@ -36,53 +36,53 @@ if ($_POST['update_menu']) {
 $text = '
 	<div style="text-align:center">
 	<form action="'.e_SELF.'?'.e_QUERY.'" method="post">
-	<table style="width:85%" class="r_border" >
+	<table style="width:85%" class="fborder" >
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L31.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L31.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_news]" value="1"'.($menu_pref['login_menu']['new_news'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L32.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L32.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_articles]" value="1"'.($menu_pref['login_menu']['new_articles'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L33.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L33.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_chatbox]" value="1"'.($menu_pref['login_menu']['new_chatbox'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L34.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L34.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_comments]" value="1"'.($menu_pref['login_menu']['new_comments'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L35.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L35.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_forum]" value="1"'.($menu_pref['login_menu']['new_forum'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style="width:30%" class="r_header3">'.LOGIN_MENU_L36.'</td>
-	<td style="width:70%" class="r_header3">
+	<td style="width:30%" class="forumheader3">'.LOGIN_MENU_L36.'</td>
+	<td style="width:70%" class="forumheader3">
 	<input type="checkbox" name="pref[new_members]" value="1"'.($menu_pref['login_menu']['new_members'] == 1 ? ' checked="checked"' : '').' />
 	</td>
 	</tr>
 
 	<tr>
-	<td colspan="2" class="r_header1" style="text-align: center;"><input class="button" type="submit" name="update_menu" value="'.LAN_SAVE.'" /></td>
+	<td colspan="2" class="forumheader" style="text-align: center;"><input class="button" type="submit" name="update_menu" value="'.LAN_SAVE.'" /></td>
 	</tr>
 	</table>
 	</form>

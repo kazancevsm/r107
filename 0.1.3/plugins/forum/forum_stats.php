@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../../class.php');
+require_once('../../class2.php');
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -142,13 +142,13 @@ foreach($posters as $poster)
 
 $text = "
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1'>".FSLAN_1."</td>
+<td class='forumheader'>".FSLAN_1."</td>
 </tr>
 
 <tr>
-<td class='r_header3'>
+<td class='forumheader3'>
 	<table style='width: 100%;'>
 	<tr><td style='width: 50%; text-align: right;'><b>".FSLAN_2.":</b>&nbsp;&nbsp;</td><td style='width: 50%;'>{$open_date}</td></tr>
 	<tr><td style='width: 50%; text-align: right;'><b>".FSLAN_3.":</b>&nbsp;&nbsp;</td><td style='width: 50%;'>{$open_since}</td></tr>
@@ -167,16 +167,16 @@ $text = "
 </div>
 
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1' colspan='5'>".FSLAN_10."</td>
+<td class='forumheader' colspan='5'>".FSLAN_10."</td>
 </tr>
 <tr>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_11."</td>
-<td style='width: 40%;' class='r_caption'>".FSLAN_12."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_13."</td>
-<td style='width: 20%; text-align: center;' class='r_caption'>".FSLAN_14."</td>
-<td style='width: 20%; text-align: center;' class='r_caption'>".FSLAN_15."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_11."</td>
+<td style='width: 40%;' class='fcaption'>".FSLAN_12."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_13."</td>
+<td style='width: 20%; text-align: center;' class='fcaption'>".FSLAN_14."</td>
+<td style='width: 20%; text-align: center;' class='fcaption'>".FSLAN_15."</td>
 </tr>
 ";
 
@@ -194,11 +194,11 @@ foreach($most_activeArray as $ma)
 	}
 
 	$text .= "<tr>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$count</td>
-	<td style='width: 40%;' class='r_header3'><a href='".e_PLUGIN."forum/forum_viewtopic.php?{$ma['thread_id']}'>{$ma['thread_name']}</a></td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>{$ma['thread_total_replies']}</td>
-	<td style='width: 20%; text-align: center;' class='r_header3'>{$uinfo}</td>
-	<td style='width: 20%; text-align: center;' class='r_header3'>".$gen->convert_date($ma['thread_datestamp'], "forum")."</td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$count</td>
+	<td style='width: 40%;' class='forumheader3'><a href='".e_PLUGIN."forum/forum_viewtopic.php?{$ma['thread_id']}'>{$ma['thread_name']}</a></td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>{$ma['thread_total_replies']}</td>
+	<td style='width: 20%; text-align: center;' class='forumheader3'>{$uinfo}</td>
+	<td style='width: 20%; text-align: center;' class='forumheader3'>".$gen->convert_date($ma['thread_datestamp'], "forum")."</td>
 	</tr>
 	";
 	$count++;
@@ -207,16 +207,16 @@ $text .= "</table>
 </div>
 
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1' colspan='5'>".FSLAN_16."</td>
+<td class='forumheader' colspan='5'>".FSLAN_16."</td>
 </tr>
 <tr>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_11."</td>
-<td style='width: 40%;' class='r_caption'>".FSLAN_12."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_17."</td>
-<td style='width: 20%; text-align: center;' class='r_caption'>".FSLAN_14."</td>
-<td style='width: 20%; text-align: center;' class='r_caption'>".FSLAN_15."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_11."</td>
+<td style='width: 40%;' class='fcaption'>".FSLAN_12."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_17."</td>
+<td style='width: 20%; text-align: center;' class='fcaption'>".FSLAN_14."</td>
+<td style='width: 20%; text-align: center;' class='fcaption'>".FSLAN_15."</td>
 </tr>
 ";
 
@@ -234,11 +234,11 @@ foreach($most_viewedArray as $ma)
 	}
 
 	$text .= "<tr>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$count</td>
-	<td style='width: 40%;' class='r_header3'><a href='".e_PLUGIN."forum/forum_viewtopic.php?{$ma['thread_id']}'>{$ma['thread_name']}</a></td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>{$ma['thread_views']}</td>
-	<td style='width: 20%; text-align: center;' class='r_header3'>{$uinfo}</td>
-	<td style='width: 20%; text-align: center;' class='r_header3'>".$gen->convert_date($ma['thread_datestamp'], "forum")."</td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$count</td>
+	<td style='width: 40%;' class='forumheader3'><a href='".e_PLUGIN."forum/forum_viewtopic.php?{$ma['thread_id']}'>{$ma['thread_name']}</a></td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>{$ma['thread_views']}</td>
+	<td style='width: 20%; text-align: center;' class='forumheader3'>{$uinfo}</td>
+	<td style='width: 20%; text-align: center;' class='forumheader3'>".$gen->convert_date($ma['thread_datestamp'], "forum")."</td>
 	</tr>
 	";
 	$count++;
@@ -247,16 +247,16 @@ $text .= "</table>
 </div>
 
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1' colspan='5'>".FSLAN_18."</td>
+<td class='forumheader' colspan='5'>".FSLAN_18."</td>
 </tr>
 <tr>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_11."</td>
-<td style='width: 20%;' class='r_caption'>".FSLAN_19."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_20."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>%</td>
-<td style='width: 50%; text-align: center;' class='r_caption'>&nbsp;</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_11."</td>
+<td style='width: 20%;' class='fcaption'>".FSLAN_19."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_20."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>%</td>
+<td style='width: 50%; text-align: center;' class='fcaption'>&nbsp;</td>
 </tr>
 ";
 
@@ -265,11 +265,11 @@ foreach($top_posters as $ma)
 {
 	extract($ma);
 	$text .= "<tr>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$count</td>
-	<td style='width: 20%;' class='r_header3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$user_forums</td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$percentage%</td>
-	<td style='width: 50%;' class='r_header3'>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$count</td>
+	<td style='width: 20%;' class='forumheader3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$user_forums</td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$percentage%</td>
+	<td style='width: 50%;' class='forumheader3'>
 
 	<div style='background-image: url($barl); width: 5px; height: 14px; float: left;'></div>
 	<div style='background-image: url($bar); width: ".intval($percentage)."%; height: 14px; float: left;'></div>
@@ -285,16 +285,16 @@ $text .= "
 </div>
 
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1' colspan='5'>".FSLAN_21."</td>
+<td class='forumheader' colspan='5'>".FSLAN_21."</td>
 </tr>
 <tr>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_11."</td>
-<td style='width: 20%;' class='r_caption'>".FSLAN_19."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_20."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>%</td>
-<td style='width: 50%; text-align: center;' class='r_caption'>&nbsp;</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_11."</td>
+<td style='width: 20%;' class='fcaption'>".FSLAN_19."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_20."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>%</td>
+<td style='width: 50%; text-align: center;' class='fcaption'>&nbsp;</td>
 </tr>
 ";
 
@@ -303,11 +303,11 @@ foreach($top_topic_starters as $ma)
 {
 	extract($ma);
 	$text .= "<tr>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$count</td>
-	<td style='width: 20%;' class='r_header3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$user_forums</td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$percentage%</td>
-	<td style='width: 50%; text-align: center;' class='r_header3'>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$count</td>
+	<td style='width: 20%;' class='forumheader3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$user_forums</td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$percentage%</td>
+	<td style='width: 50%; text-align: center;' class='forumheader3'>
 
 	<div style='background-image: url($barl); width: 5px; height: 14px; float: left;'></div>
 	<div style='background-image: url($bar); width: ".intval($percentage)."%; height: 14px; float: left;'></div>
@@ -323,16 +323,16 @@ $text .= "</table>
 
 
 <div class='spacer'>
-<table style='width: 100%;' class='r_border'>
+<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header1' colspan='5'>".FSLAN_22."</td>
+<td class='forumheader' colspan='5'>".FSLAN_22."</td>
 </tr>
 <tr>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_11."</td>
-<td style='width: 20%;' class='r_caption'>".FSLAN_19."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>".FSLAN_20."</td>
-<td style='width: 10%; text-align: center;' class='r_caption'>%</td>
-<td style='width: 50%; text-align: center;' class='r_caption'>&nbsp;</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_11."</td>
+<td style='width: 20%;' class='fcaption'>".FSLAN_19."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>".FSLAN_20."</td>
+<td style='width: 10%; text-align: center;' class='fcaption'>%</td>
+<td style='width: 50%; text-align: center;' class='fcaption'>&nbsp;</td>
 </tr>
 ";
 
@@ -341,11 +341,11 @@ foreach($top_repliers as $ma)
 {
 	extract($ma);
 	$text .= "<tr>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$count</td>
-	<td style='width: 20%;' class='r_header3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$user_forums</td>
-	<td style='width: 10%; text-align: center;' class='r_header3'>$percentage%</td>
-	<td style='width: 50%; text-align: center;' class='r_header3'>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$count</td>
+	<td style='width: 20%;' class='forumheader3'><a href='".e_BASE."user.php?id.$user_id'>$user_name</a></td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$user_forums</td>
+	<td style='width: 10%; text-align: center;' class='forumheader3'>$percentage%</td>
+	<td style='width: 50%; text-align: center;' class='forumheader3'>
 
 	<div style='background-image: url($barl); width: 5px; height: 14px; float: left;'></div>
 	<div style='background-image: url($bar); width: ".intval($percentage)."%; height: 14px; float: left;'></div>

@@ -188,7 +188,7 @@ function hex_getdirs($dir, $root, $s = "1", $path = e_BASE) {
 }
 	
 	
-require_once("../../class.php");
+require_once("../../class2.php");
 	
 //Output-Path
 $o_path = "crc/";
@@ -394,14 +394,14 @@ $text = "<div style='text-align:center'>
 	<table style='width:95%'>
 
 	<tr>
-	<td class='r_caption' colspan='2'><br /><a href='".e_ADMIN."fileinspector.php'>".Integ_27."</a><br /><br />
+	<td class='fcaption' colspan='2'><br /><a href='".e_ADMIN."fileinspector.php'>".Integ_27."</a><br /><br />
 	</td>	 
 	<tr>
-	<td class='r_caption' colspan='2'>".Integ_06."
+	<td class='fcaption' colspan='2'>".Integ_06."
 	</td>
 	</tr>
 	<tr>
-	<td style='width:60%' class='r_header3'>";
+	<td style='width:60%' class='forumheader3'>";
 if ($core_array[0]) {
 	$text .= "<b><u>".Integ_19.":</u></b><br />";
 	reset($core_array);
@@ -449,7 +449,7 @@ if (is_writeable($o_path) && !$err_1 && !$err_2) {
 	
 $text .= "</select>
 	</td>
-	<td style='width:40%' class='r_header3'>
+	<td style='width:40%' class='forumheader3'>
 	<input class='button' type='submit' name='docheck' size='20' value='".Integ_08."' />
 	</td>
 	</tr>";
@@ -461,11 +461,11 @@ if (is_writable($o_path)) {
 		$text .= docorefile();
 	}
 	$text .= "<tr>
-		<td class='r_caption' colspan='2'>".Integ_18."
+		<td class='fcaption' colspan='2'>".Integ_18."
 		</td>
 		</tr>
 		<tr>
-		<td style='width:60%' class='r_header3'>
+		<td style='width:60%' class='forumheader3'>
 		 
 		<select name='plug_activate' class='tbox' onChange=\"document.integrity_check.save_plug_name.value=hex_strReplace(this.options[selectedIndex].value, '".e_PLUGIN."','')+'.crc' \" ><option></option>";
 	unset($t_array);
@@ -480,14 +480,14 @@ if (is_writable($o_path)) {
 	}
 	$text .= "</select>
 		</td>
-		<td style='width:40%' class='r_header3' >".Integ_21."
+		<td style='width:40%' class='forumheader3' >".Integ_21."
 		</td>
 		</tr>
 		<tr>
-		<td style='width:60%' class='r_header3'>".Integ_11."&nbsp;
+		<td style='width:60%' class='forumheader3'>".Integ_11."&nbsp;
 		<input class='tbox' type='text' name='save_plug_name' size='40' value='' readonly>
 		</td>
-		<td style='width:40%' class='r_header3'>
+		<td style='width:40%' class='forumheader3'>
 		<input type='checkbox' name='gz_plug' value='.gz' checked />".Integ_22."
 		</td>
 		</tr>
@@ -500,7 +500,7 @@ if (is_writable($o_path)) {
 		</td></tr></table></form></div>";
 } else {
 	$text .= "<tr>
-		<td class='r_header3' colspan='2'>".str_replace("{output}", $o_path, Integ_14)."
+		<td class='forumheader3' colspan='2'>".str_replace("{output}", $o_path, Integ_14)."
 		</td>
 		</tr></table></form></div>";
 }

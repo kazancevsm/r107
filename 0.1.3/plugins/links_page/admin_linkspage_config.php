@@ -16,7 +16,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("P")) {
 	header("location:".e_BASE."index.php");
 }
@@ -33,7 +33,7 @@ if(e_QUERY){
 }
 
 require_once(e_ADMIN."auth.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once(e_HANDLER."form_handler.php");
 $rs = new form;
 require_once(e_HANDLER."file_handler.php");

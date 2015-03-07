@@ -3,7 +3,6 @@
 
 
 if (!defined('e107_INIT')) { exit; }
-if (!defined("USER_WIDTH")){ define("USER_WIDTH","width:70%"); }
 
 // ##### FPW TABLE -----------------------------------------------------------------------------
 if(!isset($FPW_TABLE))
@@ -11,22 +10,22 @@ if(!isset($FPW_TABLE))
 		$FPW_TABLE = "
 		<div style='text-align:center'>
 		<form method='post' action='".SITEURL."fpw.php'>
-		<table style='".USER_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td class='r_caption' colspan='2'>".LAN_05."</td>
+		<td class='fcaption' colspan='2'>".LAN_05."</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:70%'>".LAN_FPW1.":</td>
-		<td class='r_header3' style='width:30%;text-align:center'>
+		<td class='forumheader3' style='width:70%'>".LAN_FPW1.":</td>
+		<td class='forumheader3' style='width:30%;text-align:center'>
 		<input class='tbox' type='text' name='username' size='40' value='' maxlength='100' />
 		</td>
 		</tr>
 
 		<tr>
-		<td class='r_header3' style='width:70%'>".LAN_112.":</td>
-		<td class='r_header3' style='width:30%; text-align:center'>
+		<td class='forumheader3' style='width:70%'>".LAN_112.":</td>
+		<td class='forumheader3' style='width:30%; text-align:center'>
 		<input class='tbox' type='text' name='email' size='40' value='' maxlength='100' />
 		</td>
 		</tr>";
@@ -35,8 +34,8 @@ if(!isset($FPW_TABLE))
 		{
 				$FPW_TABLE .= "
 				<tr>
-					<td class='r_header3' style='width:25%'>{FPW_TABLE_SECIMG_LAN}</td>
-					<td class='r_header3' style='width:75%;text-align:left'>{FPW_TABLE_SECIMG_HIDDEN} {FPW_TABLE_SECIMG_SECIMG}<br />
+					<td class='forumheader3' style='width:25%'>{FPW_TABLE_SECIMG_LAN}</td>
+					<td class='forumheader3' style='width:75%;text-align:left'>{FPW_TABLE_SECIMG_HIDDEN} {FPW_TABLE_SECIMG_SECIMG}<br />
 					{FPW_TABLE_SECIMG_TEXTBOC}<br />
 					</td>
 				</tr>";
@@ -44,7 +43,7 @@ if(!isset($FPW_TABLE))
 
 		$FPW_TABLE .="
 		<tr style='vertical-align:top'>
-		<td class='r_header1' colspan='2' style='text-align:center'>
+		<td class='forumheader' colspan='2' style='text-align:center'>
 		<input class='button' type='submit' name='pwsubmit' value='".LAN_156."' />
 		<input type='hidden' name='e-token' value=\"".e_TOKEN."\" />
 		</td>

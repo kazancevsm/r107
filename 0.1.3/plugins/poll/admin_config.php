@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!is_object($tp)) $tp = new e_parse;
 if (!getperms("P")) {
 	header("location:".e_BASE."index.php");
@@ -27,7 +27,7 @@ $e_sub_cat = 'poll';
 require_once(e_ADMIN."auth.php");
 require_once(e_PLUGIN."poll/poll_class.php");
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 if(isset($_POST)) {
 	$_POST = strip_if_magic($_POST);
@@ -125,18 +125,18 @@ if (isset($message))
 	$ns->tablerender("", "<div style='text-align:center'><b>".$message."</b></div>");
 }
 
-$text = "<div style='text-align:center'><div style='padding : 1px; ".ADMIN_WIDTH."; height : 200px; overflow : auto; margin-left: auto; margin-right: auto;'>
+$text = "<div style='text-align:center'><div style='padding : 1px; height : 200px; overflow : auto; margin-left: auto; margin-right: auto;'>
 	<form action='".e_SELF."' method='post' id='del_poll'>";
 
 if ($poll_total = $sql->db_Select("polls", "*", "1 ORDER BY poll_type")) 
 {  // Display existing polls
-	$text .= "<table class='r_border' style='width:99%'>
+	$text .= "<table class='fborder' style='width:99%'>
 		<tr>
-		<td style='width:5%' class='r_caption' style='white-space:nowrap'>".POLL_ADLAN07."
+		<td style='width:5%' class='fcaption' style='white-space:nowrap'>".POLL_ADLAN07."
 		<input type='hidden' name='del_poll_confirm' id='del_poll_confirm' value='1' />
 		</td>
-		<td style='width:75%' class='r_caption'>".POLLAN_3."</td>
-		<td style='width:20%' class='r_caption'>".POLLAN_4."</td>
+		<td style='width:75%' class='fcaption'>".POLLAN_3."</td>
+		<td style='width:20%' class='fcaption'>".POLLAN_4."</td>
 		</tr>";
 	while ($row = $sql->db_Fetch())
 	{
@@ -149,9 +149,9 @@ if ($poll_total = $sql->db_Select("polls", "*", "1 ORDER BY poll_type"))
 			$id_text = POLL_ADLAN06.$row['poll_datestamp'];
 		}
 		$text .= "<tr>
-			<td  style='white-space:nowrap' class='r_header3'>{$id_text}</td>
-			<td style='width:75%' class='r_header3'>".$tp -> toHTML($row['poll_title'], TRUE, "no_hook, emotes_off, defs")."</td>
-			<td style='width:20%; text-align:center' class='r_header3'><div>". $rs->form_button("button", "main_edit_{$row['poll_id']}", POLLAN_5, "onclick=\"document.location='".e_SELF."?edit.{$row['poll_id']}'\""). $rs->form_button("submit", "main_delete_{$row['poll_id']}", POLLAN_6, "onclick=\"confirm_({$row['poll_id']})\"")."
+			<td  style='white-space:nowrap' class='forumheader3'>{$id_text}</td>
+			<td style='width:75%' class='forumheader3'>".$tp -> toHTML($row['poll_title'], TRUE, "no_hook, emotes_off, defs")."</td>
+			<td style='width:20%; text-align:center' class='forumheader3'><div>". $rs->form_button("button", "main_edit_{$row['poll_id']}", POLLAN_5, "onclick=\"document.location='".e_SELF."?edit.{$row['poll_id']}'\""). $rs->form_button("submit", "main_delete_{$row['poll_id']}", POLLAN_6, "onclick=\"confirm_({$row['poll_id']})\"")."
 			</div></td>
 			</tr>";
 	}

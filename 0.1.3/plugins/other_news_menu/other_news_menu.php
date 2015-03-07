@@ -28,7 +28,7 @@ if($cacheData = $e107cache->retrieve("nq_othernews"))
 }
 
 
-require_once(e_HANDLER."news_class.php");
+require_once(e_HANDLER."news_handler.php");
 unset($text);
 global $OTHERNEWS_STYLE,$news_cssmode;
 $ix = new news;

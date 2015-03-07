@@ -33,8 +33,8 @@
 				$detect = $detect2 - $detect1;
 				$profile_old = substr($USER_FULL_TEMPLATE, $detect1, $detect);
 				$profile_new = "<tr>
-				<td style='width:30%' class='r_header3'>".LOGINZA_PROFILE."</td>
-				<td style='width:70%' class='r_header3'>{LOGINZA_PROFILE}</td>
+				<td style='width:30%' class='forumheader3'>".LOGINZA_PROFILE."</td>
+				<td style='width:70%' class='forumheader3'>{LOGINZA_PROFILE}</td>
 				</tr>";
 				$USER_FULL_TEMPLATE = str_replace($profile_old, $profile_old.$profile_new, $USER_FULL_TEMPLATE);
 			}
@@ -49,11 +49,11 @@
 				$detect = $detect2 - $detect1;
 				$profile_old = substr($USERSETTINGS_EDIT, $detect1, $detect);
 				$profile_new = "<tr>
-					<td colspan='2' class='r_header1'>OpenID</td>
+					<td colspan='2' class='forumheader'>OpenID</td>
 				</tr>
 				<tr>
-					<td style='width:40%' class='r_header3'>".LOGINZA_PROFILE."<br /><span class='smalltext'>".LOGINZA_EDIT_DESC."</span></td>
-					<td style='width:60%' class='r_header2'><span class='defaulttext'>
+					<td style='width:40%' class='forumheader3'>".LOGINZA_PROFILE."<br /><span class='smalltext'>".LOGINZA_EDIT_DESC."</span></td>
+					<td style='width:60%' class='forumheader2'><span class='defaulttext'>
 					{LOGINZA_EDIT}
 					</span>
 					</td>

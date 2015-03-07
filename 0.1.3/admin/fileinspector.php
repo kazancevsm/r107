@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once('../class.php');
+require_once('../class2.php');
 if (!getperms('Y')) {
 	header('location:'.e_BASE.'index.php');
 	exit;
@@ -87,16 +87,16 @@ class file_inspector {
 
 		$text = "<div style='text-align: center'>
 		<form action='".e_SELF."' method='post' id='scanform'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_caption' colspan='2'>".FC_LAN_2."</td>
+		<td class='fcaption' colspan='2'>".FC_LAN_2."</td>
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_3." ".FC_LAN_5.":
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='core' value='all'".(($_POST['core'] == 'all' || !isset($_POST['core'])) ? " checked='checked'" : "")." /> ".FC_LAN_4."&nbsp;&nbsp;
 		<input type='radio' name='core' value='fail'".($_POST['core'] == 'fail' ? " checked='checked'" : "")." /> ".FC_LAN_6."&nbsp;&nbsp;
 		<input type='radio' name='core' value='none'".($_POST['core'] == 'none' ? " checked='checked'" : "")." /> ".FC_LAN_12."&nbsp;&nbsp;
@@ -104,49 +104,49 @@ class file_inspector {
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_3." ".FC_LAN_13.":
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='missing' value='1'".(($_POST['missing'] == '1' || !isset($_POST['missing'])) ? " checked='checked'" : "")." /> ".FC_LAN_9."&nbsp;&nbsp;
 		<input type='radio' name='missing' value='0'".($_POST['missing'] == '0' ? " checked='checked'" : "")." /> ".FC_LAN_10."&nbsp;&nbsp;
 		</td>
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_3." ".FC_LAN_7.":
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='noncore' value='1'".(($_POST['noncore'] == '1' || !isset($_POST['noncore'])) ? " checked='checked'" : "")." /> ".FC_LAN_9."&nbsp;&nbsp;
 		<input type='radio' name='noncore' value='0'".($_POST['noncore'] == '0' ? " checked='checked'" : "")." /> ".FC_LAN_10."&nbsp;&nbsp;
 		</td>
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_3." ".FC_LAN_21.":
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='oldcore' value='1'".(($_POST['oldcore'] == '1' || !isset($_POST['oldcore'])) ? " checked='checked'" : "")." /> ".FC_LAN_9."&nbsp;&nbsp;
 		<input type='radio' name='oldcore' value='0'".($_POST['oldcore'] == '0' ? " checked='checked'" : "")." /> ".FC_LAN_10."&nbsp;&nbsp;
 		</td>
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_8.":
 		</td>
-		<td class='r_header3' style='width: 65%; vertical-align: top'>
+		<td class='forumheader3' style='width: 65%; vertical-align: top'>
 		<input type='radio' name='integrity' value='1'".(($_POST['integrity'] == '1' || !isset($_POST['integrity'])) ? " checked='checked'" : "")." /> ".FC_LAN_9."&nbsp;&nbsp;
 		<input type='radio' name='integrity' value='0'".($_POST['integrity'] == '0' ? " checked='checked'" : "")." /> ".FC_LAN_10."&nbsp;&nbsp;
 		</td></tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		".FC_LAN_14.":
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='type' value='tree'".(($_POST['type'] == 'tree' || !isset($_POST['type'])) ? " checked='checked'" : "")." /> ".FC_LAN_15."&nbsp;&nbsp;
 		<input type='radio' name='type' value='list'".($_POST['type'] == 'list' ? " checked='checked'" : "")." /> ".FC_LAN_16."&nbsp;&nbsp;
 		</td>
@@ -154,39 +154,39 @@ class file_inspector {
 		
 		if ($pref['developer']) {
 			$text .= "<tr>
-			<td class='r_caption' colspan='2'>".FC_LAN_17."</td>
+			<td class='fcaption' colspan='2'>".FC_LAN_17."</td>
 			</tr>";
 			
 			$text .= "<tr>
-			<td class='r_header3' style='width: 35%'>
+			<td class='forumheader3' style='width: 35%'>
 			".FC_LAN_18.":
 			</td>
-			<td colspan='2' class='r_header3' style='width: 65%'>
+			<td colspan='2' class='forumheader3' style='width: 65%'>
 			#<input class='tbox' type='text' name='regex' size='40' value='".htmlentities($_POST['regex'], ENT_QUOTES)."' />#<input class='tbox' type='text' name='mod' size='5' value='".$_POST['mod']."' />
 			</td>
 			</tr>";
 			
 			$text .= "<tr>
-			<td class='r_header3' style='width: 35%'>
+			<td class='forumheader3' style='width: 35%'>
 			".FC_LAN_19.":
 			</td>
-			<td colspan='2' class='r_header3' style='width: 65%'>
+			<td colspan='2' class='forumheader3' style='width: 65%'>
 			<input type='checkbox' name='num' value='1'".(($_POST['num'] || !isset($_POST['num'])) ? " checked='checked'" : "")." />
 			</td>
 			</tr>";
 			
 			$text .= "<tr>
-			<td class='r_header3' style='width: 35%'>
+			<td class='forumheader3' style='width: 35%'>
 			".FC_LAN_20.":
 			</td>
-			<td colspan='2' class='r_header3' style='width: 65%'>
+			<td colspan='2' class='forumheader3' style='width: 65%'>
 			<input type='checkbox' name='line' value='1'".(($_POST['line'] || !isset($_POST['line'])) ? " checked='checked'" : "")." />
 			</td>
 			</tr>";
 		}
 		
 		$text .= "<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>".$rs -> form_button('submit', 'scan', FC_LAN_11)."</td>
+		<td colspan='2' style='text-align:center' class='forumheader'>".$rs -> form_button('submit', 'scan', FC_LAN_11)."</td>
 		</tr>
 		</table>
 		</form>
@@ -516,29 +516,29 @@ class file_inspector {
 
 		if ($_POST['type'] == 'tree') {
 			$text = "<div style='text-align:center'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td class='r_caption' colspan='2'>".FR_LAN_2."</td>
+			<td class='fcaption' colspan='2'>".FR_LAN_2."</td>
 			</tr>";
 
 			$text .= "<tr style='display: none'><td style='width:50%'></td><td style='width:50%'></td></tr>";
 		
 			$text .= "<tr>
-			<td class='r_header3' style='width:50%'>
+			<td class='forumheader3' style='width:50%'>
 			<div style='height: 400px; overflow: auto'>
 			".$scan_text."
 			</div>
 			</td>
-			<td class='r_header3' style='width:50%; vertical-align: top'><div style='height: 400px; overflow: auto'>";
+			<td class='forumheader3' style='width:50%; vertical-align: top'><div style='height: 400px; overflow: auto'>";
 		} else {
 			$text = "<div style='text-align:center'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td class='r_caption' colspan='2'>".FR_LAN_2."</td>
+			<td class='fcaption' colspan='2'>".FR_LAN_2."</td>
 			</tr>";
 			
 			$text .= "<tr>
-			<td class='r_header3' colspan='2'>";
+			<td class='forumheader3' colspan='2'>";
 		}
 
 		$text .= "<table class='t' id='initial'>";
@@ -621,7 +621,7 @@ class file_inspector {
 		
 		if ($_POST['type'] != 'tree') {
 			$text .= "<br /></td></tr><tr>
-			<td class='r_header3' colspan='2'>
+			<td class='forumheader3' colspan='2'>
 			<table class='t'>";
 			if (!$this -> results && $_POST['regex']) {
 				$text .= "<tr><td class='f' style='padding-left: 4px; text-align: center' colspan='2'>".FR_LAN_23."</td></tr>";
@@ -731,18 +731,18 @@ class file_inspector {
 			$this -> create_image($_POST['snapshot_path']);
 			$text = "<div style='text-align:center'>
 			<form action='".e_SELF."' method='post' id='main_page'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td class='r_caption'>Снимок создан</td>
+			<td class='fcaption'>Снимок создан</td>
 			</tr>";
 		
 			$text .= "<tr>
-			<td class='r_header3' style='text-align:center'>
+			<td class='forumheader3' style='text-align:center'>
 			Снимок (".e_SYSTEM."core_image.php) успешно создан.
 			</td>
 			</tr>
 			<tr>
-			<td style='text-align:center' class='r_header1'>".$rs -> form_button('submit', 'main_page', 'Вернуться на Главную страницу')."</td>
+			<td style='text-align:center' class='forumheader'>".$rs -> form_button('submit', 'main_page', 'Вернуться на Главную страницу')."</td>
 			</tr>
 			</table>
 			</form>
@@ -751,31 +751,31 @@ class file_inspector {
 		
 		$text .= "<div style='text-align:center'>
 		<form action='".e_SELF."?".e_QUERY."' method='post' id='snapshot'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_caption' colspan='2'>Снимок создан<</td>
+		<td class='fcaption' colspan='2'>Снимок создан<</td>
 		</tr>";
 		
 		$text .= "<tr>
-		<td class='r_header3' style='width:50%'>
+		<td class='forumheader3' style='width:50%'>
 		Абсолютный путь до корневого каталога для создания изображения из:
 		</td>
-		<td class='r_header3' style='width:50%'>
+		<td class='forumheader3' style='width:50%'>
 		<input class='tbox' type='text' name='snapshot_path' size='60' value='".(isset($_POST['snapshot_path']) ? $_POST['snapshot_path'] : $this -> root_dir)."' />
 		</td></tr>
 		
 		<tr>
-		<td class='r_header3' style='width: 35%'>
+		<td class='forumheader3' style='width: 35%'>
 		Создать снимок текущих или устаревших файлов ядра:
 		</td>
-		<td colspan='2' class='r_header3' style='width: 65%'>
+		<td colspan='2' class='forumheader3' style='width: 65%'>
 		<input type='radio' name='snaptype' value='current'".($_POST['snaptype'] == 'current' || !isset($_POST['snaptype']) ? " checked='checked'" : "")." /> Текущих&nbsp;&nbsp;
 		<input type='radio' name='snaptype' value='deprecated'".($_POST['snaptype'] == 'deprecated' ? " checked='checked'" : "")." /> Устаревших&nbsp;&nbsp;
 		</td>
 		</tr>
 		
 		<tr>
-		<td class='r_header1' style='text-align:center' colspan='2'>".$rs -> form_button('submit', 'create_snapshot', 'Создать снимок')."</td>
+		<td class='forumheader' style='text-align:center' colspan='2'>".$rs -> form_button('submit', 'create_snapshot', 'Создать снимок')."</td>
 		</tr>
 		</table>
 		</form>

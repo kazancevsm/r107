@@ -59,7 +59,7 @@ if(!isset($LOGIN_TABLE))
 					<td>
 					{LOGIN_TABLE_SECIMG_LAN}
 					</td>
-					<td class='r_header3'>
+					<td class='forumheader3'>
 					{LOGIN_TABLE_SECIMG_HIDDEN} {LOGIN_TABLE_SECIMG_SECIMG} {LOGIN_TABLE_SECIMG_TEXTBOC}
 					</td>
 				</tr>";

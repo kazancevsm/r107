@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("2")) {
 	header("location:".e_BASE."index.php");
 	exit;
@@ -152,7 +152,7 @@ if ($menu_act == 'config') {
 }
 
 if ($menu_act == "adv") {
-	require_once(e_HANDLER."userclass_class.php");
+	require_once(e_HANDLER."userclass_handler.php");
 	$sql->db_Select("menus", "*", "menu_id='$id' ");
 	$row = $sql->db_Fetch();
 	extract($row);
@@ -318,12 +318,12 @@ else
 	if ($CUSTOMPAGES) {
 		if ($menu_act != 'adv') {
 			$text = "<form  method='post' action='".e_SELF."?configure.".$menus_equery[1]."'><div style='width: 100%'>
-			<table class='r_border' style='".ADMIN_WIDTH."'>
+			<table class='fborder' >
 			<tr>
-			<td class='r_header3' style='width: 90%'>
+			<td class='forumheader3' style='width: 90%'>
 			".MENLAN_30."
 			</td>
-			<td class='r_header3' style='width: 10%; text-align: center;'>";
+			<td class='forumheader3' style='width: 10%; text-align: center;'>";
 
 			$text .= $frm->form_select_open('custom_select', 'onchange="this.form.submit()"');
 
@@ -522,7 +522,7 @@ function checklayout($str)
 				{
 					echo $sc_style['MENU']['pre'];
 				}
-				echo "<div style='text-align:center; font-size:14px' class='r_border'><div class='r_header1'><b>".MENLAN_14."  ".$menu."</b></div></div><br />";
+				echo "<div style='text-align:center; font-size:14px' class='fborder'><div class='forumheader'><b>".MENLAN_14."  ".$menu."</b></div></div><br />";
 				$text = "&nbsp;";
 				$sql9 = new db;
 				if ($sql9->db_Count("menus", "(*)", " WHERE menu_location='$menu' ")) 

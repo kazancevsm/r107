@@ -148,10 +148,10 @@ class e107_db_debug {
 			while ($row = @mysql_fetch_assoc($sQryRes)) {
 				if (!$bRowHeaders) {
 					$bRowHeaders=TRUE;
-					$t['explain']="<tr><td class='r_header3'><b>".implode("</b></td><td class='r_header3'><b>", array_keys($row))."</b></td></tr>\n";
+					$t['explain']="<tr><td class='forumheader3'><b>".implode("</b></td><td class='forumheader3'><b>", array_keys($row))."</b></td></tr>\n";
 				}
 
-				$t['explain'] .= "<tr><td class='r_header3'>".implode("&nbsp;</td><td class='r_header3'>", array_values($row))."&nbsp;</td></tr>\n";
+				$t['explain'] .= "<tr><td class='forumheader3'>".implode("&nbsp;</td><td class='forumheader3'>", array_values($row))."&nbsp;</td></tr>\n";
 			}
 		} else {
 			$t['explain'] = '';
@@ -203,14 +203,14 @@ class e107_db_debug {
 		}
 
 		if ($badCount) {
-			$text .= "\n<table class='r_border'>\n";
-			$text .= "<tr><td class='r_caption' colspan='2'><b>$badCount Query Errors!</b></td></tr>\n";
-			$text .= "<tr><td class='r_caption'><b>Index</b></td><td class='r_caption'><b>Query / Error</b></td></tr>\n";
+			$text .= "\n<table class='fborder'>\n";
+			$text .= "<tr><td class='fcaption' colspan='2'><b>$badCount Query Errors!</b></td></tr>\n";
+			$text .= "<tr><td class='fcaption'><b>Index</b></td><td class='fcaption'><b>Query / Error</b></td></tr>\n";
 
 			foreach ($this->aSQLdetails as $idx => $cQuery) {
 				if (!$cQuery['ok']) {
-					$text .= "<tr><td class='r_header3' rowspan='2' style='text-align:right'>{$idx}&nbsp;</td>
-    	       	        <td class='r_header3'>".$cQuery['query']."</td></tr>\n<tr><td class='r_header3'>".$cQuery['error']."</td></tr>\n";
+					$text .= "<tr><td class='forumheader3' rowspan='2' style='text-align:right'>{$idx}&nbsp;</td>
+    	       	        <td class='forumheader3'>".$cQuery['query']."</td></tr>\n<tr><td class='forumheader3'>".$cQuery['error']."</td></tr>\n";
 				}
 			}
 			$text .= "\n</table><br />\n";
@@ -220,16 +220,16 @@ class e107_db_debug {
 		// Optionally list good queries
 		//
 		if ($okCount && E107_DBG_SQLDETAILS) {
-			$text .= "\n<table class='r_border'>\n";
-			$text .= "<tr><td class='r_caption' colspan='3'><b>{$okCount[TRUE]} Good Queries</b></td></tr>\n";
-			$text .= "<tr><td class='r_caption'><b>Index</b></td><td class='r_caption'><b>Qtime</b></td><td class='r_caption'><b>Query</b></td></tr>\n
-				 <tr><td class='r_caption'>&nbsp;</td><td class='r_caption'><b>(msec)</b></td><td class='r_caption'>&nbsp;</td></tr>\n
+			$text .= "\n<table class='fborder'>\n";
+			$text .= "<tr><td class='fcaption' colspan='3'><b>{$okCount[TRUE]} Good Queries</b></td></tr>\n";
+			$text .= "<tr><td class='fcaption'><b>Index</b></td><td class='fcaption'><b>Qtime</b></td><td class='fcaption'><b>Query</b></td></tr>\n
+				 <tr><td class='fcaption'>&nbsp;</td><td class='fcaption'><b>(msec)</b></td><td class='fcaption'>&nbsp;</td></tr>\n
 				 ";
 
 			foreach ($this->aSQLdetails as $idx => $cQuery) {
 				if ($cQuery['ok']) {
-					$text .= "<tr><td class='r_header3' style='text-align:right'>{$idx}&nbsp;</td>
-	       	        <td class='r_header3' style='text-align:right'>".number_format($cQuery['time'] * 1000.0, 4)."&nbsp;</td><td class='r_header3'>".$cQuery['query'].'<br />['.$cQuery['marker']." - ".$cQuery['caller']."]</td></tr>\n";
+					$text .= "<tr><td class='forumheader3' style='text-align:right'>{$idx}&nbsp;</td>
+	       	        <td class='forumheader3' style='text-align:right'>".number_format($cQuery['time'] * 1000.0, 4)."&nbsp;</td><td class='forumheader3'>".$cQuery['query'].'<br />['.$cQuery['marker']." - ".$cQuery['caller']."]</td></tr>\n";
 				}
 			}
 			$text .= "\n</table><br />\n";
@@ -241,16 +241,16 @@ class e107_db_debug {
 		//
 		if (E107_DBG_SQLDETAILS) {
 			foreach ($this->aSQLdetails as $idx => $cQuery) {
-				$text .= "\n<table class='r_border' style='width: 100%;'>\n";
-				$text .= "<tr><td class='r_header3' colspan='".$cQuery['nFields']."'><b>".$idx.") Query:</b> [".$cQuery['marker']." - ".$cQuery['caller']."]<br />".$cQuery['query']."</td></tr>\n";
+				$text .= "\n<table class='fborder' style='width: 100%;'>\n";
+				$text .= "<tr><td class='forumheader3' colspan='".$cQuery['nFields']."'><b>".$idx.") Query:</b> [".$cQuery['marker']." - ".$cQuery['caller']."]<br />".$cQuery['query']."</td></tr>\n";
 				if (isset($cQuery['explain'])) {
 					$text .= $cQuery['explain'];
 				}
 				if (strlen($cQuery['error'])) {
-					$text .= "<tr><td class='r_header3' ><b>Error in query:</b></td></tr>\n<tr><td class='r_header3'>".$cQuery['error']."</td></tr>\n";
+					$text .= "<tr><td class='forumheader3' ><b>Error in query:</b></td></tr>\n<tr><td class='forumheader3'>".$cQuery['error']."</td></tr>\n";
 				}
 
-				$text .= "<tr><td class='r_header3'  colspan='".$cQuery['nFields']."'><b>Query time:</b> ".number_format($cQuery['time'] * 1000.0, 4).' (ms)</td></tr></table><br />'."\n";
+				$text .= "<tr><td class='forumheader3'  colspan='".$cQuery['nFields']."'><b>Query time:</b> ".number_format($cQuery['time'] * 1000.0, 4).' (ms)</td></tr></table><br />'."\n";
 			}
 		}
 
@@ -270,7 +270,7 @@ class e107_db_debug {
 		if (!E107_DBG_TIMEDETAILS) return '';
 
 		$totTime=$eTraffic->TimeDelta($eTimingStart, $eTimingStop);
-		$text = "\n<table class='r_border'>\n";
+		$text = "\n<table class='fborder'>\n";
 		$bRowHeaders=FALSE;
 		reset($this->aTimeMarks);
 		$aSum=$this->aTimeMarks[0]; // create a template from the 'real' array
@@ -284,7 +284,7 @@ class e107_db_debug {
 			if (!$bRowHeaders) {
 				// First time: emit headers
 				$bRowHeaders=TRUE;
-				$text .= "<tr><td class='r_caption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='r_caption' style='text-align:right'><b>", array_keys($tMarker))."</b>&nbsp;</td><td class='r_caption' style='text-align:right'><b>OB Lev&nbsp;</b></td></tr>\n";
+				$text .= "<tr><td class='fcaption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='fcaption' style='text-align:right'><b>", array_keys($tMarker))."</b>&nbsp;</td><td class='fcaption' style='text-align:right'><b>OB Lev&nbsp;</b></td></tr>\n";
 				$aUnits = $tMarker;
 				foreach ($aUnits as $key=>$val) {
 					switch ($key) {
@@ -298,7 +298,7 @@ class e107_db_debug {
 					}
 				}
 				$aUnits['OB Lev'] = 'lev(buf bytes)';
-				$text .= "<tr><td class='r_caption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='r_caption' style='text-align:right'><b>", $aUnits)."</b>&nbsp;</td></tr>\n";
+				$text .= "<tr><td class='fcaption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='fcaption' style='text-align:right'><b>", $aUnits)."</b>&nbsp;</td></tr>\n";
 			}
 
 			if ($tMarker['What'] == 'Stop') {
@@ -326,10 +326,10 @@ class e107_db_debug {
 				$tMarker['DB Time']=number_format($tMarker['DB Time']*1000.0, 1);
 				$tMarker['OB Lev']=$this->aOBMarks[$tKey];
 			}
-			$text .= "<tr><td class='r_header3' >".implode("&nbsp;</td><td class='r_header3'  style='text-align:right'>", array_values($tMarker))."&nbsp;</td></tr>\n";
+			$text .= "<tr><td class='forumheader3' >".implode("&nbsp;</td><td class='forumheader3'  style='text-align:right'>", array_values($tMarker))."&nbsp;</td></tr>\n";
 
 			if (isset($this->aMarkNotes[$tKey])) {
-				$text .= "<tr><td class='r_header3' >&nbsp;</td><td class='r_header3' colspan='4'>";
+				$text .= "<tr><td class='forumheader3' >&nbsp;</td><td class='forumheader3' colspan='4'>";
 				$text .= $this->aMarkNotes[$tKey]."</td></tr>\n";
 			}
 			if ($tMarker['What'] == 'Stop') break;
@@ -341,14 +341,14 @@ class e107_db_debug {
 		$aSum['Time']=number_format($aSum['Time']*1000.0, 1);
 		$aSum['DB Time']=number_format($aSum['DB Time']*1000.0, 1);
 
-		$text .= "<tr><td class='r_caption'><b>".implode("</b>&nbsp;</td><td class='r_caption' style='text-align:right'><b>", $aSum)."</b>&nbsp;</td><td class='r_caption'>&nbsp;</td></tr>\n";
+		$text .= "<tr><td class='fcaption'><b>".implode("</b>&nbsp;</td><td class='fcaption' style='text-align:right'><b>", $aSum)."</b>&nbsp;</td><td class='fcaption'>&nbsp;</td></tr>\n";
 		$text .= "\n</table><br />\n";
 
 		//
 		// Stats by Table
 		//
 
-		$text .= "\n<table class='r_border'>\n";
+		$text .= "\n<table class='fborder'>\n";
 
 		$bRowHeaders=FALSE;
 		$aSum=$this->aDBbyTable['core']; // create a template from the 'real' array
@@ -361,7 +361,7 @@ class e107_db_debug {
 		foreach ($this->aDBbyTable as $curTable) {
 			if (!$bRowHeaders) {
 				$bRowHeaders=TRUE;
-				$text .= "<tr><td class='r_caption'><b>".implode("</b></td><td class='r_caption'><b>", array_keys($curTable))."</b></td></tr>\n";
+				$text .= "<tr><td class='fcaption'><b>".implode("</b></td><td class='fcaption'><b>", array_keys($curTable))."</b></td></tr>\n";
 				$aUnits = $curTable;
 				foreach ($aUnits as $key=>$val) {
 					switch ($key) {
@@ -373,7 +373,7 @@ class e107_db_debug {
 						break;
 					}
 				}
-				$text .= "<tr><td class='r_caption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='r_caption' style='text-align:right'><b>", $aUnits)."</b>&nbsp;</td></tr>\n";
+				$text .= "<tr><td class='fcaption' style='text-align:right'><b>".implode("</b>&nbsp;</td><td class='fcaption' style='text-align:right'><b>", $aUnits)."</b>&nbsp;</td></tr>\n";
 			}
 
 			$aSum['DB Time'] += $curTable['DB Time'];
@@ -381,13 +381,13 @@ class e107_db_debug {
 			$curTable['%DB Count']=number_format(100.0 * $curTable['DB Count'] / $sql->db_QueryCount(), 0);
 			$curTable['%DB Time']=number_format(100.0 * $curTable['DB Time'] / $db_time, 0);
 			$curTable['DB Time']=number_format($curTable['DB Time']*1000.0, 1);
-			$text .= "<tr><td class='r_header3'>".implode("&nbsp;</td><td class='r_header3' style='text-align:right'>", array_values($curTable))."&nbsp;</td></tr>\n";
+			$text .= "<tr><td class='forumheader3'>".implode("&nbsp;</td><td class='forumheader3' style='text-align:right'>", array_values($curTable))."&nbsp;</td></tr>\n";
 		}
 
 		$aSum['%DB Time']=$db_time ? number_format(100.0 * ($aSum['DB Time'] / $db_time), 0) : 0;
 		$aSum['%DB Count']=($sql->db_QueryCount()) ? number_format(100.0 * ($aSum['DB Count'] / ($sql->db_QueryCount())), 0) : 0;
 		$aSum['DB Time']=number_format($aSum['DB Time']*1000.0, 1);
-		$text .= "<tr><td class='r_caption'>".implode("&nbsp;</td><td class='r_caption' style='text-align:right'>", array_values($aSum))."&nbsp;</td></tr>\n";
+		$text .= "<tr><td class='fcaption'>".implode("&nbsp;</td><td class='fcaption' style='text-align:right'>", array_values($aSum))."&nbsp;</td></tr>\n";
 		$text .= "\n</table><br />\n";
 
 		return $text;
@@ -426,22 +426,22 @@ class e107_db_debug {
 		{
 			return FALSE;
 		}
-		$text = "<table class='r_border' style='width: 100%'>
-			<tr><td class='r_caption' colspan='4'><b>Shortcode / BBCode</b></td></tr>
+		$text = "<table class='fborder' style='width: 100%'>
+			<tr><td class='fcaption' colspan='4'><b>Shortcode / BBCode</b></td></tr>
 			<tr>
-			<td class='r_caption' style='width: 10%;'>Type</td>
-			<td class='r_caption' style='width: 10%;'>Code</td>
-			<td class='r_caption' style='width: 10%;'>Parm</td>
-			<td class='r_caption' style='width: 10%;'>Post ID</td>
+			<td class='fcaption' style='width: 10%;'>Type</td>
+			<td class='fcaption' style='width: 10%;'>Code</td>
+			<td class='fcaption' style='width: 10%;'>Parm</td>
+			<td class='fcaption' style='width: 10%;'>Post ID</td>
 			</tr>\n";
 
  		foreach($this -> scbbcodes as $codes)
 		{
 			$text .= "<tr>
-				<td class='r_header3' style='width: 10%;'>".($codes['type'] == 1 ? "BBCode" : "Shortcode")."</td>
-				<td class='r_header3' style='width: 10%;'>".(isset($codes['code']) ? $codes['code'] : "&nbsp;")."</td>
-				<td class='r_header3' style='width: 10%;'>".($codes['parm'] ? $codes['parm'] : "&nbsp;")."</td>
-				<td class='r_header3' style='width: 10%;'>".($codes['postID'] ? $codes['postID'] : "&nbsp;")."</td>
+				<td class='forumheader3' style='width: 10%;'>".($codes['type'] == 1 ? "BBCode" : "Shortcode")."</td>
+				<td class='forumheader3' style='width: 10%;'>".(isset($codes['code']) ? $codes['code'] : "&nbsp;")."</td>
+				<td class='forumheader3' style='width: 10%;'>".($codes['parm'] ? $codes['parm'] : "&nbsp;")."</td>
+				<td class='forumheader3' style='width: 10%;'>".($codes['postID'] ? $codes['postID'] : "&nbsp;")."</td>
 				</tr>\n";
 		}
 		$text .= "</table>";
@@ -455,10 +455,10 @@ class e107_db_debug {
 			return FALSE;
 		}
 		global $e107;
-		$text = "<table class='r_border' style='width: 100%'>
-			<tr><td class='r_caption' colspan='4'><b>Paths</b></td></tr>
+		$text = "<table class='fborder' style='width: 100%'>
+			<tr><td class='fcaption' colspan='4'><b>Paths</b></td></tr>
 			<tr>
-			<td class='r_header3'>\n";
+			<td class='forumheader3'>\n";
 
 		$text .= "e_HTTP: '".e_HTTP."'<br />";
 		$text .= "e_BASE: '".e_BASE."'<br />";
@@ -480,20 +480,20 @@ class e107_db_debug {
 		if (!E107_DBG_DEPRECATED){
 			return FALSE;
 		} else {
-			$text = "<table class='r_border' style='width: 100%'>
-			<tr><td class='r_caption' colspan='4'><b>The following deprecated functions were used:</b></td></tr>
+			$text = "<table class='fborder' style='width: 100%'>
+			<tr><td class='fcaption' colspan='4'><b>The following deprecated functions were used:</b></td></tr>
 			<tr>
-			<td class='r_caption' style='width: 10%;'>Function</td>
-			<td class='r_caption' style='width: 10%;'>File</td>
-			<td class='r_caption' style='width: 10%;'>Line</td>
+			<td class='fcaption' style='width: 10%;'>Function</td>
+			<td class='fcaption' style='width: 10%;'>File</td>
+			<td class='fcaption' style='width: 10%;'>Line</td>
 			</tr>\n";
 
 			foreach($this->deprecated_funcs as $funcs)
 			{
 				$text .= "<tr>
-				<td class='r_header3' style='width: 10%;'>{$funcs['func']}()</td>
-				<td class='r_header3' style='width: 10%;'>{$funcs['file']}</td>
-				<td class='r_header3' style='width: 10%;'>{$funcs['line']}</td>
+				<td class='forumheader3' style='width: 10%;'>{$funcs['func']}()</td>
+				<td class='forumheader3' style='width: 10%;'>{$funcs['file']}</td>
+				<td class='forumheader3' style='width: 10%;'>{$funcs['line']}</td>
 				</tr>\n";
 			}
 			$text .= "</table>";
@@ -538,7 +538,7 @@ class e107_db_debug {
 		// Dump the debug log
 		//
 
-		$text .= "\n<table class='r_border'>\n";
+		$text .= "\n<table class='fborder'>\n";
 
 		$bRowHeaders=FALSE;
 		
@@ -546,10 +546,10 @@ class e107_db_debug {
 		{
 			if (!$bRowHeaders) {
 				$bRowHeaders=TRUE;
-				$text .= "<tr class='r_caption'><td><b>".implode("</b></td><td><b>", array_keys($curLog))."</b></td></tr>\n";
+				$text .= "<tr class='fcaption'><td><b>".implode("</b></td><td><b>", array_keys($curLog))."</b></td></tr>\n";
 			}
 
-			$text .= "<tr class='r_header3'><td>".implode("&nbsp;</td><td>", array_values($curLog))."&nbsp;</td></tr>\n";
+			$text .= "<tr class='forumheader3'><td>".implode("&nbsp;</td><td>", array_values($curLog))."&nbsp;</td></tr>\n";
 		}
 
 		$text .= "</table><br />\n";
@@ -562,9 +562,9 @@ class e107_db_debug {
 		if (!E107_DBG_INCLUDES) return FALSE;
 
 		$aIncList = get_included_files();
-		$text = "<table class='r_border'>\n";
-		$text .= "<tr><td class='r_header3'>".
-							implode("&nbsp;</td></tr>\n<tr><td class='r_header3'>", $aIncList).
+		$text = "<table class='fborder'>\n";
+		$text .= "<tr><td class='forumheader3'>".
+							implode("&nbsp;</td></tr>\n<tr><td class='forumheader3'>", $aIncList).
 							"&nbsp;</td></tr>\n";
 		$text .= "</table>\n";
 		return $text;

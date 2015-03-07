@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../class.php');
+require_once('../class2.php');
 if (!getperms('0')) 
 {
 	header('location:'.e_BASE.'index.php');
@@ -48,39 +48,39 @@ if (isset($_POST['do_check']))
 
 $text = "
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<colgroup span='2'>
 		<col style='width: 10%'></col>
 		<col style='width: 90%'></col>
 	</colgroup>
 
 	<tr>
-		<td colspan='2' style='text-align:center' class='r_header2'>".LAN_CKUSER_06."</td>
+		<td colspan='2' style='text-align:center' class='forumheader2'>".LAN_CKUSER_06."</td>
 	</tr>
 
 	<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 			<input class='tbox' type='checkbox' name='check_duplicates' value='1' />
 		</td>
-		<td class='r_header3'>".LAN_CKUSER_05."</td>
+		<td class='forumheader3'>".LAN_CKUSER_05."</td>
 	</tr>
 
 	<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 			<input class='tbox' type='checkbox' name='check_mixed' value='1' />
 		</td>
-		<td class='r_header3'>".LAN_CKUSER_16."</td>
+		<td class='forumheader3'>".LAN_CKUSER_16."</td>
 	</tr>
 
 	<tr>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 			<input class='tbox' type='checkbox' name='check_dupdisplay' value='1' />
 		</td>
-		<td class='r_header3'>".LAN_CKUSER_12."</td>
+		<td class='forumheader3'>".LAN_CKUSER_12."</td>
 	</tr>
 
 	<tr>
-		<td colspan='2' style='text-align:center' class='r_header3'><input  class='button' type='submit' name='do_check' value='".LAN_CKUSER_04."'></td>
+		<td colspan='2' style='text-align:center' class='forumheader3'><input  class='button' type='submit' name='do_check' value='".LAN_CKUSER_04."'></td>
 	</tr>
 	</table>
 	</form>
@@ -121,15 +121,15 @@ function checkDuplicateField($checkField)
 			{
 				$duplicates[] = $row[$dupField];
 			}
-			$result .= "<table style='".ADMIN_WIDTH."' class='r_border'>
+			$result .= "<table class='fborder'>
 					<colgroup>
 					<col style='width:30%' />
 					<col style='width:10%' />
 					<col style='width:30%' />
 					<col style='width:30%' />
 					</colgroup>
-					<tr><td class='r_caption'>".$hdg1."</td><td class='r_caption'>".LAN_CKUSER_10."</td>
-						<td class='r_caption'>".$hdg2."</td><td class='r_caption'>".LAN_CKUSER_11."</td></tr>";
+					<tr><td class='fcaption'>".$hdg1."</td><td class='fcaption'>".LAN_CKUSER_10."</td>
+						<td class='fcaption'>".$hdg2."</td><td class='fcaption'>".LAN_CKUSER_11."</td></tr>";
 			foreach ($duplicates as $ul)
 			{
 				$doneName = FALSE;
@@ -140,11 +140,11 @@ function checkDuplicateField($checkField)
 						$result .= '<tr>';
 						if (!$doneName)
 						{
-							$result .= "<td class='r_header3' rowspan='".$ucount."'>".$row[$dupField]."</td>";
+							$result .= "<td class='forumheader3' rowspan='".$ucount."'>".$row[$dupField]."</td>";
 							$doneName = TRUE;
 						}
-						$result .= "<td class='r_header3'>".$row['user_id']."</td>
-								<td class='r_header3'>".$row[$otherField]."</td><td class='r_header3'>".$row['user_name']."</td></tr>";
+						$result .= "<td class='forumheader3'>".$row['user_id']."</td>
+								<td class='forumheader3'>".$row[$otherField]."</td><td class='forumheader3'>".$row['user_name']."</td></tr>";
 					}
 				}
 			}
@@ -161,32 +161,32 @@ function checkDuplicateField($checkField)
 function checkUserLogin()
 {
 	global $sql;
-	$result = "<table style='".ADMIN_WIDTH."' class='r_border'>";
+	$result = "<table class='fborder'>";
 	$query = "SELECT u.user_name AS un1, u.user_loginname AS ul1, u.user_id AS ui1, x.user_id AS ui2, x.user_name AS un2, x.user_loginname AS ul2 FROM `e107_user` as u 
 			LEFT JOIN `e107_user` as x ON u.user_name=x.user_loginname WHERE x.user_id != u.user_id ";
 	if ($sql->db_Select_gen($query))
 	{
-		$result .= "<tr><td colspan='3' class='r_caption' style='text-align:center'>".LAN_CKUSER_18."</td>
-					<td colspan='3' class='r_caption' style='text-align:center'>".LAN_CKUSER_19."</td></tr>
-				<tr><td class='r_caption'>".LAN_CKUSER_10."</td>
-					<td class='r_caption'>".LAN_CKUSER_09."</td>
-					<td class='r_caption'>".LAN_CKUSER_11."</td>
-					<td class='r_caption'>".LAN_CKUSER_10."</td>
-					<td class='r_caption'>".LAN_CKUSER_09."</td>
-					<td class='r_caption'>".LAN_CKUSER_11."</td></tr>";
+		$result .= "<tr><td colspan='3' class='fcaption' style='text-align:center'>".LAN_CKUSER_18."</td>
+					<td colspan='3' class='fcaption' style='text-align:center'>".LAN_CKUSER_19."</td></tr>
+				<tr><td class='fcaption'>".LAN_CKUSER_10."</td>
+					<td class='fcaption'>".LAN_CKUSER_09."</td>
+					<td class='fcaption'>".LAN_CKUSER_11."</td>
+					<td class='fcaption'>".LAN_CKUSER_10."</td>
+					<td class='fcaption'>".LAN_CKUSER_09."</td>
+					<td class='fcaption'>".LAN_CKUSER_11."</td></tr>";
 		while ($row = $sql->db_Fetch(MYSQL_ASSOC))
 		{
-			$result .= "<tr><td class='r_header3'>".$row['ui1']."</td>
-						<td class='r_header3'>".$row['ul1']."</td>
-						<td class='r_header3'>".$row['un1']."</td>
-						<td class='r_header3'>".$row['ui2']."</td>
-						<td class='r_header3'>".$row['ul2']."</td>
-						<td class='r_header3'>".$row['un2']."</td></tr>";
+			$result .= "<tr><td class='forumheader3'>".$row['ui1']."</td>
+						<td class='forumheader3'>".$row['ul1']."</td>
+						<td class='forumheader3'>".$row['un1']."</td>
+						<td class='forumheader3'>".$row['ui2']."</td>
+						<td class='forumheader3'>".$row['ul2']."</td>
+						<td class='forumheader3'>".$row['un2']."</td></tr>";
 		}
 	}
 	else
 	{
-		$result .= "<tr><td style='width:90%; text-align:center' class='r_header3'>".LAN_CKUSER_15."</td></tr>";
+		$result .= "<tr><td style='width:90%; text-align:center' class='forumheader3'>".LAN_CKUSER_15."</td></tr>";
 	}
 	$result .= '</table>';
 	return $result;

@@ -24,7 +24,7 @@ if(!defined('e_TOKEN_FREEZE'))
 }
 
 // unset $tinyMCE_imglib_include
-require_once("../../../../class.php");
+require_once("../../../../class2.php");
 if (!defined('e107_INIT')) { exit; }
 
 
@@ -153,7 +153,7 @@ echo "
      		return false;}
 
     	if (isNaN(parseInt(document.getElementById("border").value)) && document.getElementById("border").value != '') {
-			alert(tinyMCE.getLang('lang_ibrowser_error')+ ' : '+ tinyMCE.getLang('lang_ibrowser_error_border_nan'));
+			alert(tinyMCE.getLang('lang_ibrowser_error')+ ' : '+ tinyMCE.getLang('lang_ibrowser_errofborder_nan'));
       		document.getElementById("border").focus();
       		return false;}
 
@@ -442,7 +442,7 @@ echo "</head>
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td>".$lang_ibrowser_border.":</td>
+            <td>".$lang_ibrowsefborder.":</td>
             <td colspan=\"3\">
 			<input name=\"border\" type=\"text\" id=\"border\" value=\"0\" size=\"5\" maxlength=\"4\" style=\"text-align: right;\" onchange=\"updateStyle()\" />px
 			</td>

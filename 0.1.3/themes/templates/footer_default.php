@@ -129,12 +129,12 @@ if(varset($e107_popup)!=1){
 	{
 		$c=1;
 		$mySQLInfo = $sql->mySQLinfo;
-		echo "<table class='r_border' style='width: 100%;'>
+		echo "<table class='fborder' style='width: 100%;'>
 		<tr>
-		<td class='r_caption' style='width: 5%;'>ID</td><td class='r_caption' style='width: 95%;'>SQL Queries</td>\n</tr>\n";
+		<td class='fcaption' style='width: 5%;'>ID</td><td class='fcaption' style='width: 95%;'>SQL Queries</td>\n</tr>\n";
 		foreach ($queryinfo as $infovalue)
 		{
-			echo "<tr>\n<td class='r_header3' style='width: 5%;'>{$c}</td><td class='r_header3' style='width: 95%;'>{$infovalue}</td>\n</tr>\n";
+			echo "<tr>\n<td class='forumheader3' style='width: 5%;'>{$c}</td><td class='forumheader3' style='width: 95%;'>{$infovalue}</td>\n</tr>\n";
 			$c++;
 		}
 		echo "</table>";
@@ -215,7 +215,7 @@ if(isset($footer_js) && is_array($footer_js))
 // G final JS script keeps user and server time in sync.
 //   It must be the last thing created before sending the page to the user.
 //
-// see e107.js and class.php
+// see e107.js and class2.php
 // This must be done as late as possible in page processing.
 $_serverTime=time();
 $lastSet = isset($_COOKIE['e107_tdSetTime']) ? $_COOKIE['e107_tdSetTime'] : 0;

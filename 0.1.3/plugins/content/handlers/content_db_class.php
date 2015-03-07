@@ -27,8 +27,6 @@ $plugindir		= e_PLUGIN."content/";
 $plugintable	= "pcontent";		//name of the table used in this plugin (never remove this, as it's being used throughout the plugin !!)
 $datequery		= " AND content_datestamp < ".time()." AND (content_enddate=0 || content_enddate>".time().") ";
 
-if (!defined('ADMIN_WIDTH')) { define("ADMIN_WIDTH", "width:98%;"); }
-
 //icon, file, image upload
 if(isset($_POST['uploadfile']))
 {

@@ -3,7 +3,7 @@ if (!defined('e107_INIT')) { exit; }
 if(!isset($CONTACT_INFO))
 {
 	$CONTACT_INFO = "
-	<table style='".USER_WIDTH."' cellpadding='1' cellspacing='7'>
+	<table cellpadding='1' cellspacing='7'>
 	<tr>
 		<td>
 		{SITECONTACTINFO}
@@ -30,7 +30,7 @@ if(!isset($CONTACT_FORM))
 {
   $CONTACT_FORM = "
 	<form action='".e_SELF."' method='post' id='contactForm' >
-	<table style='".USER_WIDTH."' cellpadding='1' cellspacing='7'>
+	<table cellpadding='1' cellspacing='7'>
 	{CONTACT_PERSON}
 	<tr><td>".LANCONTACT_03."<br />
 	<input type='text' name='author_name' size='30' class='tbox' value=\"".varset($_POST['author_name'], '')."\" />

@@ -27,32 +27,32 @@ $sc_style['PM_ATTACHMENT_ICON']['pre'] = " ";
 $sc_style['PM_ATTACHMENTS']['pre'] = "<br /><div style='vertical-align:bottom; text-align:left;'>";
 $sc_style['PM_ATTACHMENTS']['post'] = "</div>";
 
-$sc_style['PM_NEXTPREV']['pre'] = "<tr><td class='r_header1' colspan='6' style='text-align:left'> ";
+$sc_style['PM_NEXTPREV']['pre'] = "<tr><td class='forumheader' colspan='6' style='text-align:left'> ";
 $sc_style['PM_NEXTPREV']['post'] = "</td></tr>";
 
 $sc_style['EMOTES']['pre'] = "
 <tr>
-	<td class='r_header3'>".LAN_PM_7.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".LAN_PM_7.": </td>
+	<td class='forumheader3'>
 ";
 $sc_style['EMOTES']['post'] = "</td></tr>";
 
 $sc_style['ATTACHMENT']['pre'] = "
 <tr>
-	<td class='r_header3'>".LAN_PM_8.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".LAN_PM_8.": </td>
+	<td class='forumheader3'>
 ";
 $sc_style['ATTACHMENT']['post'] = "</td></tr>";
 
 $sc_style['RECEIPT']['pre'] = "
 <tr>
-	<td class='r_header3'>".LAN_PM_9.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".LAN_PM_9.": </td>
+	<td class='forumheader3'>
 ";
 $sc_style['RECEIPT']['post'] = "</td></tr>";
 
 $sc_style['PM_REPLY']['pre'] = "<tr>
-	<td class='r_header1' style='text-align:center' colspan='2'>
+	<td class='forumheader' style='text-align:center' colspan='2'>
 ";
 
 $sc_style['PM_REPLY']['post'] = "</td>
@@ -60,64 +60,64 @@ $sc_style['PM_REPLY']['post'] = "</td>
 ";
 
 $PM_SEND_PM = "<div style='text-align: center'>
-<table style='width:95%' class='r_border'>
+<table style='width:95%' class='fborder'>
 <tr>
-	<td colspan='2' class='r_caption'>".LAN_PM_1.": </td>
+	<td colspan='2' class='fcaption'>".LAN_PM_1.": </td>
 </tr>
 <tr>
-	<td class='r_header3' style='width: 30%'>".LAN_PM_2.": </td>
-	<td class='r_header3' style='width: 70%; text-align:left'>{FORM_TOUSER}<br />{FORM_TOCLASS}</td>
+	<td class='forumheader3' style='width: 30%'>".LAN_PM_2.": </td>
+	<td class='forumheader3' style='width: 70%; text-align:left'>{FORM_TOUSER}<br />{FORM_TOCLASS}</td>
 </tr>
 <tr>
-	<td class='r_header3'>".LAN_PM_5.": </td>
-	<td class='r_header3'>{FORM_SUBJECT}</td>
+	<td class='forumheader3'>".LAN_PM_5.": </td>
+	<td class='forumheader3'>{FORM_SUBJECT}</td>
 </tr>
 <tr>
-	<td class='r_header3'>".LAN_PM_6.": </td>
-	<td class='r_header3'>{FORM_MESSAGE}</td>
+	<td class='forumheader3'>".LAN_PM_6.": </td>
+	<td class='forumheader3'>{FORM_MESSAGE}</td>
 </tr>
 {EMOTES}
 {ATTACHMENT}
 {RECEIPT}
 <tr>
-	<td class='r_header1' colspan='2' style='text-align:center;'>{PM_POST_BUTTON}</td>
+	<td class='forumheader' colspan='2' style='text-align:center;'>{PM_POST_BUTTON}</td>
 </tr>
 </table>
 </div>
 ";
 
 $PM_INBOX_HEADER = "
-<table class='r_border' style='width:95%'>
+<table class='fborder' style='width:95%'>
 <tr>
-	<td class='r_caption' style='width:1%'>{PM_CHECK_ALL_NONE}</td>
-	<td class='r_caption' style='width:1%'>&nbsp;</td>
-	<td class='r_caption' style='width:38%'>".LAN_PM_5."</td>
-	<td class='r_caption' style='width:22%'>".LAN_PM_31."</td>
-	<td class='r_caption' style='width:30%'>".LAN_PM_32."</td>
-	<td class='r_caption' style='width:8%'>&nbsp;</td>
+	<td class='fcaption' style='width:1%'>{PM_CHECK_ALL_NONE}</td>
+	<td class='fcaption' style='width:1%'>&nbsp;</td>
+	<td class='fcaption' style='width:38%'>".LAN_PM_5."</td>
+	<td class='fcaption' style='width:22%'>".LAN_PM_31."</td>
+	<td class='fcaption' style='width:30%'>".LAN_PM_32."</td>
+	<td class='fcaption' style='width:8%'>&nbsp;</td>
 </tr>
 ";
 
 $PM_INBOX_TABLE = "
 <tr>
-	<td class='r_header3'>{PM_SELECT}</td>
-	<td class='r_header3'>{PM_READ_ICON}</td>
-	<td class='r_header3'>{PM_SUBJECT=link,inbox}{PM_ATTACHMENT_ICON}</td>
-	<td class='r_header3'>{PM_FROM=link}</td>
-	<td class='r_header3'>{PM_DATE}</td>
-	<td class='r_header3' style='text-align: center; white-space: nowrap'>{PM_DELETE=inbox}&nbsp;{PM_BLOCK_USER}</td>
+	<td class='forumheader3'>{PM_SELECT}</td>
+	<td class='forumheader3'>{PM_READ_ICON}</td>
+	<td class='forumheader3'>{PM_SUBJECT=link,inbox}{PM_ATTACHMENT_ICON}</td>
+	<td class='forumheader3'>{PM_FROM=link}</td>
+	<td class='forumheader3'>{PM_DATE}</td>
+	<td class='forumheader3' style='text-align: center; white-space: nowrap'>{PM_DELETE=inbox}&nbsp;{PM_BLOCK_USER}</td>
 </tr>
 ";
 
 $PM_INBOX_EMPTY = "
 <tr>
-	<td colspan='6' class='r_header1'>".LAN_PM_34."</td>
+	<td colspan='6' class='forumheader'>".LAN_PM_34."</td>
 </tr>
 ";
 
 $PM_INBOX_FOOTER = "
 <tr>
-	<td class='r_header1' colspan='6' style='text-align:center'>
+	<td class='forumheader' colspan='6' style='text-align:center'>
 	<input type='hidden' name='pm_come_from' value='inbox' />
 	{DELETE_SELECTED}
 	</td>
@@ -127,37 +127,37 @@ $PM_INBOX_FOOTER = "
 ";
 
 $PM_OUTBOX_HEADER = "
-<table class='r_border' style='width:95%'>
+<table class='fborder' style='width:95%'>
 <tr>
-	<td class='r_caption' style='width:1%'>{PM_CHECK_ALL_NONE}</td>
-	<td class='r_caption' style='width:1%'>&nbsp;</td>
-	<td class='r_caption' style='width:38%'>".LAN_PM_5."</td>
-	<td class='r_caption' style='width:22%'>".LAN_PM_2."</td>
-	<td class='r_caption' style='width:30%'>".LAN_PM_33."</td>
-	<td class='r_caption' style='width:8%'>&nbsp;</td>
+	<td class='fcaption' style='width:1%'>{PM_CHECK_ALL_NONE}</td>
+	<td class='fcaption' style='width:1%'>&nbsp;</td>
+	<td class='fcaption' style='width:38%'>".LAN_PM_5."</td>
+	<td class='fcaption' style='width:22%'>".LAN_PM_2."</td>
+	<td class='fcaption' style='width:30%'>".LAN_PM_33."</td>
+	<td class='fcaption' style='width:8%'>&nbsp;</td>
 </tr>
 ";
 
 $PM_OUTBOX_TABLE = "
 <tr>
-	<td class='r_header3'>{PM_SELECT}</td>
-	<td class='r_header3'>{PM_READ_ICON}</td>
-	<td class='r_header3'>{PM_SUBJECT=link,outbox}{PM_ATTACHMENT_ICON}</td>
-		<td class='r_header3'>{PM_TO=link}</td>
-	<td class='r_header3'>{PM_DATE}</td>
-	<td class='r_header3' style='text-align: center'>{PM_DELETE=outbox}</td>
+	<td class='forumheader3'>{PM_SELECT}</td>
+	<td class='forumheader3'>{PM_READ_ICON}</td>
+	<td class='forumheader3'>{PM_SUBJECT=link,outbox}{PM_ATTACHMENT_ICON}</td>
+		<td class='forumheader3'>{PM_TO=link}</td>
+	<td class='forumheader3'>{PM_DATE}</td>
+	<td class='forumheader3' style='text-align: center'>{PM_DELETE=outbox}</td>
 </tr>
 ";
 
 $PM_OUTBOX_EMPTY = "
 <tr>
-	<td colspan='6' class='r_header1'>".LAN_PM_34."</td>
+	<td colspan='6' class='forumheader'>".LAN_PM_34."</td>
 </tr>
 ";
 
 $PM_OUTBOX_FOOTER = "
 <tr>
-	<td class='r_header1' colspan='6' style='text-align:center'>
+	<td class='forumheader' colspan='6' style='text-align:center'>
 	<input type='hidden' name='pm_come_from' value='outbox' />
 	{DELETE_SELECTED}
 	</td>
@@ -168,33 +168,33 @@ $PM_OUTBOX_FOOTER = "
 
 
 $PM_BLOCKED_HEADER = "
-<table class='r_border' style='width:95%'>
+<table class='fborder' style='width:95%'>
 <tr>
-	<td class='r_caption' style='width:5%'>&nbsp;</td>
-	<td class='r_caption' style='width:48%'>".LAN_PM_68."</td>
-	<td class='r_caption' style='width:42%'>".LAN_PM_69."</td>
-	<td class='r_caption' style='width:5%'>&nbsp;</td>
+	<td class='fcaption' style='width:5%'>&nbsp;</td>
+	<td class='fcaption' style='width:48%'>".LAN_PM_68."</td>
+	<td class='fcaption' style='width:42%'>".LAN_PM_69."</td>
+	<td class='fcaption' style='width:5%'>&nbsp;</td>
 </tr>
 ";
 
 $PM_BLOCKED_TABLE = "
 <tr>
-	<td class='r_header3'>{PM_BLOCKED_SELECT}</td>
-	<td class='r_header3'>{PM_BLOCKED_USER=link}</td>
-	<td class='r_header3'>{PM_BLOCKED_DATE}</td>
-	<td class='r_header3' style='text-align: center'>{PM_BLOCKED_DELETE}</td>
+	<td class='forumheader3'>{PM_BLOCKED_SELECT}</td>
+	<td class='forumheader3'>{PM_BLOCKED_USER=link}</td>
+	<td class='forumheader3'>{PM_BLOCKED_DATE}</td>
+	<td class='forumheader3' style='text-align: center'>{PM_BLOCKED_DELETE}</td>
 </tr>
 ";
 
 $PM_BLOCKED_EMPTY = "
 <tr>
-	<td colspan='4' class='r_header1'>".LAN_PM_67."</td>
+	<td colspan='4' class='forumheader'>".LAN_PM_67."</td>
 </tr>
 ";
 
 $PM_BLOCKED_FOOTER = "
 <tr>
-	<td class='r_header1' colspan='4' style='text-align:center'>
+	<td class='forumheader' colspan='4' style='text-align:center'>
 	{DELETE_BLOCKED_SELECTED}
 	</td>
 </tr>
@@ -205,12 +205,12 @@ $PM_BLOCKED_FOOTER = "
 
 $PM_SHOW =
 "<div style='text-align: center'>
-<table class='r_border' style='width:95%'>
+<table class='fborder' style='width:95%'>
 <tr>
-	<td class='r_caption' colspan='2'>{PM_SUBJECT}</td>
+	<td class='fcaption' colspan='2'>{PM_SUBJECT}</td>
 </tr>
 <tr>
-	<td class='r_header3' style='width:20%; vertical-align:top'>
+	<td class='forumheader3' style='width:20%; vertical-align:top'>
 		{PM_FROM_TO}
 		<br />
 		<br />
@@ -222,7 +222,7 @@ $PM_SHOW =
 		<br />
 		{PM_DELETE}
 	</td>
-	<td class='r_header3' style='width:80%; vertical-align:top'>{PM_MESSAGE}<br /><br />{PM_ATTACHMENTS}</td>
+	<td class='forumheader3' style='width:80%; vertical-align:top'>{PM_MESSAGE}<br /><br />{PM_ATTACHMENTS}</td>
 </tr>
 {PM_REPLY}
 </table>

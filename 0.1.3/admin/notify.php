@@ -16,7 +16,7 @@
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once('../class.php');
+require_once("../class2.php");
 if (!getperms('O')) {
 	header('location:'.e_BASE.'index.php');
 	exit;
@@ -24,9 +24,9 @@ if (!getperms('O')) {
 
 $e_sub_cat = 'notify';
 
-require_once('auth.php');
-require_once(e_HANDLER.'userclass_class.php');
-require_once(e_HANDLER.'form_handler.php');
+require_once("auth.php");
+require_once(e_HANDLER."userclass_handler.php");
+require_once(e_HANDLER."form_handler.php");
 $rs = new form;
 $nc = new notify_config;
 if (isset($_POST['update'])) 
@@ -54,7 +54,7 @@ class notify_config {
 					$this -> notify_prefs['plugins'][$val] = TRUE;
 					if (is_readable(e_PLUGIN.$val."/e_notify.php"))
 					{
-						require_once(e_PLUGIN.$val.'/e_notify.php');
+						require_once(e_PLUGIN.$val."/e_notify.php");
 						foreach ($config_events as $event_id => $event_text)
 				   		{
 							$this -> notify_prefs['event'][$event_id] = array('type' => 'off', 'class' => '254', 'email' => '');
@@ -77,13 +77,13 @@ class notify_config {
 
 		$text = "<div style='text-align: center'>
 		<form action='".e_SELF."?results' method='post' id='scanform'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_caption' colspan='2'>".NT_LAN_2.":</td>
+		<td class='fcaption' colspan='2'>".NT_LAN_2.":</td>
 		</tr>";
 
 		$text .= "<tr>
-		<td colspan='2' class='r_header1'>".NU_LAN_1."</td>
+		<td colspan='2' class='forumheader'>".NU_LAN_1."</td>
 		</tr>";
 
 		$text .= $this -> render_event('usersup', NU_LAN_2);
@@ -92,14 +92,14 @@ class notify_config {
 		$text .= $this -> render_event('logout', NU_LAN_5);
 
 		$text .= "<tr>
-		<td colspan='2' class='r_header1'>".NS_LAN_1."</td>
+		<td colspan='2' class='forumheader'>".NS_LAN_1."</td>
 		</tr>";
 
 		$text .= $this -> render_event('flood', NS_LAN_2);
 
 
 		$text .= "<tr>
-		<td colspan='2' class='r_header1'>".NN_LAN_1."</td>
+		<td colspan='2' class='forumheader'>".NN_LAN_1."</td>
 		</tr>";
 
 		$text .= $this -> render_event('subnews', NN_LAN_2);
@@ -108,7 +108,7 @@ class notify_config {
 		$text .= $this -> render_event('newsdel', NN_LAN_5);
 
 		$text .= "<tr>
-		<td colspan='2' class='r_header1'>".NF_LAN_1."</td>
+		<td colspan='2' class='forumheader'>".NF_LAN_1."</td>
 		</tr>";
 
 		$text .= $this -> render_event('fileupload', NF_LAN_2);
@@ -118,7 +118,7 @@ class notify_config {
 			{
 				require(e_PLUGIN.$plugin_id.'/e_notify.php');
 				$text .= "<tr>
-				<td colspan='2' class='r_header1'>".$config_category."</td>
+				<td colspan='2' class='forumheader'>".$config_category."</td>
 				</tr>";
 				foreach ($config_events as $event_id => $event_text) {
 					$text .= $this -> render_event($event_id, $event_text);
@@ -127,7 +127,7 @@ class notify_config {
 		}
 
 		$text .= "<tr>
-		<td colspan='2' style='text-align:center' class='r_header1'>".$rs -> form_button('submit', 'update', LAN_UPDATE)."</td>
+		<td colspan='2' style='text-align:center' class='forumheader'>".$rs -> form_button('submit', 'update', LAN_UPDATE)."</td>
 		</tr>
 		</table>
 		</form>
@@ -140,10 +140,10 @@ class notify_config {
 	{
 		global $rs, $tp;
 		$text = "<tr>
-		<td class='r_header3' style='width: 30%'>
+		<td class='forumheader3' style='width: 30%'>
 		".$description.":
 		</td>
-		<td class='r_header3' style='width: 70%; white-space: nowrap'>
+		<td class='forumheader3' style='width: 70%; white-space: nowrap'>
 		<input type='radio' name='event[".$id."][type]' value='off' ".(($this -> notify_prefs['event'][$id]['type'] == 'off' || !$this -> notify_prefs['event'][$id]['type']) ? " checked='checked'" : "")." /> ".NT_LAN_3."
 		<input type='radio' name='event[".$id."][type]' value='main' ".($this -> notify_prefs['event'][$id]['type'] == 'main' ? " checked='checked'" : "")." /> ".NT_LAN_4."
 		<input type='radio' name='event[".$id."][type]' value='class' ".($this -> notify_prefs['event'][$id]['type'] == 'class' ? " checked='checked'" : "")." /> ".NT_LAN_5.":
@@ -186,6 +186,6 @@ class notify_config {
 	}
 }
 
-require_once(e_ADMIN.'footer.php');
+require_once(e_ADMIN."footer.php");
 
 ?>

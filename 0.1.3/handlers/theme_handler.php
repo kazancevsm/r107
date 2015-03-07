@@ -195,11 +195,11 @@ class themeHandler{
 
 
 				if($fileType == "zip") {
-					require_once(e_HANDLER."pclzip.lib.php");
+					require_once(e_HANDLER."pclzip_handler.php");
 					$archive = new PclZip(e_THEME.$archiveName);
 					$unarc = ($fileList = $archive -> extract(PCLZIP_OPT_PATH, e_THEME, PCLZIP_OPT_SET_CHMOD, 0666));
 				} else {
-					require_once(e_HANDLER."pcltar.lib.php");
+					require_once(e_HANDLER."pcltar_handler.php");
 					$unarc = ($fileList = PclTarExtract($archiveName, e_THEME));
 				}
 
@@ -253,17 +253,17 @@ class themeHandler{
 			$text = "";
 		} else {
 			$text = "<div style='text-align:center'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td class='r_header3' style='width: 50%;'>".TPVLAN_13."</td>
-			<td class='r_header3' style='width: 50%;'>
+			<td class='forumheader3' style='width: 50%;'>".TPVLAN_13."</td>
+			<td class='forumheader3' style='width: 50%;'>
 			<input type='hidden' name='MAX_FILE_SIZE' value='1000000' />
 			<input type='hidden' name='ac' value='".md5(ADMINPWCHANGE)."' />
 			<input class='tbox' type='file' name='file_userfile[]' size='50' />
 			</td>
 			</tr>
 			<tr>
-			<td colspan='2' style='text-align:center' class='r_header1'>
+			<td colspan='2' style='text-align:center' class='forumheader'>
 			<input class='button' type='submit' name='upload' value='".TPVLAN_14."' />
 			</td>
 			</tr>
@@ -309,15 +309,15 @@ class themeHandler{
 		$previewbutton = (!$mode ? "<input class='button' type='submit' name='preview_".$theme['id']."' value='".TPVLAN_9."' /> " : "");
 
 		$text = "<div style='text-align:center;margin-left:auto;margin-right:auto'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td class='r_header3' style='width:202px; text-align:center; vertical-align:top'>$preview
+		<td class='forumheader3' style='width:202px; text-align:center; vertical-align:top'>$preview
 		<br />
 		<br />
 		<b><span class='mediumtext'>".$theme['name']."</span></b><br />".TPVLAN_11." ".$theme['version']."
 		<br />
 		</td>
-		<td class='r_header3' style='vertical-align:top'>";
+		<td class='forumheader3' style='vertical-align:top'>";
 
 		$itext = $author ? "<tr><td style='vertical-align:top; width:24%'><b>".TPVLAN_4."</b>:</td><td style='vertical-align:top'>".$author."</td></tr>" : "";
 		$itext .= $website ? "<tr><td style='vertical-align:top; width:24%'><b>".TPVLAN_5."</b>:</td><td style='vertical-align:top'>".$website."</td></tr>" : "";

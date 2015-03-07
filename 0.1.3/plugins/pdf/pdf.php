@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 $qs = explode(".", e_QUERY);
 if ($qs[0] == "") {
 	header("location:".e_BASE."index.php");

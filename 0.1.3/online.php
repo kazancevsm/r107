@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("class.php");
+require_once("class2.php");
 require_once(HEADERF);
 
 global $listuserson;

@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/user_extended_class.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/user_extended_handler.php $
 |     $Revision: 11853 $
-|     $Id: user_extended_class.php 11853 2010-10-05 21:20:55Z e107steved $
+|     $Id: user_extended_handler.php 11853 2010-10-05 21:20:55Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
@@ -454,7 +454,7 @@ class e107_user_extended
 			return $this->extended_xml;
 		}
 
-		require_once(e_HANDLER."xml_class.php");
+		require_once(e_HANDLER."xml_handler.php");
 		$xml = new CXml;
 		if("getfile" == $contents)
 		{

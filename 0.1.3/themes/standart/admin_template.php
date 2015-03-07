@@ -157,7 +157,7 @@ $BUTTONS_END = "
 ";
 
 $SUB_BUTTONS_START = "
-<table class='r_border' style='width:100%;'>
+<table class='fborder' style='width:100%;'>
 	<tr>
 		<td style='text-align:center; font-weight: bold;'>
 			<div class='emenadsuBar'>

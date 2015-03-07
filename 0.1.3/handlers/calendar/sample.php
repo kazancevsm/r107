@@ -1,5 +1,5 @@
 <?php
-require_once('../../class.php');
+require_once('../../class2.php');
 require_once(e_HANDLER."calendar/calendar_class.php");
 $cal = new DHTML_Calendar(true);
 function headerjs()

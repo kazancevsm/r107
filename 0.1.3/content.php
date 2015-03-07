@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 	
-require_once("class.php");
+require_once("class2.php");
 
 //##### REDIRECTION MANAGEMENT -----------------------------------------------------------------------------
 if($content_install = varset($pref['plug_installed']['content']))

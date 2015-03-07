@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 
 define("ASYSTEM", "php-nuke");
@@ -27,9 +27,9 @@ if(!isset($_POST['do_conversion']))
 {
 
 	$text = "
-	<table style='width: 100%;' class='r_border'>
+	<table style='width: 100%;' class='fborder'>
 	<tr>
-	<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+	<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 	This script will import your ".ASYSTEM." database to e107. <br /><br /><br /><b>*** IMPORTANT ***<br />Running this script will empty most of your e107 tables - make sure you have a backup before continuing!</b>
 
 	<br /><br /><br />\n
@@ -38,7 +38,7 @@ if(!isset($_POST['do_conversion']))
 	<form method='post' action='".e_SELF."'>
 	Please enter the details for your ".ASYSTEM." database ...<br /><br />
 
-	<table style='width: 50%;' class='r_border'>
+	<table style='width: 50%;' class='fborder'>
 	<tr>
 	<td style='width: 50%; text-align: right;'>Host&nbsp;&nbsp;</td>
 	<td style='width: 50%; text-align: left;'><input class='tbox' type='text' name='dbHost' size='30' value='localhost' maxlength='100' />
@@ -85,9 +85,9 @@ if(!isset($_POST['dbPrefix']))
 
 extract($_POST);
 
-echo "<table style='width: 100%;' class='r_border'>
+echo "<table style='width: 100%;' class='fborder'>
 <tr>
-<td class='r_header3' style='text-align: center; margin-left: auto; margin-right: auto;'>
+<td class='forumheader3' style='text-align: center; margin-left: auto; margin-right: auto;'>
 Attempting to connect to ".ASYSTEM." database [ {$dbDatabase} @ {$dbHost} ] ...<br />\n";
 flush();
 

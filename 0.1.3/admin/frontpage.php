@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../class.php');
+require_once('../class2.php');
 if (!getperms('G')) {
 	header('location:'.e_BASE.'index.php');
 	exit;
@@ -26,7 +26,7 @@ $e_sub_cat = 'frontpage';
 require_once('auth.php');
 require_once(e_HANDLER.'form_handler.php');
 $rs = new form;
-require_once(e_HANDLER.'userclass_class.php');
+require_once(e_HANDLER."userclass_handler.php");
 
 $front_page['news'] = array('page' => 'news.php', 'title' => ADLAN_0);
 $front_page['download'] = array('page' => 'download.php', 'title' => ADLAN_24);
@@ -101,18 +101,18 @@ class frontpage {
 		global $rs, $pref, $ns, $front_page;
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>";
+		<table class='fborder'>";
 
 		$text .= "<tr>
-		<td style='width: 50%' class='r_header3'>".FRTLAN_2.":</td>
-		<td style='width: 50%' class='r_header3'>
+		<td style='width: 50%' class='forumheader3'>".FRTLAN_2.":</td>
+		<td style='width: 50%' class='forumheader3'>
 		".$rs -> form_radio('type', 'all_users', (isset($pref['frontpage']['all']) ? TRUE : FALSE))." ".FRTLAN_31."&nbsp;
 		".$rs -> form_radio('type', 'user_class', (isset($pref['frontpage']['all']) ? FALSE : TRUE))." ".FRTLAN_32.":
 		".r_userclass('class', '', 'off', 'guest,member,admin, main, classes')."</td>
 		</tr>";
 
 		$text .= "<tr style='vertical-align:top'>
-		<td colspan='2' style='text-align: center' class='r_header1'>
+		<td colspan='2' style='text-align: center' class='forumheader'>
 		".$rs -> form_button('submit', 'select', LAN_SELECT)."
 		</td>
 		</tr>
@@ -124,17 +124,17 @@ class frontpage {
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'><tr>
-		<td style='width: 25%' class='r_caption'>".FRTLAN_32."</td>
-		<td style='width: 65%' class='r_caption'>".FRTLAN_34."</td>
-		<td style='width: 10%' class='r_caption'>".LAN_EDIT."</td>
+		<table class='fborder'><tr>
+		<td style='width: 25%' class='fcaption'>".FRTLAN_32."</td>
+		<td style='width: 65%' class='fcaption'>".FRTLAN_34."</td>
+		<td style='width: 10%' class='fcaption'>".LAN_EDIT."</td>
 		</tr>";
 
 		if (isset($pref['frontpage']['all'])) {
 			$text .= "<tr>
-			<td class='r_header3'>".FRTLAN_31."</td>
-			<td class='r_header3'>".$pref['frontpage']['all']."</td>
-			<td class='r_header3' style='text-align:center'>
+			<td class='forumheader3'>".FRTLAN_31."</td>
+			<td class='forumheader3'>".$pref['frontpage']['all']."</td>
+			<td class='forumheader3' style='text-align:center'>
 			<input type='image' title='".LAN_EDIT."' name='edit[all]' src='".ADMIN_EDIT_ICON_PATH."' />
 			</td>
 			</tr>";
@@ -155,9 +155,9 @@ class frontpage {
 					}
 				}
 				$text .= "<tr>
-				<td class='r_header3'>".$title."</td>
-				<td class='r_header3'>".$current_value."</td>
-				<td class='r_header3' style='text-align:center'>
+				<td class='forumheader3'>".$title."</td>
+				<td class='forumheader3'>".$current_value."</td>
+				<td class='forumheader3' style='text-align:center'>
 				<input type='image' title='".LAN_EDIT."' name='edit[".$current_key."]' src='".ADMIN_EDIT_ICON_PATH."' />
 				</td>
 				</tr>";
@@ -195,9 +195,9 @@ class frontpage {
 
 		$text = "<div style='text-align:center'>
 		<form method='post' action='".e_SELF."'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 		<tr>
-		<td colspan='3' class='r_caption'>".FRTLAN_2." ".$title.": </td>
+		<td colspan='3' class='fcaption'>".FRTLAN_2." ".$title.": </td>
 		</tr>";
 
 		foreach ($front_page as $front_key => $front_value) {
@@ -217,13 +217,13 @@ class frontpage {
 				}
 			}
 
-			$text .= "<tr><td class='r_header3'>";
+			$text .= "<tr><td class='forumheader3'>";
 			$text .= $rs -> form_radio('frontpage', $front_key, $type_selected);
 			$text .= "</td>";
 
 			if (is_array($front_value['page'])) {
-				$text .= "<td style='width: 50%' class='r_header3'>".$front_value['title']."</td>";
-				$text .= "<td style='width: 50%' class='r_header3'>";
+				$text .= "<td style='width: 50%' class='forumheader3'>".$front_value['title']."</td>";
+				$text .= "<td style='width: 50%' class='forumheader3'>";
 				$text .= $rs -> form_select_open('multipage['.$front_key.']');
 				$type = isset($pref['frontpage']['all']) ? 'all' : $_POST['class'];
 				foreach ($front_value['page'] as $multipage_key => $multipage_value) {
@@ -233,21 +233,21 @@ class frontpage {
 				$text .= $rs -> form_select_close();
 				$text .= "</td>";
 			} else {
-				$text .= "<td style='width: 100%' colspan='2' class='r_header3'>".$front_value['title']."</td>";
+				$text .= "<td style='width: 100%' colspan='2' class='forumheader3'>".$front_value['title']."</td>";
 			}
 			$text .= "</tr>";
 		}
 
 		$text .= "<tr>
-		<td class='r_header3'>".$rs -> form_radio('frontpage', 'other', (!$not_other ? TRUE : FALSE))."</td>
-		<td style='width: 50%' class='r_header3'>".FRTLAN_15."</td>
-		<td style='width: 50%' class='r_header3'>
+		<td class='forumheader3'>".$rs -> form_radio('frontpage', 'other', (!$not_other ? TRUE : FALSE))."</td>
+		<td style='width: 50%' class='forumheader3'>".FRTLAN_15."</td>
+		<td style='width: 50%' class='forumheader3'>
 		".$rs -> form_text('other_page', 50, (!$not_other ? $current_setting : ''), 150)."
 		</td>
 		</tr>";
 
 		$text .= "<tr style='vertical-align:top'>
-		<td colspan='3' style='text-align: center' class='r_header1'>";
+		<td colspan='3' style='text-align: center' class='forumheader'>";
 		$text .= $rs -> form_hidden('type', $_POST['type']);
 		$text .= $rs -> form_hidden('class', $_POST['class']);
 		$text .= $rs -> form_button('submit', 'updatesettings', FRTLAN_12);

@@ -28,14 +28,14 @@ if($cacheData = $e107cache->retrieve("nq_othernews2"))
 }
 
 
-require_once(e_HANDLER."news_class.php");
+require_once(e_HANDLER."news_handler.php");
 unset($text);
 global $OTHERNEWS2_STYLE;
 $ix = new news;
 
 if(!$OTHERNEWS2_STYLE) {
 	$OTHERNEWS2_STYLE = "
-	<table class='r_header3' cellpadding='0' cellspacing='0' style='width:100%'>
+	<table class='forumheader3' cellpadding='0' cellspacing='0' style='width:100%'>
 	<tr><td class='caption2' colspan='2' style='padding:3px;text-decoration:none;'>
 	{NEWSCATICON}
 	{NEWSCATEGORY}

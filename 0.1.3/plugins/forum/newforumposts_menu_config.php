@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("1")) {
 	header("location:".e_BASE."index.php");
 	 exit();
@@ -44,53 +44,53 @@ $menu_pref['newforumposts_maxage'] = varset($menu_pref['newforumposts_maxage'],0
 
 $text = "<div style='text-align:center'>
 	<form method=\"post\" action=\"".e_SELF."?".e_QUERY."\" name=\"menu_conf_form\">
-	<table style='width:85%' class=\"r_border\">
+	<table style='width:85%' class=\"fborder\">
 	<colgroup>
 	  <col style='width:40%;' />
 	  <col style='width:60%;' />
 	</colgroup>
 	<tr>
-	<td class='r_header3'>".NFP_4.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".NFP_4.": </td>
+	<td class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"newforumposts_caption\" size=\"20\" value=\"".$menu_pref['newforumposts_caption']."\" maxlength=\"100\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>".NFP_5.":
+	<td class='forumheader3'>".NFP_5.":
 	</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"newforumposts_display\" size=\"20\" value=\"".$menu_pref['newforumposts_display']."\" maxlength=\"2\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>".NFP_12.":
+	<td class='forumheader3'>".NFP_12.":
 	</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name='newforumposts_maxage' size='20' value='".$menu_pref['newforumposts_maxage']."' maxlength='3' /><br />
 	<span class='smalltext'><em>".NFP_13."</em></span>
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>".NFP_6.": </td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".NFP_6.": </td>
+	<td class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"newforumposts_characters\" size=\"20\" value=\"".$menu_pref['newforumposts_characters']."\" maxlength=\"4\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>".NFP_7.":
+	<td class='forumheader3'>".NFP_7.":
 	</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>
 	<input class=\"tbox\" type=\"text\" name=\"newforumposts_postfix\" size=\"30\" value=\"".$menu_pref['newforumposts_postfix']."\" maxlength=\"200\" />
 	</td>
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>".NFP_8.":</td>
-	<td class='r_header3'>
+	<td class='forumheader3'>".NFP_8.":</td>
+	<td class='forumheader3'>
 	<input type=\"checkbox\" name=\"newforumposts_title\" value=\"1\" ";
 if ($menu_pref['newforumposts_title']) {
 	$text .= " checked ";
@@ -100,7 +100,7 @@ $text .= "
 	</tr>
 	 
 	<tr style=\"vertical-align:top\">
-	<td colspan=\"2\"  style=\"text-align:center\" class='r_header1'>
+	<td colspan=\"2\"  style=\"text-align:center\" class='forumheader'>
 	<input class=\"button\" type=\"submit\" name=\"update_menu\" value=\"".NFP_9."\" />
 	</td>
 	</tr>

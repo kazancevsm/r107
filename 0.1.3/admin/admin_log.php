@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms('0'))
 {
 	header('location:'.e_BASE.'index.php');
@@ -45,12 +45,12 @@ $text .= "<div id='admin_log'><table>\n";
 
 $text .= "
   <tr>
-    <td class='r_caption'>&nbsp;</td>
-    <td class='r_caption' style='font-weight: bold;'>".LAN_ADMINLOG_1."</td>
-    <td class='r_caption' style='font-weight: bold;'>".LAN_ADMINLOG_2."</td>
-    <td class='r_caption' style='font-weight: bold;'>".LAN_ADMINLOG_3."</td>
-    <td class='r_caption' style='font-weight: bold;'>".LAN_ADMINLOG_4."</td>
-    <td class='r_caption' style='font-weight: bold;'>".LAN_ADMINLOG_5."</td>
+    <td class='fcaption'>&nbsp;</td>
+    <td class='fcaption' style='font-weight: bold;'>".LAN_ADMINLOG_1."</td>
+    <td class='fcaption' style='font-weight: bold;'>".LAN_ADMINLOG_2."</td>
+    <td class='fcaption' style='font-weight: bold;'>".LAN_ADMINLOG_3."</td>
+    <td class='fcaption' style='font-weight: bold;'>".LAN_ADMINLOG_4."</td>
+    <td class='fcaption' style='font-weight: bold;'>".LAN_ADMINLOG_5."</td>
   </tr>\n";
 
 while ($row = $sql -> db_Fetch()) {

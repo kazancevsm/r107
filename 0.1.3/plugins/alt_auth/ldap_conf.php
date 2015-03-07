@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = true;
-require_once("../../class.php");
+require_once("../../class2.php");
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."form_handler.php");
 include_lan(e_PLUGIN."alt_auth/languages/".e_LANGUAGE."/lan_ldap_auth.php");
@@ -73,7 +73,7 @@ $current_filter = "(&(cn=[USERNAME]){$ldap['ldap_edirfilter']})";
 $frm = new form;
 $text = $frm -> form_open("POST",e_SELF);
 $text .= "<table style='width:96%'>";
-$text .= "<tr><td class='r_header3'>".LDAPLAN_12."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_12."</td><td class='forumheader3'>";
 $text .= $frm -> form_select_open("ldap_servertype");
 foreach($server_types as $v)
 {
@@ -83,23 +83,23 @@ foreach($server_types as $v)
 $text .= $frm -> form_select_close();
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_1."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_1."</td><td class='forumheader3'>";
 $text .= $frm -> form_text("ldap_server", 35, $ldap['ldap_server'], 120);
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_2."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_2."</td><td class='forumheader3'>";
 $text .= $frm -> form_text("ldap_basedn", 35, $ldap['ldap_basedn'], 120);
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_3."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_3."</td><td class='forumheader3'>";
 $text .= $frm -> form_text("ldap_user", 35, $ldap['ldap_user'], 120);
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_4."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_4."</td><td class='forumheader3'>";
 $text .= $frm -> form_text("ldap_passwd", 35, $ldap['ldap_passwd'], 120);
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_5."</td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_5."</td><td class='forumheader3'>";
 $text .= $frm -> form_select_open("ldap_version");
 
 foreach($ldap_ver as $v)
@@ -111,11 +111,11 @@ foreach($ldap_ver as $v)
 $text .= $frm -> form_select_close();
 $text .= "</td></tr>";
 
-$text .= "<tr><td class='r_header3'>".LDAPLAN_7."<br /><span class='smalltext'>".LDAPLAN_8."</span></td><td class='r_header3'>";
+$text .= "<tr><td class='forumheader3'>".LDAPLAN_7."<br /><span class='smalltext'>".LDAPLAN_8."</span></td><td class='forumheader3'>";
 $text .= $frm -> form_text("ldap_edirfilter", 35, $ldap['ldap_edirfilter'], 120);
 $text .= "<br /><span class='smalltext'>".LDAPLAN_9."<br />{$current_filter}</span></td></tr>";
 
-$text .= "<tr><td class='r_header1' colspan='2' style='text-align:center;'>";
+$text .= "<tr><td class='forumheader' colspan='2' style='text-align:center;'>";
 $text .= $frm -> form_button("submit", "update", LDAPLAN_13);
 $text .= "</td></tr>";
 

@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/profanity_filter.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/profanity_filter_handler.php $
 |     $Revision: 12080 $
-|     $Id: profanity_filter.php 12080 2011-02-26 23:07:26Z e107steved $
+|     $Id: profanity_filter_handler.php 12080 2011-02-26 23:07:26Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */

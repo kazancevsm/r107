@@ -25,7 +25,7 @@ include_lan(e_PLUGIN."pm/languages/admin/".e_LANGUAGE.".php");
 
 $sql->db_Update("plugin", "plugin_name=".ADLAN_PM." WHERE plugin_path='pm'");
 
-require_once(e_HANDLER.'plugin_class.php');
+require_once(e_HANDLER."plugin_handler.php");
 $plugin = new e107plugin;
 
 $sql -> db_Select_gen("

@@ -17,9 +17,9 @@
 +----------------------------------------------------------------------------+
 */
 $eplug_admin = TRUE;
-require_once("../../class.php");
+require_once("../../class2.php");
 include_lan(e_PLUGIN."usertheme_menu/languages/".e_LANGUAGE.".php");
-require_once(e_HANDLER.'userclass_class.php');
+require_once(e_HANDLER."userclass_handler.php");
 
 
 if (!getperms("2")) 		// Same permissions as menu configuration
@@ -76,13 +76,13 @@ $themeeditclass = varset($pref['allow_theme_select'],e_UC_NOBODY);
 
 $text = "
 	<form method='post' action='".e_SELF."' name='menu_conf_form'>
-	<table style='".ADMIN_WIDTH."' class='r_border' >
+	<table class='fborder' >
 	<colgroup>
 	<col style='width: 50%' />
 	<col style='width: 50%' />
 	</colgroup>
 	<tr>
-	<td colspan='2' class='r_header2'>".LAN_UMENU_THEME_4."</td>
+	<td colspan='2' class='forumheader2'>".LAN_UMENU_THEME_4."</td>
 	</tr>";
 
 	foreach ($themeOptions as $th)
@@ -90,20 +90,20 @@ $text = "
 		$ch = (in_array($th, $themeList) ? " checked='checked'" : '');
 		$text .= "
 			<tr>
-			<td class='r_header3'>{$th}</td>
-			<td class='r_header3'><input class='tbox' type='checkbox' name='theme_{$th}' value='{$th}' {$ch} /></td>
+			<td class='forumheader3'>{$th}</td>
+			<td class='forumheader3'><input class='tbox' type='checkbox' name='theme_{$th}' value='{$th}' {$ch} /></td>
 			</tr>";
 	}
 	$text .= "
 			<tr>
-			<td class='r_header3'>".LAN_UMENU_THEME_7."</td>
-			<td class='r_header3'>".r_userclass("themeeditclass", $themeeditclass, "off", "main,member,admin,classes,matchclass,nobody")."</td>
+			<td class='forumheader3'>".LAN_UMENU_THEME_7."</td>
+			<td class='forumheader3'>".r_userclass("themeeditclass", $themeeditclass, "off", "main,member,admin,classes,matchclass,nobody")."</td>
 			</tr>";
 
 
 $text .= "
 	<tr>
-	<td colspan='2' class='r_header1' style='text-align:center'><input class='button' type='submit' name='update_theme' value='".LAN_UMENU_THEME_5."' /></td>
+	<td colspan='2' class='forumheader' style='text-align:center'><input class='button' type='submit' name='update_theme' value='".LAN_UMENU_THEME_5."' /></td>
 	</tr>
 	</table>
 	</form>

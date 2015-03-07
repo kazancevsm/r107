@@ -173,9 +173,9 @@ define('EC_LAN_82', "To activate please go to your menus screen and select the c
 define('EC_LAN_83', "Calendar");
 	
 //define('EC_LAN_84', "Css element to use for day header");
-//define('EC_LAN_85', "Default is 'r_header1'");
+//define('EC_LAN_85', "Default is 'forumheader'");
 //define('EC_LAN_86', "Css element to use for day list");
-//define('EC_LAN_87', "Default is 'r_header3'");
+//define('EC_LAN_87', "Default is 'forumheader3'");
 //define('EC_LAN_88', "Css element to use for selected day");
 //define('EC_LAN_89', "Default is 'indent'");
 

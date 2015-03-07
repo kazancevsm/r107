@@ -255,8 +255,8 @@ class content_convert{
 			$content_pref['content_cat_sub_caption'] = CONTENT_LAN_28;		//caption for subcategories
 			$content_pref['content_cat_item_caption'] = CONTENT_LAN_31;		//caption for items in category
 			$content_pref['content_author_index_caption'] = CONTENT_LAN_32;	//caption for author index page
-			$content_pref['content_author_caption'] = CONTENT_LAN_32;		//caption for single author page
-			$content_pref['content_author_caption_append_name'] = '1';		//append author name to caption
+			$content_pref['content_authofcaption'] = CONTENT_LAN_32;		//caption for single author page
+			$content_pref['content_authofcaption_append_name'] = '1';		//append author name to caption
 			$content_pref['content_archive_caption'] = CONTENT_LAN_84;		//caption for archive page
 			$content_pref['content_top_icon_width'] = '';					//use this size for icon
 			$content_pref['content_top_caption'] = CONTENT_LAN_38;			//caption for top rated page
@@ -359,47 +359,47 @@ class content_convert{
 							<div style='text-align:center'>
 							<div style='width:70%; text-align:left'>
 							".$rs -> form_open("post", e_SELF, "dataform")."
-							<table class='r_border'>";
+							<table class='fborder'>";
 							
 							$oldcontent = $sql -> db_Count("content", "(*)", "");
 							if($oldcontent > 0){
-								$text .= "<tr><td class='r_header3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_8." ".CONTENT_ADMIN_MAIN_LAN_9." ".CONTENT_ADMIN_MAIN_LAN_11."</td></tr>";
+								$text .= "<tr><td class='forumheader3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_8." ".CONTENT_ADMIN_MAIN_LAN_9." ".CONTENT_ADMIN_MAIN_LAN_11."</td></tr>";
 
 								$text .= "<tr><td style='height:20px; border:0;' colspan='2'></td></tr>";
-								$text .= "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_18."</td></tr>";
-								$text .= "<tr><td class='r_header3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_19."</td></tr>";
+								$text .= "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_18."</td></tr>";
+								$text .= "<tr><td class='forumheader3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_19."</td></tr>";
 								$text .= "
 								<tr>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_43."</td>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "convert_table", CONTENT_ADMIN_CONVERSION_LAN_59)."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_43."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "convert_table", CONTENT_ADMIN_CONVERSION_LAN_59)."</td>
 								</tr>";
 
 								$text .= "<tr><td style='height:20px; border:0;' colspan='2'></td></tr>";
-								$text .= "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_22."</td></tr>";
-								$text .= "<tr><td class='r_header3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_23."</td></tr>";
+								$text .= "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_22."</td></tr>";
+								$text .= "<tr><td class='forumheader3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_23."</td></tr>";
 								$text .= "
 								<tr>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_54."</td>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "create_default", CONTENT_ADMIN_CONVERSION_LAN_60)."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_54."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "create_default", CONTENT_ADMIN_CONVERSION_LAN_60)."</td>
 								</tr>";
 
 								$text .= "<tr><td style='height:20px; border:0;' colspan='2'></td></tr>";
-								$text .= "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_20."</td></tr>";
-								$text .= "<tr><td class='r_header3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_21."</td></tr>";
+								$text .= "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_20."</td></tr>";
+								$text .= "<tr><td class='forumheader3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_21."</td></tr>";
 								$text .= "
 								<tr>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_56."</td>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("button", "fresh", CONTENT_ADMIN_CONVERSION_LAN_61, "onclick=\"document.location='".e_PLUGIN."content/admin_content_config.php?type.0.cat.create'\"
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_56."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("button", "fresh", CONTENT_ADMIN_CONVERSION_LAN_61, "onclick=\"document.location='".e_PLUGIN."content/admin_content_config.php?type.0.cat.create'\"
 								")."</td>
 								</tr>";
 
 							}else{
-								$text .= "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_8." ".CONTENT_ADMIN_MAIN_LAN_9." ".CONTENT_ADMIN_MAIN_LAN_24."</td></tr>";
-								$text .= "<tr><td class='r_header3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_25."</td></tr>";
+								$text .= "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_8." ".CONTENT_ADMIN_MAIN_LAN_9." ".CONTENT_ADMIN_MAIN_LAN_24."</td></tr>";
+								$text .= "<tr><td class='forumheader3' colspan='2'>".CONTENT_ADMIN_MAIN_LAN_25."</td></tr>";
 								$text .= "
 								<tr>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_54."</td>
-									<td class='r_header3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "create_default", CONTENT_ADMIN_CONVERSION_LAN_60)."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".CONTENT_ADMIN_CONVERSION_LAN_54."</td>
+									<td class='forumheader3' style='width:50%; white-space:nowrap;'>".$rs -> form_button("submit", "create_default", CONTENT_ADMIN_CONVERSION_LAN_60)."</td>
 								</tr>";
 							}
 
@@ -681,7 +681,7 @@ class content_convert{
 				//no pages present
 				if($array[0] === false){
 					if( !(count($array[1]) > 0 || count($array[2]) > 0) ){
-						$text .= "<tr><td class='r_header1' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_34." ".$name." ".CONTENT_ADMIN_CONVERSION_LAN_35."</td></tr>";
+						$text .= "<tr><td class='forumheader' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_34." ".$name." ".CONTENT_ADMIN_CONVERSION_LAN_35."</td></tr>";
 					}
 				
 				//pages present
@@ -691,8 +691,8 @@ class content_convert{
 					if(count($array[1]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".count($array[1])." ".CONTENT_ADMIN_CONVERSION_LAN_38."</td>
-							<td class='r_header3'><a style='cursor:pointer;' onclick=\"expandit('validcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".count($array[1])." ".CONTENT_ADMIN_CONVERSION_LAN_38."</td>
+							<td class='forumheader3'><a style='cursor:pointer;' onclick=\"expandit('validcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='validcat_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
 									for($i=0;$i<count($array[1]);$i++){
@@ -713,8 +713,8 @@ class content_convert{
 					if(count($array[2]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".count($array[2])." ".CONTENT_ADMIN_CONVERSION_LAN_39."</td>
-							<td class='r_header3'><a style='cursor:pointer;' onclick=\"expandit('failedcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".count($array[2])." ".CONTENT_ADMIN_CONVERSION_LAN_39."</td>
+							<td class='forumheader3'><a style='cursor:pointer;' onclick=\"expandit('failedcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='failedcat_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
 									for($i=0;$i<count($array[2]);$i++){
@@ -732,8 +732,8 @@ class content_convert{
 					}
 					$text .= "
 					<tr>
-						<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td>
-						<td class='r_header3'>
+						<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_3." : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td>
+						<td class='forumheader3'>
 							<a style='cursor: pointer; cursor: hand' onclick=\"expandit('analysecat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 							<div id='analysecat_{$name}' style='display: none;'>
 								<table style='width:100%; border:0;'>
@@ -754,7 +754,7 @@ class content_convert{
 
 				//no rows present
 				if($array[0] === false){
-					$text .= "<tr><td class='r_header1' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_34." ".$name." ".CONTENT_ADMIN_CONVERSION_LAN_36."</td></tr>";
+					$text .= "<tr><td class='forumheader' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_34." ".$name." ".CONTENT_ADMIN_CONVERSION_LAN_36."</td></tr>";
 				
 				//rows present
 				}else{
@@ -763,8 +763,8 @@ class content_convert{
 					if(count($array[2]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[2])." ".CONTENT_ADMIN_CONVERSION_LAN_38."</td>
-							<td class='r_header3'>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[2])." ".CONTENT_ADMIN_CONVERSION_LAN_38."</td>
+							<td class='forumheader3'>
 								<a style='cursor:pointer;' onclick=\"expandit('valid_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='valid_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
@@ -785,8 +785,8 @@ class content_convert{
 					if(count($array[4]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[4])." ".CONTENT_ADMIN_CONVERSION_LAN_31."</td>
-							<td class='r_header3'>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[4])." ".CONTENT_ADMIN_CONVERSION_LAN_31."</td>
+							<td class='forumheader3'>
 								<a style='cursor:pointer;' onclick=\"expandit('oldcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='oldcat_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
@@ -807,8 +807,8 @@ class content_convert{
 					if(count($array[5]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[5])." ".CONTENT_ADMIN_CONVERSION_LAN_31."</td>
-							<td class='r_header3'>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[5])." ".CONTENT_ADMIN_CONVERSION_LAN_31."</td>
+							<td class='forumheader3'>
 								<a style='cursor:pointer;' onclick=\"expandit('newcat_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='newcat_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
@@ -829,8 +829,8 @@ class content_convert{
 					if(count($array[3]) > 0 ){
 						$text .= "
 						<tr>
-							<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[3])." ".CONTENT_ADMIN_CONVERSION_LAN_39."</td>
-							<td class='r_header3'>
+							<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".count($array[3])." ".CONTENT_ADMIN_CONVERSION_LAN_39."</td>
+							<td class='forumheader3'>
 								<a style='cursor: pointer; cursor: hand' onclick=\"expandit('failed_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 								<div id='failed_{$name}' style='display: none;'>
 									<table style='width:100%; border:0;'>";
@@ -851,8 +851,8 @@ class content_convert{
 					//analyses
 					$text .= "
 					<tr>
-						<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td>
-						<td class='r_header3'>
+						<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".CONTENT_ADMIN_CONVERSION_LAN_6." : ".CONTENT_ADMIN_CONVERSION_LAN_27."</td>
+						<td class='forumheader3'>
 							<a style='cursor: pointer; cursor: hand' onclick=\"expandit('analyse_{$name}');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 							<div id='analyse_{$name}' style='display: none;'>
 								<table style='width:100%; border:0;'>
@@ -874,11 +874,11 @@ class content_convert{
 
 		//show output of the mainparent conversion
 		function results_conversion_mainparent($content, $review, $article){
-				$text = "<tr><td class='r_caption' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_50."</td></tr>";
+				$text = "<tr><td class='fcaption' colspan='2'>".CONTENT_ADMIN_CONVERSION_LAN_50."</td></tr>";
 				$text .= "
 				<tr>
-					<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($content[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_20."</td>
-					<td class='r_header3'>
+					<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($content[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_20."</td>
+					<td class='forumheader3'>
 						<a style='cursor: pointer; cursor: hand' onclick=\"expandit('contentmain');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 						<div id='contentmain' style='display: none;'>
 							".$content[1]."
@@ -886,8 +886,8 @@ class content_convert{
 					</td>
 				</tr>
 				<tr>
-					<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($review[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_21."</td>
-					<td class='r_header3'>
+					<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($review[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_21."</td>
+					<td class='forumheader3'>
 						<a style='cursor: pointer; cursor: hand' onclick=\"expandit('reviewmain');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 						<div id='reviewmain' style='display: none;'>
 							".$review[1]."
@@ -895,8 +895,8 @@ class content_convert{
 					</td>
 				</tr>
 				<tr>
-					<td class='r_header3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($article[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_22."</td>
-					<td class='r_header3'>
+					<td class='forumheader3' style='width:5%; white-space:nowrap; vertical-align:top;'>".($article[0] == "1" ? CONTENT_ICON_OK : CONTENT_ICON_ERROR)." ".CONTENT_ADMIN_CONVERSION_LAN_22."</td>
+					<td class='forumheader3'>
 						<a style='cursor: pointer; cursor: hand' onclick=\"expandit('articlemain');\">".CONTENT_ADMIN_CONVERSION_LAN_48."</a>
 						<div id='articlemain' style='display: none;'>
 							".$article[1]."

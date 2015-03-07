@@ -21,7 +21,7 @@
 
 define("ERR_PAGE_ACTIVE",'error');
 unset($_POST);
-require_once("class.php");
+require_once("class2.php");
 
 if (!defined('PAGE_NAME')) define('PAGE_NAME','Unknown page');
 $errorHeader = '';

@@ -21,7 +21,7 @@ if((isset($_POST['report_thread']) || in_array('thread_action', $_POST)) && !iss
 	$_POST['e-token'] = '';
 }
 
-require_once('../../class.php');
+require_once('../../class2.php');
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -141,7 +141,7 @@ if ($action == "report") {
 	if (isset($_POST['report_thread'])) {
 		$report_add = $tp -> toDB($_POST['report_add']);
 		if ($pref['reported_post_email']) {
-			require_once(e_HANDLER."mail.php");
+			require_once(e_HANDLER."mail_handler.php");
 			$report = LAN_422.SITENAME." : ".(substr(SITEURL, -1) == "/" ? SITEURL : SITEURL."/").$PLUGINS_DIRECTORY."forum/forum_viewtopic.php?".$thread_id.".post\n".LAN_425.USERNAME."\n".$report_add;
 			$subject = LAN_421." ".SITENAME;
 			sendemail(SITEADMINEMAIL, $subject, $report);

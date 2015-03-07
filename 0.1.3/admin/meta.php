@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("T")) {
 	header("location:".e_BASE."index.php");
 	exit;
@@ -73,42 +73,42 @@ $meta_author = $pref['meta_author'];
 
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."' id='dataform'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 
 	<tr>
-    <td style='width:25%' class='r_header3'>".METLAN_9."</td>
-    <td style='width:75%' class='r_header3'>
+    <td style='width:25%' class='forumheader3'>".METLAN_9."</td>
+    <td style='width:75%' class='forumheader3'>
 	<textarea class='tbox' title='meta_description' id='meta_description' name='meta_description' cols='70' rows='4' style='width:90%'>".$tp->toForm($meta_diz[e_LANGUAGE])."</textarea>
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:25%' class='r_header3'>".METLAN_10."</td>
-    <td style='width:75%' class='r_header3'>
+	<td style='width:25%' class='forumheader3'>".METLAN_10."</td>
+    <td style='width:75%' class='forumheader3'>
 	<textarea class='tbox' title='meta_keywords' id='meta_keywords' name='meta_keywords' cols='70' rows='4' style='width:90%'>".$tp->toForm($meta_keywords[e_LANGUAGE])."</textarea>
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:25%' class='r_header3'>".METLAN_11."</td>
-    <td style='width:75%' class='r_header3'>
+	<td style='width:25%' class='forumheader3'>".METLAN_11."</td>
+    <td style='width:75%' class='forumheader3'>
 	<input class='tbox' style='width:90%' size='70' type='text' name='meta_copyright' value='".$meta_copyright[e_LANGUAGE]."' />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:25%' class='r_header3'>".METLAN_13."</td>
-    <td style='width:75%' class='r_header3'>
+	<td style='width:25%' class='forumheader3'>".METLAN_13."</td>
+    <td style='width:75%' class='forumheader3'>
 	<input class='tbox' style='width:90%' size='70' type='text' name='meta_author' value=\"".$meta_author[e_LANGUAGE]."\" />
 	</td>
 	</tr>
 
 	<tr>
-	<td style='width:25%' class='r_header3'>".METLAN_2.":
+	<td style='width:25%' class='forumheader3'>".METLAN_2.":
 	<span class='smalltext'><br /><br />eg.
 	&lt;meta name='author' content='your name' /&gt; </span>
 	</td>
-	<td style='width:75%' class='r_header3'>
+	<td style='width:75%' class='forumheader3'>
 	<textarea class='tbox' title=\"eg. <meta name='author' content='your name' />\" id='meta' name='meta' cols='70'
 	rows='10' style='width:90%' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);'>".str_replace("<","&lt;",$tp->toForm($meta[e_LANGUAGE]))."</textarea>
 	<br />";
@@ -116,15 +116,15 @@ $text .= "</td>
 </tr>
 
 	<tr>
-	<td style='width:25%' class='r_header3'>".METLAN_12."</td>
-    <td class='r_header3' style='text-align:left;width:75%' >";
+	<td style='width:25%' class='forumheader3'>".METLAN_12."</td>
+    <td class='forumheader3' style='text-align:left;width:75%' >";
     $checked = ($pref['meta_news_summary']) ? "checked='checked'" : "";
 	$text .= "
 	<input type='checkbox' name='meta_news_summary' value='1' {$checked} />
 	</td>
 	</tr>
 
-<tr><td colspan='2' style='text-align:center' class='r_header1'>
+<tr><td colspan='2' style='text-align:center' class='forumheader'>
 
 <input class='button' type='submit' name='metasubmit' value='".METLAN_3."' />
 </td>

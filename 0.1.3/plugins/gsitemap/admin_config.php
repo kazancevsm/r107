@@ -16,10 +16,10 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 if(!getperms("P")){ header("location:".e_BASE."index.php"); }
 require_once(e_ADMIN."auth.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 include_lan(e_PLUGIN."gsitemap/languages/gsitemap_".e_LANGUAGE.".php");
 
 $gsm = new gsitemap;
@@ -122,16 +122,16 @@ class gsitemap
 			$text .= "
 
 			<form action='".e_SELF."' id='display' method='post'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_caption'>Id</td>
-			<td style='width:10%' class='r_caption'>".GSLAN_25."</td>
-			<td style='width:40%' class='r_caption'>".GSLAN_26."</td>
-			<td style='width:20%; text-align: center;' class='r_caption'>".GSLAN_27."</td>
-			<td style='width:10%; text-align: center;' class='r_caption'>".GSLAN_28."</td>
-			<td style='width:10%; text-align: center;' class='r_caption'>".GSLAN_9."</td>
-			<td style='width:5%; text-align: center;' class='r_caption'>".LAN_OPTIONS."</td>
+			<td style='width:5%; text-align: center;' class='fcaption'>Id</td>
+			<td style='width:10%' class='fcaption'>".GSLAN_25."</td>
+			<td style='width:40%' class='fcaption'>".GSLAN_26."</td>
+			<td style='width:20%; text-align: center;' class='fcaption'>".GSLAN_27."</td>
+			<td style='width:10%; text-align: center;' class='fcaption'>".GSLAN_28."</td>
+			<td style='width:10%; text-align: center;' class='fcaption'>".GSLAN_9."</td>
+			<td style='width:5%; text-align: center;' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>
 			";
 
@@ -141,14 +141,14 @@ class gsitemap
 				$datestamp = $gen->convert_date($row2['gsitemap_lastmod'], "short");
 
 				$text .= "<tr>
-				<td class='r_header3' style='; text-align: center;'>".$row2['gsitemap_id'] ."</td>
-				<td class='r_header3'>".$tp->toHTML($row2['gsitemap_name'],"","defs")."</td>
-				<td class='r_header3'>".$row2['gsitemap_url']."</td>
-				<td class='r_header3' style='; text-align: center;'>".$datestamp."</td>
-				<td class='r_header3' style='; text-align: center;'>".$this->freq_list[($row2['gsitemap_freq'])]."</td>
-				<td class='r_header3' style='; text-align: center;'>".$row2['gsitemap_priority'] ."</td>
+				<td class='forumheader3' style='; text-align: center;'>".$row2['gsitemap_id'] ."</td>
+				<td class='forumheader3'>".$tp->toHTML($row2['gsitemap_name'],"","defs")."</td>
+				<td class='forumheader3'>".$row2['gsitemap_url']."</td>
+				<td class='forumheader3' style='; text-align: center;'>".$datestamp."</td>
+				<td class='forumheader3' style='; text-align: center;'>".$this->freq_list[($row2['gsitemap_freq'])]."</td>
+				<td class='forumheader3' style='; text-align: center;'>".$row2['gsitemap_priority'] ."</td>
 
-				<td style='width:50px;white-space:nowrap' class='r_header3'>
+				<td style='width:50px;white-space:nowrap' class='forumheader3'>
 				<div>
 				<input type='image' name='edit[{$row2['gsitemap_id']}]' value='edit' src='".e_IMAGE."admin/edit_16.png' alt='".LAN_EDIT."' title='".LAN_EDIT."' style='border:0px' />
 				<input type='image' name='delete[{$row2['gsitemap_id']}]' value='del' onclick=\"return jsconfirm('".$tp->toJS(LAN_CONFIRMDEL." [".$row2['gsitemap_name']."]")."') \" src='".e_IMAGE."admin/delete_16.png' alt='".LAN_DELETE."' title='".LAN_DELETE."' style='border:0px' />
@@ -188,20 +188,20 @@ class gsitemap
 		$count = $sql -> db_Select("gsitemap", "*", "gsitemap_id !=0 ORDER BY gsitemap_id ASC");
 		$text = "
 		<form action='".e_SELF."' id='form' method='post'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td style='width:25%' class='r_header3'>".GSLAN_25."
+		<td style='width:25%' class='forumheader3'>".GSLAN_25."
 		<span class='smalltext'>&nbsp;</span></td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' style='width:90%' name='gsitemap_name' size='40' value='".$editArray['gsitemap_name']."' maxlength='100' />
 		</td>
 		</tr>
 
 		<tr>
-		<td style='width:25%' class='r_header3'>".GSLAN_26."
+		<td style='width:25%' class='forumheader3'>".GSLAN_26."
 		<span class='smalltext'>&nbsp;</span></td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		<input class='tbox' type='text' style='width:90%' name='gsitemap_url' size='40' value='".$editArray['gsitemap_url']."' maxlength='100' />
 		<input class='tbox' type='hidden'  name='gsitemap_lastmod' size='40' value='".time()."' maxlength='100' />
 		</td>
@@ -209,9 +209,9 @@ class gsitemap
 
 
 		<tr>
-		<td style='width:25%' class='r_header3'>".GSLAN_10."
+		<td style='width:25%' class='forumheader3'>".GSLAN_10."
 		<span class='smalltext'>&nbsp;</span></td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		<select class='tbox' name='gsitemap_freq' >\n";
 
 		foreach($this->freq_list as $k=>$fq){
@@ -225,9 +225,9 @@ class gsitemap
 
 
 		<tr>
-		<td class='r_header3'>".GSLAN_9."<br />
+		<td class='forumheader3'>".GSLAN_9."<br />
 		<span class='smalltext'>&nbsp;</span></td>
-		<td class='r_header3'>
+		<td class='forumheader3'>
 		<select class='tbox' name='gsitemap_priority' >\n";
 
 		for ($i=0.1; $i<1.0; $i=$i+0.1) {
@@ -240,8 +240,8 @@ class gsitemap
 
 
 		<tr>
-		<td class='r_header3'>".GSLAN_30."</td>
-		<td class='r_header3'><select name='gsitemap_order' class='tbox'>";
+		<td class='forumheader3'>".GSLAN_30."</td>
+		<td class='forumheader3'><select name='gsitemap_order' class='tbox'>";
 
 		for($i=0;$i<$count;$i++){
 			$text .= $editArray['gsitemap_order'] == $i ? "<option value='".$i."' selected='selected'>".$i."</option>" : "<option value='".$i."'>".$i."</option>";
@@ -252,8 +252,8 @@ class gsitemap
 		</tr>
 
 		<tr>
-		<td class='r_header3'>".GSLAN_31."</td>
-		<td class='r_header3'>";
+		<td class='forumheader3'>".GSLAN_31."</td>
+		<td class='forumheader3'>";
 		$text .= r_userclass("gsitemap_active", $editArray['gsitemap_active'],'off', "nobody,public,guest,member,admin,classes,language");
 		$text .="
 		</td>
@@ -262,7 +262,7 @@ class gsitemap
 
 
 		<tr style='vertical-align:top'>
-		<td colspan='2' style='text-align:center' class='r_header1'>";
+		<td colspan='2' style='text-align:center' class='forumheader'>";
 		if(is_array($editArray))
 		{
 			$text .= "<input class='button' type='submit' name='add_link' value='".LAN_UPDATE."' />
@@ -378,17 +378,17 @@ class gsitemap
 
 		$text = "
 		<form action='".e_SELF."' id='form' method='post'>
-		<table style='".ADMIN_WIDTH."' class='r_border'>
+		<table class='fborder'>
 
 		<tr>
-		<td colspan='4' style='text-align:center' class='r_header1'><b>".GSLAN_6."</b></td>
+		<td colspan='4' style='text-align:center' class='forumheader'><b>".GSLAN_6."</b></td>
 		</tr>
 
 		<tr>
-		<td style='width:5%; text-align: center;' class='r_header1'>".GSLAN_2."</td>
-		<td style='width:15%' class='r_header1'>".GSLAN_3."</td>
-		<td style='width:40%' class='r_header1'>".GSLAN_4."</td>
-		<td style='width:40%' class='r_header1'>".GSLAN_5."</td>
+		<td style='width:5%; text-align: center;' class='forumheader'>".GSLAN_2."</td>
+		<td style='width:15%' class='forumheader'>".GSLAN_3."</td>
+		<td style='width:40%' class='forumheader'>".GSLAN_4."</td>
+		<td style='width:40%' class='forumheader'>".GSLAN_5."</td>
 		</tr>
 		";
 
@@ -396,10 +396,10 @@ class gsitemap
 		{
 			$text .= "
 			<tr>
-			<td style='width:5%; text-align: center;' class='r_header3'><input type='checkbox' name='importid[]' value='".$ia['name']."^".$ia['url']."^".$ia['type']."' /></td>
-			<td style='width:15%' class='r_header3'>".$ia['type']."</td>
-			<td style='width:40%' class='r_header3'>".$ia['name']."</td>
-			<td style='width:40%' class='r_header3'><span class='smalltext'>".str_replace(SITEURL,"",$ia['url'])."</span></td>
+			<td style='width:5%; text-align: center;' class='forumheader3'><input type='checkbox' name='importid[]' value='".$ia['name']."^".$ia['url']."^".$ia['type']."' /></td>
+			<td style='width:15%' class='forumheader3'>".$ia['type']."</td>
+			<td style='width:40%' class='forumheader3'>".$ia['name']."</td>
+			<td style='width:40%' class='forumheader3'><span class='smalltext'>".str_replace(SITEURL,"",$ia['url'])."</span></td>
 			</tr>
 			";
 		}
@@ -411,7 +411,7 @@ class gsitemap
 
 		$text .= "
 		<tr>
-		<td colspan='4' style='text-align:center' class='r_header1'>
+		<td colspan='4' style='text-align:center' class='forumheader'>
 		<div> ".GSLAN_8." &nbsp; ".GSLAN_9." :&nbsp;<select class='tbox' name='import_priority' >\n";
 
 		for ($i=0.1; $i<1.0; $i=$i+0.1) {

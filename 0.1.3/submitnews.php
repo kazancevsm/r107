@@ -24,7 +24,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("class.php");
+require_once("class2.php");
 $e_wysiwyg = varsettrue($pref['subnews_htmlarea']) ? "submitnews_item" : "";
 require_once(HEADERF);
 
@@ -156,18 +156,16 @@ if (isset($_POST['submitnews_submit']) && $_POST['submitnews_title'] && $_POST['
 	}
 }
 
-if (!defined("USER_WIDTH")) { define("USER_WIDTH","width:95%"); }
-
 $text = "
 <div style='text-align:center'>
   <form id='dataform' method='post' action='".e_SELF."' enctype='multipart/form-data' onsubmit='return frmVerify()'>
-    <table style='".USER_WIDTH."' class='r_border'>";
+    <table class='fborder'>";
 
 if (!empty($pref['news_subheader']))
 {
   $text .= "
   <tr>
-    <td colspan='2' class='r_header3'>".$tp->toHTML($pref['news_subheader'], TRUE, "TITLE")."<br /></td>
+    <td colspan='2' class='forumheader3'>".$tp->toHTML($pref['news_subheader'], TRUE, "TITLE")."<br /></td>
   </tr>";
 }
 
@@ -175,14 +173,14 @@ if (!USER)
 {
   $text .= "
   <tr>
-    <td style='width:20%' class='r_header3'>".LAN_7."</td>
-    <td style='width:80%' class='r_header3'>
+    <td style='width:20%' class='forumheader3'>".LAN_7."</td>
+    <td style='width:80%' class='forumheader3'>
       <input class='tbox' type='text' name='submitnews_name' size='60' value='".$tp->toHTML($submitnews_user,FALSE,'USER_TITLE')."' maxlength='100' />
     </td>
   </tr>
   <tr>
-    <td style='width:20%' class='r_header3'>".LAN_112."</td>
-    <td style='width:80%' class='r_header3'>
+    <td style='width:20%' class='forumheader3'>".LAN_112."</td>
+    <td style='width:80%' class='forumheader3'>
       <input class='tbox' type='text' name='submitnews_email' size='60' value='".$tp->toHTML($submitnews_email, FALSE, 'LINKTEXT')."' maxlength='100' />
     </td>
   </tr>";
@@ -190,8 +188,8 @@ if (!USER)
 
 $text .= "
 <tr>
-  <td style='width:20%' class='r_header3'>".NWSLAN_6.": </td>
-	<td style='width:80%' class='r_header3'>";
+  <td style='width:20%' class='forumheader3'>".NWSLAN_6.": </td>
+	<td style='width:80%' class='forumheader3'>";
 
 if (!count($newsCat))
 {
@@ -215,8 +213,8 @@ $text .= "
   </td>
 </tr>
 <tr>
-  <td style='width:20%' class='r_header3'>".LAN_62."</td>
-	<td style='width:80%' class='r_header3'>
+  <td style='width:20%' class='forumheader3'>".LAN_62."</td>
+	<td style='width:80%' class='forumheader3'>
     <input class='tbox' type='text' id='submitnews_title' name='submitnews_title' size='60' value='".$tp->toHTML($_POST['submitnews_title'],TRUE,'USER_TITLE')."' maxlength='200' style='width:90%' />
 	</td>
 </tr>";
@@ -227,14 +225,14 @@ if (e_WYSIWYG)
 }
 else
 {
-  require_once(e_HANDLER."ren_help.php");
+  require_once(e_HANDLER."ren_help_handler.php");
   $insertjs = "rows='15' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);'";
 }
 
 $text .= "
 <tr>
-  <td style='width:20%' class='r_header3'>".LAN_135."</td>
-	<td style='width:80%' class='r_header3'>
+  <td style='width:20%' class='forumheader3'>".LAN_135."</td>
+	<td style='width:80%' class='forumheader3'>
     <textarea class='tbox' id='submitnews_item' name='submitnews_item' cols='80' style='max-width:95%' {$insertjs}>".$tp->toHTML($_POST['submitnews_item'],TRUE,'USER_BODY')."</textarea><br />";
 
 if (!e_WYSIWYG)
@@ -250,8 +248,8 @@ if ($pref['subnews_attach'] && $pref['upload_enabled'] && check_class($pref['upl
 {
   $text .= "
   <tr>
-    <td style='width:20%' class='r_header3'>".SUBNEWSLAN_5."<br /><span class='smalltext'>".SUBNEWSLAN_6."</span></td>
-    <td style='width:80%' class='r_header3'>
+    <td style='width:20%' class='forumheader3'>".SUBNEWSLAN_5."<br /><span class='smalltext'>".SUBNEWSLAN_6."</span></td>
+    <td style='width:80%' class='forumheader3'>
       <input class='tbox' type='file' name='file_userfile[]' style='width:90%' />
     </td>
   </tr>";
@@ -259,7 +257,7 @@ if ($pref['subnews_attach'] && $pref['upload_enabled'] && check_class($pref['upl
 
 $text .= "
       <tr>
-        <td colspan='2' style='text-align:center' class='r_header1'>
+        <td colspan='2' style='text-align:center' class='forumheader'>
           <input class='button' type='submit' name='submitnews_submit' value='".LAN_136."' />
 		  <input type='hidden' name='e-token' value='".e_TOKEN."' />
         </td>

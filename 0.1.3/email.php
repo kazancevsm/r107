@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/email.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/email_handler.php $
 |     $Revision: 11948 $
-|     $Id: email.php 11948 2010-11-02 22:36:41Z e107steved $
+|     $Id: email_handler.php 11948 2010-11-02 22:36:41Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */
@@ -24,7 +24,7 @@ if (isset($_POST['emailsubmit']) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once('class.php');
+require_once("class2.php");
 if (!check_class(varset($pref['email_item_class'],e_UC_MEMBER)))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -161,7 +161,7 @@ if (isset($_POST['emailsubmit']))
 	if ($error == '')
 	{
 	    // Load Mail Handler and Email Template.
-		require_once(e_HANDLER.'mail.php');
+		require_once(e_HANDLER.'mail_handler.php');
 		if (file_exists(THEME.'email_template.php'))
 		{
 			require_once(THEME.'email_template.php');

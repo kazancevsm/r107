@@ -7,7 +7,7 @@ if(!empty($_POST) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("6")) 
 {
 	header("location:".e_BASE."index.php");
@@ -197,13 +197,13 @@ $pathd = $path;
 /*
 $text = "<div style='text-align:center'>\n
 	<form method='post' action='".e_SELF."?".e_QUERY."'>\n
-	<table style='".ADMIN_WIDTH."' class='r_border'>\n
+	<table class='fborder'>\n
 	<tr>\n\n
 
-	<td style='width:70%' class='r_header3'>\n
+	<td style='width:70%' class='forumheader3'>\n
 	".FMLAN_32."
 	</td>\n
-	<td class='r_header3' style='text-align:center; width:30%'>\n
+	<td class='forumheader3' style='text-align:center; width:30%'>\n
 	<select name='admin_choice' class='tbox' onchange=\"location.href=this.options[selectedIndex].value\">\n";
 
 
@@ -218,7 +218,7 @@ $text .= "</select>\n
 	</tr>\n\n
 
 	<tr style='vertical-align:top'>\n
-	<td colspan='2'  style='text-align:center' class='r_header1'>\n
+	<td colspan='2'  style='text-align:center' class='forumheader'>\n
 	<input class='button' type='submit' name='updateoptions' value='".FMLAN_33."' />
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />\n
 	</td>\n
@@ -236,14 +236,14 @@ $text = "<form enctype=\"multipart/form-data\" action=\"".e_SELF.(e_QUERY ? "?".
 	<div style=\"text-align:center\">
 	<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"2000000\" />
 	<input type='hidden' name='e-token' value='".e_TOKEN."' />\n
-	<table class='r_border'>";
+	<table class='fborder'>";
 
 $text .= "<tr>
-	<td style=\"width:5%\" class=\"r_caption\">&nbsp;</td>
-	<td style=\"width:30%\" class=\"r_caption\"><b>".FMLAN_17."</b></td>
-	<td class=\"r_caption\"><b>".FMLAN_18."</b></td>
-	<td style=\"width:30%\" class=\"r_caption\"><b>".FMLAN_19."</b></td>
-	<td class=\"r_caption\"><b>".LAN_OPTIONS."</b></td>
+	<td style=\"width:5%\" class=\"fcaption\">&nbsp;</td>
+	<td style=\"width:30%\" class=\"fcaption\"><b>".FMLAN_17."</b></td>
+	<td class=\"fcaption\"><b>".FMLAN_18."</b></td>
+	<td style=\"width:30%\" class=\"fcaption\"><b>".FMLAN_19."</b></td>
+	<td class=\"fcaption\"><b>".LAN_OPTIONS."</b></td>
 	</tr>";
 
 if ($path != e_FILE) {
@@ -252,7 +252,7 @@ if ($path != e_FILE) {
 	} else {
 		$pathup = e_SELF."?".substr($path, 0, strrpos(substr($path, 0, -1), "/"))."/";
 	}
-	$text .= "<tr><td colspan=\"5\" class=\"r_header3\"><a href=\"".$pathup."\"><img src=\"".$imagedir."updir.png\" alt=\"".FMLAN_30."\" style=\"border:0\" /></a> 
+	$text .= "<tr><td colspan=\"5\" class=\"forumheader3\"><a href=\"".$pathup."\"><img src=\"".$imagedir."updir.png\" alt=\"".FMLAN_30."\" style=\"border:0\" /></a> 
 		<a href=\"filemanager.php\"><img src=\"".$imagedir."home.png\" alt=\"".FMLAN_16."\" style=\"border:0\" /></a>
 		</td>
 		</tr>";
@@ -262,16 +262,16 @@ $c = 0;
 while ($dirs[$c]) {
 	$dirsize = dirsize($path.$dirs[$c]);
 	$text .= "<tr>
-		<td class=\"r_header3\" style=\"vertical-align:middle; text-align:center; width:5%\">
+		<td class=\"forumheader3\" style=\"vertical-align:middle; text-align:center; width:5%\">
 		<a href=\"".e_SELF."?".$path.$dirs[$c]."/\"><img src=\"".$imagedir."folder.png\" alt=\"".$dirs[$c]." ".FMLAN_31."\" style=\"border:0\" /></a>
 		</td>
-		<td style=\"width:30%\" class=\"r_header3\">
+		<td style=\"width:30%\" class=\"forumheader3\">
 		<a href=\"".e_SELF."?".$path.$dirs[$c]."/\">".$dirs[$c]."</a>
 		</td>
-		<td class=\"r_header3\">".$dirsize."
+		<td class=\"forumheader3\">".$dirsize."
 		</td>
-		<td class=\"r_header3\">&nbsp;</td>
-		<td class=\"r_header3\">";
+		<td class=\"forumheader3\">&nbsp;</td>
+		<td class=\"forumheader3\">";
 	if (FILE_UPLOADS && is_writable(e_BASE.$path.$dirs[$c])) {
 		$text .= "<input class=\"button\" type=\"button\" name=\"erquest\" value=\"".FMLAN_21."\" onclick=\"expandit(this)\" />
 			<div style=\"display:none;\">
@@ -299,17 +299,17 @@ while ($files[$c]) {
 	}
 	$size = parsesize(filesize(e_BASE.$path."/".$files[$c]));
 	$text .= "<tr>
-		<td class=\"r_header3\" style=\"vertical-align:middle; text-align:center; width:5%\">
+		<td class=\"forumheader3\" style=\"vertical-align:middle; text-align:center; width:5%\">
 		<img src=\"".$imagedir.$img.".png\" alt=\"".$files[$c]."\" style=\"border:0\" />
 		</td>
-		<td style=\"width:30%\" class=\"r_header3\">
+		<td style=\"width:30%\" class=\"forumheader3\">
 		<a href=\"".e_SELF."?".$path.$files[$c]."\">".$files[$c]."</a>
 		</td>";
 	$gen = new convert;
 	$filedate = $gen -> convert_date(filemtime(e_BASE.$path."/".$files[$c]), "forum");
-	$text .= "<td style=\"width:10%\" class=\"r_header3\">".$size."</td>
-		<td style=\"width:30%\" class=\"r_header3\">".$filedate."</td>
-		<td class=\"r_header3\">";
+	$text .= "<td style=\"width:10%\" class=\"forumheader3\">".$size."</td>
+		<td style=\"width:30%\" class=\"forumheader3\">".$filedate."</td>
+		<td class=\"forumheader3\">";
 
 	$text .= "<input  type=\"checkbox\" name=\"selectedfile[$c]\" value=\"1\" />";
 	$text .="<input type=\"hidden\" name=\"deleteconfirm[$c]\" value=\"".$path.$files[$c]."\" />";
@@ -319,7 +319,7 @@ while ($files[$c]) {
 	$c++;
 }
 
-	$text .= "<tr><td colspan='5' class='r_header1' style='text-align:right'>";
+	$text .= "<tr><td colspan='5' class='forumheader' style='text-align:right'>";
 
 	if ($pubfolder || e_QUERY == ""){
         require_once(e_HANDLER."file_handler.php");

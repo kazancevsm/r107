@@ -17,7 +17,7 @@
 +----------------------------------------------------------------------------+
 */
 
-require_once('../class.php');
+require_once('../class2.php');
 header('Location:'.SITEURL.$SYSTEM_DIRECTORY.'resetcore/resetcore.php');
 exit;
 ?>

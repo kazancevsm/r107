@@ -16,8 +16,8 @@
 **
 */
 
-   require_once("../../class.php");
-   require_once(e_HANDLER.'ren_help.php');
+   require_once("../../class2.php");
+   require_once(e_HANDLER."ren_help_handler.php");
    if (!getperms("P")) {
       header("location:".e_HTTP."index.php");
       exit;
@@ -43,12 +43,12 @@ if(isset($_POST['create_CR']))
 			$cr_text  = $_POST['cr_text'];
 			$cr_image = $_POST['cr_image'];
 			$cr_thumbnail = $_POST['cr_thumbnail'];
-			$cr_captions = $_POST['cr_captions'];
+			$cfcaptions = $_POST['cfcaptions'];
 			$cr_link  = $_POST['cr_link'];
             $sql->db_Select("c_rotator", "max(cr_order)+1", "", "no-where");
             $row = $sql->db_Fetch();
 			$cr_text = str_replace("'", "&#39;", "$cr_text");
-			$sql->db_Insert("c_rotator", "0, '$cr_title', '$cr_intro', '$cr_text', '$cr_image', '$cr_thumbnail', '$cr_captions', '$cr_link', '$row[0]'");
+			$sql->db_Insert("c_rotator", "0, '$cr_title', '$cr_intro', '$cr_text', '$cr_image', '$cr_thumbnail', '$cfcaptions', '$cr_link', '$row[0]'");
 			
 
 }
@@ -62,10 +62,10 @@ if(isset($_POST['update_CR']))
 			$cr_image = $_POST['cr_image'];
 			$cr_link  = $_POST['cr_link'];
 			$cr_thumbnail  = $_POST['cr_thumbnail'];
-			$cr_captions = $_POST['cr_captions'];
+			$cfcaptions = $_POST['cfcaptions'];
 			$cr_id	= $_POST['cr_id'];
 			
-			$sql->db_Update("c_rotator", "title='$cr_title', intro='$cr_intro', text='$cr_text', image='$cr_image', thumbnail='$cr_thumbnail', captions='$cr_captions', link='$cr_link' WHERE id='$cr_id'");
+			$sql->db_Update("c_rotator", "title='$cr_title', intro='$cr_intro', text='$cr_text', image='$cr_image', thumbnail='$cr_thumbnail', captions='$cfcaptions', link='$cr_link' WHERE id='$cr_id'");
 				header("location: admin_view_entrees.php");	
 
 }
@@ -79,7 +79,7 @@ if(isset($_POST['update_CR']))
 	$cr_text = $row[text];
 	$cr_image = $row[image];
 	$cr_thumbnail = $row[thumbnail];
-	$cr_captions = $row[captions];
+	$cfcaptions = $row[captions];
 	$cr_link = $row[link];
 	$cr_id = $nr;
 	
@@ -165,7 +165,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'pic' || ($action == "edit" && $
 	<tr>
 		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_9."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
-		<input class='tbox' type='text' name='cr_captions' style='width: 100%' value='$cr_captions' maxlength='200' />
+		<input class='tbox' type='text' name='cfcaptions' style='width: 100%' value='$cfcaptions' maxlength='200' />
 		</td>
 	</tr>
 	<tr>

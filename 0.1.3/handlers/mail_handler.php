@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/mail.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/mail_handler.php $
 |     $Revision: 12075 $
-|     $Id: mail.php 12075 2011-02-26 19:11:54Z e107coders $
+|     $Id: mail_handler.php 12075 2011-02-26 19:11:54Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -207,7 +207,7 @@ function sendemail($send_to, $subject, $message, $to_name, $send_from='', $from_
 }
 
 /*  Deprecated.
- Use mail_validation_class.php instead.
+ Use mail_validation_handler.php instead.
 function validatemail($Email) {
 
 }

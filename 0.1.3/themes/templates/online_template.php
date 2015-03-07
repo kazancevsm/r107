@@ -2,27 +2,26 @@
 // $Id: online_template.php 11346 2010-02-17 18:56:14Z secretr $
 
 if (!defined('e107_INIT')) { exit; }
-if (!defined("USER_WIDTH")){ define("USER_WIDTH","width:96%"); }
 
 // ##### ONLINE TABLE -----------------------------------------------------------------------------
 if(!isset($ONLINE_TABLE_START))
 {
 		$ONLINE_TABLE_START = "
 		<div style='text-align:center'>
-		<table class='r_border' style='".USER_WIDTH."'>
+		<table class='fborder'>
 		<tr>
-			<td class='r_header1' style='width:3%'>&nbsp;</td>
-			<td class='r_header1' style='width:43%'>".ONLINE_EL10."</td>
-			<td class='r_header1' style='width:50%'>".ONLINE_EL11."</td>
+			<td class='forumheader' style='width:3%'>&nbsp;</td>
+			<td class='forumheader' style='width:43%'>".ONLINE_EL10."</td>
+			<td class='forumheader' style='width:50%'>".ONLINE_EL11."</td>
 		</tr>";
 }
 if(!isset($ONLINE_TABLE))
 {
 		$ONLINE_TABLE = "
 		<tr>
-			<td class='r_header3' style='width:3%;text-align:center'>{ONLINE_TABLE_ICON}</td>
-			<td class='r_header3' style='width:45%'>{ONLINE_TABLE_USERNAME}</td>
-			<td class='r_header3' style='width:50%'>{ONLINE_TABLE_LOCATION}<br /></td>
+			<td class='forumheader3' style='width:3%;text-align:center'>{ONLINE_TABLE_ICON}</td>
+			<td class='forumheader3' style='width:45%'>{ONLINE_TABLE_USERNAME}</td>
+			<td class='forumheader3' style='width:50%'>{ONLINE_TABLE_LOCATION}<br /></td>
 		</tr>";
 }
 if(!isset($ONLINE_TABLE_END))

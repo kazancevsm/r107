@@ -24,7 +24,7 @@ if(isset($_POST['userlogin']) && !isset($_POST['e-token']))
 	$_POST['e-token'] = '';
 }
 
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!isset($pref['plug_installed']['forum']))
 {
 	header('Location: '.e_BASE.'index.php');
@@ -89,7 +89,7 @@ define("MODERATOR", check_class($forum_info['forum_moderators']));
 //require_once(e_HANDLER.'forum_include.php');
 require_once(e_PLUGIN."forum/forum_post_shortcodes.php");
 require_once(e_PLUGIN."forum/forum_shortcodes.php");
-require_once(e_HANDLER."ren_help.php");
+require_once(e_HANDLER."ren_help_handler.php");
 $gen = new convert;
 $fp = new floodprotect;
 global $tp, $e_event;

@@ -3,9 +3,9 @@
 + ----------------------------------------------------------------------------+
 |     e107 website system - Language File.
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_languages/English/lan_ren_help.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_languages/English/lan_ren_help_handler.php $
 |     $Revision: 11801 $
-|     $Id: lan_ren_help.php 11801 2010-09-18 21:22:29Z e107steved $
+|     $Id: lan_ren_help_handler.php 11801 2010-09-18 21:22:29Z e107steved $
 |     $Author: e107steved $
 +----------------------------------------------------------------------------+
 */

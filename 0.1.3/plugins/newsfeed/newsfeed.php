@@ -14,7 +14,7 @@
 |     $Id: newsfeed.php 12040 2011-01-14 18:28:57Z e107steved $
 +----------------------------------------------------------------------------+
 */
-require_once('../../class.php');
+require_once('../../class2.php');
 if (!isset($pref['plug_installed']['newsfeed']))
 {
 	header('Location: '.e_BASE.'index.php');

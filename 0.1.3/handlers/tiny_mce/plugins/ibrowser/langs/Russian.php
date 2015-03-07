@@ -36,7 +36,7 @@ $lang_ibrowser_align= 'Выравнивание текста';
 $lang_ibrowser_height= 'Высота';
 $lang_ibrowser_width= 'Ширина';
 $lang_ibrowser_reset= 'Сбросить размеры';
-$lang_ibrowser_border= 'Граница';
+$lang_ibrowsefborder= 'Граница';
 $lang_ibrowser_hspace= 'Горизонтальный отступ';
 $lang_ibrowser_vspace= 'Вертикальный отступ';
 $lang_ibrowser_select= 'Сохранить';
@@ -62,7 +62,7 @@ $lang_ibrowser_errordelete= 'Ошибка удаления';
 $lang_ibrowser_confirmdelete= 'Щелкните OK для удаления изображения!';
 $lang_ibrowser_error_width_nan= 'Значение ширины не является числом!';
 $lang_ibrowser_error_height_nan= 'Значение высоты не является числом!';
-$lang_ibrowser_error_border_nan= 'Значение границы не является числом!';
+$lang_ibrowser_errofborder_nan= 'Значение границы не является числом!';
 $lang_ibrowser_error_hspace_nan= 'Значение горизонтального отступа не является числом!';
 $lang_ibrowser_error_vspace_nan= 'Значение вертикального отступа не является числом!';
 

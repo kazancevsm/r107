@@ -34,32 +34,32 @@ $sc_style['CONTENT_TYPE_TABLE_LINK']['post'] = "</span>";
 // ##### CONTENT TYPE LIST --------------------------------------------------
 if(!isset($CONTENT_TYPE_TABLE_START)){
 	$CONTENT_TYPE_TABLE_START = "
-	<table class='r_border' style='width:98%; text-align:left;'>\n";
+	<table class='fborder' style='width:98%; text-align:left;'>\n";
 }
 if(!isset($CONTENT_TYPE_TABLE)){
 	$CONTENT_TYPE_TABLE = "
 	<tr>
-		<td class='r_header3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_ICON}</td>
-		<td class='r_caption'>{CONTENT_TYPE_TABLE_HEADING}{CONTENT_TYPE_TABLE_LINK}</td>
-		<td class='r_header1' style='width:5%; white-space:nowrap; text-align:right;'>{CONTENT_TYPE_TABLE_TOTAL}</td>
+		<td class='forumheader3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_ICON}</td>
+		<td class='fcaption'>{CONTENT_TYPE_TABLE_HEADING}{CONTENT_TYPE_TABLE_LINK}</td>
+		<td class='forumheader' style='width:5%; white-space:nowrap; text-align:right;'>{CONTENT_TYPE_TABLE_TOTAL}</td>
 	</tr>
-	<tr><td class='r_header2' colspan='2'>{CONTENT_TYPE_TABLE_SUBHEADING}<br /></td></tr>\n";
+	<tr><td class='forumheader2' colspan='2'>{CONTENT_TYPE_TABLE_SUBHEADING}<br /></td></tr>\n";
 }
 if(!isset($CONTENT_TYPE_TABLE_SUBMIT)){
 	$CONTENT_TYPE_TABLE_SUBMIT = "
 	<tr>
-		<td class='r_header3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_ICON}</td>
-		<td class='r_caption' colspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_HEADING}</td>
+		<td class='forumheader3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_ICON}</td>
+		<td class='fcaption' colspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_HEADING}</td>
 	</tr>
-	<tr><td class='r_header2' colspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_SUBHEADING}</td></tr>\n";
+	<tr><td class='forumheader2' colspan='2'>{CONTENT_TYPE_TABLE_SUBMIT_SUBHEADING}</td></tr>\n";
 }
 if(!isset($CONTENT_TYPE_TABLE_MANAGER)){
 	$CONTENT_TYPE_TABLE_MANAGER = "
 	<tr>
-		<td class='r_header3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_MANAGER_ICON}</td>
-		<td class='r_caption' colspan='2'>{CONTENT_TYPE_TABLE_MANAGER_HEADING}</td>
+		<td class='forumheader3' style='width:5%; white-space:nowrap; padding-bottom:5px;' rowspan='2'>{CONTENT_TYPE_TABLE_MANAGER_ICON}</td>
+		<td class='fcaption' colspan='2'>{CONTENT_TYPE_TABLE_MANAGER_HEADING}</td>
 	</tr>
-	<tr><td class='r_header2' colspan='2'>{CONTENT_TYPE_TABLE_MANAGER_SUBHEADING}</td></tr>\n";
+	<tr><td class='forumheader2' colspan='2'>{CONTENT_TYPE_TABLE_MANAGER_SUBHEADING}</td></tr>\n";
 }
 if(!isset($CONTENT_TYPE_TABLE_LINE)){
 	$CONTENT_TYPE_TABLE_LINE = "";

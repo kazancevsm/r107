@@ -23,7 +23,7 @@ if((isset($_POST['useraction']) || isset($_POST['adduser'])) && !isset($_POST['e
 	$_POST['e-token'] = '';
 }
 
-require_once("../class.php");
+require_once("../class2.php");
 
 if (!getperms('4'))
 {
@@ -71,7 +71,7 @@ if (e_QUERY)
 require_once("auth.php");
 
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 
 $rs = new form;
 
@@ -117,7 +117,7 @@ if(isset($_POST['resend_to_all']))
 // ------- Test Email. --------------
 if (isset($_POST['test_mail']))
 {
-	require_once(e_HANDLER."mail_validation_class.php");
+	require_once(e_HANDLER."mail_validation_handler.php");
 	list($adminuser,$adminhost) = split ("@", SITEADMINEMAIL);
 	$validator = new email_validation_class;
 	$validator->localuser= $adminuser;
@@ -125,7 +125,7 @@ if (isset($_POST['test_mail']))
 	$validator->timeout=5;
 	$validator->debug=1;
 	$validator->html_debug=1;
-	$text = "<div style='".ADMIN_WIDTH."'>";
+	$text = "<div >";
 	ob_start();
 	$email_status = $validator->ValidateEmailBox($_POST['test_email']);
 	$text .= ob_get_contents();
@@ -503,7 +503,7 @@ if (isset($_POST['useraction']) && $_POST['useraction'] == "verify")
 				$message = USRLAN_114." ".$row['user_name'].",\n\n".USRLAN_122." ".SITENAME.".\n\n".USRLAN_123."\n\n";
 				$message .= str_replace("{SITEURL}", SITEURL, USRLAN_139);
 
-				require_once(e_HANDLER."mail.php");
+				require_once(e_HANDLER."mail_handler.php");
 				if(sendemail($row['user_email'], USRLAN_113." ".SITENAME, $message))
 				{
 				//  echo str_replace("\n","<br>",$message);
@@ -630,10 +630,10 @@ class users
 	$qry_insert = "SELECT u.*, ue.* FROM #user AS u	LEFT JOIN #user_extended AS ue ON ue.user_extended_id = u.user_id ";
 
 		if ($user_total = $sql->db_Select_gen($qry_insert. $query)) {
-			$text .= "<table class='r_border' style='".ADMIN_WIDTH."'>
+			$text .= "<table class='fborder' >
 				<tr>
-				<td style='width:5%' class='r_caption'><a href='".e_SELF."?main.user_id.".($id == "desc" ? "asc" : "desc").".$from'>ID</a></td>
-				<td style='width:10%' class='r_caption'><a href='".e_SELF."?main.user_ban.".($id == "desc" ? "asc" : "desc").".$from'>".USRLAN_79."</a></td>";
+				<td style='width:5%' class='fcaption'><a href='".e_SELF."?main.user_id.".($id == "desc" ? "asc" : "desc").".$from'>ID</a></td>
+				<td style='width:10%' class='fcaption'><a href='".e_SELF."?main.user_ban.".($id == "desc" ? "asc" : "desc").".$from'>".USRLAN_79."</a></td>";
 
 
 // Search Display Column header.
@@ -679,37 +679,37 @@ class users
 
 			foreach($search_display as $disp){
 				if (isset($display_lan[$disp])) {
-					$text .= "<td style='width:15%' class='r_caption'><a href='".e_SELF."?main.$disp.".($id == "desc" ? "asc" : "desc").".$from'>".$display_lan[$disp]."</a></td>";
+					$text .= "<td style='width:15%' class='fcaption'><a href='".e_SELF."?main.$disp.".($id == "desc" ? "asc" : "desc").".$from'>".$display_lan[$disp]."</a></td>";
 				} else {
-					$text .= "<td style='width:15%' class='r_caption'><a href='".e_SELF."?main.$disp.".($id == "desc" ? "asc" : "desc").".$from'>".ucwords(str_replace("_"," ",$disp))."</a></td>";
+					$text .= "<td style='width:15%' class='fcaption'><a href='".e_SELF."?main.$disp.".($id == "desc" ? "asc" : "desc").".$from'>".ucwords(str_replace("_"," ",$disp))."</a></td>";
 				}
 			}
 
 // ------------------------------
 
-			$text .= " 	<td style='width:30%' class='r_caption'>".LAN_OPTIONS."</td>
+			$text .= " 	<td style='width:30%' class='fcaption'>".LAN_OPTIONS."</td>
 				</tr>";
 
 			while ($row = $sql->db_Fetch()) {
 				extract($row);
 				$text .= "<tr>
-					<td style='width:5%; text-align:center' class='r_header3'>$user_id</td>
-					<td style='width:10%' class='r_header3'>";
+					<td style='width:5%; text-align:center' class='forumheader3'>$user_id</td>
+					<td style='width:10%' class='forumheader3'>";
 
 				if ($user_perms == "0") {
-					$text .= "<div class='r_caption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap'>".LAN_MAINADMIN."</div>";
+					$text .= "<div class='fcaption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap'>".LAN_MAINADMIN."</div>";
 				}
 				else if($user_admin) {
-					$text .= "<div class='r_caption' style='padding-left:3px;padding-right:3px;;text-align:center'><a href='".e_SELF."?main.user_admin.".($id == "desc" ? "asc" : "desc")."'>".LAN_ADMIN."</a></div>";
+					$text .= "<div class='fcaption' style='padding-left:3px;padding-right:3px;;text-align:center'><a href='".e_SELF."?main.user_admin.".($id == "desc" ? "asc" : "desc")."'>".LAN_ADMIN."</a></div>";
 				}
 				else if($user_ban == 1) {
-					$text .= "<div class='r_caption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap'><a href='".e_SELF."?main.user_ban.".($id == "desc" ? "asc" : "desc")."'>".LAN_BANNED."</a></div>";
+					$text .= "<div class='fcaption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap'><a href='".e_SELF."?main.user_ban.".($id == "desc" ? "asc" : "desc")."'>".LAN_BANNED."</a></div>";
 				}
 				else if($user_ban == 2) {
-					$text .= "<div class='r_caption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap' >".LAN_NOTVERIFIED."</div>";
+					$text .= "<div class='fcaption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap' >".LAN_NOTVERIFIED."</div>";
 				}
 				else if($user_ban == 3) {
-					$text .= "<div class='r_caption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap' >".LAN_BOUNCED."</div>";
+					$text .= "<div class='fcaption' style='padding-left:3px;padding-right:3px;text-align:center;white-space:nowrap' >".LAN_BOUNCED."</div>";
 				}  else {
 					$text .= "&nbsp;";
 				}
@@ -725,7 +725,7 @@ class users
 
 	foreach($search_display as $disp)
 	{
-		$text .= "<td style='white-space:nowrap' class='r_header3'>";
+		$text .= "<td style='white-space:nowrap' class='forumheader3'>";
 		if($disp == "user_class")
 		{
 			if ($user_class)
@@ -774,7 +774,7 @@ class users
 
 				$qry = (e_QUERY) ?  "?".e_QUERY : "";
 				$text .= "
-					<td style='width:30%;text-align:center' class='r_header3'>
+					<td style='width:30%;text-align:center' class='forumheader3'>
 					<form method='post' action='".e_SELF.$qry."'>
 					<div>
 
@@ -870,7 +870,7 @@ class users
 
 		$text .= "<div style='cursor:pointer' onclick=\"expandit('sdisp')\">".LAN_DISPLAYOPT."</div>";
 		$text .= "<div  id='sdisp' style='padding-top:4px;display:none;text-align:center;margin-left:auto;margin-right:auto'>
-		<table class='r_header3' style='width:95%'>";
+		<table class='forumheader3' style='width:95%'>";
 /*
 		$fields = mysql_list_fields($mySQLdefaultdb, MPREFIX."user");		// Returns a resource. Deprecated
 		$columns = mysql_num_fields($fields);			// Bug in PHP5.3 using mysql_num_fields() with mysql_list_fields()
@@ -963,73 +963,73 @@ class users
 		$pref['memberlist_access'] = varset($pref['memberlist_access'], e_UC_MEMBER);
 		$text = "<div style='text-align:center'>
 			<form method='post' action='".e_SELF."?".e_QUERY."'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_44.":</td>
-			<td style='width:50%' class='r_header3'>". ($pref['avatar_upload'] ? "<input name='avatar_upload' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='avatar_upload' type='radio' value='0' />".LAN_NO : "<input name='avatar_upload' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='avatar_upload' type='radio' value='0' checked='checked' />".LAN_NO). (!FILE_UPLOADS ? " <span class='smalltext'>(".USRLAN_58.")</span>" : "")."
+			<td style='width:50%' class='forumheader3'>".USRLAN_44.":</td>
+			<td style='width:50%' class='forumheader3'>". ($pref['avatar_upload'] ? "<input name='avatar_upload' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='avatar_upload' type='radio' value='0' />".LAN_NO : "<input name='avatar_upload' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='avatar_upload' type='radio' value='0' checked='checked' />".LAN_NO). (!FILE_UPLOADS ? " <span class='smalltext'>(".USRLAN_58.")</span>" : "")."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_53.":</td>
-			<td style='width:50%' class='r_header3'>". ($pref['photo_upload'] ? "<input name='photo_upload' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='photo_upload' type='radio' value='0' />".LAN_NO : "<input name='photo_upload' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='photo_upload' type='radio' value='0' checked='checked' />".LAN_NO). (!FILE_UPLOADS ? " <span class='smalltext'>(".USRLAN_58.")</span>" : "")."
+			<td style='width:50%' class='forumheader3'>".USRLAN_53.":</td>
+			<td style='width:50%' class='forumheader3'>". ($pref['photo_upload'] ? "<input name='photo_upload' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='photo_upload' type='radio' value='0' />".LAN_NO : "<input name='photo_upload' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='photo_upload' type='radio' value='0' checked='checked' />".LAN_NO). (!FILE_UPLOADS ? " <span class='smalltext'>(".USRLAN_58.")</span>" : "")."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_47.":</td>
-			<td style='width:50%' class='r_header3'>
+			<td style='width:50%' class='forumheader3'>".USRLAN_47.":</td>
+			<td style='width:50%' class='forumheader3'>
 			<input class='tbox' type='text' name='im_width' size='10' value='".$pref['im_width']."' maxlength='5' /> (".USRLAN_48.")
 			</td></tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_49.":</td>
-			<td style='width:50%' class='r_header3'>
+			<td style='width:50%' class='forumheader3'>".USRLAN_49.":</td>
+			<td style='width:50%' class='forumheader3'>
 			<input class='tbox' type='text' name='im_height' size='10' value='".$pref['im_height']."' maxlength='5' /> (".USRLAN_50.")
 			</td></tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_126.":</td>
-			<td style='width:50%;vertical-align:top' class='r_header3'>". ($pref['profile_rate'] ? "<input name='profile_rate' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='profile_rate' type='radio' value='0' />".LAN_NO : "<input name='profile_rate' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='profile_rate' type='radio' value='0' checked='checked' />".LAN_NO)."
+			<td style='width:50%' class='forumheader3'>".USRLAN_126.":</td>
+			<td style='width:50%;vertical-align:top' class='forumheader3'>". ($pref['profile_rate'] ? "<input name='profile_rate' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='profile_rate' type='radio' value='0' />".LAN_NO : "<input name='profile_rate' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='profile_rate' type='radio' value='0' checked='checked' />".LAN_NO)."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_127.":</td>
-			<td style='width:50%;vertical-align:top' class='r_header3'>". ($pref['profile_comments'] ? "<input name='profile_comments' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='profile_comments' type='radio' value='0' />".LAN_NO : "<input name='profile_comments' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='profile_comments' type='radio' value='0' checked='checked' />".LAN_NO)."
+			<td style='width:50%' class='forumheader3'>".USRLAN_127.":</td>
+			<td style='width:50%;vertical-align:top' class='forumheader3'>". ($pref['profile_comments'] ? "<input name='profile_comments' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='profile_comments' type='radio' value='0' />".LAN_NO : "<input name='profile_comments' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='profile_comments' type='radio' value='0' checked='checked' />".LAN_NO)."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:50%;vertical-align:top' class='r_header3'>".USRLAN_133.":<br /><span class='smalltext'>".USRLAN_134."</span></td>
-			<td style='width:50%;vertical-align:top' class='r_header3'>". ($pref['force_userupdate'] ? "<input name='force_userupdate' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='force_userupdate' type='radio' value='0' />".LAN_NO : "<input name='force_userupdate' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='force_userupdate' type='radio' value='0' checked='checked' />".LAN_NO)."
+			<td style='width:50%;vertical-align:top' class='forumheader3'>".USRLAN_133.":<br /><span class='smalltext'>".USRLAN_134."</span></td>
+			<td style='width:50%;vertical-align:top' class='forumheader3'>". ($pref['force_userupdate'] ? "<input name='force_userupdate' type='radio' value='1' checked='checked' />".LAN_YES."&nbsp;&nbsp;<input name='force_userupdate' type='radio' value='0' />".LAN_NO : "<input name='force_userupdate' type='radio' value='1' />".LAN_YES."&nbsp;&nbsp;<input name='force_userupdate' type='radio' value='0' checked='checked' />".LAN_NO)."
 			</td>
 			</tr>
 
 
 			<tr>
-			<td style='width:50%;vertical-align:top' class='r_header3'>".USRLAN_93."<br /><span class='smalltext'>".USRLAN_94."</span></td>
-			<td style='width:50%' class='r_header3'>
+			<td style='width:50%;vertical-align:top' class='forumheader3'>".USRLAN_93."<br /><span class='smalltext'>".USRLAN_94."</span></td>
+			<td style='width:50%' class='forumheader3'>
 			<input class='tbox' type='text' name='del_unv' size='10' value='".$pref['del_unv']."' maxlength='5' /> ".USRLAN_95."
 			</td></tr>
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_130."<br /><span class='smalltext'>".USRLAN_131."</span></td>
-			<td style='width:50%' class='r_header3'>&nbsp;
+			<td style='width:50%' class='forumheader3'>".USRLAN_130."<br /><span class='smalltext'>".USRLAN_131."</span></td>
+			<td style='width:50%' class='forumheader3'>&nbsp;
 			<input type='checkbox' name='track_online' value='1'".($pref['track_online'] ? " checked='checked'" : "")." /> ".USRLAN_132."&nbsp;&nbsp;
 			</td>
 			</tr>
 
 
 			<tr>
-			<td style='width:50%' class='r_header3'>".USRLAN_146.":</td>
-			<td style='width:50%' class='r_header3'>".r_userclass("memberlist_access",$pref['memberlist_access'], "off", "public,member,guest,admin,main,classes,nobody")."
+			<td style='width:50%' class='forumheader3'>".USRLAN_146.":</td>
+			<td style='width:50%' class='forumheader3'>".r_userclass("memberlist_access",$pref['memberlist_access'], "off", "public,member,guest,admin,main,classes,nobody")."
 			</td>
 			</tr>
 
 			<tr>
-			<td colspan='2' style='text-align:center' class='r_header1'>
+			<td colspan='2' style='text-align:center' class='forumheader'>
 			<input class='button' type='submit' name='update_options' value='".USRLAN_51."' />
 			</td></tr>
 
@@ -1051,9 +1051,9 @@ class users
 
 		$text = "<div style='text-align:center'><br /><br />
 			<form method='post' action='".e_SELF."'>
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td class='r_header3' style='text-align:center'><br />".LAN_DELETE.":&nbsp;
+			<td class='forumheader3' style='text-align:center'><br />".LAN_DELETE.":&nbsp;
 			<select class='tbox' name='prune_type'>";
 
 			$prune_type = array(2=>USRLAN_138." [".$unactive."]",'30'=>USRLAN_138." (".USRLAN_219.") [".$older30."]", 3=>USRLAN_145." [".$bounced."]");
@@ -1066,7 +1066,7 @@ class users
 		$text .= "</select><br /><br /></td>
 			</tr>
 			<tr>
-			<td class='r_header1' style='text-align:center'>
+			<td class='forumheader' style='text-align:center'>
 			<input class='button' type='submit' name='prune' value=\"".USRLAN_55."\" />
 			</td>
 			</tr>
@@ -1081,36 +1081,36 @@ class users
 		global $rs, $ns, $pref,$tp;
 
 		$text = "<div style='text-align:center'>". $rs->form_open("post", e_SELF.'?create', "adduserform")."
-			<table style='".ADMIN_WIDTH."' class='r_border'>
+			<table class='fborder'>
 			<tr>
-			<td style='width:30%' class='r_header3'>".USRLAN_61."</td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".USRLAN_61."</td>
+			<td style='width:70%' class='forumheader3'>
 			".$rs->form_text("name", 40, "", varset($pref['displayname_maxlength'],15))."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".USRLAN_128."</td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".USRLAN_128."</td>
+			<td style='width:70%' class='forumheader3'>
 			".$rs->form_text("loginname", 40, "", varset($pref['loginname_maxlength'],30))."
 			</td>
 			</tr>
 
 			<tr>
-			<td style='width:30%' class='r_header3'>".USRLAN_62."</td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".USRLAN_62."</td>
+			<td style='width:70%' class='forumheader3'>
 			".$rs->form_password("password1", 40, "", 20)."
 			</td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".USRLAN_63."</td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".USRLAN_63."</td>
+			<td style='width:70%' class='forumheader3'>
 			".$rs->form_password("password2", 40, "", 20)."
 			</td>
 			</tr>
 			<tr>
-			<td style='width:30%' class='r_header3'>".USRLAN_64."</td>
-			<td style='width:70%' class='r_header3'>
+			<td style='width:30%' class='forumheader3'>".USRLAN_64."</td>
+			<td style='width:70%' class='forumheader3'>
 			".$rs->form_text("email", 60, "", 100)."
 			</td>
 			</tr>";
@@ -1120,7 +1120,7 @@ class users
 		if ($ucSql->db_Select("userclass_classes"))
 		{
 			$text .= "<tr style='vertical-align:top'>
-				<td colspan='2' style='text-align:center' class='r_header2'>
+				<td colspan='2' style='text-align:center' class='forumheader2'>
 				".USRLAN_120."
 				</td>
 				</tr>";
@@ -1134,14 +1134,14 @@ class users
 			}
 			for($a = 0; $a <= (count($class)-1); $a++)
 			{
-				$text .= "<tr><td style='width:30%' class='r_header3'>
+				$text .= "<tr><td style='width:30%' class='forumheader3'>
 					<input type='checkbox' name='userclass[]' value='".$class[$a][0]."' />".$tp->toHtml($class[$a][1],FALSE,'defs')."
-					</td><td style='width:70%' class='r_header3'> ".$tp->toHtml($class[$a][2],FALSE,'defs')."</td></tr>";
+					</td><td style='width:70%' class='forumheader3'> ".$tp->toHtml($class[$a][2],FALSE,'defs')."</td></tr>";
 			}
 		}
 		$text .= "
 			<tr style='vertical-align:top'>
-			<td colspan='2' style='text-align:center' class='r_header1'>
+			<td colspan='2' style='text-align:center' class='forumheader'>
 			<input class='button' type='submit' name='adduser' value='".USRLAN_60."' />
 			<input type='hidden' name='e-token' value='".e_TOKEN."' />
 			<input type='hidden' name='ac' value='".md5(ADMINPWCHANGE)."' />
@@ -1182,7 +1182,7 @@ class users
 
         $mailheader_e107id = $id;
 
-		require_once(e_HANDLER."mail.php");
+		require_once(e_HANDLER."mail_handler.php");
 	  	if(sendemail($email, LAN_404." ".SITENAME, $message))
 		{
 	   //		echo str_replace("\n","<br>",$message);
@@ -1240,7 +1240,7 @@ class users
     function check_bounces($bounce_act='first_check', $bounce_arr = '')
 	{
 	  global $sql,$pref;
-      include(e_HANDLER."pop3_class.php");
+      include(e_HANDLER."pop3_handler.php");
 
 	  if (!trim($bounce_act)) $bounce_act='first_check';
 
@@ -1303,8 +1303,8 @@ class users
       $found = FALSE;
 	  $DEL = ($pref['mail_bounce_delete']) ? TRUE : FALSE;
 
-      $text = "<br /><div><form  method='post' action='".e_SELF.$qry."'><table class='r_border' style='".ADMIN_WIDTH."'>
-		<tr><td class='r_caption' style='width:5%'>#</td><td class='r_caption'>e107-id</td><td class='r_caption'>email</td><td class='r_caption'>Subject</td><td class='r_caption'>Bounce</td></tr>\n";
+      $text = "<br /><div><form  method='post' action='".e_SELF.$qry."'><table class='fborder' >
+		<tr><td class='fcaption' style='width:5%'>#</td><td class='fcaption'>e107-id</td><td class='fcaption'>email</td><td class='fcaption'>Subject</td><td class='fcaption'>Bounce</td></tr>\n";
 
 
 
@@ -1355,7 +1355,7 @@ class users
 		  }
 		}
 
-		$text .= "<tr><td class='r_header3'>".$i."</td><td class='r_header3'>".$id[$i]."</td><td class='r_header3'>".(isset($emails[$i]) ? $emails[$i] : $wmails[$i])."</td><td class='r_header3'>".$head['subject']."</td><td class='r_header3'>".($head['bounce'] ? ADMIN_TRUE_ICON : ADMIN_FALSE_ICON);
+		$text .= "<tr><td class='forumheader3'>".$i."</td><td class='forumheader3'>".$id[$i]."</td><td class='forumheader3'>".(isset($emails[$i]) ? $emails[$i] : $wmails[$i])."</td><td class='forumheader3'>".$head['subject']."</td><td class='forumheader3'>".($head['bounce'] ? ADMIN_TRUE_ICON : ADMIN_FALSE_ICON);
 		$text .= "<input type='checkbox' name='delete_email[]' value='{$i}' /></td></tr>\n";
 	  }
 
@@ -1363,11 +1363,11 @@ class users
 
 	  if ($tot)
 	  { // Option to delete emails - only if there are some in the list
-		  $text .= "</table><table style='".ADMIN_WIDTH."'><tr>
-			<td class='r_header3' style='text-align: center;'><input class='button' type='submit' name='delnonbouncesubmit' value='".USRLAN_153."' /></td>\n
-			<td class='r_header3' style='text-align: center;'><input class='button' type='submit' name='clearemailbouncesubmit' value='".USRLAN_154."' /></td>\n
-			<td class='r_header3' style='text-align: center;'><input class='button' type='submit' name='delcheckedsubmit' value='".USRLAN_149."' /></td>\n
-			<td class='r_header3' style='text-align: center;'><input class='button' type='submit' name='delallsubmit' value='".USRLAN_150."' /></td>\n
+		  $text .= "</table><table ><tr>
+			<td class='forumheader3' style='text-align: center;'><input class='button' type='submit' name='delnonbouncesubmit' value='".USRLAN_153."' /></td>\n
+			<td class='forumheader3' style='text-align: center;'><input class='button' type='submit' name='clearemailbouncesubmit' value='".USRLAN_154."' /></td>\n
+			<td class='forumheader3' style='text-align: center;'><input class='button' type='submit' name='delcheckedsubmit' value='".USRLAN_149."' /></td>\n
+			<td class='forumheader3' style='text-align: center;'><input class='button' type='submit' name='delallsubmit' value='".USRLAN_150."' /></td>\n
 			</td></tr>";
 	  }
 	  $text .= "</table></form></div>";

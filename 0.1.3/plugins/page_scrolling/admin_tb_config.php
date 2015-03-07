@@ -11,7 +11,7 @@
 +-------------------------------------------------------------------------------+
 */
 
-require_once("../../class.php");
+require_once("../../class2.php");
 include_once(e_PLUGIN."page_scrolling/languages/".e_LANGUAGE.".php");
 
    if (!getperms("P")) {
@@ -111,11 +111,11 @@ $tb_dir = e_PLUGIN.'page_scrolling/icons';
         $tb_sel .= "</select>";
 
   $text .= "
-	<div class='r_header1' style='text-align: center; font-weight: bold; font-size: 12px;'>".LAN_TB_CONF_02."</div><br />
-	<div class='r_header3'>
+	<div class='forumheader' style='text-align: center; font-weight: bold; font-size: 12px;'>".LAN_TB_CONF_02."</div><br />
+	<div class='forumheader3'>
 	    <div style='text-align:center'>
    <form enctype='multipart/form-data' method='post' action='".e_SELF."?".e_QUERY."'>
-    <table style='width:100%;' class='r_border' cellspacing='0' cellpadding='0'>
+    <table style='width:100%;' class='fborder' cellspacing='0' cellpadding='0'>
 
 	<tr>
 		<td style='vertical-align: top'>
@@ -211,7 +211,7 @@ $tb_dir = e_PLUGIN.'page_scrolling/icons';
         </div>
 		</div><br />";
 
-   $text .= "<div class='r_header1' style='text-align: center;'>".LAN_TB_COPYRIGHT."</div><br />
+   $text .= "<div class='forumheader' style='text-align: center;'>".LAN_TB_COPYRIGHT."</div><br />
    ";
 
    $ns->tablerender(LAN_TB_CONF_01, $text);

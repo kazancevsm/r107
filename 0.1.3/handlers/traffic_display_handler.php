@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/traffic_class_display.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/traffic_display_handler.php $
 |     $Revision: 11678 $
-|     $Id: traffic_class_display.php 11678 2010-08-22 00:43:45Z e107coders $
+|     $Id: traffic_display_handler.php 11678 2010-08-22 00:43:45Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -23,25 +23,25 @@ if (!defined('e107_INIT')) { exit; }
 // This is the content-code for e107_traffic::Display()
 // It is separated out to avoid parsing when not in debug mode
 //
-// See traffic_class.php
+// See traffic_handler.php
 //
 
         if (count($this->aTraffic)) { // Simple counts
-            $text .= "\n<table class='r_border'>\n";
-            $text .= "<tr><td class='r_caption' style='width:15%'>Item</td>
-                    <td class='r_caption' style='text-align:right;width:15%'>Count&nbsp;</td>
-                    <td class='r_caption'>&nbsp;</td>
+            $text .= "\n<table class='fborder'>\n";
+            $text .= "<tr><td class='fcaption' style='width:15%'>Item</td>
+                    <td class='fcaption' style='text-align:right;width:15%'>Count&nbsp;</td>
+                    <td class='fcaption'>&nbsp;</td>
                     </tr>\n";
             foreach ($this->aTraffic as $key=>$aVals) {
                 $text .= "<tr>
-                        <td class='r_header3'>".
+                        <td class='forumheader3'>".
                     $key."</td>
-                        <td class='r_header3' style='text-align:right;width:20%'>".
-                    $aVals['Count']."&nbsp;</td><td class='r_header3'>&nbsp;</td></tr>\n";
+                        <td class='forumheader3' style='text-align:right;width:20%'>".
+                    $aVals['Count']."&nbsp;</td><td class='forumheader3'>&nbsp;</td></tr>\n";
                     
                 if (isset($this->aTrafficWho[$key])) {
-                    $text .= "<tr><td class='r_header3' valign='top'>Callers:</td>
-                            <td class='r_header3' colspan='2'>";
+                    $text .= "<tr><td class='forumheader3' valign='top'>Callers:</td>
+                            <td class='forumheader3' colspan='2'>";
                     $bFirst=TRUE;
                     foreach ($this->aTrafficWho[$key] as $sWho) {
                         if ($bFirst ) {
@@ -61,19 +61,19 @@ if (!defined('e107_INIT')) { exit; }
         // Fancy timed counts
         //
         if (count($this->aTrafficTimed)) {
-            $text .= "\n<table class='r_border'>\n";
-            $text .= "<tr><td class='r_caption'>Item</td><td class='r_caption'>Count&nbsp;</td>
-                    <td class='r_caption'>Tot Time (ms)&nbsp;</td>
-                    <td class='r_caption'>Avg Time (us)&nbsp;</td>
-                    <td class='r_caption'>Min Time (us)&nbsp;</td>
-                    <td class='r_caption'>Max Time (us)&nbsp;</td>
+            $text .= "\n<table class='fborder'>\n";
+            $text .= "<tr><td class='fcaption'>Item</td><td class='fcaption'>Count&nbsp;</td>
+                    <td class='fcaption'>Tot Time (ms)&nbsp;</td>
+                    <td class='fcaption'>Avg Time (us)&nbsp;</td>
+                    <td class='fcaption'>Min Time (us)&nbsp;</td>
+                    <td class='fcaption'>Max Time (us)&nbsp;</td>
                     </tr>\n";
             foreach ($this->aTrafficTimed as $key=>$aVals) {
                 if (substr($key,0,8)=='TRAF_CAL') continue;
                 $text .= "<tr>
-                        <td class='r_header3'>".
+                        <td class='forumheader3'>".
                     $key."</td>
-                        <td class='r_header3' style='text-align:right'>".
+                        <td class='forumheader3' style='text-align:right'>".
                     $aVals['Count']."&nbsp;</td>";
                 if ($aVals['Count'] && isset($aVals['Time']) && $aVals['Time']) {
                     $sTot = number_format($aVals['Time']*1000.0,4);
@@ -83,19 +83,19 @@ if (!defined('e107_INIT')) { exit; }
                 } else {
                     $sTot = $sAvg = $sMin = $sMax = '';
                 }
-                $text .= "<td class='r_header3' style='text-align:right'>".
+                $text .= "<td class='forumheader3' style='text-align:right'>".
                     $sTot."&nbsp;</td>
-                        <td class='r_header3' style='text-align:right'>".
+                        <td class='forumheader3' style='text-align:right'>".
                     $sAvg."&nbsp;</td>
-                        <td class='r_header3' style='text-align:right'>".
+                        <td class='forumheader3' style='text-align:right'>".
                     $sMin."&nbsp;</td>
-                        <td class='r_header3' style='text-align:right'>".
+                        <td class='forumheader3' style='text-align:right'>".
                     $sMax."&nbsp;</td>
                     </tr>\n";
                     
                 if (isset($this->aTrafficWho[$key])) {
-                    $text .= "<tr><td class='r_header3' valign='top'>Callers:</td>
-                            <td class='r_header3' colspan='5'>";
+                    $text .= "<tr><td class='forumheader3' valign='top'>Callers:</td>
+                            <td class='forumheader3' colspan='5'>";
                     $bFirst=TRUE;
                     foreach ($this->aTrafficWho[$key] as $sWho) {
                         if ($bFirst ) {
@@ -113,7 +113,7 @@ if (!defined('e107_INIT')) { exit; }
             $cal2 = number_format($this->calPassBoth*1000000.0,1);
             $cTot = number_format($this->calTime*1000.0,4);
 
-            $text .="<tr><td class='r_header3' colspan='6'>
+            $text .="<tr><td class='forumheader3' colspan='6'>
             <b>Note:</b> These times have been decreased by the calibration offset:<br />
             $cal2 usec per call(start,stop); $cal1 usec per call(start). Total adjustment: $cTot msec.</td></tr>\n";
             $text .="</table><br />\n";

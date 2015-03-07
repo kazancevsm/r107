@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../../class.php");
+require_once("../../class2.php");
 
 if (!getperms("P") || !$pref['trackbackEnabled'])
 {
@@ -39,7 +39,7 @@ if (IsSet($_POST['moderate']))
 	
 $text = "<div style='text-align:center'>
 <form method='post' action='".e_SELF."?".e_QUERY."'>
-<table style='".ADMIN_WIDTH."' class='r_border'>";
+<table class='fborder'>";
 
 if (e_QUERY=='all') {
 	$res=$sql->db_Select("trackback", "*");
@@ -49,7 +49,7 @@ if (e_QUERY=='all') {
 
 if (!$res)
 {
-	$text .= "<tr><td class='r_header3' style='text-align:center'>".TRACKBACK_L12.".</td></tr></table></form></div>";
+	$text .= "<tr><td class='forumheader3' style='text-align:center'>".TRACKBACK_L12.".</td></tr></table></form></div>";
 } 
 else
 {
@@ -58,13 +58,13 @@ else
 	{
 		extract($trackback);
 		$text .= "<tr>
-		<td class='r_header3' style='width: 30%;'><a href='$trackback_url' rel='external'>$trackback_title</a></td>
-		<td class='r_header3' style='width: 40%;'>$trackback_excerpt</td>
-		<td class='r_header3' style='width: 20%;'>$trackback_blogname</td>
-		<td class='r_header3' style='width: 10%;'><input type='checkbox' name='trackback_delete[]' value='$trackback_id' /> ".TRACKBACK_L14."</td>
+		<td class='forumheader3' style='width: 30%;'><a href='$trackback_url' rel='external'>$trackback_title</a></td>
+		<td class='forumheader3' style='width: 40%;'>$trackback_excerpt</td>
+		<td class='forumheader3' style='width: 20%;'>$trackback_blogname</td>
+		<td class='forumheader3' style='width: 10%;'><input type='checkbox' name='trackback_delete[]' value='$trackback_id' /> ".TRACKBACK_L14."</td>
 		</tr>\n";
 	}
-	$text .= "<tr><td colspan='5' class='r_header1' style='text-align:center'><input class='button' type='submit' name='moderate' value='".TRACKBACK_L13."' /></td></tr></table></form></div>";
+	$text .= "<tr><td colspan='5' class='forumheader' style='text-align:center'><input class='button' type='submit' name='moderate' value='".TRACKBACK_L13."' /></td></tr></table></form></div>";
 }
 	
 $ns->tablerender(TRACKBACK_L13, $text);

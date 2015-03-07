@@ -16,7 +16,7 @@
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
-require_once("../class.php");
+require_once("../class2.php");
 if (!getperms("C")) {
 	header("location:".e_BASE."index.php");
 	exit;
@@ -45,12 +45,12 @@ if (isset($_POST['empty_cache'])) {
 	
 $text = "<div style='text-align:center'>
 	<form method='post' action='".e_SELF."'>
-	<table style='".ADMIN_WIDTH."' class='r_border'>
+	<table class='fborder'>
 	<tr>
-	<td class='r_caption'>".CACLAN_1."</td>
+	<td class='fcaption'>".CACLAN_1."</td>
 	</tr>
 	<tr>
-	<td class='r_header3'>";
+	<td class='forumheader3'>";
 $text .= (!$pref['cachestatus']) ? "<input type='radio' name='cachestatus' value='0' checked='checked' />" :
  "<input type='radio' name='cachestatus' value='0' />";
 $text .= CACLAN_7."
@@ -58,7 +58,7 @@ $text .= CACLAN_7."
 	</tr>
 	 
 	<tr>
-	<td class='r_header3'>";
+	<td class='forumheader3'>";
 if (is_writable(e_FILE."cache")) {
 	$text .= ('1' == $pref['cachestatus']) ? "<input type='radio' name='cachestatus' value='1' checked='checked' />" :
 	 "<input type='radio' name='cachestatus' value='1' />";
@@ -70,7 +70,7 @@ $text .= "</td>
 	</tr>
 	 
 	<tr style='vertical-align:top'>
-	<td style='text-align:center' class='r_header1'>
+	<td style='text-align:center' class='forumheader'>
 	 
 	<input class='button' type='submit' name='submit_cache' value='".CACLAN_2."' />
 	<input class='button' type='submit' name='empty_cache' value='".CACLAN_5."' />
