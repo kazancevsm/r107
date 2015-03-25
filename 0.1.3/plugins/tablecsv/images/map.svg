@@ -1,0 +1,1442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100%"
+   height="100%"
+   viewBox="0 0 1000 700"
+   id="map_slportal"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="map.svg"
+   onload="init(evt)">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2824"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2840"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2840-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871-8"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871-2"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871-5"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2871-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3710"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3732"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-3"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-8"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-89"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-31"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-34"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-38"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-2"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-93"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-86"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-28"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-24"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3754-65"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3929"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3929-0"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3929-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3929-3"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3929-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-61"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-63"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-8"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3991-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-3"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-5"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-0"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-37"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-4"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-01"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-73"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-9"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-2"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-8"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-50"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-35"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-89"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-14"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4084-80"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4343"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4365"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4389"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4411"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="743.02576"
+     inkscape:cy="146.41925"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="845"
+     inkscape:window-x="-2"
+     inkscape:window-y="-3"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-616.5354)">
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 470.88039,854.20553 9.92483,-80.92557 16.79588,-39.69933 -6.87104,-39.69934"
+       id="path4315"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 443.74412,1088.095 23.29069,-3.328"
+       id="path4321"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 464.39108,970.63146 -23.2852,54.20484 2.73876,63.6545 -102.75053,25.2872 -102.68386,6.1076"
+       id="path4317"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 205.96367,1116.4501 -62.22106,-16.7959 -59.767958,-0.4471"
+       id="path4319"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 449.75052,899.54738 21.51159,-46.1053 36.26382,-45.04347"
+       id="path4313"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 767.48023,935.89454 -31.68313,0.38172 -24.43035,-17.55932 -27.10243,37.40899 0.76344,30.53797 -85.50626,8.01621"
+       id="path4327"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 194.51194,846.95276 -44.28001,-14.1238 -49.24245,-7.25277 -46.570374,-24.43035"
+       id="path4309"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#ff6600;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 810.9968,1010.7125 27.86588,-5.7259 34.3552,-17.94103 20.61311,-20.23135"
+       id="path4333"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 742.35192,1011.7267 55.82437,1.947"
+       id="path4331"
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 693.80743,991.24457 42.37139,18.32283 -21.37656,47.3337"
+       id="path4329"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 691.8988,899.63073 22.14002,19.84967 62.6028,-39.31762"
+       id="path4325"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 476.98798,967.57767 32.44658,19.84969 81.68901,4.19889 -1.14518,-27.10238 43.13486,-33.59175 33.97347,-8.77965 26.33898,-27.10244 1.14517,-34.35519 35.88209,-30.15623 59.54901,-29.39277"
+       id="path4323"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 455.61141,958.798 430.4176,942.00214 414.00346,924.82454 315.13684,872.14657"
+       id="path4305"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Shata"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,76.161134,870.37276)"
+       inkscape:label="#path2830-4-8-2-22">
+      <title
+         id="title3172">Шата</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Fabrik"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,175.40946,928.39486)"
+       inkscape:label="#path2830-4-8-2-61">
+      <title
+         id="title3176">Фабрика</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Kuryi"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,152.94458,915.45538)"
+       inkscape:label="#path2830-4-8-2-27">
+      <title
+         id="title3178">Курьи</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Melnichnaya"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,397.57304,950.53488)"
+       inkscape:label="#path2830-4-8-2-23">
+      <title
+         id="title3173">Мельничная</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Zaimka"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,371.56154,998.85581)"
+       inkscape:label="#path2830-4-8-2-11">
+      <title
+         id="title3169">Заимка</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Mahanovo"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,429.63789,881.8245)"
+       inkscape:label="#path2830-4-8-2-77">
+      <title
+         id="title3177">Маханово</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Kazanka"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,373.14269,859.68448)"
+       inkscape:label="#path2830-4-8-2-19">
+      <title
+         id="title3186">Казанка</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Sergulovka"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,353.29302,832.96378)"
+       inkscape:label="#path2830-4-8-2-50">
+      <title
+         id="title3184">Сергуловка</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Taushkan"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,396.04616,768.07063)"
+       inkscape:label="#path2830-4-8-2-60">
+      <title
+         id="title3181">Таушкан</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Borovki"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,438.79929,823.80239)"
+       inkscape:label="#path2830-4-8-2-8">
+      <title
+         id="title3180">Боровки</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Talica"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,451.01446,741.34992)"
+       inkscape:label="#path2830-4-8-2-0">
+      <title
+         id="title3182">Талица</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Novopishminskoe"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,248.7574,910.49296)"
+       inkscape:label="#path2830-4-8-2-27-9">
+      <title
+         id="title3189">Новопышминское</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Filatovskoe"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,361.74781,935.68677)"
+       inkscape:label="#path2830-4-8-2-27-0">
+      <title
+         id="title3171">Филатовское</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Znamenskoe"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,-81.052451,816.58877)"
+       inkscape:label="#path2830-4-8-2-27-1">
+      <title
+         id="title3168">Знаменское</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Altinay"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,70.873847,729.55562)"
+       inkscape:label="#path2830-4-8-2-27-3">
+      <title
+         id="title3196">Алтынай</title>
+    </path>
+    <text
+       xml:space="preserve"
+       style="font-size:27.37401772px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="78.194481"
+       y="799.03558"
+       id="text3979"><title
+         id="title3148">Асбест</title><tspan
+         sodipodi:role="line"
+         id="tspan3981"
+         x="78.194481"
+         y="799.03558"
+         style="font-size:25.65187836px">Асбест</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:34.5702858px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="456.52759"
+       y="931.12842"
+       id="text3979-0"><tspan
+         sodipodi:role="line"
+         id="tspan3981-6"
+         x="456.52759"
+         y="931.12842"
+	   style="font-size:32.39542007px"><marquee>Сухой Лог</marquee></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.37401772px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="21.656593"
+       y="1061.4462"
+       id="text3979-8"><tspan
+         sodipodi:role="line"
+         id="tspan3981-49"
+         x="21.656593"
+         y="1061.4462"
+         style="font-size:25.65187836px">Екатеринбург</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.37401772px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="472.03543"
+       y="1127.2704"
+       id="text3979-7"><tspan
+         sodipodi:role="line"
+         id="tspan3981-8"
+         x="472.03543"
+         y="1127.2704"
+         style="font-size:25.65187836px">Богданович</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.37401772px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="838.19482"
+       y="923.578"
+       id="text3979-2"><tspan
+         sodipodi:role="line"
+         id="tspan3981-9"
+         x="838.19482"
+         y="923.578"
+         style="font-size:25.65187836px">Камышлов</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.37656403px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="664.58417"
+       y="1266.8368"
+       id="text-prigorod"
+       inkscape:label="#text3979-3"><title
+         id="title4001">Сухой Лог</title><tspan
+         sodipodi:role="line"
+         x="664.58417"
+         y="1266.8368"
+         style="font-size:22px"
+         id="tspan4063">Пригородные маршруты</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="574.89978"
+       y="882.84705"
+       id="textSergulovka"
+       inkscape:label="#text3979-84-1"><title
+         id="title3187">textСергуловка</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-20"
+         x="574.89978"
+         y="882.84705"
+         style="font-size:17.1012516px">Сергуловка</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="603.96503"
+       y="976.26556"
+       id="text3979-84-46"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-0"
+         x="603.96503"
+         y="976.26556"
+         style="font-size:17.1012516px">Курьи</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="485.48361"
+       y="1013.6203"
+       id="text3979-84-17"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-77"
+         x="485.48361"
+         y="1013.6203"
+         style="font-size:17.1012516px">Фабрика</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="647.42737"
+       y="823.35217"
+       id="text3979-84-3"><title
+         id="title3198">Таушкан</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-5"
+         x="647.42737"
+         y="823.35217"
+         style="font-size:17.1012516px">Таушкан</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="526.7641"
+       y="792.87518"
+       id="text3979-84-66"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-03"
+         x="526.7641"
+         y="792.87518"
+         style="font-size:17.1012516px">Алтынай</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="371.95337"
+       y="784.96271"
+       id="text3979-84-0"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-12"
+         x="371.95337"
+         y="784.96271"
+         style="font-size:17.1012516px">Рудянское</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="262.17679"
+       y="808.94592"
+       id="text3979-84-94"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-78"
+         x="262.17679"
+         y="808.94592"
+         style="font-size:17.1012516px">Глядены</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="184.38449"
+       y="834.80396"
+       id="text3979-84-12"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-01"
+         x="184.38449"
+         y="834.80396"
+         style="font-size:17.1012516px">Светлое</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="378.46326"
+       y="951.94373"
+       id="text3979-84-39"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-8"
+         x="378.46326"
+         y="951.94373"
+         style="font-size:17.1012516px">Шата</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:19.23890877px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="230.30652"
+       y="1153.702"
+       id="text3979-84-87"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-783"
+         x="230.30652"
+         y="1153.702"
+         style="font-size:19.23890877px">Белоярский</tspan></text>
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 313.22823,870.61967 285.74407,826.33965"
+       id="path4301"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 306.73891,866.42071 -28.2476,-5.72587 -76.72661,-2.67207"
+       id="path4307"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#00d400;stroke-width:3.20648479;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 458.28348,954.59904 -8.53296,-53.14304 1.77362,-30.88967 -9.6548,-26.28564 -76.41037,-46.78274"
+       id="path4311"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Bogdanovich"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,-81.95471,985.94793)"
+       inkscape:label="#path2830-4-4">
+      <title
+         id="title3154">Богданович</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="beloyarskii"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,-339.79988,1023.0185)"
+       inkscape:label="#path2830-4-8">
+      <title
+         id="title3156">Белоярский</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Ekatirinburg"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.4781667,0,0,1.4781667,-664.30048,975.11311)"
+       inkscape:label="#path2830-4-45">
+      <title
+         id="title3165">Екатиринбург</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#ff6600;stroke-width:2.7647059;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path2830-4-1"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.8195293,0,0,1.8195293,-829.6931,946.52833)">
+      <title
+         id="title3158">Екатиринбург</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Asbest"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,-511.1015,698.30204)"
+       inkscape:label="#path2830"
+       onmouseover="showAsbest('Карта в разработке')"
+       onmouseout="cleanLabel()">
+      <title
+         id="title3163">Асбест</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Irbit"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,-71.736742,585.69338)"
+       inkscape:label="#path2830-1"
+       onmouseover="showLabel('irbit')"
+       onmouseout="cleanLabel('irbit')">
+      <title
+         id="title3150">Ирбит</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Kamishlov"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,335.94488,859.77146)"
+       inkscape:label="#path2830-4">
+      <title
+         id="title3152">Камышлов</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;stroke:#ff6600;stroke-width:2.7647059;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="slog"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.3572932,0,0,1.3572932,-188.83069,847.05051)"
+       inkscape:label="#path2830-4-1-5">
+      <title
+         id="title3167">Сухой_Лог</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600"
+       id="Sukhoy_Log"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(1.1597924,0,0,1.1597924,-93.159614,863.45375)"
+       inkscape:label="#path2830-4-0">
+      <title
+         id="title3160">Сухой Лог</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Sveloe"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,-236.796,776.88943)"
+       inkscape:label="#path2830-4-8-2-27-8">
+      <title
+         id="title3162">Светлое</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Glyadeni"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,-52.861705,766.54374)"
+       inkscape:label="#path2830-4-8-2-7">
+      <title
+         id="title3164">Глядены</title>
+    </path>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Brusyani"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,-26.140999,810.82377)"
+       inkscape:label="#path2830-4-8-2-1">
+      <title
+         id="title3200">Брусяны</title>
+    </path>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="274.7879"
+       y="920.56952"
+       id="text3979-84-8"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-4"
+         x="274.7879"
+         y="920.56952"
+         style="font-size:17.1012516px">Знаменское</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="249.46289"
+       y="892.34052"
+       id="text-01001"
+       inkscape:label="#text3979-84-40"><title
+         id="title3166">Брусяны</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-61"
+         x="249.46289"
+         y="892.34052"
+         style="font-size:17.1012516px">Брусяны</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="803.37012"
+       y="1040.8413"
+       id="text3979-84"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0"
+         x="803.37012"
+         y="1040.8413"
+         style="font-size:17.1012516px">Филатовоское</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="702.78864"
+       y="1086.6271"
+       id="text3979-84-7"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-6"
+         x="702.78864"
+         y="1086.6271"
+         style="font-size:17.1012516px">Заимка</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="716.80212"
+       y="994.13293"
+       id="text3979-84-6"><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-1"
+         x="716.80212"
+         y="994.13293"
+         style="font-size:17.1012516px">Мельничная</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="670.14636"
+       y="967.32812"
+       id="text-novopishme"
+       inkscape:label="#text3979-84-4"><title
+         id="title3175">Новопышма</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-2"
+         x="670.14636"
+         y="967.32812"
+         style="font-size:17.1012516px">Новопышминское</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="788.40332"
+       y="947.79437"
+       id="text3979-84-9"><title
+         id="title3191">Маханово</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-7"
+         x="788.40332"
+         y="947.79437"
+         style="font-size:17.1012516px">Маханово</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="730.25024"
+       y="924.89099"
+       id="textkazanka"
+       inkscape:label="#text3979-84-2"><title
+         id="title3179">Казанка</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-60"
+         x="730.25024"
+         y="924.89099"
+         style="font-size:17.1012516px">Казанка</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="780.54382"
+       y="867.84424"
+       id="textBorovki"
+       inkscape:label="#text3979-84-65"><title
+         id="title3185">Боровки</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-75"
+         x="780.54382"
+         y="867.84424"
+         style="font-size:17.1012516px">Боровки</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:17.1012516px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="789.82379"
+       y="785.65735"
+       id="textTalica"
+       inkscape:label="#text3979-84-98"
+       inkscape:transform-center-x="7.6344698"
+       inkscape:transform-center-y="7.415011"><title
+         id="title3183">textТалица</title><tspan
+         sodipodi:role="line"
+         id="tspan3981-0-18"
+         x="789.82379"
+         y="785.65735"
+         style="font-size:17.1012516px">Талица</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="Rudyanskoe"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.90964109,0,0,0.90964109,-85.633139,713.52319)"
+       inkscape:label="#path2830-4-8-2-27-3-3">
+      <title
+         id="title3170">Рудянское</title>
+    </path>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3196"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion3198"><rect
+           id="rect3200"
+           width="184.28572"
+           height="110"
+           x="100"
+           y="-42.857143" /></flowRegion><flowPara
+         id="flowPara3202" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3222"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion3224"><rect
+           id="rect3226"
+           width="118.57143"
+           height="112.85714"
+           x="480"
+           y="11.428572" /></flowRegion><flowPara
+         id="flowPara3228" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:12.82593918px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="523.32935"
+       y="690.02014"
+       id="varIrbit"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3252"><tspan
+         sodipodi:role="line"
+         id="tspan3254"
+         x="523.32935"
+         y="690.02014">  </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:27.37401772px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="503.05679"
+       y="659.23285"
+       id="text3979-4"><tspan
+         sodipodi:role="line"
+         id="tspan3981-4"
+         x="503.05679"
+         y="659.23285"
+         style="font-size:25.65187836px">Ирбит</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:42.75312805px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="116.25845"
+       y="850.64972"
+       id="varAsbest"
+       sodipodi:linespacing="125%"
+       inkscape:label="#text3282"><title
+         id="title3286">Асбест</title><tspan
+         sodipodi:role="line"
+         id="tspan3284"
+         x="116.25845"
+         y="850.64972"> </tspan></text>
+    <rect
+       style="fill:#ff6600;fill-opacity:1;stroke:none"
+       id="gorod"
+       width="17.172594"
+       height="17.172594"
+       x="636.39612"
+       y="1276.6344"
+       inkscape:label="#rect3199">
+      <title
+         id="title3989">Междугородние маршруты Сухой Лог</title>
+    </rect>
+    <rect
+       style="fill:#00d400;fill-opacity:1;stroke:none"
+       id="prigorod"
+       width="17.172594"
+       height="17.172594"
+       x="636.39612"
+       y="1251.3806"
+       inkscape:label="#rect3199-3">
+      <title
+         id="title3987">Пригородные маршруты Сухой Лог</title>
+    </rect>
+    <text
+       sodipodi:linespacing="125%"
+       id="text-gorod"
+       y="1293.8069"
+       x="663.67029"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"
+       inkscape:label="#text3997"><title
+         id="title4003">Сухой Лог</title><tspan
+         style="font-size:22px;-inkscape-font-specification:Bitstream Vera Sans;font-family:Bitstream Vera Sans"
+         y="1293.8069"
+         x="663.67029"
+         id="tspan3999"
+         sodipodi:role="line">Междугородние маршруты</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#66ff00"
+       id="SMZ"
+       sodipodi:cx="484.64285"
+       sodipodi:cy="83.737335"
+       sodipodi:rx="16.785715"
+       sodipodi:ry="16.785715"
+       d="m 501.42857,83.737335 c 0,9.270495 -7.51522,16.785715 -16.78572,16.785715 -9.27049,0 -16.78571,-7.51522 -16.78571,-16.785715 0,-9.270494 7.51522,-16.785715 16.78571,-16.785715 9.2705,0 16.78572,7.515221 16.78572,16.785715 z"
+       transform="matrix(0.70497186,0,0,0.70497186,97.756785,836.7744)"
+       inkscape:label="#path2830-4-8-2-22">
+      <title
+         id="title3172-2">СМЗ, Крановый</title>
+    </path>
+    <text
+       xml:space="preserve"
+       style="font-size:24.59367752px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+       x="450.61932"
+       y="893.76483"
+       id="text3979-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan3981-6-9"
+         x="450.61932"
+         y="893.76483"
+         style="font-size:17px">СМЗ</tspan></text>
+  </g>
+  <script
+     id="script_Irbit"
+     type="text/javascript">var svgLabelText;
+
+function init(evt) {
+    //делаем привязку переменной к полю объекта с текстом
+    svgLabelText = document.getElementById(&quot;varIrbit&quot;).firstChild.firstChild;
+    svgLabelText = document.getElementById(&quot;varAsbest&quot;).firstChild.firstChild;
+}
+
+function showLabel() {
+    //меняем текст в объекте
+    svgLabelText.nodeValue = LabelText;
+}
+
+function cleanLabel() {
+    //очищаем текстовое поле
+    svgIrbitText.nodeValue = &quot; &quot;;
+    
+}
+
+function AlertClick(AlertText) {
+    //показываем окно с сообщением
+    alert(AlertText);
+}</script>
+</svg>
