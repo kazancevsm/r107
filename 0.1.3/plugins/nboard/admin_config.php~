@@ -850,12 +850,12 @@ function admin_config_adminmenu()
 		$var['subcat']['link'] = e_SELF."?subcat";
 		$var['notice']['text'] = LAN_NOT_MENU;
 		$var['notice']['link'] = e_SELF."?notice";
-		$var['config']['text'] = LAN_CON_MENU;
-		$var['config']['link'] = e_SELF."?config";
 		$var['delete']['text'] = LAN_DEL_MENU;
 		$var['delete']['link'] = e_SELF."?delete";
 		$var['baners']['text'] = LAN_BAN_MENU;
 		$var['baners']['link'] = e_SELF."?baners";
+		$var['config']['text'] = LAN_CON_MENU;
+		$var['config']['link'] = e_SELF."?config";
 		$var['about']['text'] = LAN_ABO_MENU;
 		$var['about']['link'] = e_SELF."?about";
 		show_admin_menu(LAN_ADMIN_MENU_CAP, $action, $var);
