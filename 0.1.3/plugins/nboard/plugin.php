@@ -17,29 +17,29 @@ if (!defined('e107_INIT')) { exit; }
 $lan_file = e_PLUGIN."nboard/languages/".e_LANGUAGE.".php";
 include_once((file_exists($lan_file) ? $lan_file : e_PLUGIN."nboard/languages/English.php"));
 
-$eplug_name = LAN_PLUG_NAME;					// Name Plugin
-$eplug_version = "4.6";						// Version plugin
+$eplug_name = LAN_NB_NB_PLUG_NAME;					// Name Plugin
+$eplug_version = "4.7";						// Version plugin
 $eplug_author = "OSGroup";					// Author
 $eplug_url = "http://r107.pro";					// Web address author and supprot
 $eplug_email = "support@r107.pro";				// Mail author
-$eplug_description = LAN_PLUG_ABOUT;				// About plugin
+$eplug_description = LAN_NB_PLUG_ABOUT;				// About plugin
 $eplug_compatible = "e107v0.7++";				// Version e107
 $eplug_readme = "doc/".e_LANGUAGE.".pdf";			// Leave blank if no readme file
 $eplug_folder = "nboard";					// Name of the plugin's folder
-$eplug_menu_name = LAN_PLUG_NAME;					// Mane of menu item for plugin
+$eplug_menu_name = LAN_NB_PLUG_NAME;				// Mane of menu item for plugin
 $eplug_conffile = "admin_config.php";				// Name of the admin configuration file
 $eplug_logo = "theme/icon_32.png";				// Logo plugin
 $eplug_icon = $eplug_folder."/theme/icon_32.png"; 		// Icon image and caption text
 $eplug_icon_small = $eplug_folder."/theme/icon_16.png";		// Logo plugin
-$eplug_caption = LAN_PLUG_EDIT;
-$eplug_link = True;						// Create a link in main menu (yes=TRUE, no=FALSE)
-$eplug_link_name = LAN_PLUG_NAME;
+$eplug_caption = LAN_NB_PLUG_EDIT;
+$eplug_link = TRUE;						// Create a link in main menu (yes=TRUE, no=FALSE)
+$eplug_link_name = LAN_NB_PLUG_NAME;
 $eplug_link_url = SITEURL.e_PLUGIN."nboard/nboard.php";		// Start file of plugin
-$eplug_done = LAN_PLUG_INSTALL;					// Text to display after plugin successfully installed
+$eplug_link_perms = "Everyone"; 				// Everyone, Guest, Member, Admin
+$eplug_done = LAN_NB_PLUG_INSTALL;					// Text to display after plugin successfully installed
 $eplug_table_names = array("nb_gnl","nb_cat");			// List of table names
 
 $eplug_prefs = array(
-    "nb_admail" => ADMINEMAIL,
     "nb_days" => "30",
     "nb_prolong" => "15",
     "nb_sizepicbig" => "600",
@@ -47,7 +47,7 @@ $eplug_prefs = array(
     "nb_showcols" => "2",
     "nb_showrows" => "40",
     "nb_menu_showrows" => "20",
-    "nb_comments" => LAN_SEL_YES
+    "nb_comments" => LAN_NB_SEL_YES
 );
 
 $eplug_tables = array( // List of sql requests to create tables
@@ -65,6 +65,7 @@ gnl_phone varchar(30),
 gnl_email varchar(40),
 gnl_date_start varchar(250),
 gnl_date_end varchar(250),
+gnl_status varchar(10),
 gnl_counter varchar(40),
 primary key(gnl_id)
 ) ENGINE=MyISAM;",
@@ -82,25 +83,25 @@ primary key(cat_id)
 );
 ,
 //=============== table Notice-Board Example ======================//
-"INSERT INTO ".MPREFIX."nb_cat VALUES (1,'0','".LAN_EX_CAT_01."','".LAN_EX_CATDESC_01."','auto.gif')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (2,'0','".LAN_EX_CAT_02."','".LAN_EX_CATDESC_02."','building.gif')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (3,'0','".LAN_EX_CAT_03."','".LAN_EX_CATDESC_03."','comp.gif')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (4,'0','".LAN_EX_CAT_04."','".LAN_EX_CATDESC_04."','people.gif')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (5,'1','".LAN_EX_CAT_05."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (6,'1','".LAN_EX_CAT_06."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (7,'1','".LAN_EX_CAT_07."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (8,'1','".LAN_EX_CAT_08."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (9,'2','".LAN_EX_CAT_05."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (10,'2','".LAN_EX_CAT_06."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (11,'2','".LAN_EX_CAT_07."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (12,'2','".LAN_EX_CAT_08."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (13,'3','".LAN_EX_CAT_05."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (14,'3','".LAN_EX_CAT_06."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (15,'3','".LAN_EX_CAT_07."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (16,'3','".LAN_EX_CAT_08."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (17,'4','".LAN_EX_CAT_09."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (18,'4','".LAN_EX_CAT_10."','','users.png')",
-"INSERT INTO ".MPREFIX."nb_cat VALUES (19,'4','".LAN_EX_CAT_11."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (1,'0','".LAN_NB_EX_CAT_01."','".LAN_NB_EX_CATDESC_01."','auto.gif')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (2,'0','".LAN_NB_EX_CAT_02."','".LAN_NB_EX_CATDESC_02."','building.gif')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (3,'0','".LAN_NB_EX_CAT_03."','".LAN_NB_EX_CATDESC_03."','comp.gif')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (4,'0','".LAN_NB_EX_CAT_04."','".LAN_NB_EX_CATDESC_04."','people.gif')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (5,'1','".LAN_NB_EX_CAT_05."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (6,'1','".LAN_NB_EX_CAT_06."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (7,'1','".LAN_NB_EX_CAT_07."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (8,'1','".LAN_NB_EX_CAT_08."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (9,'2','".LAN_NB_EX_CAT_05."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (10,'2','".LAN_NB_EX_CAT_06."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (11,'2','".LAN_NB_EX_CAT_07."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (12,'2','".LAN_NB_EX_CAT_08."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (13,'3','".LAN_NB_EX_CAT_05."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (14,'3','".LAN_NB_EX_CAT_06."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (15,'3','".LAN_NB_EX_CAT_07."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (16,'3','".LAN_NB_EX_CAT_08."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (17,'4','".LAN_NB_EX_CAT_09."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (18,'4','".LAN_NB_EX_CAT_10."','','users.png')",
+"INSERT INTO ".MPREFIX."nb_cat VALUES (19,'4','".LAN_NB_EX_CAT_11."','','users.png')",
 "INSERT INTO ".MPREFIX."nb_ban VALUES (1,'all_pages','Com$upgrade_alter_tables = array(
 "ALTER TABLE ".MPREFIX."pcontent ADD content_score TINYINT ( 3 ) UNSIGNED NOT NULL DEFAULT '0';",
 "ALTER TABLE ".MPREFIX."pcontent ADD content_meta TEXT NOT NULL;",
@@ -132,5 +133,5 @@ $upgrade_alter_tables = array(
 //-----------new fields
 // conf_daysprolong
 // gnl_counter
-$eplug_upgrade_done = LAN_PLUG_UPGRADE;
+$eplug_upgrade_done = LAN_NB_PLUG_UPGRADE;
 ?>

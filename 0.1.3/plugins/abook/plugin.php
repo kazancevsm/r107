@@ -8,30 +8,27 @@
 $lan_file = e_PLUGIN."abook/languages/".e_LANGUAGE.".php";
 include_once((file_exists($lan_file) ? $lan_file : e_PLUGIN."abook/languages/English.php"));
 
-$eplug_name = LAN_PLUG_NAME;				// Name Plugin
+$eplug_name = LAN_AB_PLUG_NAME;				// Name Plugin
 $eplug_version = "1.0";					// Version plugin
 $eplug_author = "OSGroup";				// Author
 $eplug_url = "http://r107.pro";				// Web address author and supprot
 $eplug_email = "support@r107.pro";			// Mail author
-$eplug_description = LAN_PLUG_ABOUT;			// About plugin
+$eplug_description = LAN_AB_PLUG_ABOUT;			// About plugin
 $eplug_compatible = "e107v0.7++";			// Version e107
 $eplug_readme = "doc/readme.txt";			// Leave blank if no readme file
 $eplug_folder = "abook"; 				// Name of the plugin's folder
-$eplug_menu_name = LAN_PLUG_NAME; 			// Mane of menu item for plugin
+$eplug_menu_name = LAN_AB_PLUG_NAME; 			// Mane of menu item for plugin
 $eplug_conffile = "admin_config.php"; 			// Name of the admin configuration file
 $eplug_logo = "images/icon_32.png";			// Logo plugin
 $eplug_icon = $eplug_folder."/images/icon_32.png"; 	// Icon image and caption text
 $eplug_icon_small = $eplug_folder."/images/icon_16.png";// Logo plugin
-$eplug_caption = LAN_PLUG_EDIT;
-$eplug_link = True; 					// Create a link in main menu (yes=TRUE, no=FALSE)
-$eplug_link_name = LAN_PLUG_INFO;
+$eplug_caption = LAN_AB_PLUG_EDIT;
+$eplug_link = TRUE; 					// Create a link in main menu (yes=TRUE, no=FALSE)
+$eplug_link_name = LAN_AB_PLUG_NAME;
 $eplug_link_url = e_PLUGIN."abook/abook.php";		// Start file of plugin
-$eplug_done =  LAN_PLUG_INSTALL; 			// Text to display after plugin successfully installed
-$eplug_prefs = array(); 				// List of preferences
-$eplug_table_names = array("ab_cat", "ab_gnl"); 	// List of table names
-$eplug_prefs = array(
-    "ab_folder" => "abook",
-    "ab_admail" => "user@e-mail",
+$eplug_link_perms = "Everyone"; 			// Everyone, Guest, Member, Admin
+$eplug_done =  LAN_AB_PLUG_INSTALL; 			// Text to display after plugin successfully installed
+$eplug_prefs = array(					// List of preferences
     "ab_days" => "30",
     "ab_prolong" => "15",
     "ab_sizepicbig" => "600",
@@ -39,7 +36,7 @@ $eplug_prefs = array(
     "ab_showcols" => "2",
     "ab_showrows" => "40"
     );
-
+$eplug_table_names = array("ab_cat", "ab_gnl");		// List of table names
 $eplug_tables = array( // List of sql requests to create tables
 //=============== table Addresss Book Config ======================// 
 "create table ".MPREFIX."ab_cat (
@@ -77,5 +74,5 @@ $upgrade_add_prefs = "";
 $upgrade_remove_prefs = "";
 $upgrade_alter_tables = "";
 //array("ALTER TABLE `".MPREFIX."mycconf` ADD `adlength` VARCHAR(250);", "ALTER TABLE `".MPREFIX."mycads` ADD `pdate` VARCHAR(250);");
-$eplug_upgrade_done = LAN_PLUG_UPGRADE;
+$eplug_upgrade_done = LAN_AB_PLUG_UPGRADE;
 ?>

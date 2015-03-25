@@ -33,7 +33,7 @@ if(IsSet($_GET['page'])) {
 	require_once("search.php");
     }
 }
-$caption = LAN_AB_PLUG_NAME;
+$caption = LAN_AB_INFO;
 $ns -> tablerender($caption, $text);
 require_once(FOOTERF);
 //function theme_head() {

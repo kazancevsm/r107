@@ -8,7 +8,7 @@ define('LAN_PLUG_UNINSTALL',"Адресная книга успешно удал
 
 /*-----menu plugin-----*/
 define('LAN_MENU_CAP',"Abook Меню");
-define('LAN_MENU_CAT',"Каталоги");
+define('LAN_MENU_CAT',"Категории");
 define('LAN_MENU_MAN',"Доб/Удалить запись");
 define('LAN_MENU_OPTIONS',"Опции");
 define('LAN_MENU_ABOUT',"О плагине");

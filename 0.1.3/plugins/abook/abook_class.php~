@@ -20,10 +20,10 @@ function getList(){
 $conf_showrows = $pref["ab_showrows"];
 $query = mysql_query($this->sql);
 $color = 1;
-	$text ="<table valign=top align=left><tr><td class='fcaption' width='30%'><b>".LAN_AB_LIST_NAME."</td>"; 
-	$text .="<td class='fcaption' width='15%'><b>".LAN_AB_LIST_MAG."</td>"; 
-	$text .="<td class='fcaption' width='10%'><b>".LAN_AB_LIST_CITY."</b></td>"; 
-	$text .="<td class='fcaption' width='10%'><b>".LAN_AB_LIST_ADDR."</td>"; 
+	$text ="<table valign=top align=left><tr><td class='fcaption' width='30%'><b>".AB_LIST_NAME."</td>"; 
+	$text .="<td class='fcaption' width='15%'><b>".AB_LIST_MAG."</td>"; 
+	$text .="<td class='fcaption' width='10%'><b>".AB_LIST_CITY."</b></td>"; 
+	$text .="<td class='fcaption' width='10%'><b>".AB_LIST_ADDR."</td>"; 
 	$text .="</tr>";  
 	while($row = mysql_fetch_assoc($query)){
 		$gnl_id = $row['gnl_id'];
@@ -31,7 +31,7 @@ $color = 1;
 		$gnl_mag = $row['gnl_mag'];
 		$gnl_city = $row['gnl_city'];
 		$gnl_address = $row['gnl_address'];
-		if ($row['gnl_check_admin']==LAN_AB_SEL_YES){
+		if ($row['gnl_check_admin']==AB_SEL_YES){
 			if($color == 1) $theme_class = 'forumheader3';
 			if($color == 2) $theme_class = 'forumheader2';
 				$text .= "<tr>"; 
@@ -53,10 +53,10 @@ function getRandomList(){
 $conf_showrows = $pref["ab_showrows"];
 $query = mysql_query($this->sql);
 $color = 1;
-	$text ="<table valign=top align=left><tr><td class='fcaption' width='30%'><b>".LAN_AB_LIST_NAME."</td>"; 
-	$text .="<td class='fcaption' width='15%'><b>".LAN_AB_LIST_MAG."</td>"; 
-	$text .="<td class='fcaption' width='10%'><b>".LAN_AB_LIST_CITY."</b></td>"; 
-	$text .="<td class='fcaption' width='10%'><b>".LAN_AB_LIST_ADDR."</td>"; 
+	$text ="<table valign=top align=left><tr><td class='fcaption' width='30%'><b>".AB_LIST_NAME."</td>"; 
+	$text .="<td class='fcaption' width='15%'><b>".AB_LIST_MAG."</td>"; 
+	$text .="<td class='fcaption' width='10%'><b>".AB_LIST_CITY."</b></td>"; 
+	$text .="<td class='fcaption' width='10%'><b>".AB_LIST_ADDR."</td>"; 
 	$text .="</tr>";  
 	while($row = mysql_fetch_assoc($query)){
 		$gnl_id = $row['gnl_id'];
@@ -64,7 +64,7 @@ $color = 1;
 		$gnl_mag = $row['gnl_mag'];
 		$gnl_city = $row['gnl_city'];
 		$gnl_address = $row['gnl_address'];
-		if ($row['gnl_check_admin']==LAN_AB_SEL_YES){
+		if ($row['gnl_check_admin']==AB_SEL_YES){
 			if($color == 1) $theme_class = 'forumheader3';
 			if($color == 2) $theme_class = 'forumheader2';
 				$text .= "<tr>"; 
@@ -126,16 +126,16 @@ $query = mysql_query($this->sql);
 $color = 1;
 $text ="<table style='width:100%' valign=top><tr >";
 	while($row = mysql_fetch_assoc($query)){ 
-	    if($row['gnl_check_admin']==LAN_AB_SEL_YES){
+	    if($row['gnl_check_admin']==AB_SEL_YES){
 		$text .= "<td rowspan=5 widht=20% class='forumheader2'>".$row['gnl_img']."</td></tr>"; 
 		$text .= "<tr><td class='forumheader2' width='30%'><img src='".e_PLUGIN."abook/ab_pictures/".$row['gnl_logo']."' alt='".$row['gnl_name']."'></td>"; 
-		$text .= "<td class='forumheader2' valign=top>".LAN_AB_LIST_NAME.":"; 
+		$text .= "<td class='forumheader2' valign=top>".AB_LIST_NAME.":"; 
 		$text .= "<b>".$row['gnl_name']."</b>"; 
-		$text .= "<br>".LAN_AB_LIST_MAG.": <b>".$row['gnl_mag']."</b>"; 
-		$text .= "<br>".LAN_AB_LIST_ADDR.": <b>".$row['gnl_address'].", ".$row['gnl_city']."</b>"; 
-		$text .= "<br>".LAN_AB_LIST_SITE.": <b>".$row['gnl_site']."</b>"; 
-		$text .= "<br>".LAN_AB_LIST_MAIL.": <b>".$row['gnl_mail']."</b>"; 
-		$text .= "<br>".LAN_AB_LIST_ICQ.": <b>".$row['gnl_icq']."</b>"; 
+		$text .= "<br>".AB_LIST_MAG.": <b>".$row['gnl_mag']."</b>"; 
+		$text .= "<br>".AB_LIST_ADDR.": <b>".$row['gnl_address'].", ".$row['gnl_city']."</b>"; 
+		$text .= "<br>".AB_LIST_SITE.": <b>".$row['gnl_site']."</b>"; 
+		$text .= "<br>".AB_LIST_MAIL.": <b>".$row['gnl_mail']."</b>"; 
+		$text .= "<br>".AB_LIST_ICQ.": <b>".$row['gnl_icq']."</b>"; 
 		$text .= "<br></td></tr>"; 
 	    }
 	}
@@ -145,8 +145,8 @@ $this1->sql = "SELECT * FROM ".MPREFIX."ab_gnl";
 $this1->sql .= " WHERE gnl_id=".$_GET['id'];
 	$query1 = mysql_query($this1->sql);
 	$text .="<table style='width:100%' valign=top><tr>"; 
-	$text .="<td class='fcaption' width='50%'>".LAN_AB_LIST_DEV."</td>"; 
-	$text .="<td class='fcaption' width='50%'>".LAN_AB_LIST_DESC."</td>"; 
+	$text .="<td class='fcaption' width='50%'>".AB_LIST_DEV."</td>"; 
+	$text .="<td class='fcaption' width='50%'>".AB_LIST_DESC."</td>"; 
 	$text .="</tr>"; 
 	while($row = mysql_fetch_assoc($query1)){   
 		$text .= "<tr><td class='forumheader2'>".$row['gnl_devision']."</td>";

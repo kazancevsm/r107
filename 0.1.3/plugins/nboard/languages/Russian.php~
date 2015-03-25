@@ -7,20 +7,20 @@
 =======================the project beginning in 2011 ===================*/
 /*---------------info plugin--------------------*/
 define('LAN_PLUG_NAME',"Доска объявлений");
-define('LAN_EDIT_01',"Настройки доски объявлений");
-define('LAN_ABOUT',"Notice-Board. Плагин доски объявлений.");
-define('LAN_INSTALL',"Доска объявлений успешно установлена!");
-define('LAN_UNINSTALL',"Доска объявлений удалена.");
-define('LAN_UPGRADE',"Обновление плагина успешно завершено");
+define('LAN_PLUG_EDIT',"Настройки доски объявлений");
+define('LAN_PLUG_ABOUT',"Плагин 'Доска объявлений' позволяет организовать на сайте прием и публикацию объявлений. На данный момент ведутся разработки по отчистке от старых объявлений, ожидайте в следующей версии.");
+define('LAN_PLUG_INSTALL',"Доска объявлений успешно установлена!");
+define('LAN_PLUG_UNINSTALL',"Доска объявлений удалена.");
+define('LAN_PLUG_UPGRADE',"Обновление плагина успешно завершено");
 /*---------------menu---------------------------*/
 define('LAN_ADMIN_MENU_CAP',"Опции доски объявлений");
-define('LAN_GNL_MENU',"Главная страница");
-define('LAN_CON_MENU',"Опции");
-define('LAN_CAT_MENU',"Категории");
-define('LAN_NOT_MENU',"Редактор");
-define('LAN_DEL_MENU',"Удаление");
-define('LAN_BAN_MENU',"Баннеры");
-define('LAN_ABO_MENU',"О плагине");
+define('LAN_MENU_GNL',"Главная страница");
+define('LAN_MENU_CON',"Опции");
+define('LAN_MENU_CAT',"Категории");
+define('LAN_MENU_NOT',"Редактор");
+define('LAN_MENU_DEL',"Удаление");
+define('LAN_MENU_BAN',"Баннеры");
+define('LAN_MENU_ABO',"О плагине");
 /*--------------gnl-----------------------------*/
 define('LAN_GNL_CAP',"Существующие объявления");
 define('LAN_GNL_ID',"ID");
