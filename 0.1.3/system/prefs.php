@@ -13,7 +13,7 @@ $pref = array (
   'siteadminemail' => $site_admin_email,
   'sitecontactinfo' => '[b]r107.pro  - Сайт технической поддержки r107cms[/b]
 [b]Сайт:[/b] [url=http://r107.pro]r107.pro[/url]
-[b]Почта:[/b] support@e107.pro
+[b]Почта:[/b] support@r107.pro
 Сборка настоящей версии системы и русская локализация подготовлены командой сайта r107.pro. Основана на e107.
 
 © r107.pro, '.date("Y").'. Все права защищены.',
