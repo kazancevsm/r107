@@ -47,7 +47,8 @@ $eplug_prefs = array(
     "nb_showcols" => "2",
     "nb_showrows" => "40",
     "nb_menu_showrows" => "20",
-    "nb_comments" => LAN_NB_SEL_YES
+    "nb_comments" => LAN_NB_SEL_YES,
+    "nb_statusactivate" => "no"
 );
 
 $eplug_tables = array( // List of sql requests to create tables

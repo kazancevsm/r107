@@ -15,7 +15,7 @@ if (!getperms("P")) {
       header("location:".e_HTTP."index.php");
       exit;
 }
-include_lan(e_PLUGIN."md_nboard/languages/".e_LANGUAGE.".php");
+include_lan(e_PLUGIN."nboard/languages/".e_LANGUAGE.".php");
 if (e_QUERY) {
 	$tmp = explode (".", e_QUERY);
 	$action     = $tmp[0];
@@ -119,7 +119,7 @@ if (isset($tmp[1]) && $tmp[1] == "num_page"){
 				$pic = "";
 			} else {
 				$gnl_pic= explode(",", $gnl_pic);
-				$pic = "<img src='".e_PLUGIN."md_nboard/nb_pictures/small_$gnl_pic[0]' style='width:40px; border:0px solid #000;' alt='".SITENAME." - $gnl_name' />";
+				$pic = "<img src='".e_PLUGIN."nboard/nb_pictures/small_$gnl_pic[0]' style='width:40px; border:0px solid #000;' alt='".SITENAME." - $gnl_name' />";
 			}
 	$text .= "<tr>";
 	$text .= "<td class='forumheader3'>$gnl_id</td>";
@@ -128,8 +128,8 @@ if (isset($tmp[1]) && $tmp[1] == "num_page"){
 	$text .= "<td class='forumheader3'>$gnl_user</td>";
 	$text .= "<td class='forumheader3'>".strftime($nb_dateformat,$gnl_date_start)." / ".strftime($nb_dateformat,$gnl_date_end)."</td>";
 	$text .= "<td class='forumheader3'>";
-	$text .= "<a href='".e_PLUGIN."md_nboard/admin_config.php?notice.edit.$gnl_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>";
-	$text .= " <a href='".e_PLUGIN."md_nboard/admin_config.php?gnl.delete.$gnl_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_NB_QUE_DEL_NOT." [ ID: $gnl_id] ]')\">".ADMIN_DELETE_ICON."</a>";
+	$text .= "<a href='".e_PLUGIN."nboard/admin_config.php?notice.edit.$gnl_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>";
+	$text .= " <a href='".e_PLUGIN."nboard/admin_config.php?gnl.delete.$gnl_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_NB_QUE_DEL_NOT." [ ID: $gnl_id] ]')\">".ADMIN_DELETE_ICON."</a>";
 	$text .= "</td>";
 	$text .= "</tr>";
 	}
@@ -186,7 +186,7 @@ if (IsSet($_POST['submit_insert'])){
 		$sql -> db_Insert("nb_cat", "0, '$cat_sub_id', '$cat_name', '$cat_desc', '$cat_icon'");
 	$message = "<font color=red>".LAN_NB_MES_05."</font>";
 	$cat_id=$cat_name=$cat_desc=$cat_icon='';
-	header ("Location: ".e_PLUGIN."md_nboard/admin_config.php?cat");
+	header ("Location: ".e_PLUGIN."nboard/admin_config.php?cat");
 	exit;
 	}
 $ns -> tablerender(LAN_NB_MES_00, $message);
@@ -223,7 +223,7 @@ $ns -> tablerender($caption, $text);
 	$text .= "<tr><td class='forumheader3' width='30%'>".LAN_NB_CAT_04."</td><td class='forumheader3' width='70%'><input class='tbox' type='text' name='cat_desc' value='$cat_desc' size='60'></td></tr>";
 //===============================select cat_icon=================================
         $fl = new e_file;
-if($iconlist = $fl->get_files(e_PLUGIN."md_nboard/theme/icons_cat/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
+if($iconlist = $fl->get_files(e_PLUGIN."nboard/theme/icons_cat/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
         sort($iconlist);
 }
 	$text .= "<tr>
@@ -232,7 +232,7 @@ if($iconlist = $fl->get_files(e_PLUGIN."md_nboard/theme/icons_cat/", ".jpg|.gif|
 		<input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_NB_IMG_03."' onclick='expandit(this)' />
 		<div id='linkicn' style='display:none;{head}'>";
 		foreach($iconlist as $icon){
-			$list_icon = str_replace(e_PLUGIN."md_nboard/theme/icons_cat/","",$icon['path'].$icon['fname']);
+			$list_icon = str_replace(e_PLUGIN."nboard/theme/icons_cat/","",$icon['path'].$icon['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_icon."','cat_icon','linkicn')\"><img src='".$icon['path'].$icon['fname']."' style='border:0' alt='' /></a> ";
 		}
 	$text .= "</div></td></tr>";
@@ -293,7 +293,7 @@ if (IsSet($_POST['submit_insert'])){
 		$sql -> db_Insert("nb_cat", "0, '$catId', '$cat_name', '$cat_desc', '$cat_icon'");
 		$message = "<font color=red>".LAN_NB_MES_12."</font>";
 		$cat_id=$cat_sub_id=$cat_name=$cat_desc=$cat_icon='';
-		header ("Location: ".e_PLUGIN."md_nboard/admin_config.php?subcat");
+		header ("Location: ".e_PLUGIN."nboard/admin_config.php?subcat");
 		exit;
 		}
 	$ns -> tablerender(LAN_NB_MES_00, $message);		
@@ -357,7 +357,7 @@ $ns -> tablerender($caption, $text);
 			<input type='hidden' name='cat_id' value='$cat_id'></td></tr>";
 //===============================select cat_icon=================================
         $fl = new e_file;
-        if($iconlist = $fl->get_files(e_PLUGIN."md_nboard/theme/icons_subcat/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
+        if($iconlist = $fl->get_files(e_PLUGIN."nboard/theme/icons_subcat/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
         	sort($iconlist);
         }
 	$text .= "<tr>
@@ -366,7 +366,7 @@ $ns -> tablerender($caption, $text);
 		<input class='button' type ='button' style='cursor:pointer' size='30' value='".LAN_NB_IMG_03."' onclick='expandit(this)' />
 		<div id='linkicn' style='display:none;{head}'>";
 		foreach($iconlist as $icon){
-			$list_icon = str_replace(e_PLUGIN."md_nboard/theme/icons_subcat/","",$icon['path'].$icon['fname']);
+			$list_icon = str_replace(e_PLUGIN."nboard/theme/icons_subcat/","",$icon['path'].$icon['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_icon."','cat_icon','linkicn')\"><img src='".$icon['path'].$icon['fname']."' style='border:0' alt='' /></a> ";
 		}
 	$text .= "<tr><td class='forumheader'>&nbsp;</td><td class='forumheader'>
@@ -376,7 +376,7 @@ $ns -> tablerender($caption, $text);
 		<input type='reset' class='button' style='cursor:pointer;display:$vis' value=".LAN_NB_BUT_CANS.">
 			</td></tr></table></form>";
 			
-	$text .= "<script type='text/javascript' src='".e_PLUGIN."md_nboard/js/add.js'></script><script type='text/javascript' src='".e_PLUGIN."md_nboard/js/admin_config.js'></script>";
+	$text .= "<script type='text/javascript' src='".e_PLUGIN."nboard/js/add.js'></script><script type='text/javascript' src='".e_PLUGIN."nboard/js/admin_config.js'></script>";
 	
 $caption = LAN_NB_SCAT_00;
 $ns -> tablerender($caption, $text);
@@ -491,7 +491,7 @@ $text .="<tr><td class='forumheader2'>".LAN_NB_NOT_SCAT." *</td><td class='forum
 	<input class='button' style='cursor:pointer' type='submit' name='submit_update' value='".LAN_NB_BUT_UPD."'>
 	<input class='button' style='cursor:pointer' type='submit' name='submit_reset' id='otmena' value=".LAN_NB_BUT_RES." onClick='otmena()'>
 	</td></tr></table></form>";
-	$text .= "<script type='text/javascript' src='".e_PLUGIN."md_nboard/js/add.js'></script><script type='text/javascript' src='".e_PLUGIN."md_nboard/js/admin_config.js'></script>";
+	$text .= "<script type='text/javascript' src='".e_PLUGIN."nboard/js/add.js'></script><script type='text/javascript' src='".e_PLUGIN."nboard/js/admin_config.js'></script>";
 $caption = LAN_NB_NOT_CAP;
 $ns -> tablerender($caption, $text);
 require_once(e_ADMIN."footer.php");
@@ -524,13 +524,13 @@ if (isset($tmp[1]) && $tmp[1] == "delete_old"){
 			$gnl_pic = explode(",",$gnl_pic);
 //			$message .= "<br>small_$gnl_pic[0],$gnl_pic[0],$gnl_pic[1],$gnl_pic[2],$gnl_pic[3],$gnl_pic[4],$gnl_pic[5]";
 			$message .= "<br>$gnl_id";
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/small_$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[1]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[2]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[3]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[4]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[5]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/small_$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[1]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[2]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[3]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[4]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[5]");
 			}
 //			$sql -> db_Delete("nb_gnl", "gnl_id=$gnl_id");
 		}
@@ -538,7 +538,7 @@ if (isset($tmp[1]) && $tmp[1] == "delete_old"){
 		$message .= "<br>1375425060_0_snv38928.jpg - удалена";
 $ns -> tablerender(LAN_NB_MES_00, $message);
 }
-$text .= "<br><br><a href='".e_PLUGIN."md_nboard/admin_config.php?delete.delete_old' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_NB_QUE_DEL_NOTOLD."')\">[Удалить все старые объявления]</a><br><br>";
+$text .= "<br><br><a href='".e_PLUGIN."nboard/admin_config.php?delete.delete_old' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_NB_QUE_DEL_NOTOLD."')\">[Удалить все старые объявления]</a><br><br>";
 
 $caption = LAN_NB_NOT_CAP;
 $ns -> tablerender($caption, $text);
@@ -554,13 +554,13 @@ $nbsql = new db;
 			$gnl_pic = explode(",",$gnl_pic);
 //			$message .= "<br>small_$gnl_pic[0],$gnl_pic[0],$gnl_pic[1],$gnl_pic[2],$gnl_pic[3],$gnl_pic[4],$gnl_pic[5]";
 			$text .= "<br>$gnl_pic";
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/small_$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[1]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[2]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[3]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[4]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[5]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/small_$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[1]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[2]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[3]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[4]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[5]");
 			}
 //			$sql -> db_Delete("nb_gnl", "gnl_id=$gnl_id");
 		}
@@ -591,13 +591,13 @@ foreach ($files as $key => $nb_pictures) {
 //			
 //			$message .= "<br>small_$gnl_pic[0],$gnl_pic[0],$gnl_pic[1],$gnl_pic[2],$gnl_pic[3],$gnl_pic[4],$gnl_pic[5]";
 //			$message .= "<br>$gnl_id";
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/small_$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[0]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[1]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[2]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[3]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[4]");
-//			unlink("".e_PLUGIN."md_nboard/nb_pictures/$gnl_pic[5]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/small_$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[0]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[1]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[2]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[3]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[4]");
+//			unlink("".e_PLUGIN."nboard/nb_pictures/$gnl_pic[5]");
 //			}
 //			$sql -> db_Delete("nb_gnl", "gnl_id=$gnl_id");
 //		}
@@ -625,7 +625,7 @@ if(IsSet($_POST['submit_insert'])){
 	if ($ban_action == ""){
 		$sql = new db;
 		$sql -> db_Insert("nb_ban", "0, '$ban_catid', '$ban_org', '$ban_url', '$ban_datebegin', '$ban_dateend', '$ban_images'");
-	header ("Location: ".e_PLUGIN."md_nboard/admin_config.php?baners");
+	header ("Location: ".e_PLUGIN."nboard/admin_config.php?baners");
 	exit;
 	}
 }
@@ -681,11 +681,11 @@ $text ="<form name='banner_add' method='post' action='' enctype='multipart/form-
 	$text .="</select></td></tr>";
 	$text .= "<tr><td class='forumheader3'>".LAN_NB_BAN_03."</td><td class='forumheader3' width='80%'><input size='36' type='text' name='ban_org' class='tbox' value='$ban_org'></td></tr>";
 	$text .= "<tr><td class='forumheader3'>".LAN_NB_BAN_04."</td><td class='forumheader3' width='80%'><input size='36' type='text' name='ban_url' class='tbox' value='$ban_url'></td></tr>";
-	$text .= "<tr><td class='forumheader3'>".LAN_NB_BAN_05."</td><td class='forumheader3' width='80%'><input size='16' type='text' name='ban_datebegin' class='tbox' value='$ban_datebegin' onclick='event.cancelBubble=true;this.select();lcs(this)' <script src='".e_PLUGIN."md_nboard/js/calendar_ru.js'></script><style>
+	$text .= "<tr><td class='forumheader3'>".LAN_NB_BAN_05."</td><td class='forumheader3' width='80%'><input size='16' type='text' name='ban_datebegin' class='tbox' value='$ban_datebegin' onclick='event.cancelBubble=true;this.select();lcs(this)' <script src='".e_PLUGIN."nboard/js/calendar_ru.js'></script><style>
 	input {border:1px solid #ABABAB}
-	</style> / <input size='16' type='text' name='ban_dateend' class='tbox' value='$ban_dateend' onfocus='this.select();lcs(this)' onclick='event.cancelBubble=true;this.select();lcs(this)' <script src='".e_PLUGIN."md_nboard/js/calendar_ru.js'></script></td></tr>";
+	</style> / <input size='16' type='text' name='ban_dateend' class='tbox' value='$ban_dateend' onfocus='this.select();lcs(this)' onclick='event.cancelBubble=true;this.select();lcs(this)' <script src='".e_PLUGIN."nboard/js/calendar_ru.js'></script></td></tr>";
 	$fl = new e_file;
-        if($iconlist = $fl->get_files(e_PLUGIN."md_nboard/banners/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
+        if($iconlist = $fl->get_files(e_PLUGIN."nboard/banners/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
         	sort($iconlist);
         }
 	$text .= "<tr>
@@ -694,7 +694,7 @@ $text ="<form name='banner_add' method='post' action='' enctype='multipart/form-
 		<input class='button' type ='button' style='cursor:pointer' size='30' value='".LAN_NB_BAN_08."' onclick='expandit(this)' />
 		<div id='linkicn' style='display:none;{head}'>";
 		foreach($iconlist as $icon){
-			$list_icon = str_replace(e_PLUGIN."md_nboard/banners/","",$icon['path'].$icon['fname']);
+			$list_icon = str_replace(e_PLUGIN."nboard/banners/","",$icon['path'].$icon['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_icon."','ban_images','linkicn')\"><img src='".$icon['path'].$icon['fname']."' width='200px' style='border:0' alt='' /></a> ";
 		}
 	$text .="<tr><td class='forumheader' style='text-align:center' colspan='2'>
@@ -744,7 +744,7 @@ $text ="<form enctype='multipart/form-data' name='form_banner_man' method='post'
 	if ($ban_catId == '0'){
 		$catName=LAN_NB_BAN_10;
 	}
-	$text .="<tr><td class='notice_4'><img src='".e_PLUGIN."md_nboard/banners/$ban_images' width=200></td>";
+	$text .="<tr><td class='notice_4'><img src='".e_PLUGIN."nboard/banners/$ban_images' width=200></td>";
 	$text .="<td class='notice_4'>$ban_org</td>";
 	$text .="<td class='notice_4'>$ban_datebegin / $ban_dateend</td>";
 	$text .="<td class='notice_4'>$catName</td>";
@@ -815,7 +815,7 @@ if(isset($action) && $action == "about"){
 $text="<h1>".LAN_NB_INFO." RC ".LAN_NB_VERSION."</h1><br><br>";
 
 $text .= LAN_NB_ABO_INFO."<br><br>";
-$text .= "<b><a href='".e_PLUGIN."md_nboard/doc/".e_LANGUAGE.".pdf'>".LAN_NB_ABO_DOC."</a></b><br>";
+$text .= "<b><a href='".e_PLUGIN."nboard/doc/".e_LANGUAGE.".pdf'>".LAN_NB_ABO_DOC."</a></b><br>";
 
 $text.="<table><tr><td> </td>";
 $text.= "<td align='center'>
@@ -823,7 +823,7 @@ $text.= "<td align='center'>
 <br> http://e107.compolys.ru, e107@compolys.ru
 <br>Sunout sunout@compolys.ru, license GNU GPL
 <br>================= start project July 2011=================
-<br><a href='http://e107.compolys.ru'><img src='".e_PLUGIN."md_nboard/theme/logo_compolys.png' alt='".LAN_NB_INFO."'></a>";
+<br><a href='http://e107.compolys.ru'><img src='".e_PLUGIN."nboard/theme/logo_compolys.png' alt='".LAN_NB_INFO."'></a>";
 $text .= "</tr></table>";
 $caption = LAN_NB_ABO_CAP;
 $ns -> tablerender($caption, $text);
