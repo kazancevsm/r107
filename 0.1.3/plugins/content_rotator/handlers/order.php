@@ -17,7 +17,7 @@
 */
 
 require_once("../../../class2.php");
-require_once(e_HANDLER.'ren_help.php');
+require_once(e_HANDLER."ren_help_handler.php");
 if (!getperms("P")) {
     header("location:".e_HTTP."index.php");
     exit;

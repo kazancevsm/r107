@@ -831,6 +831,7 @@ require_once(e_ADMIN."footer.php");
 exit;
 }
 require_once(e_ADMIN."footer.php");
+
 function admin_config_adminmenu()
 {	
 	if (e_QUERY) {

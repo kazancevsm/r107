@@ -65,14 +65,14 @@ echo '<script type="text/javascript" src="'.e_PLUGIN_ABS.'content_rotator/fancyb
 
 //set various styles
 echo "<style type='text/css'>
- .gallery{background-color:".$cr_pref['cr_frame_background_color'].";border:".$cr_pref['cr_border'].";padding:".$cr_pref['cr_padding']."px;}
+ .gallery{background-color:".$cr_pref['cr_frame_background_color'].";border:".$cr_pref['cfborder'].";padding:".$cr_pref['cr_padding']."px;}
  .panel-content{background-color:".$cr_pref['cr_panel_background_color'].";}
  .panel-content {left:".$left_panel."px;}
  .panel .overlay-background { background:".$cr_pref['cr_overlay_color']."; }
  .panel-overlay h2{ color:".$cr_pref['cr_titel_color']."; }
  .panel-overlay{color:".$cr_pref['cr_overlay_text_color'].";}
- .frame .caption { font-size: 11px; text-align: center; color:".$cr_pref['cr_caption_text_color']."; }
- .frame.current .caption { color:".$cr_pref['cr_caption_text_color_active']."; }
+ .frame .caption { font-size: 11px; text-align: center; color:".$cr_pref['cfcaption_text_color']."; }
+ .frame.current .caption { color:".$cr_pref['cfcaption_text_color_active']."; }
  .panel .panel-overlay { height:".$cr_pref['cr_overlay_height']."px; padding: 0; padding-left:10px; }
  .panel .overlay-background { height:".$cr_pref['cr_overlay_height']."px; padding: 0; }
  .filmstrip { margin:".$cr_pref['cr_filmstrip_margin']."; }";
