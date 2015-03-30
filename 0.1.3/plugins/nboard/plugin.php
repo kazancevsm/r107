@@ -17,7 +17,7 @@ if (!defined('e107_INIT')) { exit; }
 $lan_file = e_PLUGIN."nboard/languages/".e_LANGUAGE.".php";
 include_once((file_exists($lan_file) ? $lan_file : e_PLUGIN."nboard/languages/English.php"));
 
-$eplug_name = LAN_NB_NB_PLUG_NAME;					// Name Plugin
+$eplug_name = LAN_NB_PLUG_NAME;					// Name Plugin
 $eplug_version = "4.7";						// Version plugin
 $eplug_author = "OSGroup";					// Author
 $eplug_url = "http://r107.pro";					// Web address author and supprot
@@ -28,15 +28,15 @@ $eplug_readme = "doc/".e_LANGUAGE.".pdf";			// Leave blank if no readme file
 $eplug_folder = "nboard";					// Name of the plugin's folder
 $eplug_menu_name = LAN_NB_PLUG_NAME;				// Mane of menu item for plugin
 $eplug_conffile = "admin_config.php";				// Name of the admin configuration file
-$eplug_logo = "theme/icon_32.png";				// Logo plugin
-$eplug_icon = $eplug_folder."/theme/icon_32.png"; 		// Icon image and caption text
-$eplug_icon_small = $eplug_folder."/theme/icon_16.png";		// Logo plugin
+$eplug_logo = "images/nboard_32.png";				// Logo plugin
+$eplug_icon = $eplug_folder."/images/nboard_32.png"; 		// Icon image and caption text
+$eplug_icon_small = $eplug_folder."/images/nboard_16.png";	// Logo plugin
 $eplug_caption = LAN_NB_PLUG_EDIT;
 $eplug_link = TRUE;						// Create a link in main menu (yes=TRUE, no=FALSE)
 $eplug_link_name = LAN_NB_PLUG_NAME;
 $eplug_link_url = SITEURL.e_PLUGIN."nboard/nboard.php";		// Start file of plugin
 $eplug_link_perms = "Everyone"; 				// Everyone, Guest, Member, Admin
-$eplug_done = LAN_NB_PLUG_INSTALL;					// Text to display after plugin successfully installed
+$eplug_done = LAN_NB_PLUG_INSTALL;				// Text to display after plugin successfully installed
 $eplug_table_names = array("nb_gnl","nb_cat");			// List of table names
 
 $eplug_prefs = array(
@@ -48,7 +48,7 @@ $eplug_prefs = array(
     "nb_showrows" => "40",
     "nb_menu_showrows" => "20",
     "nb_comments" => LAN_NB_SEL_YES,
-    "nb_statusactivate" => "no"
+    "nb_statusactivate" => "no"					// Activate for e_fiance
 );
 
 $eplug_tables = array( // List of sql requests to create tables
