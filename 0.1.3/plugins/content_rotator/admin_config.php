@@ -38,15 +38,15 @@ if((!isset($action)) || (isset($action) && $action == "general")){
 $i = 0;
 	$sql->db_Select("c_rotator","*", "ORDER BY cr_sequence DESC", false);
 	while($row = $sql -> db_Fetch()) {
-		$cr_id 	= $row[cr_id];
-		$cr_title 	= $row[cr_title];
-		$cr_info	= $row[cr_intro];
-		$cr_text	= $row[cr_text];
-		$cr_image	= $row[cr_image];
-		$cr_thumbnail	= $row[cr_thumbnail];
-		$cr_captions	= $row[cr_captions];
-		$cr_link	= $row[cr_link];
-		$cr_sequence      = $row[cr_sequence];
+		$cr_id[$i] 		= $row[cr_id];
+		$cr_title[$i] 		= $row[cr_title];
+		$cr_intro[$i]		= $row[cr_intro];
+		$cr_text[$i]		= $row[cr_text];
+		$cr_image[$i]		= $row[cr_image];
+		$cr_thumbnail[$i]	= $row[cr_thumbnail];
+		$cr_captions[$i]	= $row[cr_captions];
+		$link[$i]		= $row[cr_link];
+		$cr_sequence[$i]      	= $row[cr_sequence];
 	$i++;
 	}
 	
@@ -57,7 +57,7 @@ $i = 0;
 		$(document).ready(function() {";
 						
 	for ($i = 0; $i < count($cr_id); $i++){	
-	if($cr_text != ""){			
+	if($cr_text[$i] != ""){			
 	$text .= "	$('#cr_textbox".$i."').fancybox({
 				'autoScale'		: true,
 				'width'			: 950
@@ -83,50 +83,50 @@ $i = 0;
 		</tr>";
 	for ($i = 0; $i < count($cr_id); $i++)
 	{
-	if($cr_text != ""){$type = "html";}else{$type = "pic";}
-	if($cr_image != ""){$cr_image = "<img style='max-width:300px;' src='".$cr_image."' />";}
-	if($cr_thumbnail != ""){$cr_thumbnail = "<img style='max-width:100px;' src='".$cr_thumbnail."' />";} 
+	if($cr_text[$i] != ""){$type = "html";}else{$type = "pic";}
+	if($cr_image[$i] != ""){$cr_image[$i] = "<img style='max-width:300px;' src='".$cr_image[$i]."' />";}
+	if($cr_thumbnail[$i] != ""){$cr_thumbnail[$i] = "<img style='max-width:100px;' src='".$cr_thumbnail[$i]."' />";} 
 	$text .= "<tr style='border:solid 1px #000;height:40px;'>
 				<td class='forumheader3'>
-			 		".$cr_sequence."
+			 		".$cr_sequence[$i]."
 				</td>
 				<td class='forumheader3'>
-			 		".$cr_title."
+			 		".$cr_title[$i]."
 				</td>
 				<td class='forumheader3'>
-			 		".$cr_info."
+			 		".$cr_intro[$i]."
 				</td>
 				<td class='forumheader3'>";
-	if($cr_text != ""){			
-	$text .= 	"<a id='cr_textbox".$i."' href='#cr_textbox_field".$i."' title='".$cr_title."'>".LAN_C_ROTATOR_ADMIN_55."</a>
+	if($cr_text[$i] != ""){			
+	$text .= 	"<a id='cr_textbox".$i."' href='#cr_textbox_field".$i."' title='".$cr_title[$i]."'>".LAN_C_ROTATOR_ADMIN_55."</a>
                 <div style='display: none;'>
 					<div id='cr_textbox_field".$i."' style='width:".$cr_pref['cr_panel_width']."px;height:".$cr_pref['cr_panel_height']."px;overflow:auto;'>
-						".$newtext = $tp->toHTML($cr_text, true)."
+						".$newtext = $tp->toHTML($cr_text[$i], true)."
                 	</div>
 				</div>";
 	}
 	$text .= 	"</td>
 				<td class='forumheader3'>
-					".$cr_image."
+					".$cr_image[$i]."
 				</td>
 				<td class='forumheader3'>
-					".$cr_thumbnail."
+					".$cr_thumbnail[$i]."
 				</td>
 				<td class='forumheader3'>
-					".$cr_captions."
+					".$cr_captions[$i]."
 				</td>
 				<td class='forumheader3'>
-					" .$cr_link."
+					" .$link[$i]."
 				</td>
 				<td class='forumheader3'>
-					<a href='admin_config.php?add.edit_$type.".$cr_id."'><img src='".e_IMAGE."admin/edit_16.png' alt='Edit' title='Edit' /></a>
-					<a href='admin_config.php?add.delete.".$cr_id."'><img src='".e_IMAGE."admin/delete_16.png' alt='Delete' title='Delete' /></a>
+					<a href='admin_config.php?add.edit_$type.".$cr_id[$i]."'><img src='".e_IMAGE."admin/edit_16.png' alt='Edit' title='Edit' /></a>
+					<a href='admin_config.php?add.delete.".$cr_id[$i]."'><img src='".e_IMAGE."admin/delete_16.png' alt='Delete' title='Delete' /></a>
 					<br/>
 					".LAN_C_ROTATOR_MENU_10.":<br/>";
-	if($cr_sequence != count($id))
-	$text .= "				<a href='handlers/order.php?moveup.".$cr_id.".".$cr_sequence."'><img src='".e_IMAGE."admin/up.png' alt='Edit' title='Edit' /></a>";
-    if($cr_sequence != 1)
-	$text .= "				<a href='handlers/order.php?movedown.".$cr_id.".".$cr_sequence."'><img src='".e_IMAGE."admin/down.png' alt='Delete' title='Delete' /></a>";
+	if($cr_sequence[$i] != count($id))
+	$text .= "				<a href='handlers/order.php?moveup.".$cr_id[$i].".".$cr_sequence[$i]."'><img src='".e_IMAGE."admin/up.png' alt='Edit' title='Edit' /></a>";
+    if($cr_sequence[$i] != 1)
+	$text .= "				<a href='handlers/order.php?movedown.".$cr_id[$i].".".$cr_sequence[$i]."'><img src='".e_IMAGE."admin/down.png' alt='Delete' title='Delete' /></a>";
 
 	$text .="		</td>
 			</tr>";
@@ -218,14 +218,14 @@ if(isset($_POST['update_CR']))
 	$i = 0;
 	$sql->db_Select("c_rotator","*", "ORDER BY id DESC", false);
 	while($row = $sql -> db_Fetch()) {
-	$cr_id 	= $row[cr_id];
-	$cr_title 	= $row[cr_title];
-	$cr_info	= $row[cr_intro];
-	$cr_text	= $row[cr_text];
-	$cr_image	= $row[cr_image];
-	$cr_thumbnail	= $row[cr_thumbnail];
-	$cr_captions	= $row[cr_captions];
-	$cr_link	= $row[cr_link];
+	$cr_id[$i] 	= $row[cr_id];
+	$cr_title[$i] 	= $row[cr_title];
+	$cr_intro[$i]	= $row[cr_intro];
+	$cr_text[$i]	= $row[cr_text];
+	$cr_image[$i]	= $row[cr_image];
+	$cr_thumbnail[$i]	= $row[cr_thumbnail];
+	$cr_captions[$i]	= $row[cr_captions];
+	$link[$i]	= $row[cr_link];
 	$i++;
 	}
 	
