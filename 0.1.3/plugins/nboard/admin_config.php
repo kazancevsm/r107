@@ -148,7 +148,7 @@ $caption = LAN_NB_GNL_CAP;
 $ns -> tablerender($caption, $text);
 }
 // =================================================================================================
-//				               CAT OPTIONS MENU
+//	CAT OPTIONS MENU
 // =================================================================================================
 if((isset($action) && $action == "cat")){
 	$cat_id = $_POST['cat_id'];
@@ -203,11 +203,21 @@ $ns -> tablerender(LAN_NB_MES_00, $message);
 //========================================form select============================
 	$text ="<form name='form_select_cat' method='post' action=''><table class='fborder' width='100%'>";
 	$text .= "<tr><td class='forumheader3' width='30%'>".LAN_NB_CAT_02."</td><td class='forumheader3' width='70%'><select class='tbox' name='cat_id'><option value=''>".LAN_NB_CAT_05."";
-		$sql -> db_Select("nb_cat", "*", "cat_sub_id='0'");
-		while($row = $sql -> db_Fetch()){
-			$catId= $row['cat_id'];
-			$catName = $row['cat_name'];
-			$text .="<option value='$catId'>$catName";
+		$nbsql1 = new db;
+		
+		$nbsql1 -> db_Select("nb_cat", "*", "cat_sub_id='0'");
+		while($row = $nbsql1 -> db_Fetch()){
+			$catId1= $row['cat_id'];
+			$catName1 = $row['cat_name'];
+			$text .="<option value='$catId1'>$catName1";
+				$nbsql2 = new db;
+				$nbsql2 -> db_Select("nb_cat", "*", "cat_sub_id=$catId1");
+				while($row = $nbsql2 -> db_Fetch()){
+					$catId2= $row['cat_id'];
+					$catName2 = $row['cat_name'];
+					$text .="<option value='$catId2'>$catName2";
+				}
+			
 		}
 	$text .="</select></td></tr>";
 	$text .="<tr><td class='forumheader' style='text-align:center' colspan='2'>

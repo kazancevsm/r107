@@ -216,8 +216,8 @@ if(defined("PREVIEWTHEME")) {
 			echo "<link rel='stylesheet' href='".THEME_ABS."style.css' type='text/css' media='{$css_default}' />\n";
 		}
 		if (!isset($no_core_css) || !$no_core_css) {
-			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";
-			echo "<link rel='stylesheet' href='".e_FILE_ABS."nextprev.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_THEME."css/core.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";
 		}
 	}
 }
