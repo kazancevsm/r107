@@ -223,7 +223,7 @@ $ns -> tablerender($caption, $text);
 	$text .= "<tr><td class='forumheader3' width='30%'>".LAN_NB_CAT_04."</td><td class='forumheader3' width='70%'><input class='tbox' type='text' name='cat_desc' value='$cat_desc' size='60'></td></tr>";
 //===============================select cat_icon=================================
         $fl = new e_file;
-if($iconlist = $fl->get_files(e_PLUGIN."nboard/theme/icons_cat/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
+if($iconlist = $fl->get_files(e_FILE."icons/", ".jpg|.gif|.png|.JPG|.GIF|.PNG")){
         sort($iconlist);
 }
 	$text .= "<tr>
@@ -232,7 +232,7 @@ if($iconlist = $fl->get_files(e_PLUGIN."nboard/theme/icons_cat/", ".jpg|.gif|.pn
 		<input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_NB_IMG_03."' onclick='expandit(this)' />
 		<div id='linkicn' style='display:none;{head}'>";
 		foreach($iconlist as $icon){
-			$list_icon = str_replace(e_PLUGIN."nboard/theme/icons_cat/","",$icon['path'].$icon['fname']);
+			$list_icon = str_replace(e_FILE."icons/","",$icon['path'].$icon['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_icon."','cat_icon','linkicn')\"><img src='".$icon['path'].$icon['fname']."' style='border:0' alt='' /></a> ";
 		}
 	$text .= "</div></td></tr>";
