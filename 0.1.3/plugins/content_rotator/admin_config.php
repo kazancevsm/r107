@@ -1,5 +1,4 @@
 <?php
-
 /*
 + ----------------------------------------------------------------------------------------------+
 |     r107 website system  : http://r107.pro
@@ -25,7 +24,8 @@ if (e_QUERY) {
 		$tmp = explode (".", e_QUERY);
 		$action     = $tmp[0];
 		$sub_action = $tmp[1];
-		$id         = $tmp[2];
+		$type       = $tmp[2];
+		$id	    = $tmp[3];
 	}
 //-----------------
 //	GENERAL
@@ -33,20 +33,139 @@ if (e_QUERY) {
 
 if((!isset($action)) || (isset($action) && $action == "general")){
 
+
+
+$i = 0;
+	$sql->db_Select("c_rotator","*", "ORDER BY cr_sequence DESC", false);
+	while($row = $sql -> db_Fetch()) {
+		$cr_id 	= $row[cr_id];
+		$cr_title 	= $row[cr_title];
+		$cr_info	= $row[cr_intro];
+		$cr_text	= $row[cr_text];
+		$cr_image	= $row[cr_image];
+		$cr_thumbnail	= $row[cr_thumbnail];
+		$cr_captions	= $row[cr_captions];
+		$cr_link	= $row[cr_link];
+		$cr_sequence      = $row[cr_sequence];
+	$i++;
+	}
+	
+	
+	
+	$text .= "
+		<script type='text/javascript'>
+		$(document).ready(function() {";
+						
+	for ($i = 0; $i < count($cr_id); $i++){	
+	if($cr_text != ""){			
+	$text .= "	$('#cr_textbox".$i."').fancybox({
+				'autoScale'		: true,
+				'width'			: 950
+			});";
+	}
+	}
+	$text .= "
+		});
+	</script>
+
+
+	<table class='fborder' style='margin-top:20px;width: 95%'>
+		<tr>
+			<td style='width:5%' class='fcaption'>".LAN_C_ROTATOR_ID."</td>
+			<td style='width:20%' class='fcaption'>".LAN_C_ROTATOR_CAPTION."</td>
+			<td style='width:20%' class='fcaption'>".LAN_C_ROTATOR_OVT."</td>
+			<td style='width:30%' class='fcaption'>".LAN_C_ROTATOR_MENU_2."</td>
+			<td style='width:15%' class='fcaption'>".LAN_C_ROTATOR_MENU_3."</td>
+			<td style='width:30%' class='fcaption'>".LAN_C_ROTATOR_MENU_8."</td>
+			<td style='width:15%' class='fcaption'>".LAN_C_ROTATOR_LINK."</td>
+			<td style='width:15%' class='fcaption'>".LAN_C_ROTATOR_MENU_4."</td>
+			<td style='width:15%' class='fcaption'>".LAN_C_ROTATOR_OPTION."</td>
+		</tr>";
+	for ($i = 0; $i < count($cr_id); $i++)
+	{
+	if($cr_text != ""){$type = "html";}else{$type = "pic";}
+	if($cr_image != ""){$cr_image = "<img style='max-width:300px;' src='".$cr_image."' />";}
+	if($cr_thumbnail != ""){$cr_thumbnail = "<img style='max-width:100px;' src='".$cr_thumbnail."' />";} 
+	$text .= "<tr style='border:solid 1px #000;height:40px;'>
+				<td class='forumheader3'>
+			 		".$cr_sequence."
+				</td>
+				<td class='forumheader3'>
+			 		".$cr_title."
+				</td>
+				<td class='forumheader3'>
+			 		".$cr_info."
+				</td>
+				<td class='forumheader3'>";
+	if($cr_text != ""){			
+	$text .= 	"<a id='cr_textbox".$i."' href='#cr_textbox_field".$i."' title='".$cr_title."'>".LAN_C_ROTATOR_ADMIN_55."</a>
+                <div style='display: none;'>
+					<div id='cr_textbox_field".$i."' style='width:".$cr_pref['cr_panel_width']."px;height:".$cr_pref['cr_panel_height']."px;overflow:auto;'>
+						".$newtext = $tp->toHTML($cr_text, true)."
+                	</div>
+				</div>";
+	}
+	$text .= 	"</td>
+				<td class='forumheader3'>
+					".$cr_image."
+				</td>
+				<td class='forumheader3'>
+					".$cr_thumbnail."
+				</td>
+				<td class='forumheader3'>
+					".$cr_captions."
+				</td>
+				<td class='forumheader3'>
+					" .$cr_link."
+				</td>
+				<td class='forumheader3'>
+					<a href='admin_config.php?add.edit_$type.".$cr_id."'><img src='".e_IMAGE."admin/edit_16.png' alt='Edit' title='Edit' /></a>
+					<a href='admin_config.php?add.delete.".$cr_id."'><img src='".e_IMAGE."admin/delete_16.png' alt='Delete' title='Delete' /></a>
+					<br/>
+					".LAN_C_ROTATOR_MENU_10.":<br/>";
+	if($cr_sequence != count($id))
+	$text .= "				<a href='handlers/order.php?moveup.".$cr_id.".".$cr_sequence."'><img src='".e_IMAGE."admin/up.png' alt='Edit' title='Edit' /></a>";
+    if($cr_sequence != 1)
+	$text .= "				<a href='handlers/order.php?movedown.".$cr_id.".".$cr_sequence."'><img src='".e_IMAGE."admin/down.png' alt='Delete' title='Delete' /></a>";
+
+	$text .="		</td>
+			</tr>";
+	}
+	$text .= "</table>";
+	
+   // The usual, tell e107 what to include on the page
+   $ns->tablerender("Add items", $text);
+
+   require_once(e_ADMIN."footer.php");
+   
+}
+
+
+
+
+
+//-----------------------
+// 	ADD
+//-----------------------
+
+
+if((isset($action) && $action == "add")){
+
+
 if(isset($_POST['create_CR']))
 {
 		
-			$cr_title = $_POST['cr_title'];
-			$cr_intro = $_POST['cr_intro'];
-			$cr_text  = $_POST['cr_text'];
-			$cr_image = $_POST['cr_image'];
-			$cr_thumbnail = $_POST['cr_thumbnail'];
-			$cfcaptions = $_POST['cfcaptions'];
-			$cr_link  = $_POST['cr_link'];
-            $sql->db_Select("c_rotator", "max(cr_order)+1", "", "no-where");
-            $row = $sql->db_Fetch();
+	$cr_title = $_POST['cr_title'];
+	$cr_intro = $_POST['cr_intro'];
+	$cr_text  = $_POST['cr_text'];
+	$cr_image = $_POST['cr_image'];
+	$cr_thumbnail = $_POST['cr_thumbnail'];
+	$cfcaptions = $_POST['cfcaptions'];
+	$cr_link  = $_POST['cr_link'];
+		$sql->db_Select("c_rotator", "max(cr_sequence)+1", "", "no-where");
+		$row = $sql->db_Fetch();
 			$cr_text = str_replace("'", "&#39;", "$cr_text");
-			$sql->db_Insert("c_rotator", "0, '$cr_title', '$cr_intro', '$cr_text', '$cr_image', '$cr_thumbnail', '$cfcaptions', '$cr_link', '$row[0]'");
+			$sql->db_Insert("c_rotator", "0, ''$row[0]', $cr_title', '$cr_intro', '$cr_text', '$cr_image', '$cr_thumbnail', '$cfcaptions', '$cr_link'");
 			
 
 }
@@ -63,7 +182,7 @@ if(isset($_POST['update_CR']))
 			$cfcaptions = $_POST['cfcaptions'];
 			$cr_id	= $_POST['cr_id'];
 			
-			$sql->db_Update("c_rotator", "title='$cr_title', intro='$cr_intro', text='$cr_text', image='$cr_image', thumbnail='$cr_thumbnail', captions='$cfcaptions', link='$cr_link' WHERE id='$cr_id'");
+			$sql->db_Update("c_rotator", "cr_title='$cr_title', cr_intro='$cr_intro', cr_text='$cr_text', cr_image='$cr_image', cr_thumbnail='$cr_thumbnail', cr_captions='$cfcaptions', cr_link='$cr_link' WHERE cr_id='$cr_id'");
 				header("location: admin_view_entrees.php");	
 
 }
@@ -72,25 +191,25 @@ if(isset($_POST['update_CR']))
 	
 	$sql->db_Select("c_rotator", "*","id ='$nr'");
 	while($row = $sql -> db_Fetch()) {
-	$cr_title = $row[title];
-	$cr_intro = $row[intro];
-	$cr_text = $row[text];
-	$cr_image = $row[image];
-	$cr_thumbnail = $row[thumbnail];
-	$cfcaptions = $row[captions];
-	$cr_link = $row[link];
+	$cr_title = $row[cr_title];
+	$cr_intro = $row[cr_intro];
+	$cr_text = $row[cr_text];
+	$cr_image = $row[cr_image];
+	$cr_thumbnail = $row[cr_thumbnail];
+	$cfcaptions = $row[cr_captions];
+	$cr_link = $row[cr_link];
 	$cr_id = $nr;
 	
 	
 	}
 	
-	$message = LAN_C_ROT_ADMIN_5;
+	$message = LAN_C_ROTATOR_ADMIN_5;
 	}
 	
 	
 	if($action == "delete") {
-        $sql->db_Update("c_rotator", "cr_order=cr_order-1 WHERE cr_order > (select cr_order from (select * from ".MPREFIX."c_rotator) as c1 where c1.id =$nr)");
-        $sql->db_Delete("c_rotator", "id='$nr'");
+        $sql->db_Update("c_rotator", "cr_sequence=cr_sequence-1 WHERE cr_sequence > (select cr_sequence from (select * from ".MPREFIX."c_rotator) as c1 where c1.cr_id =$nr)");
+        $sql->db_Delete("c_rotator", "cr_id='$nr'");
 	header("location: admin_view_entrees.php");
 	}
 	
@@ -99,14 +218,14 @@ if(isset($_POST['update_CR']))
 	$i = 0;
 	$sql->db_Select("c_rotator","*", "ORDER BY id DESC", false);
 	while($row = $sql -> db_Fetch()) {
-	$id[$i] 		= $row[id];
-	$title[$i] 		= $row[title];
-	$intro[$i]		= $row[intro];
-	$bericht[$i]	= $row[text];
-	$image[$i]		= $row[image];
-	$thumbnail[$i]	= $row[thumbnail];
-	$captions[$i]	= $row[captions];
-	$link[$i]		= $row[link];
+	$cr_id 	= $row[cr_id];
+	$cr_title 	= $row[cr_title];
+	$cr_info	= $row[cr_intro];
+	$cr_text	= $row[cr_text];
+	$cr_image	= $row[cr_image];
+	$cr_thumbnail	= $row[cr_thumbnail];
+	$cr_captions	= $row[cr_captions];
+	$cr_link	= $row[cr_link];
 	$i++;
 	}
 	
@@ -119,55 +238,55 @@ if(isset($_POST['update_CR']))
 	$text = "<div style='text-align:center; width:100%'>
 	<table>
 		<tr>
-			<td><a href='".e_SELF."?action=pic'><img title='Add image' alt='' src='images/image_add.png' /></a></td>
-			<td><a href='".e_SELF."?action=pic'>Add a picture</a></td>
+			<td><a href='".e_SELF."?add.edit_pic'><img title='Add image' alt='' src='images/image_add.png' /></a></td>
+			<td><a href='".e_SELF."?add.edit_pic'>Add a picture</a></td>
 		<tr>
-			<td><a href='".e_SELF."?action=html'><img title='Add html page' alt='' src='images/html_add.png' /></a></td>
-			<td><a href='".e_SELF."?action=html'>Add a html entree</a></td>
+			<td><a href='".e_SELF."?add.edit_html'><img title='Add html page' alt='' src='images/html_add.png' /></a></td>
+			<td><a href='".e_SELF."?add.edit_html'>Add a html entree</a></td>
 		</tr>
 	</table>
   
   </div>";
 	
-if(isset($_GET['action']) && $_GET['action'] == 'pic' || ($action == "edit" && $type == 'pic')){
+if(isset($_GET['sub_action']) && $_GET['sub_action'] == 'pic' || ($sub_action == "edit" && $type == 'pic')){
    // Our informative text
    $text = "
 <form method='post' action='".e_SELF."'>\n
    <table style='width:800px;'>
 		".$error."
    	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_1."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_1."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_title' style='width: 100%' value='$cr_title' maxlength='200' />
 		</td>
 	</tr>
    	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_7."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_7."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<textarea  name='cr_intro' style='width: 100%'  rows='4' onselect=\"storeCaret(this);\" onclick=\"storeCaret(this);\" onkeyup=\"storeCaret(this);\">$cr_intro</textarea><br />";
 		$text .= display_help('helpb')."
 		</td>
 	</tr>
 	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_3."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_3."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_image' style='width: 100%' value='$cr_image' maxlength='200' />
 		</td>
 	</tr>
 	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_8."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_8."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_thumbnail' style='width: 100%' value='$cr_thumbnail' maxlength='200' />
 		</td>
 	</tr>
 	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_9."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_9."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cfcaptions' style='width: 100%' value='$cfcaptions' maxlength='200' />
 		</td>
 	</tr>
 	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_4."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_4."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_link' style='width: 100%' value='$cr_link' maxlength='200' />
 		</td>
@@ -176,34 +295,34 @@ if(isset($_GET['action']) && $_GET['action'] == 'pic' || ($action == "edit" && $
 		<td colspan='2' style='text-align:center' class='forumheader'>
 			".($action == "edit" ? "<input type='hidden' name='cr_id' value='$cr_id' />" : "")."
 
-		<input class='button' type='submit' name='".($action == "edit" ? "update_CR" : "create_CR")."'  value='".($action == "edit" ? LAN_C_ROT_ADMIN_3 : LAN_C_ROT_ADMIN_1)."' />
+		<input class='button' type='submit' name='".($action == "edit" ? "update_CR" : "create_CR")."'  value='".($action == "edit" ? LAN_C_ROTATOR_ADMIN_3 : LAN_C_ROTATOR_ADMIN_1)."' />
 		</td>
 	</tr>
 	</table>
 </form>";
 };
 
-if(isset($_GET['action']) && $_GET['action'] == 'html' || ($action == "edit" && $type == 'html')){
+if(isset($_GET['sub_action']) && $_GET['sub_action'] == 'html' || $sub_action == 'edit_html' ){
    // Our informative text
    $text = "
 <form method='post' action='".e_SELF."'>\n
    <table style='width:800px;'>
 		".$error."
    	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_1."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_1."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_title' style='width: 100%' value='$cr_title' maxlength='200' />
 		</td>
 	</tr>
    	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_2."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_2."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<textarea  name='cr_text' style='width: 100%'  rows='6' onselect=\"storeCaret(this);\" onclick=\"storeCaret(this);\" onkeyup=\"storeCaret(this);\">$cr_text</textarea><br />";
 		$text .= display_help('helpb')."
 		</td>
 	</tr>
 	<tr>
-		<td style='width:30%' class='forumheader3'>".LAN_C_ROT_MENU_8."</td>
+		<td style='width:30%' class='forumheader3'>".LAN_C_ROTATOR_MENU_8."</td>
 		<td style='width:70%; text-align: left;' class='forumheader3'>
 		<input class='tbox' type='text' name='cr_thumbnail' style='width: 100%' value='$cr_thumbnail' maxlength='200' />
 		</td>
@@ -212,7 +331,7 @@ if(isset($_GET['action']) && $_GET['action'] == 'html' || ($action == "edit" && 
 		<td colspan='2' style='text-align:center' class='forumheader'>
 			".($action == "edit" ? "<input type='hidden' name='cr_id' value='$cr_id' />" : "")."
 
-		<input class='button' type='submit' name='".($action == "edit" ? "update_CR" : "create_CR")."'  value='".($action == "edit" ? LAN_C_ROT_ADMIN_3 : LAN_C_ROT_ADMIN_1)."' />
+		<input class='button' type='submit' name='".($action == "edit" ? "update_CR" : "create_CR")."'  value='".($action == "edit" ? LAN_C_ROTATOR_ADMIN_3 : LAN_C_ROTATOR_ADMIN_1)."' />
 		</td>
 	</tr>
 	</table>
@@ -257,64 +376,58 @@ function updatecr_prefs(){
 	$tmp = $eArrayStorage->WriteArray($cr_pref);
 	$sql -> db_Update("core", "e107_value='$tmp' WHERE e107_name='content_rotator' ");
 
-	$message = LAN_C_ROT_GENERAL_2;
+	$message = LAN_C_ROTATOR_GENERAL_2;
 	return $message;
 }
 
 function getDefaultcr_prefs(){
-		$cr_pref['cr_jquery']					= 'true';
-		$cr_pref['cr_layout']					= '0';
-		$cr_pref['cr_panel_width']				= '800';
-		$cr_pref['cr_panel_height']				= '300';
+		$cr_pref['cr_jquery']			= 'true';
+		$cr_pref['cr_layout']			= '0';
+		$cr_pref['cr_panel_width']		= '800';
+		$cr_pref['cr_panel_height']		= '300';
 		$cr_pref['cr_panel_background_color']	= 'white';
-		$cr_pref['cr_frame_width']				= '80';
-		$cr_pref['cr_frame_height']				= '80';
-		$cr_pref['cr_overlay_height']			= '70';
-		$cr_pref['cr_overlay_font_size'] 		= '1em';
-		$cr_pref['cr_overlay_position']			= 'bottom';
-		$cr_pref['cr_filmstrip_position'] 		= 'bottom';
-		$cr_pref['cr_filmstrip_size'] 			= '';
-		$cr_pref['cr_transition_speed']			= '1000';
-		$cr_pref['cr_transition_interval']		= '6000';
-		$cr_pref['cr_overlay_opacity']			= '0.6';
-		$cr_pref['cr_titel_color']				= 'white';
-		$cr_pref['cr_overlay_color']			= 'black';
-		$cr_pref['cr_background_color']			= 'black';
-		$cr_pref['cr_overlay_text_color']		= 'white';
-		$cr_pref['cfcaption_text_color']		= 'yellow';
-		$cr_pref['cfcaption_text_color_active']= 'white';
-		$cr_pref['cfborder']					= '1px solid black';
-		$cr_pref['cr_nav_theme']				= 'light';
-		$cr_pref['cr_easing']					= 'swing';
-		$cr_pref['cr_show_captions']			= 'false';
-		$cr_pref['cr_fade_panels']				= 'true';
-		$cr_pref['cr_show_panels']				= 'true';
-		$cr_pref['cr_show_filmstrip']			= 'true';
-		$cr_pref['cr_start_frame']				= '1';
-		$cr_pref['cr_pointer_size']				= '5';
-		$cr_pref['cr_panel_scale']				= 'crop';
-		$cr_pref['cr_frame_scale']				= 'crop';
-		$cr_pref['cr_frame_gap']				= '5';
-		$cr_pref['cr_padding']					= '0';
+		$cr_pref['cr_frame_width']		= '80';
+		$cr_pref['cr_frame_height']		= '80';
+		$cr_pref['cr_overlay_height']		= '70';
+		$cr_pref['cr_overlay_font_size'] 	= '1em';
+		$cr_pref['cr_overlay_position']		= 'bottom';
+		$cr_pref['cr_filmstrip_position'] 	= 'bottom';
+		$cr_pref['cr_filmstrip_size'] 		= '';
+		$cr_pref['cr_transition_speed']		= '1000';
+		$cr_pref['cr_transition_interval']	= '6000';
+		$cr_pref['cr_overlay_opacity']		= '0.6';
+		$cr_pref['cr_titel_color']		= 'white';
+		$cr_pref['cr_overlay_color']		= 'black';
+		$cr_pref['cr_background_color']		= 'black';
+		$cr_pref['cr_overlay_text_color']	= 'white';
+		$cr_pref['cfcaption_text_color']	= 'yellow';
+		$cr_pref['cfcaption_text_color_active']	= 'white';
+		$cr_pref['cfborder']			= '1px solid black';
+		$cr_pref['cr_nav_theme']		= 'light';
+		$cr_pref['cr_easing']			= 'swing';
+		$cr_pref['cr_show_captions']		= 'false';
+		$cr_pref['cr_fade_panels']		= 'true';
+		$cr_pref['cr_show_panels']		= 'true';
+		$cr_pref['cr_show_filmstrip']		= 'true';
+		$cr_pref['cr_start_frame']		= '1';
+		$cr_pref['cr_pointer_size']		= '5';
+		$cr_pref['cr_panel_scale']		= 'crop';
+		$cr_pref['cr_frame_scale']		= 'crop';
+		$cr_pref['cr_frame_gap']		= '5';
+		$cr_pref['cr_padding']			= '0';
 		$cr_pref['cr_frame_background_color']	= '#ccc';
-		$cr_pref['cr_pause_on_hover']			= 'false';
-		$cr_pref['cr_d_javascript_image']		= '';
-		$cr_pref['cr_item_buttons']				= 'true';
-		$cr_pref['cr_item_count']				= '';
-		$cr_pref['cr_item_count_align']			= 'Horizontal';
-		$cr_pref['cr_display_order']			= 'desc';
-		$cr_pref['cr_default_thumbnail']		= '';
-		$cr_pref['cr_overlay_easing']			= 'easeOutBounce';
-		$cr_pref['cr_overlay_speed']			= '1000';
-		$cr_pref['cr_item_buttons_align']		= 'Horizontal';
-		
-		
-
-
-		
-		return $cr_pref;
+		$cr_pref['cr_pause_on_hover']		= 'false';
+		$cr_pref['cr_d_javascript_image']	= '';
+		$cr_pref['cr_item_buttons']		= 'true';
+		$cr_pref['cr_item_count']		= '';
+		$cr_pref['cr_item_count_align']		= 'Horizontal';
+		$cr_pref['cr_display_order']		= 'desc';
+		$cr_pref['cr_default_thumbnail']	= '';
+		$cr_pref['cr_overlay_easing']		= 'easeOutBounce';
+		$cr_pref['cr_overlay_speed']		= '1000';
+		$cr_pref['cr_item_buttons_align']	= 'Horizontal';
+	return $cr_pref;
 }
-
 
 
 function getcr_prefs(){
@@ -334,7 +447,7 @@ function getcr_prefs(){
 }
 
 if(isset($message)){
-	$caption = LAN_C_ROT_GENERAL_1;
+	$caption = LAN_C_ROTATOR_GENERAL_1;
 	$ns -> tablerender($caption, $message);
 }
 
@@ -347,103 +460,103 @@ if(!is_object($sql)){ $sql = new db; }
    ".$rs -> form_open("post", e_SELF, "content_rotator_form", "", "enctype='multipart/form-data'")."
    	<tr>
 		<td class='forumheader3'>
-			".LAN_C_ROT_ADMIN_64."
+			".LAN_C_ROTATOR_ADMIN_64."
 		</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_jquery", "true",($cr_pref['cr_jquery'] == "true" ? "1" : "0") )."</td>
 
 	</tr>
 	<tr>
 		<td class='forumheader3'>
-			".LAN_C_ROT_ADMIN_6."
+			".LAN_C_ROTATOR_ADMIN_6."
 		</td>
 		<td class='forumheader3'>
-			".$rs -> form_radio("cr_layout", "0", ($cr_pref['cr_layout'] == 0 ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_7."
-			".$rs -> form_radio("cr_layout", "1", ($cr_pref['cr_layout'] == 1 ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_8."
-			".$rs -> form_radio("cr_layout", "3", ($cr_pref['cr_layout'] == 3 ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_35."
+			".$rs -> form_radio("cr_layout", "0", ($cr_pref['cr_layout'] == 0 ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_7."
+			".$rs -> form_radio("cr_layout", "1", ($cr_pref['cr_layout'] == 1 ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_8."
+			".$rs -> form_radio("cr_layout", "3", ($cr_pref['cr_layout'] == 3 ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_35."
 		</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_49."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_49."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_item_count", 10, $cr_pref['cr_item_count'], 50)."</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_10."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_panel_width", 10, $cr_pref['cr_panel_width'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_10."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_panel_width", 10, $cr_pref['cr_panel_width'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_11."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_panel_height", 10, $cr_pref['cr_panel_height'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_11."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_panel_height", 10, $cr_pref['cr_panel_height'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_12."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_width", 10, $cr_pref['cr_frame_width'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_12."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_width", 10, $cr_pref['cr_frame_width'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_13."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_height", 10, $cr_pref['cr_frame_height'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_13."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_height", 10, $cr_pref['cr_frame_height'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
 	 <tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_9."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_height", 10, $cr_pref['cr_overlay_height'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_9."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_height", 10, $cr_pref['cr_overlay_height'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
    	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_14."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_14."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_panel_scale", "crop", ($cr_pref['cr_panel_scale'] == "crop" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_42."
-			".$rs -> form_radio("cr_panel_scale", "nocrop", ($cr_pref['cr_panel_scale'] == "nocrop" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_43."
+			".$rs -> form_radio("cr_panel_scale", "crop", ($cr_pref['cr_panel_scale'] == "crop" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_42."
+			".$rs -> form_radio("cr_panel_scale", "nocrop", ($cr_pref['cr_panel_scale'] == "nocrop" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_43."
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_15."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_15."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_frame_scale", "crop", ($cr_pref['cr_frame_scale'] == "crop" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_42."
-			".$rs -> form_radio("cr_frame_scale", "nocrop", ($cr_pref['cr_frame_scale'] == "nocrop" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_43."
+			".$rs -> form_radio("cr_frame_scale", "crop", ($cr_pref['cr_frame_scale'] == "crop" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_42."
+			".$rs -> form_radio("cr_frame_scale", "nocrop", ($cr_pref['cr_frame_scale'] == "nocrop" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_43."
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_56."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_56."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_display_order", "desc", ($cr_pref['cr_display_order'] == "desc" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_57."
-			".$rs -> form_radio("cr_display_order", "asc", ($cr_pref['cr_display_order'] == "asc" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_58."
+			".$rs -> form_radio("cr_display_order", "desc", ($cr_pref['cr_display_order'] == "desc" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_57."
+			".$rs -> form_radio("cr_display_order", "asc", ($cr_pref['cr_display_order'] == "asc" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_58."
 	</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_40."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_40."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_start_frame", 10, $cr_pref['cr_start_frame'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_16."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_16."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_overlay_position", "top", ($cr_pref['cr_overlay_position'] == "top" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_17."
-			".$rs -> form_radio("cr_overlay_position", "bottom", ($cr_pref['cr_overlay_position'] == "bottom" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_18."
+			".$rs -> form_radio("cr_overlay_position", "top", ($cr_pref['cr_overlay_position'] == "top" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_17."
+			".$rs -> form_radio("cr_overlay_position", "bottom", ($cr_pref['cr_overlay_position'] == "bottom" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_18."
 	</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_34."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_34."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_filmstrip_position", "top", ($cr_pref['cr_filmstrip_position'] == "top" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_17."
-			".$rs -> form_radio("cr_filmstrip_position", "bottom", ($cr_pref['cr_filmstrip_position'] == "bottom" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_18."
-			".$rs -> form_radio("cr_filmstrip_position", "left", ($cr_pref['cr_filmstrip_position'] == "left" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_53."
-			".$rs -> form_radio("cr_filmstrip_position", "right", ($cr_pref['cr_filmstrip_position'] == "right" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_54."
+			".$rs -> form_radio("cr_filmstrip_position", "top", ($cr_pref['cr_filmstrip_position'] == "top" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_17."
+			".$rs -> form_radio("cr_filmstrip_position", "bottom", ($cr_pref['cr_filmstrip_position'] == "bottom" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_18."
+			".$rs -> form_radio("cr_filmstrip_position", "left", ($cr_pref['cr_filmstrip_position'] == "left" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_53."
+			".$rs -> form_radio("cr_filmstrip_position", "right", ($cr_pref['cr_filmstrip_position'] == "right" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_54."
 	</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_36."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_filmstrip_size", 10, $cr_pref['cr_filmstrip_size'], 50)." ".LAN_C_ROT_ADMIN_60."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_36."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_filmstrip_size", 10, $cr_pref['cr_filmstrip_size'], 50)." ".LAN_C_ROTATOR_ADMIN_60."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_19."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_transition_speed", 10, $cr_pref['cr_transition_speed'], 50)." ".LAN_C_ROT_ADMIN_61."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_19."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_transition_speed", 10, $cr_pref['cr_transition_speed'], 50)." ".LAN_C_ROTATOR_ADMIN_61."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_20."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_transition_interval", 10, $cr_pref['cr_transition_interval'], 50)." ".LAN_C_ROT_ADMIN_61."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_20."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_transition_interval", 10, $cr_pref['cr_transition_interval'], 50)." ".LAN_C_ROTATOR_ADMIN_61."</td>
 	</tr>";
 
 	$easinglist=array("swing","easeOutQuad","easeInQuad","easeInOutQuad","easeInCubic","easeOutCubic","easeInOutCubic","easeInQuart","easeOutQuart","easeInOutQuart","easeInQuint","easeOutQuint","easeInOutQuint","easeInSine","easeOutSine","easeInOutSine","easeInExpo","easeOutExpo","easeInOutExpo","easeInCirc","easeOutCirc","easeInOutCirc","easeInElastic","easeOutElastic","easeInOutElastic","easeInBack","easeOutBack","easeInOutBack","easeInBounce","easeOutBounce","easeInOutBounce");
 	$text .= "
 	<tr>
-		<td class='forumheader3' style='width:30%; white-space:nowrap;'>".LAN_C_ROT_ADMIN_30."</td>
+		<td class='forumheader3' style='width:30%; white-space:nowrap;'>".LAN_C_ROTATOR_ADMIN_30."</td>
 		<td class='forumheader3' style='width:70%;'>
 			".$rs -> form_select_open("cr_easing");
 			foreach($easinglist as $easing){
@@ -453,7 +566,7 @@ if(!is_object($sql)){ $sql = new db; }
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3' style='width:30%; white-space:nowrap;'>".LAN_C_ROT_ADMIN_63."</td>
+		<td class='forumheader3' style='width:30%; white-space:nowrap;'>".LAN_C_ROTATOR_ADMIN_63."</td>
 		<td class='forumheader3' style='width:70%;'>
 			".$rs -> form_select_open("cr_overlay_easing");
 			foreach($easinglist as $easing){
@@ -463,232 +576,122 @@ if(!is_object($sql)){ $sql = new db; }
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_65."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_speed", 10, $cr_pref['cr_overlay_speed'], 50)." ".LAN_C_ROT_ADMIN_61."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_65."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_speed", 10, $cr_pref['cr_overlay_speed'], 50)." ".LAN_C_ROTATOR_ADMIN_61."</td>
 	</tr>
 
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_47."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_47."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_d_javascript_image", 70, $cr_pref['cr_d_javascript_image'], 150)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_62."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_62."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_default_thumbnail", 70, $cr_pref['cr_default_thumbnail'], 150)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_48."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_item_buttons", "true",($cr_pref['cr_item_buttons'] == "true" ? "1" : "0") ).LAN_C_ROT_ADMIN_66."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_48."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_item_buttons", "true",($cr_pref['cr_item_buttons'] == "true" ? "1" : "0") ).LAN_C_ROTATOR_ADMIN_66."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_50."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_50."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_item_buttons_align", "Horizontal", ($cr_pref['cr_item_buttons_align'] == "Horizontal" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_51."
-			".$rs -> form_radio("cr_item_buttons_align", "Vertical", ($cr_pref['cr_item_buttons_align'] == "Vertical" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_52."
+			".$rs -> form_radio("cr_item_buttons_align", "Horizontal", ($cr_pref['cr_item_buttons_align'] == "Horizontal" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_51."
+			".$rs -> form_radio("cr_item_buttons_align", "Vertical", ($cr_pref['cr_item_buttons_align'] == "Vertical" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_52."
 		</td>
 	</tr>
 
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_31."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_31."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_show_captions", "true",($cr_pref['cr_show_captions'] == "true" ? "1" : "0") )."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_32."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_32."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_fade_panels", "true",($cr_pref['cr_fade_panels'] == "true" ? "1" : "0") )."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_33."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_33."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_checkbox("cr_pause_on_hover", "true",($cr_pref['cr_pause_on_hover'] == "true" ? "1" : "0") )."</td>
 	</tr>
 	<tr>
 		<td colspan='2' style='text-align:center' class='forumheader1'><strong>Styling</strong></td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_38."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_38."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_panel_background_color", 10, $cr_pref['cr_panel_background_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_21."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_21."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_opacity", 10, $cr_pref['cr_overlay_opacity'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_22."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_22."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_color", 10, $cr_pref['cr_overlay_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_23."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_23."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_background_color", 10, $cr_pref['cr_frame_background_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_39."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_gap", 10, $cr_pref['cr_frame_gap'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_39."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_frame_gap", 10, $cr_pref['cr_frame_gap'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_41."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_pointer_size", 10, $cr_pref['cr_pointer_size'], 50)." ".LAN_C_ROT_ADMIN_59."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_41."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_pointer_size", 10, $cr_pref['cr_pointer_size'], 50)." ".LAN_C_ROTATOR_ADMIN_59."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_45."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_45."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_titel_color", 10, $cr_pref['cr_titel_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_24."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_24."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_overlay_text_color", 10, $cr_pref['cr_overlay_text_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_25."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_25."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfcaption_text_color", 10, $cr_pref['cfcaption_text_color'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_46."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_46."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfcaption_text_color_active", 10, $cr_pref['cfcaption_text_color_active'], 50)."</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_44."</td>
-		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_padding", 10, $cr_pref['cr_padding'], 50)." ".LAN_C_ROT_ADMIN_59."
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_44."</td>
+		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cr_padding", 10, $cr_pref['cr_padding'], 50)." ".LAN_C_ROTATOR_ADMIN_59."
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_26."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_26."</td>
 		<td class='forumheader3' style='width:70%;'>".$rs -> form_text("cfborder", 10, $cr_pref['cfborder'], 50)."
 		</td>
 	</tr>
 	<tr>
-		<td class='forumheader3'>".LAN_C_ROT_ADMIN_27."</td>
+		<td class='forumheader3'>".LAN_C_ROTATOR_ADMIN_27."</td>
 		<td class='forumheader3' style='width:70%;'>
-			".$rs -> form_radio("cr_nav_theme", "light", ($cr_pref['cr_nav_theme'] == "light" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_28."
-			".$rs -> form_radio("cr_nav_theme", "dark", ($cr_pref['cr_nav_theme'] == "dark" ? "1" : "0"), "", "").LAN_C_ROT_ADMIN_29."
+			".$rs -> form_radio("cr_nav_theme", "light", ($cr_pref['cr_nav_theme'] == "light" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_28."
+			".$rs -> form_radio("cr_nav_theme", "dark", ($cr_pref['cr_nav_theme'] == "dark" ? "1" : "0"), "", "").LAN_C_ROTATOR_ADMIN_29."
 		</td>
 	</tr>
 
 		
 	
 	<tr>
-		<td style='text-align:center' class='forumheader' colspan='2'>".$rs -> form_button("submit", "update_content_rotator", LAN_C_ROT_ADMIN_67)."</td>
+		<td style='text-align:center' class='forumheader' colspan='2'>".$rs -> form_button("submit", "update_content_rotator", LAN_C_ROTATOR_ADMIN_67)."</td>
 	</tr>
 	</table>
 	".$rs -> form_close()."
 
 	";
-	
 
-   
-   
       // The usual, tell e107 what to include on the page
    $ns->tablerender("Options", $text);
 
    require_once(e_ADMIN."footer.php");
    
 } 
-//-----------------------
-// 	VIEW ENTREES
-//-----------------------
-
-if((isset($action) && $action == "add")){
-
-$i = 0;
-	$sql->db_Select("c_rotator","*", "ORDER BY cr_order DESC", false);
-	while($row = $sql -> db_Fetch()) {
-	$id[$i] 		= $row[id];
-	$title[$i] 		= $row[title];
-	$intro[$i]		= $row[intro];
-	$bericht[$i]	= $row[text];
-	$image[$i]		= $row[image];
-	$thumbnail[$i]	= $row[thumbnail];
-	$captions[$i]	= $row[captions];
-	$link[$i]		= $row[link];
-    $order[$i]      = $row[cr_order];
-	$i++;
-	}
-	
-	
-	
-	$text .= "
-		<script type='text/javascript'>
-		$(document).ready(function() {";
-						
-	for ($i = 0; $i < count($id); $i++){								 		
-	if($bericht[$i] != ""){			
-	$text .= "	$('#cr_textbox".$i."').fancybox({
-				'autoScale'			: true,
-				'width'				: 950
-			});";
-	}
-	}
-	$text .= "
-		});
-	</script>
 
 
-	<table class='fborder' style='margin-top:20px;width: 95%'>
-					<tr>
-						<td style='width:5%' class='fcaption'>".LAN_C_ROT_MENU_5."</td>
-						<td style='width:20%' class='fcaption'>".LAN_C_ROT_MENU_1."</td>
-						<td style='width:20%' class='fcaption'>".LAN_C_ROT_MENU_7."</td>
-						<td style='width:30%' class='fcaption'>".LAN_C_ROT_MENU_2."</td>
-						<td style='width:15%' class='fcaption'>".LAN_C_ROT_MENU_3."</td>
-						<td style='width:30%' class='fcaption'>".LAN_C_ROT_MENU_8."</td>
-						<td style='width:15%' class='fcaption'>".LAN_C_ROT_MENU_9."</td>
-						<td style='width:15%' class='fcaption'>".LAN_C_ROT_MENU_4."</td>
-						<td style='width:15%' class='fcaption'>".LAN_C_ROT_MENU_6."</td>
-					</tr>";
-	for ($i = 0; $i < count($id); $i++)
-	{
-	if($bericht[$i] != ""){$type = "html";}else{$type = "pic";}
-	if($image[$i] != ""){$image[$i] = "<img style='max-width:300px;' src='".$image[$i]."' />";}
-	if($thumbnail[$i] != ""){$thumbnail[$i] = "<img style='max-width:100px;' src='".$thumbnail[$i]."' />";} 
-	$text .= "<tr style='border:solid 1px #000;height:40px;'>
-				<td class='forumheader3'>
-			 		".$order[$i]."
-				</td>
-				<td class='forumheader3'>
-			 		".$title[$i]."
-				</td>
-				<td class='forumheader3'>
-			 		".$intro[$i]."
-				</td>
-				<td class='forumheader3'>";
-	if($bericht[$i] != ""){			
-	$text .= 	"<a id='cr_textbox".$i."' href='#cr_textbox_field".$i."' title='".$title[$i]."'>".LAN_C_ROT_ADMIN_55."</a>
-                <div style='display: none;'>
-					<div id='cr_textbox_field".$i."' style='width:".$cr_pref['cr_panel_width']."px;height:".$cr_pref['cr_panel_height']."px;overflow:auto;'>
-						".$newtext = $tp->toHTML($bericht[$i], true)."
-                	</div>
-				</div>";
-	}
-	$text .= 	"</td>
-				<td class='forumheader3'>
-					".$image[$i]."
-				</td>
-				<td class='forumheader3'>
-					".$thumbnail[$i]."
-				</td>
-				<td class='forumheader3'>
-					".$captions[$i]."
-				</td>
-				<td class='forumheader3'>
-					" .$link[$i]."
-				</td>
-				<td class='forumheader3'>
-					<a href='admin_config.php?edit.".$id[$i].".$type'><img src='".e_IMAGE."admin/edit_16.png' alt='Edit' title='Edit' /></a>
-					<a href='admin_config.php?delete.".$id[$i]."'><img src='".e_IMAGE."admin/delete_16.png' alt='Delete' title='Delete' /></a>
-					<br/>
-					".LAN_C_ROT_MENU_10.":<br/>";
-	if($order[$i] != count($id))
-	$text .= "				<a href='handlers/order.php?moveup.".$id[$i].".".$order[$i]."'><img src='".e_IMAGE."admin/up.png' alt='Edit' title='Edit' /></a>";
-    if($order[$i] != 1)
-	$text .= "				<a href='handlers/order.php?movedown.".$id[$i].".".$order[$i]."'><img src='".e_IMAGE."admin/down.png' alt='Delete' title='Delete' /></a>";
 
-	$text .="		</td>
-			</tr>";
-	}
-	$text .= "</table>";
-	
-   // The usual, tell e107 what to include on the page
-   $ns->tablerender("Add items", $text);
-
-   require_once(e_ADMIN."footer.php");
-   
-}
 
 function admin_config_adminmenu()
 {
@@ -696,21 +699,21 @@ function admin_config_adminmenu()
 		$tmp = explode (".", e_QUERY);
 		$action     = $tmp[0];
 		$sub_action = $tmp[1];
-		$id         = $tmp[2];
+		$type       = $tmp[2];
 	}
 	if (!isset($action) || ($action == "")){
 		$action = "general";
 	}
    
-	$var['general']['text'] = LAN_C_ROT_GENERAL;
+	$var['general']['text'] = LAN_C_ROTATOR_GENERAL;
 	$var['general']['link'] = e_SELF;
+	
+	$var['add']['text'] = LAN_C_ROTATOR_ADD;
+	$var['add']['link'] = e_SELF."?add";
    
-	$var['config']['text'] = LAN_C_ROT_CONFIG;
+	$var['config']['text'] = LAN_C_ROTATOR_CONFIG;
 	$var['config']['link'] = e_SELF."?config";
 	
-	$var['add']['text'] = LAN_C_ROT_CONFIG;
-	$var['add']['link'] = e_SELF."?add";
-	
-	show_admin_menu(LAN_C_ROT_MENU_CAPTION, $action, $var);
+	show_admin_menu(LAN_C_ROTATOR_MENU_CAPTION, $action, $var);
 } 
 ?>

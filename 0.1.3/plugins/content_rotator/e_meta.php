@@ -1,21 +1,14 @@
 <?php
-
 /*
-**
-**	Content Rotator - e107 Plugin
-**	Author: 		Boudewijn Geiger
-**	Version:		1.0
-**  Date:			juli-2010
-**  copyright: 		20010 by - boedy.net
-**  website: 		http://www.boedy.net
-**
-**  License:		You may not transfer or sub-license,
-**					any of my templates or plugins to anyone
-**					else without prior written consent
-**					from boedy, or when stated otherwise.
-**
++ ----------------------------------------------------------------------------------------------+
+|     r107 website system  : http://r107.pro
+|     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
+|
+|     Plugin "Content Rotator"  Author: Boedy - info@boxfish.org
+|     Support OSGroup.pro
+|     http://r107.pro support@r107.pro
++-----------------------------------------------------------------------------------------------+
 */
-
 if (!defined('e107_INIT')) { exit; }
 
 	global $sql, $eArrayStorage;
