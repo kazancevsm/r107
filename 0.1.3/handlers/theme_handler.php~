@@ -451,7 +451,7 @@ class themeHandler{
 		global $pref, $e107cache, $ns;
 		$themeArray = $this -> getThemes("id");
 		$pref['admintheme'] = $themeArray[$this -> id];
-		$pref['admincss'] = file_exists(THEME.'admin.css') ? 'admin.css' : 'style.css';
+		$pref['admincss'] = file_exists(THEME.'admin_style.css') ? 'admin_style.css' : 'style.css';
 		$e107cache->clear();
 		save_prefs();
 		$ns->tablerender("Admin Message", "<br /><div style='text-align:center;'>".TPVLAN_40." <b>'".$themeArray[$this -> id]."'</b>.</div><br />");

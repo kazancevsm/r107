@@ -3429,7 +3429,7 @@ $core_image = array (
         'reply_new_thread.png' => '62bf421db333810f70c415c7c59c6b15',
       ),
       'admin_alt_nav.sc' => 'd1bd9236ba603535aa382bfd2af0201d',
-      'admin.css' => '5da67faf4d8e8ab3045d3d7e68fd5684',
+      'admin_style.css' => '5da67faf4d8e8ab3045d3d7e68fd5684',
       'admin_template.php' => 'bec44c56a51d4eca92c53e52fa37fa8a',
       'calendar_template.php' => '5269c1c83089a62d0d94a01705ecb6dc',
       'comment_menu_template.php' => '0b860a1796a979a0dcafb7407899f309',
