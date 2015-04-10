@@ -75,7 +75,7 @@ if (!function_exists("parseheader")) {
 //if (stristr($_SERVER["HTTP_ACCEPT"], "application/xhtml+xml"))
 //  header("Content-type: application/xhtml+xml; charset=".CHARSET, true);
 //else
-header("Content-type: text/html; charset=".CHARSET, true);
+  header("Content-type: text/html; charset=".CHARSET, true);
 
 
 echo (defined("STANDARDS_MODE") ? "" : "<?xml version='1.0' encoding='".CHARSET."' "."?".">\n")."<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">\n";
@@ -112,10 +112,10 @@ else
 }
 
 if ($pref['jq_core']){
-	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."jquery.js'></script>\n";
-}
+	echo "<script type='text/javascript' src='".e_FILE_ABS."jquery.js'></script>\n";
+	}
 
-echo "<script type='text/javascript' src='".e_SYSTEM_ABS."core.js'></script>\n";
+echo "<script type='text/javascript' src='".e_FILE_ABS."core.js'></script>\n";
 if (isset($theme_js_php) && $theme_js_php)
 {
 	echo "<script type='text/javascript' src='".THEME_ABS."theme-js.php'></script>\n";
@@ -145,13 +145,10 @@ if (isset($eplug_js) && $eplug_js)
 }
 
 if((isset($pref['enable_png_image_fix']) && $pref['enable_png_image_fix'] == true) || (isset($sleight) && $sleight == true)) {
-	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."sleight_js.php'></script>\n";
+	echo "<script type='text/javascript' src='".e_FILE_ABS."sleight_js.php'></script>\n";
 }
 
-if (function_exists('headerjs'))
-{
-	echo headerjs();
-}
+if (function_exists('headerjs')){echo headerjs();  }
 
 //
 // E: Send CSS
@@ -160,12 +157,12 @@ echo "<!-- *CSS* -->\n";
 
 if (isset($eplug_css) && $eplug_css) {
 	echo "\n<!-- eplug_css -->\n";
-	if(is_array($eplug_css))
+    if(is_array($eplug_css))
 	{
-		foreach($eplug_css as $kcss)
-		{// Allow inline style definition - but only if $eplug_css is an array (maybe require an array later)
-			if ('<style' == substr($kcss,0,6)) echo $kcss; else echo "<link rel='stylesheet' href='{$kcss}' type='text/css' />\n";
-		}
+      foreach($eplug_css as $kcss)
+	  {	// Allow inline style definition - but only if $eplug_css is an array (maybe require an array later)
+        if ('<style' == substr($kcss,0,6)) echo $kcss; else echo "<link rel='stylesheet' href='{$kcss}' type='text/css' />\n";
+	  }
 	}
 	else
 	{
@@ -175,76 +172,46 @@ if (isset($eplug_css) && $eplug_css) {
 }
 
 echo "<!-- Theme css -->\n";
-if(defined("PREVIEWTHEME")) 
-{
+if(defined("PREVIEWTHEME")) {
 	echo "<link rel='stylesheet' href='".PREVIEWTHEME."style.css' type='text/css' />\n";
-}
-else
-{
+} else {
 	$css_default = "all";
-	if (isset($theme_css_php) && $theme_css_php) {
-		echo "<link rel='stylesheet' href='".THEME_ABS."theme.php' type='text/css' />\n";
-	} else {
-		if(isset($pref['themecss']) && $pref['themecss'] && file_exists(THEME.$pref['themecss']))
+		if(isset($pref['themecss']) && file_exists(THEME.$pref['themecss']))
 		{
-			// Support for print and handheld media.
-			if(file_exists(THEME."style_mobile.css")){
-            	echo "<link rel='stylesheet' href='".THEME_ABS."style_mobile.css' type='text/css' media='handheld' />\n";
-				$css_default = "screen";
-			}
-			if(file_exists(THEME."style_print.css")){
-            	echo "<link rel='stylesheet' href='".THEME_ABS."style_print.css' type='text/css' media='print' />\n";
-                $css_default = "screen";
-			}
-			if(file_exists(THEME."nextprev.css")){
-            	echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
-                $css_default = "screen";
-			}
 			echo "<link rel='stylesheet' href='".THEME_ABS."{$pref['themecss']}' type='text/css' media='{$css_default}' />\n";
-
-
-		} else {
-			echo "<link rel='stylesheet' href='".THEME_ABS."style.css' type='text/css' media='{$css_default}' />\n";
-			
+		}else {
+			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/style.css' type='text/css' media='{$css_default}' />\n";
+		}
 			// Support for print and handheld media.
-			if(file_exists(THEME."print.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."print.css' type='text/css' media='print' />\n";
-				$css_default = "screen";
-			} else {
-				echo "<link rel='stylesheet' href='".THEME."css/print.css' type='text/css' media='print' />\n";
-				$css_default = "screen";
-			}
-			// Support for mobile device.
-			if(file_exists(THEME."mobile.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='handheld' />\n";
-				$css_default = "screen";
-			} else {
-				echo "<link rel='stylesheet' href='".THEME."css/mobile.css' type='text/css' media='handheld' />\n";
-				$css_default = "screen";
-			}
-			// Support for nextprev buttons.
-			if(file_exists(THEME."nextprev.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
-				$css_default = "screen";
-			} else {
-			{
-				echo "<link rel='stylesheet' href='".THEME."css/nextprev.css' type='text/css' />\n";
-				$css_default = "screen";
-			}
-			// Support for dropdown windows, based on div.
-			if(file_exists(THEME."windows.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' />\n";
-				$css_default = "screen";
-			} else {
-			{
-				echo "<link rel='stylesheet' href='".THEME."css/windows.css' type='text/css' />\n";
-				$css_default = "screen";
-			}
+		if(file_exists(THEME."mobile.css")){
+			echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='handheld' />\n";
+			$css_default = "handheld";
 		}
+		if(!file_exists(THEME."mobile.css")){
+			echo "<link rel='stylesheet' href='".e_THEME."css/mobile.css' type='text/css' media='handheld' />\n";	
+			$css_default = "handheld";
+		}
+	
+		if(file_exists(THEME."print.css")){
+			echo "<link rel='stylesheet' href='".THEME_ABS."style_print.css' type='text/css' media='print' />\n";
+               		$css_default = "print";
+		}
+		if(!file_exists(THEME."print.css")){
+			echo "<link rel='stylesheet' href='".e_THEME."css/print.css' type='text/css' media='print' />\n";	
+			$css_default = "print";
+		}
+			
+		if(file_exists(THEME."nextprev.css")){
+			echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
+		}
+		if(!file_exists(THEME."nextprev.css")){
+			echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";	
+		}
+		
 		if (!isset($no_core_css) || !$no_core_css) {
-			echo "<link rel='stylesheet' href='".e_THEME."css/core.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_FILE_ABS."nextprev.css' type='text/css' />\n";
 		}
-	}
 }
 
 //
