@@ -1,19 +1,15 @@
 <?php
 /*
-+ ----------------------------------------------------------------------------+
-|     e107 website system
-|
-|     Copyright (C) 2001-2002 Steve Dunstan (jalist@e107.org)
-|     Copyright (C) 2008-2010 e107 Inc (e107.org)
-|
-|     Released under the terms and conditions of the
-|     GNU General Public License (http://gnu.org).
-|
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/news_handler.php $
-|     $Revision: 11702 $
-|     $Id: news_handler.php 11702 2010-08-25 11:36:42Z nlstart $
-|     $Author: nlstart $
-+----------------------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+	© r107.pro, 2014. Все права защищены.
+	Сайт: http://r107.pro
+	Почта: support@r107.pro
+	Файл: news_handler.php
+	Версия: 0.1
+	Кодировка: utf8
+	Дата: 04.11.2014 05:05:05
+	Автор: © Казанцев Сергей	[Sunout]
++-------------------------------------------------------------------------------+
 */
 
 if (!defined('e107_INIT')) { exit; }

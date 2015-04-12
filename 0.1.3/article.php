@@ -1,15 +1,16 @@
 <?php
 /*
-+ ----------------------------------------------------------------------------+
-|     	r107 website system
-|     	Copyright (C) 2014-2015 r107.pro
-|	Author: Open Source Group
-|	E-mail: support@r107.pro
-|
-|     Released under the terms and conditions of the
-|     GNU General Public License (http://gnu.org).
-|
-+----------------------------------------------------------------------------+
++-------------------------------------------------------------------------------+
+	© r107.pro, 2014. Все права защищены.
+	Сайт: http://r107.pro
+	Почта: support@r107.pro
+	Файл: article.php
+	Версия: 0.1
+	Кодировка: utf8
+	Дата: 04.11.2014 05:05:05
+	Автор: © Казанцев Сергей	[Sunout]
++-------------------------------------------------------------------------------+
+
 */
 // This file is now deprecated and remains in core for backward compatibility reasons.
 	
