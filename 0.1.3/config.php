@@ -23,7 +23,7 @@
 $mySQLserver    = 'localhost';
 $mySQLuser      = 'root';
 $mySQLpassword  = '123';
-$mySQLdefaultdb = 'r107';
+$mySQLdefaultdb = 'r107_git';
 $mySQLprefix    = 'r_';
 //$mySQLcharset может содержать, только 'utf8' или ''
 $mySQLcharset   = 'utf8';
