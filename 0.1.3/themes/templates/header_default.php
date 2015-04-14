@@ -183,45 +183,9 @@ if(defined("PREVIEWTHEME")) {
 			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/style.css' type='text/css' media='{$css_default}' />\n";
 		}
 			// Support for print and handheld media.
-<<<<<<< HEAD
-			if(file_exists(THEME."print.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."print.css' type='text/css' media='print' />\n";
-				$css_default = "screen";
-			} else {
-				echo "<link rel='stylesheet' href='".THEME."css/print.css' type='text/css' media='print' />\n";
-				$css_default = "screen";
-			}
-			// Support for mobile device.
-			if(file_exists(THEME."mobile.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='mobile' />\n";
-				$css_default = "screen";
-			} else {
-				echo "<link rel='stylesheet' href='".THEME."css/mobile.css' type='text/css' media='mobiled' />\n";
-				$css_default = "screen";
-			}
-			// Support for nextprev buttons.
-			if(file_exists(THEME."nextprev.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' media='nextprev' />\n";
-				$css_default = "screen";
-			} else {
-			{
-				echo "<link rel='stylesheet' href='".THEME."css/nextprev.css' type='text/css' media='nextprev' />\n";
-				$css_default = "screen";
-			}
-			// Support for dropdown windows, based on div.
-			if(file_exists(THEME."windows.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' media='windows' />\n";
-				$css_default = "screen";
-			} else {
-			{
-				echo "<link rel='stylesheet' href='".THEME."css/windows.css' type='text/css' media='windows' />\n";
-				$css_default = "screen";
-			}
-=======
 		if(file_exists(THEME."mobile.css")){
 			echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='handheld' />\n";
 			$css_default = "handheld";
->>>>>>> f90e5e5b692436dee0e8811da3cd54353d272a88
 		}
 		if(!file_exists(THEME."mobile.css")){
 			echo "<link rel='stylesheet' href='".e_THEME."css/mobile.css' type='text/css' media='handheld' />\n";	
