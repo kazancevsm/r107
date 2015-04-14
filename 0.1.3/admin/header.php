@@ -202,29 +202,24 @@ if (isset($eplug_css) && $eplug_css) {
 }
 
 echo "<!-- Theme css -->\n";
-if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && $pref['admincss'] && file_exists(e_THEME.'css/'.$pref['admincss'])) {
-	$css_file = file_exists(THEME_ABS.'admin_'.$pref['admincss']) ? THEME_ABS.'admin_'.$pref['admincss'] : e_THEME.'css/'.$pref['admincss'];
+if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && $pref['admincss'] && file_exists(e_THEME.'css/'.$pref['admincss']))
+{
+	
+	$css_file = file_exists(THEME_ABS.'admin_'.$pref['admincss']) ? THEME_ABS.'admin_'.$pref['admincss'] : e_THEME_ABS.'css/admin_'.$pref['admincss'];
 	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
 	
-} 
-else if (isset($pref['themecss']) && $pref['themecss'] && file_exists(THEME.$pref['themecss']))
-{
-	$css_file = file_exists(e_THEME.'css/admin_'.$pref['themecss']) ? e_THEME.'css/admin_'.$pref['themecss'] : THEME_ABS.$pref['themecss'];
-	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
-
 } 
 else 
 {
-	$css_file = file_exists(e_THEME.'css/admin.css') ? e_THEME.'css/admin.css' : THEME_ABS.'style.css';
-	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
-	
+	$css_file = file_exists(e_THEME.'css/admin_style.css') ? e_THEME.'css/admin_style.css' : THEME_ABS.'style.css';
+	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";	
 }
 if (!isset($no_core_css) || !$no_core_css) {
 	echo "<link rel='stylesheet' href='".e_THEME."css/core.css' type='text/css' />\n";
-	echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";
-	echo "<link rel='stylesheet' href='".e_THEME."css/windows.css' type='text/css' />\n";
-	echo "<link rel='stylesheet' href='".e_THEME."css/mobile.css' type='text/css' />\n";
-	echo "<link rel='stylesheet' href='".e_THEME."css/print.css' type='text/css' />\n";
+//	echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";
+//	echo "<link rel='stylesheet' href='".e_THEME."css/windows.css' type='text/css' />\n";
+//	echo "<link rel='stylesheet' href='".e_THEME."css/mobile.css' type='text/css' />\n";
+//	echo "<link rel='stylesheet' href='".e_THEME."css/print.css' type='text/css' />\n";
 }
 
 

@@ -1,4 +1,10 @@
 <?php
+/*
+Скрывалка
+<td class='forumheader3'><a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_35."</a>
+			<div style='display: none;'>
+*/
+
 
 require_once("../class2.php");
 
@@ -7,7 +13,7 @@ if (!getperms('H'))
 	header('location:'.e_BASE.'index.php');
 	exit;
 }
-require_once(e_HANDLER."calendar/calendar_class2.php");
+require_once(e_HANDLER."calendar/calendar_class.php");
 
 $cal = new DHTML_Calendar(true);
 function headerjs()
@@ -515,19 +521,16 @@ class newspost
 		<tr>
 		<td style='width:20%' class='forumheader3'>".NWSLAN_14.":</td>
 		<td style='width:80%' class='forumheader3'>
-		<a style='cursor: pointer' onclick=\"expandit(this);{$ff_expand}\">".NWSLAN_83."</a>
-		<div style='display:none'>
+		<a style='cursor: pointer' >".NWSLAN_83."</a>
+		
 		<textarea class='tbox' id='news_extended' name='news_extended' cols='80' style='width:95%' {$insertjs}>".(strstr($tp->post_toForm($_POST['news_extended']), "[img]http") ? $tp->post_toForm($_POST['news_extended']) : str_replace("[img]../", "[img]", $tp->post_toForm($_POST['news_extended'])))."</textarea>
 		". display_help('helpc', 'extended')."
-		</div>
 		</td>
 		</tr>
 
 		<tr>
 		<td style='width:20%' class='forumheader3'>".NWSLAN_66.":</td>
-		<td style='width:80%' class='forumheader3'>
-		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_69."</a>
-		<div style='display: none;'>";
+		<td style='width:80%' class='forumheader3'>".NWSLAN_69."";
 
 		if (!FILE_UPLOADS)
 		{
@@ -565,15 +568,13 @@ class newspost
 			<td><input class='button' type='submit' name='submitupload' value='".NWSLAN_66."' /></td>
 			</tr></table>";
 		}
-		$text .= "</div>
+		$text .= "
 		</td>
 		</tr>
 
 		<tr>
 		<td class='forumheader3'>".NWSLAN_67.":</td>
-		<td class='forumheader3'>
-		<a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_23."</a>
-		<div style='display: none'><br />";
+		<td class='forumheader3'>".LAN_NEWS_23."<br>";
 
         $parms = 'name=news_thumbnail';
 		$parms .= '&path='.e_FILE.'newspost_images/';
@@ -585,49 +586,37 @@ class newspost
 
         $text .= $tp->parseTemplate("{IMAGESELECTOR={$parms}}");
 
-		$text .= "</div>
+		$text .= "
 		</td>
 		</tr>
 		";
-
 		$text .= "<tr>
 		<td style='width:20%' class='forumheader3'>".NWSLAN_15.":</td>
-		<td style='width:80%' class='forumheader3'>
-		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_18."</a>
-		<div style='display: none;'>
-
-		". ($_POST['news_allow_comments'] ? "<input name='news_allow_comments' type='radio' value='0' />".LAN_ENABLED."&nbsp;&nbsp;<input name='news_allow_comments' type='radio' value='1' checked='checked' />".LAN_DISABLED : "<input name='news_allow_comments' type='radio' value='0' checked='checked' />".LAN_ENABLED."&nbsp;&nbsp;<input name='news_allow_comments' type='radio' value='1' />".LAN_DISABLED)."
-		</div>
+		<td style='width:80%' class='forumheader3'>".NWSLAN_18."". ($_POST['news_allow_comments'] ? "<input name='news_allow_comments' type='radio' value='0' />".LAN_ENABLED."&nbsp;&nbsp;<input name='news_allow_comments' type='radio' value='1' checked='checked' />".LAN_DISABLED : "<input name='news_allow_comments' type='radio' value='0' checked='checked' />".LAN_ENABLED."&nbsp;&nbsp;<input name='news_allow_comments' type='radio' value='1' />".LAN_DISABLED)."
 		</td>
 		</tr>
 
 		<tr>
 		<td style='width:20%' class='forumheader3'>".NWSLAN_73.":</td>
-		<td style='width:80%' class='forumheader3'>
-		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_74."</a>
-		<div style='display: none;'>";
+		<td style='width:80%' class='forumheader3'>".NWSLAN_74."";
 		$ren_type = array(NWSLAN_75,NWSLAN_76,NWSLAN_77,NWSLAN_77.' 2');
 		foreach($ren_type as $key=>$value) 
 		{
 			$checked = ($_POST['news_rendertype'] == $key) ? "checked='checked'" : '';
-			$text .= "<input name='news_rendertype' type='radio' value='{$key}' {$checked} />";
+			$text .= " <input name='news_rendertype' type='radio' value='{$key}' {$checked} />";
 			$text .= $value.'<br />';
 		}
 
-		$text .="</div>
+		$text .="
 		</td>
 		</tr>
 
 		<tr>
 		<td style='width:20%' class='forumheader3'>".NWSLAN_19.":</td>
-		<td style='width:80%' class='forumheader3'>
-
-		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_72."</a>
-		<div style='display: none;'>
-
+		<td style='width:80%' class='forumheader3'>".NWSLAN_72."		
 		<br />
 		".NWSLAN_21.":<br />";
-
+		
 		$_startdate = ($_POST['news_start'] > 0) ? date('d/m/Y', $_POST['news_start']) : '';
 
 		$cal_options['showsTime'] = false;
@@ -657,7 +646,6 @@ class newspost
 		$text .= $cal->make_input_field($cal_options, $cal_attrib);
 
 		$text .= "
-		</div>
 		</td>
 		</tr>";
 		$text .="<tr>
@@ -691,22 +679,15 @@ class newspost
 		<td class='forumheader3'>
 		".NWSLAN_22.":
 		</td>
-		<td class='forumheader3'>
-
-		<a style='cursor: pointer' onclick='expandit(this);'>".NWSLAN_84."</a>
-		<div style='display: none;'>
+		<td class='forumheader3'>".NWSLAN_84."
 		".r_userclass_check('news_userclass', $_POST['news_class'], 'nobody,public,guest,member,admin,classes,language')."
-		</div>
 		</td></tr>
 
 		<tr>
 		<td class='forumheader3'>
 		".LAN_NEWS_28.":
 		</td>
-		<td class='forumheader3'>
-
-		<a style='cursor: pointer' onclick='expandit(this);'>".LAN_NEWS_29."</a>
-		<div style='display: none;'>
+		<td class='forumheader3'>".LAN_NEWS_29."
 		";
 		if($_POST['news_sticky'])
 		{
@@ -716,7 +697,7 @@ class newspost
 		{
 			$sel = '';
 		}
-		$text .= "<input type='checkbox' {$sel} name='news_sticky' value='1' /> ".LAN_NEWS_30."\n</div>\n</td>\n</tr>\n";
+		$text .= "<input type='checkbox' {$sel} name='news_sticky' value='1' /> ".LAN_NEWS_30."\n</td>\n</tr>\n";
 
 		if($pref['trackbackEnabled'])
 		{
@@ -742,8 +723,8 @@ class newspost
 		$text .= "
 			<tr>
 				<td class='forumheader3'>".LAN_NEWS_55.":</td>
-				<td class='forumheader3'><a style='cursor: pointer' onclick='expandit(this);'>".$user['user_name']."</a>
-					<div style='display: none;'>
+				<td class='forumheader3'>".$user['user_name']."
+					
 						<select class='tbox' name='news_author'>";
 		$query = "SELECT * FROM #user WHERE (user_admin = '1' AND ((user_perms  = '0') OR (user_perms  = '0.'))) OR (user_perms REGEXP 'H.') ORDER BY user_id";
 		$sql->db_Select_Gen($query);
@@ -754,7 +735,6 @@ class newspost
 		}
 		$text .= "
 						</select>
-					</div>
 				</td>
 			</tr>\n";
 
