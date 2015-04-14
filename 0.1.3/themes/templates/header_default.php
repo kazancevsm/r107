@@ -216,28 +216,28 @@ else
 			}
 			// Support for mobile device.
 			if(file_exists(THEME."mobile.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='handheld' />\n";
+				echo "<link rel='stylesheet' href='".THEME_ABS."mobile.css' type='text/css' media='mobile' />\n";
 				$css_default = "screen";
 			} else {
-				echo "<link rel='stylesheet' href='".THEME."css/mobile.css' type='text/css' media='handheld' />\n";
+				echo "<link rel='stylesheet' href='".THEME."css/mobile.css' type='text/css' media='mobiled' />\n";
 				$css_default = "screen";
 			}
 			// Support for nextprev buttons.
 			if(file_exists(THEME."nextprev.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
+				echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' media='nextprev' />\n";
 				$css_default = "screen";
 			} else {
 			{
-				echo "<link rel='stylesheet' href='".THEME."css/nextprev.css' type='text/css' />\n";
+				echo "<link rel='stylesheet' href='".THEME."css/nextprev.css' type='text/css' media='nextprev' />\n";
 				$css_default = "screen";
 			}
 			// Support for dropdown windows, based on div.
 			if(file_exists(THEME."windows.css")){
-				echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' />\n";
+				echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' media='windows' />\n";
 				$css_default = "screen";
 			} else {
 			{
-				echo "<link rel='stylesheet' href='".THEME."css/windows.css' type='text/css' />\n";
+				echo "<link rel='stylesheet' href='".THEME."css/windows.css' type='text/css' media='windows' />\n";
 				$css_default = "screen";
 			}
 		}
