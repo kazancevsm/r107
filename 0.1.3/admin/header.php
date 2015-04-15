@@ -213,17 +213,16 @@ if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['
 else 
 {
 	$css_file = file_exists(e_THEME.'css/admin_style.css') ? e_THEME.'css/admin_style.css' : THEME_ABS.'style.css';
-	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";	
+	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
 	
 }
-	if(file_exists(e_THEME_ABS.'windows.css')) {
+if(file_exists(e_THEME_ABS.'windows.css')) {
 	  echo "<link rel='stylesheet' href='".e_THEME_ABS."windows.css' type='text/css' />\n";
-	}
+}
 	
-	if(!file_exists(e_THEME_ABS.'windows.css')) {
+if(!file_exists(e_THEME_ABS.'windows.css')) {
 	  echo "<link rel='stylesheet' href='".e_THEME."css/windows.css' type='text/css' />\n";
-	}
-
+}
 
 if (!isset($no_core_css) || $no_core_css ) {
 	echo "<link rel='stylesheet' href='".e_THEME."css/core.css' type='text/css' />\n";
