@@ -40,14 +40,14 @@ $eplug_prefs = array( 					// List of preferences
 "conf_catshowrowscat" => '10',				// show row categories
 "conf_catshowcolsitems" => '2',				// show column items
 "conf_catshowrowsitems" => '10',			// show rows items
-"conf_catnewshow" => LAN_YES,				// show new arrivals
-"conf_catnewhead" => LAN_CONF_NEW_CAP,			
+"conf_catnewshow" => PLUG_YES,				// show new arrivals
+"conf_catnewhead" => PLUG_CONF_NEW_CAP,			
 "conf_catnewitems" => '4',
-"conf_catsaleshow" => LAN_YES,
-"conf_catsalehead" => LAN_CONF_SALE_CAP,
+"conf_catsaleshow" => PLUG_YES,
+"conf_catsalehead" => PLUG_CONF_SALE_CAP,
 "conf_catsaleitems" => '4',
-"conf_cathitshow" => LAN_YES,
-"conf_cathithead" => LAN_CONF_HIT_CAP,
+"conf_cathitshow" => PLUG_YES,
+"conf_cathithead" => PLUG_CONF_HIT_CAP,
 "conf_cathititems" => '4'
 );
 
