@@ -12,16 +12,16 @@
 // processed - обработанный
 
 //================================================================================
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!defined('e107_INIT')) { exit; }
 //require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 //require_once(e_HANDLER."np_class.php");
 require_once("languages/".e_LANGUAGE.".php");
 //require_once("cart_cookie.php");
 $ns = new e107table;
 require_once(HEADERF);
-require_once(e_FILE.'shortcode/batch/news_archives.php');
+require_once(e_SYSTEM.'shortcode/batch/news_archives.php');
 require_once(e_HANDLER.'shortcode_handler.php');
 require_once('cat_class.php');
 $vt_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);

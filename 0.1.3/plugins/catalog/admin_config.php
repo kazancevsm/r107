@@ -174,13 +174,13 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
 	}
 	$text .= "</div></td></tr>";
 	$text .= "<tr><td class='r_header3'>".LAN_CAT_DESC." </td><td class='r_header3'>";
-	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
+	$insertjs = (!e_WYSIWYG)?"rows='10' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='10' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='cat_desc' cols='80' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$cat_desc</textarea><br>".display_help('')."";
 	$text .= "</td></tr>";
 	$text .= "<tr><td></td><td>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr;' value=".LAN_BUT_AGR." name='submit_insert'>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd;' value=".LAN_BUT_UPD." name='submit_update'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr; float:left; margin-right:3px;' value=".LAN_BUT_AGR." name='submit_insert'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd; float:left; margin-right:3px;' value=".LAN_BUT_UPD." name='submit_update'>
 			<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_CANS." name='submit_reset'>
 			</td></tr></table></form>";
 	$text.="</div>";
@@ -391,7 +391,7 @@ $text.="<div class='r_window_scroll'>";
 	$text .= "<tr>";
 	$text .="<td style='width:25%' class='r_header3'>Описание</td> <td style='width:75%' class='r_header3'>";
 		
-	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
+	$insertjs = (!e_WYSIWYG)?"rows='10' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='10' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='nom_desc' cols='50' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$nom_desc</textarea><br>".display_help('')."</td></tr>";
 	//===============================select cat_icon=================================
@@ -417,7 +417,7 @@ $text.="<div class='r_window_scroll'>";
 	$text .= "<input type='hidden' name='nom_id' value='".$id."'>";
 	$text .= "<tr><td colspan=2 class='r_header3'><center>";
 		if($sub_action =="create") {
-	$text .="<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_AGR." name='submit_insert'>";
+	$text .="<input type='submit' class='button' style='cursor:pointer; ' value=".LAN_BUT_AGR." name='submit_insert'>";
 		}
 		if($sub_action =="edit") {
 	$text .="<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_UPD." name='submit_update'>";

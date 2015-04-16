@@ -1,0 +1,9 @@
+$text ="<div class='r_window_block'>";
+$text.="<div class='r_window_dialog'>";
+$text.="<div class='r_window_caption'>Номенклатура</div>";
+$text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
+$text.="<div class='r_window_scroll'>";
+
+$text.="</div>";
+$text.="</div>";
+$text.="</div>";
