@@ -32,7 +32,7 @@ $fi = new file_inspector;
 // Give a sensible, albeit probably invalid, value
 if (substr($DOCS_DIRECTORY,-5,5) == 'help/')
 {
-	$DOCS_DIRECTORY = substr($DOCS_DIRECTORY,0,-5);		// Whatever $HELP_DIRECTORY is set to, assume docs are in a subdirectory called 'help' off it
+	$DOCS_DIRECTORY = substr($DOCS_DIRECTORY,0,-5);		// Whatever $DOCS_DIRECTORY is set to, assume docs are in a subdirectory called 'help' off it
 }
 
 $maindirs = array('admin' => $ADMIN_DIRECTORY, 'docs' => $DOCS_DIRECTORY, 'downloads' => $DOWNLOADS_DIRECTORY, 'files' => $FILES_DIRECTORY, 'handlers' => $HANDLERS_DIRECTORY, 'images' => $IMAGES_DIRECTORY, 'languages' => $LANGUAGES_DIRECTORY, 'plugins' => $PLUGINS_DIRECTORY, 'system' => $SYSTEM_DIRECTORY, 'themes' => $THEMES_DIRECTORY);

@@ -234,8 +234,8 @@ if (file_exists(e_SYSTEM."version.php")) {
 }
 	
 //Arrays for replacing Directorys (if non-standard)
-$dirs_1 = array($ADMIN_DIRECTORY, $FILES_DIRECTORY, $IMAGES_DIRECTORY, $THEMES_DIRECTORY, $PLUGINS_DIRECTORY, $HANDLERS_DIRECTORY, $LANGUAGES_DIRECTORY, $HELP_DIRECTORY);
-$dirs_2 = array("e107_admin/", "e107_files/", "e107_images/", "e107_themes/", "e107_plugins/", "e107_handlers/", "e107_languages/", "e107_docs/help/");
+$dirs_1 = array($ADMIN_DIRECTORY, $FILES_DIRECTORY, $IMAGES_DIRECTORY, $THEMES_DIRECTORY, $PLUGINS_DIRECTORY, $HANDLERS_DIRECTORY, $LANGUAGES_DIRECTORY, $DOCS_DIRECTORY, $SYSTEM_DIRECTORY);
+$dirs_2 = array("admin/", "files/", "images/", "themes/", "plugins/", "handlers/", "languages/", "docs/help/", "system/");
 	
 //Files / Dirs never coming into core-sfv
 $exclude = array($FILES_DIRECTORY."backend", $FILES_DIRECTORY."downloadimages", $FILES_DIRECTORY."downloads", $FILES_DIRECTORY."downloadthumbs", $FILES_DIRECTORY."images", $FILES_DIRECTORY."misc", $FILES_DIRECTORY."public" , substr($IMAGES_DIRECTORY, 0, strlen($IMAGES_DIRECTORY)-1), $PLUGINS_DIRECTORY."custom", "e107_config.php", "CVS", $PLUGINS_DIRECTORY."integrity_check/crc");

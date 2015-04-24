@@ -41,7 +41,7 @@ function show_emessage($mode, $message, $line = 0, $file = "") {
 		".chr(36)."PLUGINS_DIRECTORY = \"plugins/\"; <br />
 		".chr(36)."HANDLERS_DIRECTORY = \"handlers/\"; <br />
 		".chr(36)."LANGUAGES_DIRECTORY = \"languages/\"; <br />
-		".chr(36)."HELP_DIRECTORY = \"docs/help/\";  <br />
+		".chr(36)."DOCS_DIRECTORY = \"docs/help/\";  <br />
 		".chr(36)."DOWNLOADS_DIRECTORY =  \"files/downloads/\";\n
 		</div>";
 	}

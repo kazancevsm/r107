@@ -699,7 +699,7 @@ function zip_up_lang($language)
 		
 	global $THEMES_DIRECTORY, $PLUGINS_DIRECTORY, $LANGUAGES_DIRECTORY, $HANDLERS_DIRECTORY, $HELP_DIRECTORY;
 		
-	if(($HANDLERS_DIRECTORY != "handlers/") || ( $LANGUAGES_DIRECTORY != "languages/") || ($THEMES_DIRECTORY != "themes/") || ($HELP_DIRECTORY != "docs/help/") || ($PLUGINS_DIRECTORY != "plugins/"))
+	if(($HANDLERS_DIRECTORY != "handlers/") || ( $LANGUAGES_DIRECTORY != "languages/") || ($THEMES_DIRECTORY != "themes/") || ($DOCS_DIRECTORY != "docs/help/") || ($PLUGINS_DIRECTORY != "plugins/"))
 	{
 		$ret['error'] = TRUE;
 		$ret['message'] = (defined('LANG_LAN_26')) ? LANG_LAN_26 : "Пожалуйста, удостоверьтесь, что вы используете имена папок установленных по умолчанию в файле config.php (например: languages/, plugins/ и т.д.) и попробуйте еще раз.";
@@ -714,7 +714,7 @@ function zip_up_lang($language)
 	$core_admin = grab_lans(e_BASE.$LANGUAGES_DIRECTORY.$language."/admin/", $language,'',2);
 	$plugs = grab_lans(e_BASE.$PLUGINS_DIRECTORY, $language, $core_plugins); // standardized path. 
 	$theme  = grab_lans(e_BASE.$THEMES_DIRECTORY, $language, $core_themes);
-	$docs = grab_lans(e_BASE.$HELP_DIRECTORY,$language);
+	$docs = grab_lans(e_BASE.$DOCS_DIRECTORY,$language);
 	$handlers = grab_lans(e_BASE.$HANDLERS_DIRECTORY,$language); // standardized path. 
 		
 	$file = array_merge($core,$core_admin, $plugs, $theme, $docs, $handlers);
