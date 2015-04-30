@@ -5,6 +5,8 @@
 //	sunout@osgroup.pro, stalker@osgroup.pro
 //	license GNU GPL
 //==================== the project started in May 2014 ===========================
+
+
 //======links====================//
 $catsql -> db_Select("catalog_cat", "*", "cat_id='$cat'");
 	while($row = $catsql-> db_Fetch()){
@@ -12,10 +14,13 @@ $catsql -> db_Select("catalog_cat", "*", "cat_id='$cat'");
 	    $cat_name = $row['cat_name'];
 	    $cat_desc = $row['cat_desc'];
 	}
-if ($cat_sub =='0') {
+
+if (isset($cat_sub) && $cat_sub =='0') {
 	$caption_section = " - <a href='".e_PLUGIN."catalog/catalog.php?page=list&cat=$cat'>$cat_name</a>";
 }
-if ($cat_sub !=='0') {	
+
+
+if (isset($cat_sub) && $cat_sub !=='0') {	
 	$catsql -> db_Select("catalog_cat", "*", "cat_id='$cat_sub'");
 		while($row = $catsql-> db_Fetch()){
 		$catId = $row['cat_id'];

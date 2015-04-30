@@ -37,12 +37,12 @@
 		$nom_amount = 1;
 	}
 	$text .="</table>";
-$cpsql = new db;
-$cpsql -> db_Select("ct_cat", "*", "cat_id='$nom_cat'");
-	while($row = $cpsql-> db_Fetch()){
+$cat_name_sql = new db;
+$cat_name_sql -> db_Select("catalog_cat", "*", "cat_id='$nom_cat'");
+	while($row = $cat_name_sql -> db_Fetch()){
 	    
 	    $cat_name = $row['cat_name'];
 	}
-	$caption_section = "- <a href= '".e_PLUGIN."catalog/catalog.php?page=list&cat=$nom_cat'>$cat_name</a> - $nom_name";
+	$caption_section = "- <a href= '".e_PLUGIN."catalog/catalog.php?page=list&cat=$nom_cat'>$cat_name</a> - <span alt='$nom_name'>$nom_name</span>";
 //======end desc=====================================
 ?>
