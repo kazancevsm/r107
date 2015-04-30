@@ -12,10 +12,10 @@
 // processed - обработанный
 
 //================================================================================
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!defined('e107_INIT')) { exit; }
 //require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 //require_once(e_HANDLER."np_class.php");
 require_once("languages/".e_LANGUAGE.".php");
 //require_once("cart_cookie.php");
