@@ -38,7 +38,7 @@ $BBCODE_TEMPLATE = "
 
 $BBCODE_TEMPLATE_SUBMITNEWS = "
 	{BB_HELP}<br />
-    {BB=link}{BB=b}{BB=i}{BB=u}{BB=img}{BB=wrapright}{BB=center}{BB=left}{BB=right}{BB=justify}
+	{BB=link}{BB=b}{BB=i}{BB=u}{BB=img}{BB=wrapright}{BB=center}{BB=left}{BB=right}{BB=justify}
 	{BB=bukvica}{BB=bq}{BB=code}{BB=list}{BB=fontcol}{BB=fontsize}{BB=emotes}{BB=flash}{BB=youtube}
 ";
 
@@ -68,7 +68,7 @@ $BBCODE_TEMPLATE_CPAGE = "
 	{BB=newpage}
 	{BB=link}{BB=b}{BB=i}{BB=u}{BB=img}{BB=wrapright}{BB=center}{BB=left}{BB=right}{BB=justify}
 	{BB=bukvica}{BB=bq}{BB=code}{BB=list}{BB=fontcol}{BB=fontsize}{BB=emotes}
-	{BB_PREIMAGEDIR=".e_IMAGE."custom/}
+	{BB_PREIMAGEDIR=".e_FILE."images_custom/}
 	{BB=preimage}{BB=prefile}{BB=flash}{BB=youtube}
 ";
 

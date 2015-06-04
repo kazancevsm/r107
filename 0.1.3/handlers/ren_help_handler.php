@@ -19,8 +19,6 @@
 
 if (!defined('e107_INIT')) { exit; }
 
-
-
 function ren_help($mode = 1, $addtextfunc = "addtext", $helpfunc = "help")
 {
     // ren_help() is deprecated - use display_help().
@@ -37,8 +35,8 @@ function display_help($tagid="helpb", $mode = 1, $addtextfunc = "addtext", $help
 	global $tp, $pref, $eplug_bb, $bbcode_func, $register_bb, $bbcode_help, $bbcode_helpactive, $bbcode_helptag;
 
 	$bbcode_func = $addtextfunc;
- 	$bbcode_help = $helpfunc;
-    $bbcode_helptag = $tagid;
+	$bbcode_help = $helpfunc;
+	$bbcode_helptag = $tagid;
 
     // load the template
 	if(is_readable(THEME."bbcode_template.php"))
@@ -67,13 +65,13 @@ function display_help($tagid="helpb", $mode = 1, $addtextfunc = "addtext", $help
 		}
 	}
 
-    $temp['news'] 		= $BBCODE_TEMPLATE_NEWSPOST;
+	$temp['news'] 		= $BBCODE_TEMPLATE_NEWSPOST;
 	$temp['submitnews']	= $BBCODE_TEMPLATE_SUBMITNEWS; 
 	$temp['extended']	= $BBCODE_TEMPLATE_NEWSPOST;
 	$temp['admin']		= $BBCODE_TEMPLATE_ADMIN;
 	$temp['mailout']	= $BBCODE_TEMPLATE_ADMIN."{BB=shortcode}";
 	$temp['cpage']		= $BBCODE_TEMPLATE_CPAGE;
-	$temp['maintenance']= $BBCODE_TEMPLATE_ADMIN;
+	$temp['maintenance']	= $BBCODE_TEMPLATE_ADMIN;
 	$temp['comment'] 	= "{BB_HELP}<br />".$BBCODE_TEMPLATE;
 
 	if($temp[$mode])

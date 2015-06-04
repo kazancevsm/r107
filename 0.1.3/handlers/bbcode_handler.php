@@ -312,7 +312,7 @@ class e_bbcode
 		{	// Find the file
 			if ($this->bbLocation[$code] == 'core')
 			{
-				$bbPath = e_FILE.'bbcode/';
+				$bbPath = e_SYSTEM.'bbcode/';
 				$bbFile = strtolower(str_replace('_', '', $code));
 			}
 			else
