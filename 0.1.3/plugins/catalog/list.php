@@ -74,8 +74,19 @@ if (IsSet($cat) && $cat == 0) {
 		}
 		$text.="</td>";
 		$text .= "<td class='r_header1' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
-		$short_desc = f_short_desc($cat_desc,40);
-		$parseBB = $tp->toHTML($short_desc,true,'body');
+
+$short_desc = explode(" ", $cat_desc);
+//берем первые 6 элементов
+$arr = array_slice($short_desc, 0, 70);
+//превращаем в строку
+$cat_short_desc = implode(" ", $arr);
+ 
+// Если необходимо добавить многоточие
+if (count($arr_str) > 70) {
+   $cat_short_desc .= "...";
+}		
+
+		$parseBB = $tp->toHTML($cat_short_desc,true,'body');
 		if (!empty($cat_desc)) {
 			 $text .="<br>$parseBB";
 		}
@@ -116,7 +127,6 @@ if (IsSet($cat) && $cat <> 0) {
 		$nom_desc = $row['nom_desc'];
 		$nom_pic = $row['nom_pic'];
 		$nom_price = $row['nom_price'];
-		$desc_short = substr ($nom_desc, 0, 100);
 	$text .= "<tr><td class='r_header1' width=100px>";
 
 	/*
@@ -129,7 +139,16 @@ if (IsSet($cat) && $cat <> 0) {
 	}
 	$text .= "</td>";	
 	$text .= "<td class='r_header1' width=500px><a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'><font size=2><b>$nom_name</b></font></a><br>";
-	$nom_short_desc = f_short_desc($nom_desc,30);
+	$short_desc = explode(" ", $nom_desc);
+//берем первые 6 элементов
+$arr = array_slice($short_desc, 0, 70);
+//превращаем в строку
+$nom_short_desc = implode(" ", $arr);
+ 
+// Если необходимо добавить многоточие
+if (count($arr_str) > 70) {
+   $nom_short_desc .= "...";
+}
 	
 	$parseBB = $tp->toHTML($nom_short_desc,true,'body');
 	$text .= "$parseBB...<a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'>Подробное описание >>></a>";

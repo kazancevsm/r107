@@ -52,6 +52,7 @@ if(IsSet($page) && $page=='profile'){
 //=============Search page===============
 if(IsSet($page) && $page=='search'){
     require_once("search.php");
+    $caption = "<a href='".e_PLUGIN."catalog/catalog.php'>$conf_cathead</a> - Поиск";
 }
 
 

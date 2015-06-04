@@ -31,7 +31,7 @@
 	$text.="<div class='r_window_caption'>Изображение</div>";
 	$text.="<div class='r_window_close'><a href='#' onClick=\"document.getElementById('r_window_block').style.display='none'; return false;\" >Закрыть</a></div>";
 	$text.="<div class='r_window_img'>";
-	$text .="<center><img src='".e_PLUGIN."catalog/images/product_icons/$nom_pic' border='0'></center>";
+	$text .="<div style='vertical-align:middle; margin:0 auto;'><img src='".e_PLUGIN."catalog/images/product_icons/$nom_pic' border='0' ></div>";
 	
 	$text.="</div>";
 	$text.="</div>";
