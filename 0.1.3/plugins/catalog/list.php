@@ -97,8 +97,8 @@ if (IsSet($cat) && $cat <> 0) {
 		$text.="</td>";
 		$text .= "<td class='r_header1' width=auto><a href=catalog.php?page=list&cat=$cat_id><b><h3>$cat_name</h3></b></a>";
 		
-		$short_desc = f_short_desc($cat_desc,30);
-		$parseBB = $tp->toHTML($short_desc,true,'body');
+		$cat_short_desc = f_short_desc($cat_desc,30);
+		$parseBB = $tp->toHTML($cat_short_desc,true,'body');
 		if (!empty($cat_desc)) {
 			 $text .="<br>$parseBB";
 		}
@@ -129,9 +129,9 @@ if (IsSet($cat) && $cat <> 0) {
 	}
 	$text .= "</td>";	
 	$text .= "<td class='r_header1' width=500px><a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'><font size=2><b>$nom_name</b></font></a><br>";
-	$short_desc = f_short_desc($nom_desc,30);
+	$nom_short_desc = f_short_desc($nom_desc,30);
 	
-	$parseBB = $tp->toHTML($short_desc,true,'body');
+	$parseBB = $tp->toHTML($nom_short_desc,true,'body');
 	$text .= "$parseBB...<a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$nom_id'>Подробное описание >>></a>";
 	
 	$text .= "</td><td class='r_header1' width=140px>";

@@ -72,6 +72,7 @@ nom_unit varchar(250),
 nom_desc longtext,
 nom_pic varchar(250),
 nom_price varchar(250),
+nom_count varchar(250),
 primary key (nom_id)
 ) ENGINE=MyISAM;"
 );

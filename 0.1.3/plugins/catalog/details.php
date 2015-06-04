@@ -14,10 +14,28 @@
 			$nom_name = $row['nom_name'];
 			$nom_pic = $row['nom_pic'];
 			$nom_price = $row['nom_price'];
+			$nom_count = $row['nom_count'];
 		}
+		$nom_count = $nom_count+1;
+	
+	$vtsql -> db_Update("catalog_nom", "nom_count='$nom_count' WHERE nom_id='$id'");
 	$text .="<table width=700px><tr>";
 	if(!empty($nom_pic)) {
-	$text .="<td width=100px height='100px'><img src='".e_PLUGIN."catalog/images/product_icons/$nom_pic' border='0'  height='100px'></td>";
+	$text .="<td width=100px height='100px'>";
+	$text .="<a href='#' onClick=\"document.getElementById('r_window_block').style.display='block'; return false;\" >";
+	$text .="<img src='".e_PLUGIN."catalog/images/product_icons/$nom_pic' border='0'  height='100px'></a></td>";
+	
+
+	$text.="<div id='r_window_block' class='r_window_block'>";
+	$text.="<div class='r_window_dialog'>";
+	$text.="<div class='r_window_caption'>Изображение</div>";
+	$text.="<div class='r_window_close'><a href='#' onClick=\"document.getElementById('r_window_block').style.display='none'; return false;\" >Закрыть</a></div>";
+	$text.="<div class='r_window_img'>";
+	$text .="<center><img src='".e_PLUGIN."catalog/images/product_icons/$nom_pic' border='0'></center>";
+	
+	$text.="</div>";
+	$text.="</div>";
+	$text.="</div>";
 	}
 	/*if(empty($nom_pic)) {
 	$text .="<td width=100px height='100px'><img src='".e_PLUGIN."catalog/theme/images/nom_empty.png' border='0' height='100px'></td>";
