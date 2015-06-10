@@ -3,7 +3,7 @@
 /* e107 website system: Log file: 160.2015 */
 
 $ipAddresses = '7f000001.';
-$siteTotal = '4';
+$siteTotal = '5';
 $siteUnique = '1';
 
 $pageInfo = array (
@@ -22,7 +22,7 @@ $pageInfo = array (
   'news' => 
   array (
     'url' => 'http://localhost/0.1.3/news.php',
-    'ttl' => 1,
+    'ttl' => 2,
     'unq' => 1,
   ),
 );
