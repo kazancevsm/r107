@@ -112,10 +112,10 @@ else
 }
 
 if ($pref['jq_core']){
-	echo "<script type='text/javascript' src='".e_FILE_ABS."jquery.js'></script>\n";
+	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."jquery.js'></script>\n";
 	}
 
-echo "<script type='text/javascript' src='".e_FILE_ABS."core.js'></script>\n";
+echo "<script type='text/javascript' src='".e_SYSTEM_ABS."core.js'></script>\n";
 if (isset($theme_js_php) && $theme_js_php)
 {
 	echo "<script type='text/javascript' src='".THEME_ABS."theme-js.php'></script>\n";
@@ -123,7 +123,7 @@ if (isset($theme_js_php) && $theme_js_php)
 else
 {
 	if (is_readable(THEME.'theme.js')) { echo "<script type='text/javascript' src='".THEME_ABS."theme.js'></script>\n"; }
-	if (is_readable(e_FILE.'user.js') && filesize(e_FILE.'user.js')) { echo "<script type='text/javascript' src='".e_FILE_ABS."user.js'></script>\n"; }
+	if (is_readable(e_SYSTEM.'user.js') && filesize(e_SYSTEM.'user.js')) { echo "<script type='text/javascript' src='".e_SYSTEM_ABS."user.js'></script>\n"; }
 }
 
 
@@ -145,7 +145,7 @@ if (isset($eplug_js) && $eplug_js)
 }
 
 if((isset($pref['enable_png_image_fix']) && $pref['enable_png_image_fix'] == true) || (isset($sleight) && $sleight == true)) {
-	echo "<script type='text/javascript' src='".e_FILE_ABS."sleight_js.php'></script>\n";
+	echo "<script type='text/javascript' src='".e_SYSTEM_ABS."sleight_js.php'></script>\n";
 }
 
 if (function_exists('headerjs')){echo headerjs();  }
@@ -209,8 +209,8 @@ if(defined("PREVIEWTHEME")) {
 		}
 		
 		if (!isset($no_core_css) || !$no_core_css) {
-			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";
-			echo "<link rel='stylesheet' href='".e_FILE_ABS."nextprev.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_SYSTEM_ABS."core.css' type='text/css' />\n";
+			echo "<link rel='stylesheet' href='".e_SYSTEM_ABS."nextprev.css' type='text/css' />\n";
 		}
 }
 

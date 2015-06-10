@@ -15,7 +15,7 @@ require_once("languages/".e_LANGUAGE.".php");
 //require_once("cart_cookie.php");
 $ns = new e107table;
 require_once(HEADERF);
-require_once(e_SYSTEM.'shortcode/batch/news_archives.php');
+require_once(e_FILE.'shortcode/batch/news_archives.php');
 require_once(e_HANDLER.'shortcode_handler.php');
 $vt_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);
 //=============params for action========
@@ -24,7 +24,7 @@ $page = $_GET['page'];
 $cat = (int)$_GET['cat'];
 $id = (int)$_GET['id'];
 $showcat = (int)$_GET['showcat'];
-$sorting = "ORDER BY `nom_name` ASC";
+$sorting = $var_sort;
 //==============Date====================
 	$month = date("m");
 	$day = date("d");
@@ -50,7 +50,15 @@ $i=0;
 	$conf_showcolsitems = $pref['conf_showcolsitems'];
 	$conf_showrowsitems = $pref['conf_showrowsitems'];
 	$conf_vthead = $pref['conf_vthead'];
+	
 	include("navigation.php");
+//===============parametr of sorting=====
+//expression ? true_value : false_value
+	$sort = $_GET['sort'];
+	if ($sort==1) $sorting = 'ORDER BY `nom_price1` ASC';
+	if ($sort==2) $sorting = 'ORDER BY `nom_price1` DESC';
+	if ($sort==3) $sorting = 'ORDER BY `nom_name` ASC';
+	if ($sort==4) $sorting = 'ORDER BY `nom_name` DESC';
 //-----    -----//
 if (IsSet($_POST['add'])){
 //-----  -----//
@@ -80,7 +88,7 @@ if (IsSet($_POST['add'])){
 //======numbers of pages===========//
 $vtsql1 = new db;
 if (IsSet($cat) && $cat <> 0) $total_items = $vtsql1 -> db_Select("vt_index", "*", "index_catid='$cat'");
-if (IsSet($cat) && $cat == 0) $total_items = $vtsql1 -> db_Select("vt_nom", "*", "");
+if (IsSet($cat) && $cat == 0) $total_items = $vtsql1 -> db_Select("vt_nom", "*", "nom_vis='".VT_YES."'");
 $from = ($_GET['num_page']) ? $_GET['num_page'] : 0;
 if ($total_items>$conf_showrowsitems){
 $text .= "<div id='vt_block'><div id='vt_num_navi'>";
@@ -131,7 +139,7 @@ if (IsSet($cat) && $cat <> 0) {
 // ======output all nomenklature================================================
 if (IsSet($cat) && $cat == 0) {
 	$vtsql2 = new db;
-	$vtsql2 -> db_Select("vt_nom", "*", " $sorting LIMIT $from,$conf_showrowsitems", "no-where");
+	$vtsql2 -> db_Select("vt_nom", "*", "nom_vis='".VT_YES."' $sorting LIMIT $from,$conf_showrowsitems", "no-where");
 	$caption_section = "";
 }
 	
@@ -149,6 +157,7 @@ if (IsSet($cat) && $cat == 0) {
 		$nom_pic = $row['nom_pic'];
 		$nom_price1 = $row['nom_price1'];
 		$nom_price2 = $row['nom_price2'];
+		$nom_vis = $row['nom_vis'];
 		$desc_short = substr ($nom_desc_all, 0, 300);
 	$text .= "<div id='vt_nom_item'><form name='nom' method='post' action='".$PHP_SELF."'><table width=98%><tr>";
 	$text .= "<td width=120px valign=top><center>$vtsql2 ";
