@@ -20,6 +20,8 @@
 |	© е107 Club 2010-2011. All Rights Reserved.									|
 +-------------------------------------------------------------------------------+
 */
+//define("NWSLAN_48", "Опции новостей");
+define("LAN_NEWS_MENU_CAPTION", "Опции новостей");
 //define("NWSLAN_44", "Главная страница новостей");
 define("LAN_NEWS_MENU_GENERAL", "Главная страница новостей");
 //define("NWSLAN_45", "Создать новость");
@@ -53,23 +55,52 @@ define("LAN_NEWS_CAPTION", "Заголовок");
 //define("NWSLAN_13", "Текст");
 define("LAN_NEWS_TEXT", "Текст");
 //define("NWSLAN_14", "Расширенный");
-define("LAN_NEWS_DESC", "Расширенный");
+define("LAN_NEWS_DESC", "Расширенный текст");
+//define("NWSLAN_69", "Загрузить на сервер изображение или файл для использования в теле новости");
+define("LAN_NEWS_UPLOAD", "Загрузить на сервер изображение или файл для использования в теле новости");
+//define("LAN_NEWS_24", "Изображение + Авто-эскиз");
+define("LAN_NEWS_IMGAUTO", "Изображение + Авто-эскиз");
+//define("NWSLAN_67", "Изображение");
+define("LAN_NEWS_IMG", "Изображение");
+//define("LAN_NEWS_22", "Эскиз");
+define("LAN_NEWS_PIC", "Эскиз");
+//define("LAN_NEWS_25", "Размер авто-эскиза");
+define("LAN_NEWS_PICSIZE", "Размер авто-эскиза");
+//define("NWSLAN_68", "Файл");
+define("LAN_NEWS_FILE", "Файл");
+//define("LAN_NEWS_26", "добавить новую загрузку на сервер");
+define("LAN_NEWS_ADDUPLOAD", "добавить новую загрузку на сервер");
 //define("NWSLAN_15", "Комментарии");
 define("LAN_NEWS_COMMENTS", "Комментарии");
 //define("NWSLAN_18", "Разрешить размещение комментариев для этой новости");
 define("LAN_NEWS_COMMENTS_ALLOW", "Разрешить размещение комментариев для этой новости");
+//define("NWSLAN_74", "Выберите способ отображения новости");
+define("LAN_NEWS_TYPE", "Выберите способ отображения новости");
+//define("NWSLAN_72", "Отображать новость между датами.");
+define("LAN_NEWS_DATE", "Отображать новость между датами.");
 //define("NWSLAN_19", "Активация");
-define("LAN_NEWS_ACTIVATION", "Активация");
+//define("LAN_NEWS_ACTIVATION", "Активация");
 //define("NWSLAN_21", "Активация между");
 define("LAN_NEWS_ACTIVATION_BETWEEN", "Активация между");
 //define("NWSLAN_22", "Видимость");
-define("LAN_NEWS_VISIBILITY", "Видимость");
+//define("LAN_NEWS_VISIBILITY", "Видимость");
+//define("NWSLAN_84", "Кому будет видна данная новость");
+define("LAN_NEWS_VISIBILITY", "Кому будет видна данная новость");
+//define("LAN_NEWS_30", "Если выбрано, новость будет постоянно находиться выше всех остальных");
+define("LAN_NEWS_FIXUP", "Если выбрано, новость будет постоянно находиться выше всех остальных");
 //define("NWSLAN_24", "Просмотреть снова");
 define("LAN_NEWS_LOOK_AGAIN", "Просмотреть снова");
-define("NWSLAN_25", "Обновить новость в базе данных");
-define("NWSLAN_26", "Поместить новость в базу данных");
-define("NWSLAN_27", "Просмотр");
-define("NWSLAN_29", "Новое сообщение");
+//define("NWSLAN_25", "Обновить новость в базе данных");
+define("LAN_NEWS_UPDATE_NEW", "Обновить");
+//define("NWSLAN_26", "Поместить новость в базу данных");
+define("LAN_NEWS_ADD_NEW", "Поместить новость в базу данных");
+//define("NWSLAN_27", "Просмотр");
+define("LAN_NEWS_VIEW", "Просмотр");
+
+//define("NWSLAN_29", "Новое сообщение");
+define("LAN_NEWS_CAPTION_ITEM", "Новое сообщение");
+
+
 define("NWSLAN_31", "Элемент новостей");
 define("NWSLAN_32", "удален");
 define("NWSLAN_33", "Категория новостей");
@@ -84,7 +115,7 @@ define("NWSLAN_42", "без заголовка");
 define("NWSLAN_43", "Нет новостей");
 
 define("NWSLAN_47", "Сообщёные новости");
-define("NWSLAN_48", "Опции новостей");
+
 define("NWSLAN_49", "Сообщено");
 define("NWSLAN_51", "Существующие категории новостей");
 define("NWSLAN_52", "Название категории");
@@ -97,19 +128,20 @@ define("NWSLAN_58", "Сообщение");
 define("NWSLAN_59", "Нет сообщённых новостей");
 define("NWSLAN_62", "Перейти:");
 define("NWSLAN_63", "Поиск в новостях");
-define("NWSLAN_66", "Загрузить на сервер");
-define("NWSLAN_67", "Изображение");
-define("NWSLAN_68", "Файл");
-define("NWSLAN_69", "Загрузить на сервер изображение или файл для использования в теле новости");
-define("NWSLAN_72", "Отображать новость между датами.");
-define("NWSLAN_73", "Задать тип");
-define("NWSLAN_74", "Выберите способ отображения новости");
+
+//=====	button
+//define("NWSLAN_66", "Загрузить на сервер");
+define("LAN_NEWS_UPLOAD_BUT", "Загрузить на сервер");
+
+
+
+
 define("NWSLAN_75", "Страница новостей по умолчанию");
 define("NWSLAN_76", "Только заголовок на главной странице");
 define("NWSLAN_77", "Отправить к другому меню новостей");
 define("NWSLAN_79", "Очистить форму");
 define("NWSLAN_83", "Расширенный пост новостей");
-define("NWSLAN_84", "Кому будет видна данная новость");
+
 define("NWSLAN_86", "Показывать категории новостей на странице новостей");
 define("NWSLAN_87", "Новая колонка категорий");
 define("NWSLAN_88", "Новостей на страницу");
@@ -148,15 +180,16 @@ define("LAN_NEWS_17", "b.");
 define("LAN_NEWS_18", "Информация");
 define("LAN_NEWS_19", "Сейчас");
 define("LAN_NEWS_21", "Новость обновлена в БД.");
-define("LAN_NEWS_22", "Эскиз");
-define("LAN_NEWS_23", "Выберите изображение для этой новости");
-define("LAN_NEWS_24", "Изображение + Авто-эскиз");
-define("LAN_NEWS_25", "Размер авто-эскиза");
-define("LAN_NEWS_26", "добавить новую загрузку на сервер");
+
+//define("LAN_NEWS_23", "Выберите изображение для этой новости"); - delete
+
+
+//=====	message
+//define("LAN_NEWS_48", "Нет изображения");
+define("LAN_NEWS_MES_NOIMG", "Нет изображения");
+
 define("LAN_NEWS_27", "Аннотация");
-define("LAN_NEWS_28", "Прикреплена");
-define("LAN_NEWS_29", "Выберите, чтобы новость была прикреплена");
-define("LAN_NEWS_30", "Если выбрано, новость будет постоянно находиться выше всех остальных");
+
 define("LAN_NEWS_31", "Эта новость <b>прикреплена</b> (она будет располагаться выше всех остальных)");
 define("LAN_NEWS_32", "Штамп даты");
 define("LAN_NEWS_33", "Установить штамп даты для текущей новости");
@@ -171,7 +204,7 @@ define("LAN_NEWS_42", "Файлы");
 define("LAN_NEWS_44", "Трекбек не активен.");
 define("LAN_NEWS_45", "ID");
 define("LAN_NEWS_46", "Новость не обновлена, так как не было внесено изменений.");
-define("LAN_NEWS_48", "Нет изображения");
+
 define("LAN_NEWS_49", "Тип отображения");
 
 define("LAN_NEWS_51", "Пересчёт числа комментариев");
