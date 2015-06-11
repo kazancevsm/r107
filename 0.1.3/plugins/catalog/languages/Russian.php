@@ -6,11 +6,10 @@
 //	license GNU GPL
 //==================== the project started in March 2012 =========================
 
-define("LAN_INFO_CAP","Каталог");
-define("LAN_INFO_NAME","Кталог продукции");
-define("LAN_INFO_INST","Плагин успешно установлен.");
-define("LAN_INFO_UNINST","Плагин успешно удален.");
-define("LAN_INFO_ABOUT","Плагин, имеющий функции каталога, Интернет-витрины, Интернет-магазина. Надеюсь, этот плагин станет очень полезным инструментом в вашем деле.<br>");
+define("LAN_CATALOG_PLUG_NAME","Кaталог");
+define("LAN_CATALOG_PLUG_INST","Плагин успешно установлен.");
+define("LAN_CATALOG_PLUG_UNINST","Плагин успешно удален.");
+define("LAN_CATALOG_PLUG_ABOUT","Плагин, имеющий функции каталога, Интернет-витрины, Интернет-магазина. Надеюсь, этот плагин станет очень полезным инструментом в вашем деле.<br>");
 //admin_menu.php
 define("LAN_MENU_CAP","Меню Catalog");
 define("LAN_MENU_CONF","Настройки");

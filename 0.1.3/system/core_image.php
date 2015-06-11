@@ -2925,7 +2925,6 @@ $core_image = array (
       'consolidate.php' => '4ad263421a3173059c6e3b37e2131890',
       'e_meta.php' => 'c7c1bff20fb308d2461bf3bf9ac89d45',
       'log.php' => '30dc9d881572f1db10f770711969656a',
-      'log_sql.php' => 'd2f48ba525c87b3f11cf5758e68cc9d2',
       'log_update.php' => '96ffd24abbaadb7086b49d19feeb3763',
       'log_update_check.php' => '98648cff5205b2b3791648d955e979fc',
       'loginfo.php' => 'fc7c1a0fb5b7d3f52db77353893e70dd',

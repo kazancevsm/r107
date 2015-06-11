@@ -22,10 +22,10 @@
 */
 
 define("LAN_THEME_1", "Read/Post Comment: ");
-define("LAN_THEME_2", "Comments are turned off for this item");
-define("LAN_THEME_3", "Read the rest...");
-define("LAN_THEME_4", "Posted by");
-define("LAN_THEME_5", "on");
+define("LAN_THEME_2", "Комментирование этого поста ограниченно автором");
+define("LAN_THEME_3", "Читать далее...");
+define("LAN_THEME_4", "Автор: ");
+define("LAN_THEME_5", "в");
 define("LAN_THEME_6", "e107.v4 theme by <a href='http://e107.org' rel='external'>jalist</a>");
 
 ?>

@@ -5,13 +5,13 @@
 //	sunout@osgroup.pro, stalker@osgroup.pro
 //	license GNU GPL
 //==================== the project started in May 2014 ===========================
-require_once("../../class.php");
+require_once("../../class2.php");
 if (!getperms("5")) { header("location:".e_BASE."index.php"); exit; }
 require_once(e_HANDLER."form_handler.php");
-require_once(e_HANDLER."userclass_class.php");
+require_once(e_HANDLER."userclass_handler.php");
 require_once(e_PLUGIN."catalog/cat_class.php");
-require_once(e_HANDLER."file_class.php");
-require_once(e_HANDLER.'ren_help.php');
+require_once(e_HANDLER."file_handler.php");
+require_once(e_HANDLER.'ren_help_handler.php');
 require_once(e_ADMIN."auth.php");
 require_once("languages/".e_LANGUAGE.".php");
 require_once(e_HANDLER."tiny_mce/wysiwyg.php");
@@ -125,8 +125,9 @@ if(IsSet($sub_action) && ($sub_action =='create') || ($sub_action =='edit')) {
 		$vis_upd = 'block';
 		$vis_agr = 'none';
 	}
+	
 // -----form for processing of records------------------------------------------------
-$text.="<div class='r_window_block'>";
+$text.="<div id='r_window_block_cat' class='r_window_block'>";
 $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Категории</div>";
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
@@ -174,13 +175,13 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
 	}
 	$text .= "</div></td></tr>";
 	$text .= "<tr><td class='r_header3'>".LAN_CAT_DESC." </td><td class='r_header3'>";
-	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
+	$insertjs = (!e_WYSIWYG)?"rows='10' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='10' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='cat_desc' cols='80' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$cat_desc</textarea><br>".display_help('')."";
 	$text .= "</td></tr>";
 	$text .= "<tr><td></td><td>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr;' value=".LAN_BUT_AGR." name='submit_insert'>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd;' value=".LAN_BUT_UPD." name='submit_update'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr; float:left; margin-right:3px;' value=".LAN_BUT_AGR." name='submit_insert'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd; float:left; margin-right:3px;' value=".LAN_BUT_UPD." name='submit_update'>
 			<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_CANS." name='submit_reset'>
 			</td></tr></table></form>";
 	$text.="</div>";
@@ -188,8 +189,8 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
 	$text.="</div>";		
 }
 
-$text .= "<a href='".e_PLUGIN."catalog/admin_config.php?cat.create' style='cursor:pointer;' >Добавить категорию</a> | ";
-$text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.load'>Загрузить изображения</a>";
+$text .= "<a href='".e_PLUGIN."catalog/admin_config.php?cat.create' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">Добавить категорию</a> | ";
+$text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.load' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_upload').style.display='block'; return false;\">Загрузить изображения</a>";
 
 $text.="<table width=100%>";
 $text.="<tr><td class='r_caption' width='5%'>ID</td>";
@@ -212,7 +213,7 @@ $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 	$text .="<td class='r_header1' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
 	$text .="<td class='r_header1' width='75%'>❖<b> $cat_name</b></td>";
 	$text .= "<td class='r_header1' width='10%'>
-			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">".ADMIN_EDIT_ICON."</a>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
 		  </td></tr>";
 	$catsql1 -> db_Select("catalog_cat", "*", "cat_sub='$cat_id' ORDER BY cat_name ASC");
@@ -234,7 +235,7 @@ $text.="</table>";
 $text.="</div>";
 if(IsSet($sub_action) && $sub_action =='load') {
 
-$text.="<div class='r_window_block'>";
+$text.="<div id='r_window_block_upload' class='r_window_block'>";
 $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Загрузить изображения</div>";
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
@@ -297,6 +298,7 @@ $catsql -> db_Select("catalog_nom", "*", "nom_id='".$nom_id."'");
 	$nom_desc = $row['nom_desc'];
 	$nom_pic = $row['nom_pic'];
 	$nom_price = $row['nom_price'];
+	$nom_count = $row['nom_count'];
 	}
 $unvis = 'none';
 $vis = 'yes';
@@ -316,7 +318,7 @@ if (IsSet($_POST['submit_insert'])){
 	    $message = "<font color=red>".LAN_MES_11."</font>";
 	}
 	else {
-	    $catsql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_art', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price'");
+	    $catsql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_art', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price', ''");
 	    $message = "<font color=red>".LAN_MES_12."</font>";
 	    header ("Location: ".e_PLUGIN."catalog/admin_config.php?nom");
 	    exit;
@@ -342,11 +344,11 @@ if(IsSet($sub_action) && ($sub_action =='edit' || $sub_action =='create')) {
 	
 	}
 	
-$text ="<div class='r_window_block'>";
-$text.="<div class='r_window_dialog'>";
-$text.="<div class='r_window_caption'>Номенклатура</div>";
-$text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
-$text.="<div class='r_window_scroll'>";
+$text ="<div id='r_window_block'>";
+$text.="<div id='r_window_dialog'>";
+$text.="<div id='r_window_caption'>Номенклатура</div>";
+$text.="<div id='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
+$text.="<div id='r_window_scroll'>";
 	$text .= "<form method='post' action='". $PHP_SELF ."' id='dataform' enctype='multipart/form-data'>
 		<table style='".ADMIN_WIDTH."' class='r_border' style='width:640px'>";
 	$text .= "<tr>
@@ -391,7 +393,7 @@ $text.="<div class='r_window_scroll'>";
 	$text .= "<tr>";
 	$text .="<td style='width:25%' class='r_header3'>Описание</td> <td style='width:75%' class='r_header3'>";
 		
-	$insertjs = (!e_WYSIWYG)?"rows='25' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='25' style='width:100%' ";
+	$insertjs = (!e_WYSIWYG)?"rows='10' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='10' style='width:100%' ";
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='nom_desc' cols='50' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$nom_desc</textarea><br>".display_help('')."</td></tr>";
 	//===============================select cat_icon=================================
@@ -417,7 +419,7 @@ $text.="<div class='r_window_scroll'>";
 	$text .= "<input type='hidden' name='nom_id' value='".$id."'>";
 	$text .= "<tr><td colspan=2 class='r_header3'><center>";
 		if($sub_action =="create") {
-	$text .="<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_AGR." name='submit_insert'>";
+	$text .="<input type='submit' class='button' style='cursor:pointer; ' value=".LAN_BUT_AGR." name='submit_insert'>";
 		}
 		if($sub_action =="edit") {
 	$text .="<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_UPD." name='submit_update'>";
@@ -439,8 +441,9 @@ $text.="<tr><td class='r_caption' width='5%'>№</td>";
 $text.="<td class='r_caption' width='10%'>Фото</td>";
 $text.="<td class='r_caption' width='40%'>Наименование номенклатуры</td>";
 $text.="<td class='r_caption' width='25%'>Категория</td>";
-$text.="<td class='r_caption' width='10%'>Цена</td>";
-$text.="<td class='r_caption' width='10%'>Опции</td>";
+$text.="<td class='r_caption' width='8%'>Цена</td>";
+$text.="<td class='r_caption' width='6%'>Просмотров</td>";
+$text.="<td class='r_caption' width='6%'>Опции</td>";
 $text.="<td class='r_caption' width=0px padding=0px></td>";
 $text.="</table>";
 $text.="<div class='r_frame_scroll'>";
@@ -464,6 +467,7 @@ $catsql -> db_Select("catalog_nom", "*", "nom_id ORDER BY `nom_id` ASC");
 	$nom_desc = $row['nom_desc'];
 	$nom_pic = $row['nom_pic'];
 	$nom_price = $row['nom_price'];
+	$nom_count = $row['nom_count'];
 		
 		if($count==1){
 			  $style = "r_header1";
@@ -488,8 +492,9 @@ $catsql -> db_Select("catalog_nom", "*", "nom_id ORDER BY `nom_id` ASC");
 				}
 			  $text.="</td>";
 
-			  $text.="<td class='$style' width='10%'>$nom_price</td>";
-			  $text .= "<td class='$style' width='10%'><a href='".e_PLUGIN."catalog/admin_config.php?nom.edit.$nom_id' style='cursor:pointer;' >".ADMIN_EDIT_ICON."</a>
+			  $text.="<td class='$style' width='8%'>$nom_price</td>";
+			   $text.="<td class='$style' width='6%'>$nom_count</td>";
+			  $text .= "<td class='$style' width='6%'><a href='".e_PLUGIN."catalog/admin_config.php?nom.edit.$nom_id' style='cursor:pointer;' >".ADMIN_EDIT_ICON."</a>
 				<a href='".e_PLUGIN."catalog/admin_config.php?nom.delete.$nom_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_NOM_DEL_CONFIRM." [ ID: $nom_id] ]')\">".ADMIN_DELETE_ICON."</a>
 				</td>";
 		
@@ -574,104 +579,42 @@ if (IsSet($_POST['submit_insert'])){
 	$ns -> tablerender(LAN_MES_00, $message);
 }
 
-
-/*
 if (IsSet($_POST['submit_import'])){
-	    $row=1;
-	    $handle=fopen(e_PLUGIN."catalog/proba.csv","r");
-	    while($data=fgetcsv($handle,1000,";")){
-//	      $sql = new db;
-//	      $sql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_num', '$nom_art', '$nom_code', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price1', '$nom_price2', '$nom_price3', '$nom_price4'");
-	      $num=count($data);
-	      $text .= "<p> $num полей в строке $row: \n";
-		  $row++;
-		  for ($c=0; $c<$num;$c++){
-		  
+	$catId = $_POST['catId'];
+	$row=1;
+	$handle=fopen(e_PLUGIN."catalog/price/price.csv","r");
+	$count_cat=0;
+	$count_nom=0;
+	while($data=fgetcsv($handle,65536,";")){
+//		$sql = new db;
+//		$sql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_num', '$nom_art', '$nom_code', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price1', '$nom_price2', '$nom_price3', '$nom_price4'");
+		$num=count($data);
+//		$text .= "<p> $num полей в строке $row: \n";
+		$row++;
+		for ($c=0; $c<$num;$c++){
 //	      $text .= $data[$c] . "\n";
-		  }
-	      $sql = new db;
-	      $sql -> db_Insert("catalog_nom", "0, '1', '$nom_num', '$data[0]', '$nom_code', '$data[1]', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price1', '$data[3]', '$nom_price3', '$nom_price4'");
-	     }
-fclose($handle);
-$ns -> tablerender($caption, $text);
-}*/
-// -----import procedure----------------------------------------------------------
-/*
-if (IsSet($_POST['submit_import'])){
-	    if ($cat_id==''){
-	    $cat_id=0;
-	    } 
-
-	    $row=1;
-	    $handle=fopen(e_PLUGIN."catalog/price/proba.csv","r");
-	    $count_cat=0;
-	    $n=0;
-	    while($data=fgetcsv($handle,65536,";")){
-	    
-//	      $sql = new db;
-//	      $sql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_num', '$nom_art', '$nom_code', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price1', '$nom_price2', '$nom_price3', '$nom_price4'");
-	      $num=count($data);
-	      $text .= "<p> $num полей в строке $row: \n";
-		  $row++;
-		  for ($c=0; $c<$num;$c++){
-		  
-//	      $text .= $data[$c] . "\n";
-		  }
-
-	      if ($data[2]==''){
-		  $count_cat++;
-		  $count_cat1=10000+$count_cat;
-		  $sql = new db;
-		  $sql -> db_Insert("catalog_cat", "$count_cat1, '1', '0', '$data[1]','$data[3]','$data[4]'");
-	     }
-	     else{
-	      $n++;
-	      $sql = new db;
-		if ($data[0]==''){
-		  $sql -> db_Insert("catalog_nom", "$n, '$count_cat1', '$nom_num', '$data[0]', '$data[1]', '$nom_type', '$nom_unit', '$nom_desc_mini','$data[4]', '$data[3]', '$data[2]', '$nom_price2'");
-		 }
-		 else{
-		  $sql -> db_Insert("catalog_nom", "$n, '$count_cat1,$data[0]', '$nom_num', '$data[0]', '$data[1]', '$nom_type', '$nom_unit', '$nom_desc_mini','$data[4]', '$data[3]', '$data[2]', '$nom_price2'");
-		 }
-	     }
-	     }
-fclose($handle);
-//}
-$ns -> tablerender($caption,$text);
-}
-*/
-if (IsSet($_POST['submit_import'])){
-	    $row=1;
-	    $handle=fopen(e_PLUGIN."catalog/price/catalog_index.csv","r");
-	    $count_cat=0;
-	    while($data=fgetcsv($handle,65536,";")){
-	    
-//	      $sql = new db;
-//	      $sql -> db_Insert("catalog_nom", "0, '$nom_cat', '$nom_num', '$nom_art', '$nom_code', '$nom_name', '$nom_type', '$nom_unit', '$nom_desc', '$nom_pic', '$nom_price1', '$nom_price2', '$nom_price3', '$nom_price4'");
-	      $num=count($data);
-	      $text .= "<p> $num полей в строке $row: \n";
-		  $row++;
-		  for ($c=0; $c<$num;$c++){
-		  
-//	      $text .= $data[$c] . "\n";
-		  }
-
-	      
-	$count_cat++;
-	$sql = new db;
-	$sql -> db_Insert("catalog_index", "$count_cat, '$data[0]','$data[1]'");
-		if ($data[2]<>''){
-		$count_cat++;
-		$sql1 = new db;
-		$sql1 -> db_Insert("catalog_index", "$count_cat, '$data[0]','$data[2]'");
 		}
-	     }
+		if ($data[2]==''){
+			$count_cat++;
+			$count_cat1 = ($catId*1000)+$count_cat;
+			$sql1 = new db;
+			$sql1 -> db_Insert("catalog_cat", "$count_cat1, '$catId', '$data[1]', '', ''");
+		}
+		else{
+			$count_nom++;
+			$count_nom1 = ($catId*1000)+$count_nom;
+			$sql2 = new db;
+			$sql2 -> db_Insert("catalog_nom", "$count_nom1, $count_cat1, '$data[0]', '$data[1]', '$data[2]', '$data[3]', '$data[4]', '$data[5]','$data[6]'");
+		}
+		
+	}
 fclose($handle);
 //}
 $ns -> tablerender($caption,$text);
 }
 
 if (IsSet($_POST['submit_clearcat'])){
+$cat_id = $_POST['catId'];
       if ($cat_id==''){
 	    $message = "<font color=red>Не выбрана категория</font>";
 	    $ns -> tablerender(LAN_MES_CAP, $message);
@@ -702,6 +645,8 @@ $text ="<form enctype='multipart/form-data' name='form_nom_import' method='post'
 			$text .="<option value='$catId'>$catName";
 			}
 	$text .="</option></select><br>";
+//	$text .="<tr><td class='r_header3'>" .LAN_AI_01." *";
+//	$text .="<input type='file'</select><br>";
 	$text .="<input type='submit' class='button' style='cursor:pointer;' value='Импорт файла' name='submit_import'> ";
 	$text .="<input type='submit' class='button' style='cursor:pointer;' value='Очистить категорию' name='submit_clearcat'>";
 	$text .="</table></form>";

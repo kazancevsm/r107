@@ -160,7 +160,7 @@ class page
 		global $pref;
 		$pref['upload_storagetype'] = "1";
 		require_once(e_HANDLER."upload_handler.php");
-		$uploaded = file_upload(e_IMAGE."custom/");
+		$uploaded = file_upload(e_FILE."images_custom/");
 	}
 
 	function createPage($mode=FALSE)
@@ -224,7 +224,7 @@ class page
 
 		<tr>
 			<td style='width:25%' class='forumheader3'>".LAN_UPLOAD_IMAGES."</td>
-			<td style='width:75%;' class='forumheader3'>".$tp->parseTemplate("{UPLOADFILE=".e_IMAGE."custom/}")."</td>
+			<td style='width:75%;' class='forumheader3'>".$tp->parseTemplate("{UPLOADFILE=".e_FILE."images_custom/}")."</td>
 		</tr>";
 
 		if(!$mode)

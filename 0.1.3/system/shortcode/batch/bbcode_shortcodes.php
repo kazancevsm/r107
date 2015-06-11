@@ -19,7 +19,7 @@
 if (!defined('e107_INIT')) { exit; }
 
 include_once(e_HANDLER.'shortcode_handler.php');
-include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_ren_help_handler.php");
+include_lan(e_LANGUAGEDIR.e_LANGUAGE."/lan_ren_help.php");
 global $register_bb;
 $bbcode_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);
 

@@ -98,7 +98,7 @@ class e107{
 			define("e_THEME", e_BASE.$THEMES_DIRECTORY);
 			
 			define("e_ADMIN_ABS", e_HTTP.$ADMIN_DIRECTORY);
-			define("e_DOC", e_BASE.$HELP_DIRECTORY);
+			define("e_DOC_ABS", e_BASE.$DOCS_DIRECTORY);
 			define("e_FILE_ABS", e_HTTP.$FILES_DIRECTORY);
 			define("e_HANDLER_ABS", e_HTTP.$HANDLERS_DIRECTORY);
 			define("e_IMAGE_ABS", e_HTTP.$IMAGES_DIRECTORY);
@@ -115,8 +115,6 @@ class e107{
 			{ 
 			  define("e_DOCROOT", false); 
 			}
-
-			define("e_DOC_ABS", e_HTTP.$HELP_DIRECTORY);
 
 			if ($DOWNLOADS_DIRECTORY{0} == "/") {
 				define("e_DOWNLOAD", $DOWNLOADS_DIRECTORY);

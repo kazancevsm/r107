@@ -11,28 +11,28 @@ if (!defined('e107_INIT')) { exit; }
 $lan_file = e_PLUGIN."catalog/languages/".e_LANGUAGE.".php";
 include_once(file_exists($lan_file) ? $lan_file : e_PLUGIN."catalog/languages/English.php");
 
-$eplug_name = PLUG_INFO_CAP;				// Caption of the plugin
+$eplug_name = LAN_CATALOG_PLUG_NAME;			// Caption of the plugin
 $eplug_version = "1.0";					// Version of the plugin
-$eplug_author = "MagicDreamWebStudio";			// Author
-$eplug_url = "http://md.osgroup.pro";			// Site of author and support
+$eplug_author = "OpenSourceGroup";			// Author
+$eplug_url = "http://r107.pro";				// Site of author and support
 $eplug_email = "sunout@osgroup.pro";			// E-mail of author
-$eplug_description = PLUG_INFO_ABOUT;			// Information about the plugin
+$eplug_description = LAN_CATALOG_PLUG_ABOUT;		// Information about the plugin
 $eplug_compatible = "e107v7+";				// Version of e107 for plugin working
 $eplug_readme = "doc/readme.doc";			// Leave blank if no readme file
 $eplug_folder = "catalog";				// Name of the plugin's folder
-$eplug_menu_name = PLUG_INFO_NAME;			// Mane of menu item for plugin
+$eplug_menu_name = LAN_CATALOG_PLUG_NAME;		// Mane of menu item for plugin
 $eplug_conffile = "admin_config.php";			// Name of the admin configuration file
 $eplug_logo = "theme/logo_32.png";
 $eplug_icon = $eplug_folder."/theme/logo_32.png";	// Icon image and caption text
 $eplug_icon_small = $eplug_folder."/theme/logo_16.png";
-$eplug_caption =  PLUG_CONF_CAP;			// Caption adminconfig page
+$eplug_caption =  LAN_CATALOG_PLUG_NAME;		// Caption adminconfig page
 $eplug_link = True;					// Create a link in main menu (yes=TRUE, no=FALSE)
-$eplug_link_name = PLUG_INFO_NAME;
+$eplug_link_name = LAN_CATALOG_PLUG_NAME;
 $eplug_link_url = e_PLUGIN."catalog/catalog.php";
 $site = SITEURL;
-$eplug_done = PLUG_INFO_INST;				// Text to display after plugin successfully installed
+$eplug_done = LAN_CATALOG_PLUG_INST;			// Text to display after plugin successfully installed
 $eplug_prefs = array( 					// List of preferences
-"conf_cathead" => PLUG_INFO_NAME,			// plugin name
+"conf_cathead" => LAN_CATALOG_PLUG_NAME,			// plugin name
 "conf_catadmail" => 'yourmail@yourserver.domen',	// mail of admin trade or manager
 "conf_catsizepicbig" => '600',				// big size of pictures
 "conf_catsizepicsmall" => '150',			// small size of pictures
@@ -40,14 +40,14 @@ $eplug_prefs = array( 					// List of preferences
 "conf_catshowrowscat" => '10',				// show row categories
 "conf_catshowcolsitems" => '2',				// show column items
 "conf_catshowrowsitems" => '10',			// show rows items
-"conf_catnewshow" => PLUG_YES,				// show new arrivals
-"conf_catnewhead" => PLUG_CONF_NEW_CAP,			
+"conf_catnewshow" => LAN_YES,				// show new arrivals
+"conf_catnewhead" => LAN_CONF_NEW_CAP,			
 "conf_catnewitems" => '4',
-"conf_catsaleshow" => PLUG_YES,
-"conf_catsalehead" => PLUG_CONF_SALE_CAP,
+"conf_catsaleshow" => LAN_YES,
+"conf_catsalehead" => LAN_CONF_SALE_CAP,
 "conf_catsaleitems" => '4',
-"conf_cathitshow" => PLUG_YES,
-"conf_cathithead" => PLUG_CONF_HIT_CAP,
+"conf_cathitshow" => LAN_YES,
+"conf_cathithead" => LAN_CONF_HIT_CAP,
 "conf_cathititems" => '4'
 );
 
@@ -72,6 +72,7 @@ nom_unit varchar(250),
 nom_desc longtext,
 nom_pic varchar(250),
 nom_price varchar(250),
+nom_count varchar(250),
 primary key (nom_id)
 ) ENGINE=MyISAM;"
 );
