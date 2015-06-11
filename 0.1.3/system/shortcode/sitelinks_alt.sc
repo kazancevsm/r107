@@ -83,7 +83,7 @@
 	if (file_exists(THEME.$js_file)) {
 		$text = "<script type='text/javascript' src='".THEME_ABS.$js_file."'></script>";
 	} else {
-		$text = "<script type='text/javascript' src='".e_FILE_ABS.$js_file."'></script>";
+		$text = "<script type='text/javascript' src='".e_SYSTEM_ABS.$js_file."'></script>";
 	}
 	$text .= "<div class='menuBar' style='width:100%; white-space: nowrap'>";
 

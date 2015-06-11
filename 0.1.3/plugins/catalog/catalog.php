@@ -25,6 +25,7 @@ require_once(HEADERF);
 require_once(e_SYSTEM.'shortcode/batch/news_archives.php');
 require_once(e_HANDLER.'shortcode_handler.php');
 require_once('cat_class.php');
+
 $vt_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);
 
 //=============Navigation================

@@ -201,21 +201,20 @@ if(defined("PREVIEWTHEME")) {
 			$css_default = "print";
 		}
 			
-		if(file_exists(THEME."nextprev.css")){
+		if(file_exists(THEME_ABS."nextprev.css")){
 			echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
-		}
-		if(!file_exists(THEME."nextprev.css")){
-			echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";	
+		} else {
+			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/nextprev.css' type='text/css' />\n";	
 		}
 		
-<<<<<<< HEAD
+/*
 		if(file_exists(e_THEME_ABS."css/core.css")){
 			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";
-=======
+		}
+*/
 		if (!isset($no_core_css) || !$no_core_css) {
-			echo "<link rel='stylesheet' href='".e_SYSTEM_ABS."core.css' type='text/css' />\n";
-			echo "<link rel='stylesheet' href='".e_SYSTEM_ABS."nextprev.css' type='text/css' />\n";
->>>>>>> 7eead709c7771186d4eb1b797f5f5b49ff8d8d9c
+			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/core.css' type='text/css' />\n";
+//			echo "<link rel='stylesheet' href='".e_SYSTEM_ABS."nextprev.css' type='text/css' />\n";
 		}
 }
 

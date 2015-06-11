@@ -268,41 +268,7 @@ input#helpb.helpbox {
 	margin: 10px 10px 5px 15px;
 	font-style: italic;
 }
-.nextprev{
-	border: 0px none;
-	background-color: transparent;
-	border-collapse: collapse;
-	padding: 15px;
-	margin: 5px 0px ;
-	text-align: left;
-	width: auto;
-	font-size: 13px;
-	font-weight: bold;
-}
-.nextprev_link {
-	background-color: #FFCC00;
-	border:1px solid #FFCC00;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	color:#FFFFFF;
-	margin:0px;
-	padding:2px 6px;
-	text-decoration: none;
-}
-.nextprev_link:hover {
-	background-color: #EEEEEE;
-	color:#FFCC00;
-	text-decoration: none;
-}
-.nextprev_current {
-	background-color: transparent;
-	border:1px solid transparent;
-	color:#333333;
-	margin:0px;
-	padding:2px 6px;
-	text-decoration: none;
-}
+
 .smalltext {
 	font-size: 12px;
 	font-weight: normal;
