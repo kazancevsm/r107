@@ -71,13 +71,6 @@ $csscompliant = TRUE;	// If set to TRUE will display a CSS compliant logo in the
 // define("THEME_DISCLAIMER", "Example theme disclaimer text."); 
 
 
-// Dont render core style sheet link.
-// the contents of e107_files/e107.css have been copied to this themes style.css.
-// By setting $no_core_css to TRUE below we can prevent the <link> tag 
-// that would normally be generated in the <head> of the page from being outputted.
-// This saves us a call by the browser to a stylesheet that we no longer need.
-
-$no_core_css = TRUE;
 
 
 // Output into <head> section.

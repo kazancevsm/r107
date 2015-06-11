@@ -208,9 +208,8 @@ if(defined("PREVIEWTHEME")) {
 			echo "<link rel='stylesheet' href='".e_THEME."css/nextprev.css' type='text/css' />\n";	
 		}
 		
-		if (!isset($no_core_css) || !$no_core_css) {
+		if(file_exists(e_THEME_ABS."css/core.css")){
 			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";
-			echo "<link rel='stylesheet' href='".e_FILE_ABS."nextprev.css' type='text/css' />\n";
 		}
 }
 
