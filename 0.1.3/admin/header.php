@@ -178,7 +178,10 @@ function savepreset(ps,pid){
 </script>\n";
 }
 
-if (function_exists('headerjs')){echo headerjs();  }
+if (function_exists('headerjs'))
+{
+	echo headerjs();
+}
 
 //
 // E: Send CSS
@@ -202,26 +205,19 @@ if (isset($eplug_css) && $eplug_css) {
 }
 
 echo "<!-- Theme css -->\n";
-if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && $pref['admincss'] && file_exists(e_THEME.'css/'.$pref['admincss']))
+if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && file_exists(e_THEME.'css/'.$pref['admincss']))
 {
 	
 	$css_file = file_exists(THEME_ABS.'admin_'.$pref['admincss']) ? THEME_ABS.'admin_'.$pref['admincss'] : e_THEME_ABS.'css/admin_'.$pref['admincss'];
 	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
-	
-
-} 
-else 
-{
+} else {
 	$css_file = file_exists(e_THEME.'css/admin_style.css') ? e_THEME.'css/admin_style.css' : THEME_ABS.'style.css';
 	echo "<link rel='stylesheet' href='".$css_file."' type='text/css' />\n";
-	
 }
 if(file_exists(e_THEME_ABS.'windows.css')) {
-	  echo "<link rel='stylesheet' href='".e_THEME_ABS."windows.css' type='text/css' />\n";
-}
-	
-if(!file_exists(e_THEME_ABS.'windows.css')) {
-	  echo "<link rel='stylesheet' href='".e_THEME."css/windows.css' type='text/css' />\n";
+	  echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' />\n";
+} else {
+	  echo "<link rel='stylesheet' href='".e_THEME_ABS."css/windows.css' type='text/css' />\n";
 }
 
 if (!isset($no_core_css) || $no_core_css ) {
@@ -230,7 +226,6 @@ if (!isset($no_core_css) || $no_core_css ) {
 //	echo "<link rel='stylesheet' href='".e_THEME."css/mobile.css' type='text/css' />\n";
 //	echo "<link rel='stylesheet' href='".e_THEME."css/print.css' type='text/css' />\n";
 }
-
 
 //
 // F: Send Meta Tags and Icon links

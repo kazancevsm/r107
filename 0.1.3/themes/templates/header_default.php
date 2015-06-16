@@ -201,7 +201,7 @@ if(defined("PREVIEWTHEME")) {
 			$css_default = "print";
 		}
 			
-		if(file_exists(THEME."nextprev.css")){
+		if(file_exists(THEME_ABS."nextprev.css")){
 			echo "<link rel='stylesheet' href='".THEME_ABS."nextprev.css' type='text/css' />\n";
 		} else {
 			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/nextprev.css' type='text/css' />\n";	
