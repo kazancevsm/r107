@@ -87,7 +87,7 @@ if (isset($_POST['update_menu'])) {
 if ($_POST['createbanner'] || $_POST['updatebanner'])
 {
 
-	$start_date = (int) (!$_POST['banner_start'] ? 0 : mktime (0, 0, 0, $_POST['startmonth'], $_POST['startday'], $_POST['startyear']));
+	$start_date = (int) (!$_POST['startmonth'] || !$_POST['startday'] || !$_POST['startyear'] ? 0 : mktime (0, 0, 0, $_POST['startmonth'], $_POST['startday'], $_POST['startyear']));
 
 	$end_date = (int) (!$_POST['endmonth'] || !$_POST['endday'] || !$_POST['endyear'] ? 0 : mktime (0, 0, 0, $_POST['endmonth'], $_POST['endday'], $_POST['endyear']));
 
