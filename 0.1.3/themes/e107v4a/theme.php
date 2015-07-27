@@ -59,7 +59,7 @@ $HEADER =
 <table style='width:100%;' cellspacing='3' id='header'>
 	<tr>
 		<td colspan='2' style='text-align:left; vertical-align: middle;'>
-			<img src='".THEME_ABS."images/logo.png' alt='' /> [ {SITENAME} ]
+			<img src='".THEME_ABS."images/logo.png' alt='{SITENAME}' /> [ {SITENAME} ]
 		</td>
 		<td style='text-align:right'>
 			{BANNER}
