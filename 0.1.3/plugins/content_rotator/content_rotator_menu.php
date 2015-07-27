@@ -1,27 +1,34 @@
 <?php
+
 /*
-+ ----------------------------------------------------------------------------------------------+
-|     r107 website system  : http://r107.pro
-|     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
-|
-|     Plugin "Content Rotator"  Author: Boedy - info@boxfish.org
-|     Support OSGroup.pro
-|     http://r107.pro support@r107.pro
-+-----------------------------------------------------------------------------------------------+
+**
+**	Content Rotator - e107 Plugin
+**	Author: 		Boudewijn Geiger
+**	Version:		1.0
+**  Date:			juli-2010
+**  copyright: 		20010 by - boedy.net
+**  website: 		http://www.boedy.net
+**
+**  License:		You may not transfer or sub-license,
+**					any of my templates or plugins to anyone
+**					else without prior written consent
+**					from boedy, or when stated otherwise.
+**
 */
+
 	$cr_pref = getcr_prefs();
 
 	$i = 0;
 	$sql->db_Select("c_rotator","*", "ORDER BY cr_order ".$cr_pref['cr_display_order']."", false);
 	while($row = $sql -> db_Fetch()) {
-		$id[$i] 	= $row[cr_id];
-		$title[$i] 	= $row[cr_title];
-		$intro[$i]	= $row[cr_intro];
-		$bericht[$i]	= $row[cr_text];
-		$image[$i]	= $row[cr_image];
-		$thumbnail[$i] 	= $row[cr_thumbnail];
-		$captions[$i]	= $row[cr_captions];
-		$link[$i]	= $row[cr_link];
+	$id[$i] 		= $row[id];
+	$title[$i] 		= $row[title];
+	$intro[$i]		= $row[intro];
+	$bericht[$i]	= $row[text];
+	$image[$i]		= $row[image];
+	$thumbnail[$i] 	= $row[thumbnail];
+	$captions[$i]	= $row[captions];
+	$link[$i]		= $row[link];
 	$i++;
 	}
 

@@ -1,17 +1,23 @@
 <?php
+
 /*
-+ ----------------------------------------------------------------------------------------------+
-|     r107 website system  : http://r107.pro
-|     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
-|
-|     Plugin "Content Rotator"  Author: Boedy - info@boxfish.org
-|     Support OSGroup.pro
-|     http://r107.pro support@r107.pro
-+-----------------------------------------------------------------------------------------------+
+**
+**	Content Rotator - e107 Plugin
+**	Author: 		Boudewijn Geiger
+**	Version:		1.0
+**  Date:			juli-2010
+**  copyright: 		20010 by - boedy.net
+**  website: 		http://www.boedy.net
+**
+**  License:		You may not transfer or sub-license,
+**					any of my templates or plugins to anyone
+**					else without prior written consent
+**					from boedy, or when stated otherwise.
+**
 */
 
-require_once("../../../class2.php");
-require_once(e_HANDLER."ren_help_handler.php");
+require_once("../../../class.php");
+require_once(e_HANDLER.'ren_help.php');
 if (!getperms("P")) {
     header("location:".e_HTTP."index.php");
     exit;
@@ -20,21 +26,21 @@ if (!getperms("P")) {
 require_once(e_ADMIN."auth.php");
 
 if (e_QUERY) {
-    list($sub_action, $id, $order) = explode(".", e_QUERY);
+    list($action, $id, $order) = explode(".", e_QUERY);
 }
 else
     $action = FALSE;
 
 if($action=="moveup"){
-    $sql->db_Update("c_rotator", "cr_sequence=cr_sequence-1 WHERE cr_sequence=".($order+1));
-    $sql->db_Update("c_rotator", "cr_sequence=cr_sequence+1 WHERE cr_id=".$id);
-    header("location: ../admin_config.php");
+    $sql->db_Update("c_rotator", "cr_order=cr_order-1 WHERE cr_order=".($order+1));
+    $sql->db_Update("c_rotator", "cr_order=cr_order+1 WHERE id=".$id);
+    header("location: ../admin_view_entrees.php");
 }
 
 if($action=="movedown"){
-    $sql->db_Update("c_rotator", "cr_sequence=cr_sequence+1 WHERE cr_sequence=".($order-1));
-    $sql->db_Update("c_rotator", "cr_sequence=cr_sequence-1 WHERE cr_id=".$id);
-    header("location: ../admin_config.php");
+    $sql->db_Update("c_rotator", "cr_order=cr_order+1 WHERE cr_order=".($order-1));
+    $sql->db_Update("c_rotator", "cr_order=cr_order-1 WHERE id=".$id);
+    header("location: ../admin_view_entrees.php");
 }
 
 

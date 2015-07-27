@@ -1,62 +1,76 @@
 <?php
 /*
 + ----------------------------------------------------------------------------------------------+
-|     r107 website system  : http://r107.pro
+|     e107 website system  : http://e107.org.ru
 |     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
 |
-|     Plugin "Content Rotator"  Author: Boedy - info@boxfish.org
-|     Support OSGroup.pro
-|     http://r107.pro support@r107.pro
+|     Plugin "Content Rotator"
+|     Author: Boedy - info@boxfish.org
 +-----------------------------------------------------------------------------------------------+
 */
+
 if (!defined('e107_INIT')) { exit; }
 
 include_lan(e_PLUGIN."content_rotator/languages/".e_LANGUAGE.".php");
 
-$eplug_name = LAN_C_ROTATOR_NAME;
-$eplug_version = "1.0 RC1";
-$eplug_author = "boedy & OSGroup";
+$eplug_name = "Content Rotator";
+$eplug_version = "1.02";
+$eplug_author = "boedy";
 $eplug_logo = "button.png";
-$eplug_url = "http://r107.pro/";
-$eplug_email = "support@r107.pro";
-$eplug_description = LAN_C_ROTATOR_DESC;
-$eplug_compatible = "e107 v0.7 ++";
-$eplug_done = LAN_C_ROTATOR_INSTALL;
+$eplug_url = "http://www.boedy.net/";
+$eplug_email = "info@boedy.net";
+$eplug_description = "Content Rotator for images and content.";
+$eplug_compatible = "e107 v7.8+";
 $eplug_conffile = "admin_config.php";
 $eplug_icon = $eplug_folder."/images/icon.png";
 $eplug_icon_small = $eplug_folder."/images/icon_16.png";
-$eplug_caption =  LAN_C_ROTATOR_NAME;
-$eplug_folder = "content_rotator";				// Name of the plugin's folder
-$eplug_menu_name = "";						// Name of menu item for plugin
-$eplug_conffile = "admin_config.php"; 				// Name of the admin configuration file
-$eplug_icon = $eplug_folder."/images/c_rotator_32.png";		// Icon image and caption text
-$eplug_icon_small = $eplug_folder."/images/c_rotator_16.png";	// Icon image and caption text
-$eplug_link = FALSE;						// Create a link in main menu (yes=TRUE, no=FALSE)
-$eplug_link_name = "";
-$eplug_link_url = "";
-$eplug_prefs = array(); 					// List of preferences
+$eplug_caption =  "Content rotator";
+
+// Name of the plugin's folder -------------------------------------------------------------------------------------
+$eplug_folder = "content_rotator";
+
+// Name of menu item for plugin ----------------------------------------------------------------------------------
+$eplug_menu_name = "";
+
+// Name of the admin configuration file --------------------------------------------------------------------------
+$eplug_conffile = "admin_config.php";
+
+
+// Icon image and caption text ------------------------------------------------------------------------------------
+$eplug_icon = $eplug_folder."/images/content_rotator_32.png";
+$eplug_icon_small = $eplug_folder."/images/content_rotator_16.png";
+$eplug_caption = "Content Rotator";
+
+// List of preferences -----------------------------------------------------------------------------------------------
+$eplug_prefs = array();
 
 $eplug_table_names = array("c_rotator");
 $eplug_tables = array(
 "CREATE TABLE ".MPREFIX."c_rotator (
-	cr_id int(11) unsigned NOT NULL auto_increment,
-	cr_sequence int(11) unsigned NOT NULL default '0',
-	cr_title varchar(200) NOT NULL default '',
-	cr_intro text NOT NULL,
-	cr_text text NOT NULL,
-	cr_image varchar(256) NOT NULL default '',
-	cr_thumbnail varchar(256) NOT NULL default '',
-	cr_captions varchar(256) NOT NULL default '',
-	cr_link varchar(256) NOT NULL default '',
-	PRIMARY KEY (cr_id)
-	) ENGINE=MyISAM;");
+   id int(11) unsigned NOT NULL auto_increment,
+   title varchar(200) NOT NULL default '',
+   intro text NOT NULL,
+   text text NOT NULL,
+   image varchar(256) NOT NULL default '',
+   thumbnail varchar(256) NOT NULL default '',
+   captions varchar(256) NOT NULL default '',
+   link varchar(256) NOT NULL default '',
+   cr_order int(11) unsigned NOT NULL default '0',
+   PRIMARY KEY (id)
+) ENGINE=MyISAM;");
 
-	/*
 $upgrade_alter_tables  = array(
     "ALTER TABLE ".MPREFIX."c_rotator ADD cr_order int(11) unsigned NOT NULL default '0'",
     "UPDATE ".MPREFIX."c_rotator SET cr_order=id "
 
 );
 
-*/
+
+// Create a link in main menu (yes=TRUE, no=FALSE) -------------------------------------------------------------
+$eplug_link = FALSE;
+$eplug_link_name = "";
+$eplug_link_url = "";
+
+// Text to display after plugin successfully installed ------------------------------------------------------------------
+$eplug_done = LAN_C_ROTATOR_INSTALL_1;
 ?>
