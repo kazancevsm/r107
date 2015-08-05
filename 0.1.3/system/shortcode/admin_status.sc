@@ -32,7 +32,7 @@ if (getperms('0') || getperms('4'))
 
 			if($flo = $sql -> db_Count("generic", "(*)", "WHERE gen_type='failed_login'"))
 			{
-				$text .= "<img src='".e_IMAGE_ABS."admin_images/failedlogin_16.png' alt='' style='vertical-align: middle;' /> <a href='".e_ADMIN_ABS."fla.php'>".ADLAN_146.": $flo</a>";
+				$text .= "<img src='".e_IMAGE_ABS."admin/failedlogin_16.png' alt='' style='vertical-align: middle;' /> <a href='".e_ADMIN_ABS."fla.php'>".ADLAN_146.": $flo</a>";
 			}
 
 			return $ns -> tablerender(ADLAN_134, $text, 'admin_status', TRUE);

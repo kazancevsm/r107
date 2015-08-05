@@ -537,7 +537,7 @@ function file_upload($uploaddir, $avatar = FALSE, $fileinfo = "", $overwrite = "
 */
 function vet_file($filename, $target_name, $allowed_filetypes = '', $unknown = FALSE)
 {
-	// 1. Start by checking against filetypes - that's the easy one!
+	// 1. Start by checking against filetypes - that's the easy one!get_allowed_filetypes
 	$file_ext = strtolower(substr(strrchr($target_name, "."), 1));
 	if (!in_array($file_ext, $allowed_filetypes))
 	{
@@ -626,9 +626,9 @@ function get_allowed_filetypes($def_file = FALSE, $file_mask = '')
 	}
   }
   
-  if ($def_file && is_readable(e_ADMIN.$def_file)) 
+  if ($def_file && is_readable(e_SYSTEM.$def_file)) 
   {
-	$a_filetypes = trim(file_get_contents(e_ADMIN.$def_file));
+	$a_filetypes = trim(file_get_contents(e_SYSTEM.$def_file));
 	$a_filetypes = explode(',', $a_filetypes);
   }
   foreach ($a_filetypes as $ftype) 

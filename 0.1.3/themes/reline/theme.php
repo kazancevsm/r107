@@ -347,7 +347,7 @@ $SEARCH_SHORTCODE = "<input class='tbox search' type='text' name='q' size='20' v
 
 
 // Chatbox post style
-$CHATBOXSTYLE = "<br /><img src='".e_IMAGE_ABS."admin_images/chatbox_16.png' alt='' style='width: 16px; height: 16px; vertical-align: bottom' />
+$CHATBOXSTYLE = "<br /><img src='".e_IMAGE_ABS."admin/chatbox_16.png' alt='' style='width: 16px; height: 16px; vertical-align: bottom' />
 <b>{USERNAME}</b><br />{TIMEDATE}<br />{MESSAGE}<br />";
 
 
