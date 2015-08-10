@@ -205,7 +205,7 @@ if (isset($eplug_css) && $eplug_css) {
 }
 
 echo "<!-- Theme css -->\n";
-if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && file_exists(e_THEME.'css/'.$pref['admincss']))
+if (strpos(e_SELF.'?'.e_QUERY, 'menus.php?configure') === FALSE && isset($pref['admincss']) && file_exists(e_THEME_ABS.'css/'.$pref['admincss']))
 {
 	
 	$css_file = file_exists(THEME_ABS.'admin_'.$pref['admincss']) ? THEME_ABS.'admin_'.$pref['admincss'] : e_THEME_ABS.'css/admin_'.$pref['admincss'];
