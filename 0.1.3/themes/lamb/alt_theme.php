@@ -89,7 +89,7 @@ $NEWSSTYLE = "
 on
 {NEWSDATE}
 <br />
-<img src='".e_IMAGE."admin_images/userclass_16.png' alt='' style='vertical-align: middle;' />
+<img src='".e_IMAGE."admin/userclass_16.png' alt='' style='vertical-align: middle;' />
 {NEWSCOMMENTS}{TRACKBACK}
 <br />
  | <a href='".e_BASE."submitnews.php'>Submit a news item</a>
@@ -157,7 +157,7 @@ $POLLSTYLE = <<< EOF
 EOF;
 
 $CHATBOXSTYLE = "
-<img src='".e_IMAGE."admin_images/chatbox_16.png' alt='' style='vertical-align: middle;' />
+<img src='".e_IMAGE."admin/chatbox_16.png' alt='' style='vertical-align: middle;' />
 <b>{USERNAME}</b>
 <div class='smalltext'>
 {MESSAGE}

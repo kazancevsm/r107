@@ -212,7 +212,7 @@ function tablestyle($caption, $text, $mode){
 
 // chatbox post style
 $CHATBOXSTYLE = "
-<img src='".e_IMAGE_ABS."admin_images/chatbox_16.png' alt='' style='width: 16px; height: 16px; vertical-align: bottom' />
+<img src='".e_IMAGE_ABS."admin/chatbox_16.png' alt='' style='width: 16px; height: 16px; vertical-align: bottom' />
 <b>{USERNAME}</b><br />{TIMEDATE}<br />{MESSAGE}<br /><br />";
 
 

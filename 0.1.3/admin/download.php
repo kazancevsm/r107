@@ -1457,7 +1457,7 @@ class download
 				}
 
 				$text .= "<tr>
-					<td style='width:5%; text-align:center' class='forumheader'>".($parent['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$parent['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+					<td style='width:5%; text-align:center' class='forumheader'>".($parent['download_category_icon'] ? "<img src='".e_FILE."icons/{$parent['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
 					<td colspan='2' style='width:70%' class='forumheader'><b>{$parent['download_category_name']}</b></td>
 					<td class='forumheader3'>
 					 <input class='tbox' type='text' name='catorder[{$parent['download_category_id']}]' value='{$parent['download_category_order']}' size='3' />
@@ -1486,7 +1486,7 @@ class download
 							list($main['download_category_icon'], $main['download_category_icon_empty']) = explode(chr(1), $main['download_category_icon']);
 						}
 						$text .= "<tr>
-						<td style='width:5%; text-align:center' class='forumheader3'>".($main['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$main['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+						<td style='width:5%; text-align:center' class='forumheader3'>".($main['download_category_icon'] ? "<img src='".e_FILE."icons/{$main['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
 						<td style='width:70%' class='forumheader3'>{$main['download_category_name']}<br /><span class='smalltext'>{$main['download_category_description']}</span></td>
 						<td style='width:5%; text-align:center' class='forumheader3'>{$main['filecount']}</td>
 						<td class='forumheader3'>
@@ -1513,7 +1513,7 @@ class download
 									list($sub['download_category_icon'], $sub['download_category_icon_empty']) = explode(chr(1), $sub['download_category_icon']);
 								}
 								$text .= "<tr>
-									<td style='width:5%; text-align:center' class='forumheader3'>".($sub['download_category_icon'] ? "<img src='".e_IMAGE."icons/{$sub['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
+									<td style='width:5%; text-align:center' class='forumheader3'>".($sub['download_category_icon'] ? "<img src='".e_FILE."icons/{$sub['download_category_icon']}' style='vertical-align:middle; border:0' alt='' />" : "&nbsp;")."</td>
 									<td style='width:70%' class='forumheader3'>&nbsp;&nbsp;&nbsp;&nbsp;".DOWLAN_53.": {$sub['download_category_name']}<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class='smalltext'>{$sub['download_category_description']}</span></td>
 									<td style='width:5%; text-align:center' class='forumheader3'>{$sub['filecount']}</td>
 									<td class='forumheader3'>
@@ -1550,7 +1550,7 @@ class download
 
 		unset($download_category_id, $download_category_name, $download_category_description, $download_category_parent, $download_category_icon, $download_category_class);
 
-		$handle = opendir(e_IMAGE."icons");
+		$handle = opendir(e_FILE."icons");
 		while ($file = readdir($handle)) {
 			if ($file != "." && $file != ".." && $file != "/" && $file != "CVS") {
 				$iconlist[] = $file;
@@ -1629,7 +1629,7 @@ class download
 			<div id='cat_icn' style='display:none;{head}' >";
 
 		while (list($key, $icon) = each($iconlist)) {
-			$text .= "<a href=\"javascript:insertext('$icon','download_category_icon','cat_icn')\"><img src='".e_IMAGE."icons/".$icon."' style='border:0' alt='' /></a> ";
+			$text .= "<a href=\"javascript:insertext('$icon','download_category_icon','cat_icn')\"><img src='".e_FILE."icons/".$icon."' style='border:0' alt='' /></a> ";
 		}
 
 		reset($iconlist);
@@ -1648,7 +1648,7 @@ class download
 			<div id='cat_icn_empty' style='display:none;{head}' >";
 
 		while (list($key, $icon) = each($iconlist)) {
-			$text .= "<a href=\"javascript:insertext('$icon','download_category_icon_empty','cat_icn_empty')\"><img src='".e_IMAGE."icons/".$icon."' style='border:0' alt='' /></a> ";
+			$text .= "<a href=\"javascript:insertext('$icon','download_category_icon_empty','cat_icn_empty')\"><img src='".e_FILE."icons/".$icon."' style='border:0' alt='' /></a> ";
 		}
 
 		$text .= "

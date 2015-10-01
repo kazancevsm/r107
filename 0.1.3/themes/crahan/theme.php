@@ -123,7 +123,7 @@ $COMMENTSTYLE = "
 
 
 $CHATBOXSTYLE = "
-<img src='".e_IMAGE_ABS."admin_images/chatbox_16.png' alt='' style='vertical-align: middle;' />
+<img src='".e_IMAGE_ABS."admin/chatbox_16.png' alt='' style='vertical-align: middle;' />
 <b>{USERNAME}</b>
 <div class='smalltext'>
 {MESSAGE}

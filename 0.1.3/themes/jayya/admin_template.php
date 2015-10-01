@@ -88,7 +88,7 @@ if(ADMIN)
     <tr>
     <td>
     {SETSTYLE=leftmenu}
-	{ADMIN_UPDATE=notadminpanel}
+    {ADMIN_UPDATE=notadminpanel}
     {ADMIN_LANG}
     {ADMIN_PWORD}
     {ADMIN_MSG}

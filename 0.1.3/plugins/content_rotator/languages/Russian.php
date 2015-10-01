@@ -1,27 +1,22 @@
 <?php
-// 	Plugins
-define('LAN_C_ROTATOR_NAME', 'Content rotator');
-define('LAN_C_ROTATOR_DESC', 'Плагин позволяет организовать слайд-шоу из изображений или страниц html.');
-define('LAN_C_ROTATOR_INSTALL', 'Content rotator успешно установлен');
+define('LAN_C_ROTATOR_GENERAL_1', 'Content rotator');
+define('LAN_C_ROTATOR_GENERAL_2', 'Настройки обновлены');
+define('LAN_C_ROTATOR_GENERAL_3', 'Посмотреть контент');
+define('LAN_C_ROTATOR_GENERAL_4', 'Добавить контент');
+define('LAN_C_ROTATOR_GENERAL_5', 'Настройки');
 
-//	Admin_config
-define('LAN_C_ROTATOR_MENU_CAPTION', 'Меню Content Rotator');
-define('LAN_C_ROTATOR_GENERAL', 'Посмотреть контент');
-define('LAN_C_ROTATOR_ADD', 'Добавить контент');
-define('LAN_C_ROTATOR_CONFIG', 'Настройки');
+define('LAN_C_ROTATOR_MENU_1', 'Заголовок');
+define('LAN_C_ROTATOR_MENU_2', 'Сообщение/Информация');
+define('LAN_C_ROTATOR_MENU_3', 'Изображение');
+define('LAN_C_ROTATOR_MENU_4', 'Ссылка');
+define('LAN_C_ROTATOR_MENU_5', 'Nr');
+define('LAN_C_ROTATOR_MENU_6', 'Options');
+define('LAN_C_ROTATOR_MENU_7', 'Overlay-text');
+define('LAN_C_ROTATOR_MENU_8', 'Превью');
+define('LAN_C_ROTATOR_MENU_9', 'Подпись');
+define('LAN_C_ROTATOR_MENU_10', 'Дополнительно');
 
-
-define('LAN_C_ROTATOR_ID', 'ID');
-define('LAN_C_ROTATOR_CAPTION', 'Заголовок');
-define('LAN_C_ROTATOR_INFO', 'Сообщение/Информация');
-define('LAN_C_ROTATOR_IMAGES', 'Изображение');
-define('LAN_C_ROTATOR_LINK', 'Ссылка');
-define('LAN_C_ROTATOR_OVT', 'Всплывающий текст');
-define('LAN_C_ROTATOR_PREVIEW', 'Превью');
-define('LAN_C_ROTATOR_SIGN', 'Подпись');
-define('LAN_C_ROTATOR_ADDIT', 'Дополнительно');
-define('LAN_C_ROTATOR_OPTION', 'Опции');
-
+define('LAN_C_ROTATOR_INSTALL_1', 'Content rotator успешно установлен');
 
 define('LAN_C_ROTATOR_ADMIN_1', 'ПРИМЕНИТЬ?');
 define('LAN_C_ROTATOR_ADMIN_2', 'Ошибка! Заполните ЗАГОЛОВОК и ТЕКСТОВОЕ ПОЛЕ.');
