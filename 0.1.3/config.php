@@ -24,7 +24,7 @@ $mySQLserver    = 'localhost';
 $mySQLuser      = 'root';
 $mySQLpassword  = '123';
 $mySQLdefaultdb = 'r107';
-$mySQLprefix    = 'r_';
+$mySQLprefix    = 'pref_';
 //$mySQLcharset может содержать, только 'utf8' или ''
 $mySQLcharset   = 'utf8';
 
