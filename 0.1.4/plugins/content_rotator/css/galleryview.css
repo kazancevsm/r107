@@ -1,0 +1,74 @@
+
+
+/* GALLERY LIST */
+/* IMPORTANT - Change '#photos' to the ID of your gallery list to prevent a flash of unstyled content */
+#photos { height:0px; visibility: hidden; position:relative; }
+
+.cr_rotator_buttons { visibility: hidden; }
+ 
+/* GALLERY CONTAINER */
+.gallery { background: #ddd; border: 1px solid #aaa; padding: 0px;}
+
+/* LOADING BOX */
+.loader { background: url(loader.gif) center center no-repeat #ddd; }
+
+/* GALLERY PANELS */
+.panel {}
+
+/* DEFINE HEIGHT OF PANEL OVERLAY */
+/* NOTE - It is best to define padding here as well so overlay and background retain identical dimensions */
+
+
+.panel .panel-overlay {overflow:hidden;} 
+
+/* PANEL OVERLAY BACKGROUND */
+
+
+/* PANEL OVERLAY CONTENT */
+.panel .panel-overlay a { color: white; text-decoration: underline; font-weight: bold; }
+
+/* FILMSTRIP */
+/* 'margin' will define top/bottom margin in completed gallery */
+.filmstrip { margin: 5px; }
+
+/* FILMSTRIP FRAMES (contains both images and captions) */
+.frame {}
+
+/* WRAPPER FOR FILMSTRIP IMAGES */
+.frame .img_wrap { border: 0px solid #aaa; }
+
+/* WRAPPER FOR CURRENT FILMSTRIP IMAGE */
+.frame.current .img_wrap { border-color: #000; }
+
+/* FRAME IMAGES */
+.frame img { border: none; }
+
+/* POINTER FOR CURRENT FRAME */
+.pointer {
+	border-color: #000;
+}
+
+/* TRANSPARENT BORDER FIX FOR IE6 */
+/* NOTE - DO NOT CHANGE THIS RULE */
+html .pointer {
+	filter: chroma(color=pink);
+}
+
+.cr_rotator_buttons {
+	z-index:2000;
+	position:absolute;
+}
+ 
+ 
+.cr_nav_buttons, .cr_nav_button, .cr_nav_button_active{
+	padding:10px; cursor:pointer; background-position:center; background-repeat:no-repeat; line-height:23px;
+}
+	
+	
+img {border:none;}
+ 
+#cr_previous_slide{background-image:url(../images/left.gif);}
+#cr_next_slide{background-image:url(../images/right.gif);}
+.cr_nav_button:hover{background-image:url(../images/bullet_active.png);}
+.cr_nav_button{background-image:url(../images/bullet_black.png); color:#FFF;}
+.cr_nav_button_active{background-image:url(../images/bullet_active.png); color:#666;}

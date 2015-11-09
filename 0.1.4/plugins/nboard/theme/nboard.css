@@ -1,0 +1,125 @@
+#container {
+	position:relative;
+	top:0px;left:0px;
+	width:490px;
+	border:#000 solid 0px;
+}
+#big_picture_default {
+	position:relative;
+	padding:0px;
+	border:#333 solid 0px;
+	width:490px;height:368px;
+	overflow:hidden;
+
+}
+#big_picture_show0 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+}
+#big_picture_show1 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+	
+}
+#big_picture_show2 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+}
+#big_picture_show3 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+}
+#big_picture_show4 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+}
+#big_picture_show5 {
+	position:absolute;
+	width:490px;height:368px;
+	top:0px;
+	padding:0px;
+	background:#fff;border:#333 solid 0px;
+	z-index:1001;
+	display:none;
+	overflow:hidden;
+}
+#mini_picture0 {
+	position:relative;
+	padding-top:5px;padding-right:2px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	float:left;
+	overflow:hidden;
+}
+#mini_picture1 {
+	position:relative;
+	padding-top:5px;padding-right:2px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	vertical-align:middle;
+	float:left;
+	overflow:hidden;
+}
+#mini_picture2 {
+	position:relative;
+	padding-top:5px;padding-right:2px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	vertical-align:middle;
+	float:left;
+	overflow:hidden;
+}
+#mini_picture3 {
+	position:relative;
+	padding-top:5px;padding-right:2px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	float:left;
+	overflow:hidden;
+}
+#mini_picture4 {
+	position:relative;
+	padding-top:5px;padding-right:2px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	float:left;
+	overflow:hidden;
+}
+#mini_picture5 {
+	position:relative;
+	padding-top:5px;
+	border:#333 solid 0px;
+	width:80px;height:60px;
+	float:left;
+	overflow:hidden;
+}

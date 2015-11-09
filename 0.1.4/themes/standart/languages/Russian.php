@@ -1,0 +1,33 @@
+<?php
+define('LAN_THEME_1', 'e107 core theme by <a href="http://e107.org" title="e107 CMS" rel="external">e107 Inc.</a>');
+define('LAN_THEME_2', 'Комментарии: ');
+define('LAN_THEME_3', 'Комментарии выключены');
+define('LAN_THEME_4', 'Читать полностью');
+define('LAN_THEME_5', 'Обратные ссылки: '); 
+define('LAN_THEME_8', 'в');
+define('LAN_THEME_9', 'Автор: ');
+define("LAN_THEME_11", "Последние новости");
+define("LAN_THEME_12", "Email друга");
+define("LAN_THEME_13", "Создать PDF файл");
+define("LAN_THEME_14", "Печать");
+define("LAN_THEME_15", "Правка");
+define('LAN_THEME_17', 'Войти');
+define('LAN_THEME_18', 'Имя пользователя');
+define('LAN_THEME_19', 'Пароль');
+define('LAN_THEME_20', 'Регистрация');
+define('LAN_THEME_21', 'Войти');
+define('LAN_THEME_22', 'Забыли пароль?');
+define('LAN_THEME_23', 'Приветствую, ');
+define('LAN_THEME_24', 'Админпанель');
+define('LAN_THEME_26', 'Настройки');
+define('LAN_THEME_27', 'Профиль');
+define('LAN_THEME_28', 'Выйти');
+define('LAN_THEME_29', 'Список новых');
+define('LAN_THEME_SING', 'Войти');
+define('LAN_THEME_REG', 'Регистрация');
+define("LAN_SEARCH", "Поиск");
+define("LAN_SEARCH_SUB", "Go");
+define('LAN_THEME_SHARE', 'Поделиться');
+define('LAN_THEME_VER', 'e107 v.');
+define("CM_L13", "за");
+?>

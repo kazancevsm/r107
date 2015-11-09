@@ -1,0 +1,30 @@
+/*--------------------Address_Book--------------------*/
+.abook_td {background-color:#fff;font:11px verdana,helvetica,sans;
+				color:#000;padding-left:5px;border:0px;text-align:left;}
+
+.fill-input	{background:url('http://slportal.ru/plugins/abook/theme/input_02.gif') 0 0 repeat-x;
+			width:100%;border:none;height:24px;padding:4px 0;}
+.left-input	{background:url('http://slportal.ru/plugins/abook/theme/input_01.gif') left top no-repeat;width:100%;}
+.right-input	{background:url('http://slportal.ru/plugins/abook/theme/input_03.gif') right top no-repeat;padding:0 14px 0 16px;}
+input{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:normal;
+color:#A7ADB6;
+padding:0px;
+border:none;
+width:95%;
+height:16px;
+background:none;
+}
+select{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+line-height:normal;
+color:#A7ADB6;
+padding:0px;
+border:none;
+width:95%;
+height:16px;
+background:none;
+}

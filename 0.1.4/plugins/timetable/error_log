@@ -1,0 +1,19 @@
+[16-Oct-2011 11:57:05] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/slroot/public_html/plugins/timetable/table.php on line 305
+[10-Nov-2011 17:51:43] PHP Fatal error:  Call to a member function db_Select() on a non-object in /home/slroot/public_html/plugins/timetable/print.php on line 27
+[10-Nov-2011 17:52:17] PHP Fatal error:  Call to a member function db_Select() on a non-object in /home/slroot/public_html/plugins/timetable/print.php on line 27
+[10-Nov-2011 17:52:33] PHP Fatal error:  Call to a member function db_Select() on a non-object in /home/slroot/public_html/plugins/timetable/print.php on line 27
+[29-Jun-2013 12:31:35 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3145728) (tried to allocate 122880 bytes) in /home/slroot/public_html/plugins/log/consolidate.php on line 124
+[07-Jul-2013 11:58:47 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3407872) (tried to allocate 122880 bytes) in /home/slroot/public_html/handlers/sitelinks_class.php on line 310
+[25-Aug-2013 07:38:06 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3407872) (tried to allocate 122880 bytes) in /home/slroot/public_html/handlers/sitelinks_class.php on line 310
+[16-Nov-2013 08:42:10 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3145728) (tried to allocate 122880 bytes) in /home/slroot/public_html/plugins/log/consolidate.php on line 124
+[08-Dec-2013 21:12:26 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[10-Dec-2013 22:58:03 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[12-Dec-2013 23:36:46 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[14-Dec-2013 22:12:20 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[16-Dec-2013 14:42:53 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[26-Dec-2013 23:43:42 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[29-Dec-2013 03:03:01 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[02-Jan-2014 21:00:41 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 786432) (tried to allocate 7680 bytes) in /home/slroot/public_html/plugins/timetable/timetable.php on line 6
+[03-Jan-2014 13:57:13 Europe/Moscow] PHP Fatal error:  Cannot redeclare theme_head() in /home/slroot/public_html/themes/core/theme.php on line 28
+[03-Jan-2014 19:35:57 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 2883584) (tried to allocate 122880 bytes) in /home/slroot/public_html/handlers/bbcode_handler.php on line 189
+[21-Aug-2014 11:21:17 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 262144) (tried to allocate 12288 bytes) in /home/slroot/public_html/class2.php on line 75

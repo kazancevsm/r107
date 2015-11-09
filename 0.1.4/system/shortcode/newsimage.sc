@@ -1,0 +1,1 @@
+return "<img src='".e_FILE_ABS."newspost_images/".$parm."' alt='' />";
