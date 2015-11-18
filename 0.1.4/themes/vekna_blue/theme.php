@@ -113,7 +113,7 @@ $CUSTOMFOOTER = "
 </table>
 ";
 
-$CUSTOMPAGES = "forum.php forum_post.php forum_viewforum.php forum_viewtopic.php user.php submitcontent.php download.php links.php comment.php stats.php usersettings.php documentation";
+$CUSTOMPAGES = "forum.php forum_post.php forum_viewforum.php forum_viewtopic.php user.php submitnews.php download.php links.php comment.php stats.php usersettings.php documentation";
 
 $NEWSSTYLE = "
 <div class='spacer'>

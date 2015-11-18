@@ -725,7 +725,7 @@ function sublink_list($name="")
 	$sublink_type['news']['title'] = LINKLAN_8; // "News Categories";
 	$sublink_type['news']['table'] = "news_category";
 	$sublink_type['news']['query'] = "category_id !='-2' ORDER BY category_name ASC";
-	$sublink_type['news']['url'] = "content.php?cat.#";
+	$sublink_type['news']['url'] = "news.php?cat.#";
 	$sublink_type['news']['fieldid'] = "category_id";
 	$sublink_type['news']['fieldname'] = "category_name";
 	$sublink_type['news']['fieldicon'] = "category_icon";

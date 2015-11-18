@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/search/search_content.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_handlers/search/search_news.php $
 |     $Revision: 11678 $
-|     $Id: search_content.php 11678 2010-08-22 00:43:45Z e107coders $
+|     $Id: search_news.php 11678 2010-08-22 00:43:45Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -51,7 +51,7 @@ $results = $ps['results'];
 
 function search_news($row) {
 	global $con;
-	$res['link'] = $row['news_allow_comments'] ? "content.php?item.".$row['news_id'] : "comment.php?comment.news.".$row['news_id'];
+	$res['link'] = $row['news_allow_comments'] ? "news.php?item.".$row['news_id'] : "comment.php?comment.news.".$row['news_id'];
 	$res['pre_title'] = $row['category_name']." | ";
 	$res['title'] = $row['news_title'];
 	$res['summary'] = $row['news_body'].' '.$row['news_extended'];

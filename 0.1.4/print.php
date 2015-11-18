@@ -88,7 +88,7 @@ else
 	$print_text .= "<br /><br /></span><hr />".
 	LAN_PRINT_303.SITENAME."
 	<br />
-	( http://".$_SERVER['HTTP_HOST'].e_HTTP."content.php?extend.".$news_id." )
+	( http://".$_SERVER['HTTP_HOST'].e_HTTP."news.php?extend.".$news_id." )
 	";
 }
 

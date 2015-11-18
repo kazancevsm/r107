@@ -322,7 +322,7 @@ class db {
 	* @desc Insert a row into the table<br />
 	* <br />
 	* Example:<br />
-	* <code>$sql->db_Insert("links", "0, 'News', 'content.php', '', '', 1, 0, 0, 0");</code>
+	* <code>$sql->db_Insert("links", "0, 'News', 'news.php', '', '', 1, 0, 0, 0");</code>
 	*
 	* @access public
 	*/

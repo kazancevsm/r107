@@ -28,7 +28,7 @@ require_once(e_HANDLER.'form_handler.php');
 $rs = new form;
 require_once(e_HANDLER."userclass_handler.php");
 
-$front_page['news'] = array('page' => 'content.php', 'title' => ADLAN_0);
+$front_page['news'] = array('page' => 'news.php', 'title' => ADLAN_0);
 $front_page['download'] = array('page' => 'download.php', 'title' => ADLAN_24);
 $front_page['wmessage'] = array('page' => 'index.php', 'title' => ADLAN_28);
 
@@ -58,7 +58,7 @@ if (isset($_POST['edit'])) {
 if (isset($_POST['updatesettings'])) {
 	if ($_POST['frontpage'] == 'other') {
 		$_POST['other_page'] = $tp -> toForm($_POST['other_page']);
-		$frontpage_value = $_POST['other_page'] ? $_POST['other_page'] : 'content.php';
+		$frontpage_value = $_POST['other_page'] ? $_POST['other_page'] : 'news.php';
 	} else {
 		if (is_array($front_page[$_POST['frontpage']]['page'])) {
 			$frontpage_value = $front_page[$_POST['frontpage']]['page'][$_POST['multipage'][$_POST['frontpage']]]['page'];

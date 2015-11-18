@@ -33,7 +33,7 @@ foreach($listuserson as $uinfo => $pinfo) {
 		$online_location_page = str_replace(".php", "", substr(strrchr($online_location, "/"), 1));
 	}
 	if ($online_location_page == "log" || $online_location_page == "error") {
-		$online_location = "content.php";
+		$online_location = "news.php";
 		$online_location_page = NEWS;
 	}
 	if ($online_location_page == "request") {

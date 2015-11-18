@@ -49,7 +49,7 @@ if (USER == TRUE || ADMIN == TRUE) {
 				<span class="logout">
 					<span class="logm">
 						<span class="register_text">
-							<a href="'.e_HTTP.'content.php?logout">'.LAN_LOGIN_LOGOUT.'</a>
+							<a href="'.e_HTTP.'news.php?logout">'.LAN_LOGIN_LOGOUT.'</a>
 						</span>
 					</span>
 				</span>

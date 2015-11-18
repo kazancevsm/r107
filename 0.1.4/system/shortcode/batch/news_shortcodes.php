@@ -47,7 +47,7 @@ $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
 $category_icon = $tp -> parseTemplate('{NEWSHEADER}', FALSE, $news_shortcodes);
 if (!$category_icon) return '';
-return "<a class='".$GLOBALS['NEWS_CSSMODE']."_icon' href='".e_HTTP."content.php?cat.".$news_item['news_category']."'><img style='".$param['caticon']."'  src='".$category_icon."' alt='' /></a>";
+return "<a class='".$GLOBALS['NEWS_CSSMODE']."_icon' href='".e_HTTP."news.php?cat.".$news_item['news_category']."'><img style='".$param['caticon']."'  src='".$category_icon."' alt='' /></a>";
 SC_END
 
 SC_BEGIN NEWSHEADER
@@ -67,7 +67,7 @@ global $tp;
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
 $category_name = $tp -> toHTML($news_item['category_name'],FALSE,'TITLE');
-return "<a class='".$GLOBALS['NEWS_CSSMODE']."_category' style='".(isset($param['catlink']) ? $param['catlink'] : "#")."' href='".e_HTTP."content.php?cat.".$news_item['news_category']."'>".$category_name."</a>";
+return "<a class='".$GLOBALS['NEWS_CSSMODE']."_category' style='".(isset($param['catlink']) ? $param['catlink'] : "#")."' href='".e_HTTP."news.php?cat.".$news_item['news_category']."'>".$category_name."</a>";
 SC_END
 
 SC_BEGIN NEWSAUTHOR
@@ -226,7 +226,7 @@ if ($news_item['news_extended'] && (strpos(e_QUERY, 'extend') === FALSE || $parm
 	}
 	else
 	{
-		return $es1."<a class='".$GLOBALS['NEWS_CSSMODE']."_extendstring' href='".e_HTTP."content.php?extend.".$news_item['news_id']."'>".EXTENDEDSTRING."</a>".$es2;
+		return $es1."<a class='".$GLOBALS['NEWS_CSSMODE']."_extendstring' href='".e_HTTP."news.php?extend.".$news_item['news_id']."'>".EXTENDEDSTRING."</a>".$es2;
 	}
 }
 else
@@ -268,13 +268,13 @@ SC_END
 SC_BEGIN NEWSTHUMBNAIL
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."content.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
+return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
 SC_END
 
 SC_BEGIN NEWSIMAGE
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."content.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
+return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
 SC_END
 
 SC_BEGIN STICKY_ICON
@@ -287,7 +287,7 @@ SC_BEGIN NEWSTITLELINK
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
 $mode = ($parm == "extend") ? "extend" : "item";
-return "<a class='".$GLOBALS['NEWS_CSSMODE']."_titlelink' style='".(isset($param['itemlink']) ? $param['itemlink'] : "null")."' href='".e_HTTP."content.php?".$mode.".".$news_item['news_id'].".".$news_item['news_category']."' title=\"".$news_item['news_title']."\" >".$news_item['news_title']."</a>";
+return "<a class='".$GLOBALS['NEWS_CSSMODE']."_titlelink' style='".(isset($param['itemlink']) ? $param['itemlink'] : "null")."' href='".e_HTTP."news.php?".$mode.".".$news_item['news_id'].".".$news_item['news_category']."' title=\"".$news_item['news_title']."\" >".$news_item['news_title']."</a>";
 SC_END
 
 SC_BEGIN NEWSCATICON
@@ -297,7 +297,7 @@ $param = getcachedvars('current_news_param');
 $category_icon = $tp -> parseTemplate('{NEWSHEADER}', FALSE, $news_shortcodes);
 if (!$category_icon) return '';
 if($param['caticon'] == ""){$param['caticon'] = "border:0px";}
-return "<a class='".$GLOBALS['NEWS_CSSMODE']."_caticon' href='".e_HTTP."content.php?cat.".$news_item['news_category']."'><img style='".$param['caticon']."' src='".$category_icon."' alt='' /></a>";
+return "<a class='".$GLOBALS['NEWS_CSSMODE']."_caticon' href='".e_HTTP."news.php?cat.".$news_item['news_category']."'><img style='".$param['caticon']."' src='".$category_icon."' alt='' /></a>";
 SC_END
 
 SC_BEGIN TRACKBACK

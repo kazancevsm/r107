@@ -32,7 +32,7 @@ SC_END
 
 SC_BEGIN ARCHIVE_LINK
 global $news2;
-return "<a href='content.php?item.".$news2['news_id']."'>".$news2['news_title']."</a>";
+return "<a href='news.php?item.".$news2['news_id']."'>".$news2['news_title']."</a>";
 SC_END
 
 

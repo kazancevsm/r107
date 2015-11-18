@@ -31,7 +31,7 @@ if (isset($_POST['updatesettings']))
   if ($pref['trackbackEnabled'] != $_POST['trackbackEnabled'])
   {
 	$pref['trackbackEnabled'] = $_POST['trackbackEnabled'];
-	$e107cache->clear("content.php");
+	$e107cache->clear("news.php");
   }
   $pref['trackbackString'] = $tp->toDB($_POST['trackbackString']);
   save_prefs();

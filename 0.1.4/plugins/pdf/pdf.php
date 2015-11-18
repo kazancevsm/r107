@@ -104,7 +104,7 @@ else
 		$keywords	= "";						//define keywords
 
 		//define url and logo to use in the header of the pdf file
-		$url		= SITEURL."content.php?item.".$row['news_id'];
+		$url		= SITEURL."news.php?item.".$row['news_id'];
 
 		//always return an array with the following data:
 		$text = array($text, $creator, $author, $title, $subject, $keywords, $url);

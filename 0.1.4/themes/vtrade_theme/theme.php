@@ -158,7 +158,7 @@ $CUSTOMFOOTER = "
 </div>
 ";
 
-$CUSTOMPAGES = "content.php vtrade.php?frontpage";
+$CUSTOMPAGES = "news.php vtrade.php?frontpage";
 
 $NEWSSTYLE = "
     <div id='block_news'>

@@ -101,7 +101,7 @@ if ($delete == 'main' && $del_id)
 		if($sql->db_Delete('news', "news_id='{$del_id}'"))
 		{
 			$newspost->show_message(NWSLAN_31.' #'.$del_id.' '.NWSLAN_32);
-			$e107cache->clear('content.php');
+			$e107cache->clear('news.php');
 			$e107cache->clear('othernews');
 			$e107cache->clear('othernews2');
 			admin_purge_related('news', $del_id);
@@ -124,7 +124,7 @@ if($delete == 'sn' && $del_id)
 	if ($sql->db_Delete('submitnews', "submitnews_id='{$del_id}'"))
 	{
 		$newspost->show_message(NWSLAN_34.' #'.$del_id.' '.NWSLAN_32);
-		$e107cache->clear('content.php');
+		$e107cache->clear('news.php');
 		$e107cache->clear('othernews');
 		$e107cache->clear('othernews2');
 		unset($delete, $del_id);
@@ -167,7 +167,7 @@ if (isset($_POST['preview']))
 if (isset($_POST['submit_news'])) 
 {
 	$newspost->submit_item($sub_action, $id);
-	$e107cache->clear('content.php');
+	$e107cache->clear('news.php');
 	$e107cache->clear('othernews');
 	$e107cache->clear('othernews2');
 	$action = 'main';
@@ -206,7 +206,7 @@ if (isset($_POST['update_category']))
 		$sql->db_Update('news_category', "category_name='".$_POST['category_name']."', category_icon='".$category_button."' WHERE category_id='".$_POST['category_id']."'");
 		$newspost->show_message(NWSLAN_36);
 	}
-	$e107cache->clear('content.php');
+	$e107cache->clear('news.php');
 	$e107cache->clear('othernews');
 	$e107cache->clear('othernews2');
 }
@@ -227,7 +227,7 @@ if (isset($_POST['save_prefs']))
 	$pref['news_newdateheader']		= $_POST['news_newdateheader'];
 	$pref['news_unstemplate']		= $_POST['news_unstemplate'];
 	save_prefs();
-	$e107cache->clear('content.php');
+	$e107cache->clear('news.php');
 	$e107cache->clear('othernews');
 	$e107cache->clear('othernews2');
 	$newspost->show_message(NWSLAN_119);
@@ -342,7 +342,7 @@ class newspost
 				$text .= "<tr>
 				<td style='width:5%' class='forumheader3'>{$news_id}</td>
 				<td style='width:15%' class='forumheader3'>".date('d.m.Y H:i:s', $news_datestamp)."</td>
-				<td style='width:55%' class='forumheader3'><a href='".e_BASE."content.php?item.{$news_id}.{$news_category}'>".($news_title ? $tp->toHTML($news_title,"","no_hook,emotes_off,no_make_clickable") : "[".NWSLAN_42."]")."</a></td>
+				<td style='width:55%' class='forumheader3'><a href='".e_BASE."news.php?item.{$news_id}.{$news_category}'>".($news_title ? $tp->toHTML($news_title,"","no_hook,emotes_off,no_make_clickable") : "[".NWSLAN_42."]")."</a></td>
 				<td style='10%' class='forumheader3'>";
 				$text .= $ren_type[$news_render_type];
 				if($news_sticky)

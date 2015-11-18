@@ -19,7 +19,7 @@
 if (!defined('e107_INIT')) { exit; }
 
 @include(e_PLUGIN."search_menu/languages/".e_LANGUAGE.".php");
-if (strstr(e_PAGE, "content.php")) {
+if (strstr(e_PAGE, "news.php")) {
 	 $page = 0;
 } elseif(strstr(e_PAGE, "comment.php")) {
 	 $page = 1;

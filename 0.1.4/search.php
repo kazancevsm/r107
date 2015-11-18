@@ -60,7 +60,7 @@ function search_info($id, $type, $plug_require, $info='') {
 
 //core search routines
 
-if ($search_info['news'] = search_info('news', 'core', false, array('sfile' => e_HANDLER.'search/search_content.php', 'qtype' => LAN_SEARCH_98, 'refpage' => 'content.php', 'advanced' => e_HANDLER.'search/advanced_content.php', 'id' => 'news'))) {
+if ($search_info['news'] = search_info('news', 'core', false, array('sfile' => e_HANDLER.'search/search_news.php', 'qtype' => LAN_SEARCH_98, 'refpage' => 'news.php', 'advanced' => e_HANDLER.'search/advanced_news.php', 'id' => 'news'))) {
    //	$search_id++;
 } else {
 	unset($search_info['news']);

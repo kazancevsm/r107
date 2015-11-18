@@ -90,21 +90,21 @@ while ($news = $sql->db_Fetch())
 	$xmonth = date("n", $news['news_datestamp']);
 	if (!isset($month_links[$xmonth]) || !$month_links[$xmonth])
 	{
-		$month_links[$xmonth] = e_HTTP."content.php?month.".formatDate($req_year, $xmonth);
+		$month_links[$xmonth] = e_HTTP."news.php?month.".formatDate($req_year, $xmonth);
 	}
 	if($news['news_datestamp'] >= $month_start AND $news['news_datestamp'] <= $month_end)
 	{
 		$xday = date("j", $news['news_datestamp']);
 		if (!isset($day_links[$xday]) || !$day_links[$xday])
 		{
-			$day_links[$xday] = e_HTTP."content.php?day.".formatDate($req_year, $req_month, $xday);
+			$day_links[$xday] = e_HTTP."news.php?day.".formatDate($req_year, $req_month, $xday);
 		}
 	}
 }
 
 // if we're listing the current year, add the current month to the list regardless of posts
 if ($req_year == $cur_year) {
-	$month_links[$cur_month] = e_HTTP."content.php?month.".formatDate($cur_year, $cur_month);
+	$month_links[$cur_month] = e_HTTP."news.php?month.".formatDate($cur_year, $cur_month);
 }
 	
 // go over the link array and create the option fields

@@ -196,7 +196,7 @@ $NEWSSTYLE = "
 
 ";
 
-// the style of the items in content.php?cat and content.php?all
+// the style of the items in news.php?cat and news.php?all
 $NEWSLISTSTYLE = "<table cellpadding='0' cellspacing='0' style='margin-bottom:3px;border-bottom:1px solid black;width:100%'>
 
 	<tr><td style='padding:3px;vertical-align:top;width:65px'>

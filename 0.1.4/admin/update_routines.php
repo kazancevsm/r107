@@ -1024,7 +1024,7 @@ function update_617_to_700($type='') {
 
 		if (!is_array($pref['frontpage'])) {
 			if (!$pref['frontpage']) {
-				$up_pref = 'content.php';
+				$up_pref = 'news.php';
 			} else if ($pref['frontpage'] == 'links') {
 				$up_pref = $PLUGINS_DIRECTORY.'links_page/links.php';
 			} else if ($pref['frontpage'] == 'forum') {

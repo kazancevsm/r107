@@ -56,7 +56,7 @@ if(!$des) {
 	$des = RSS_MENU_L3;
 }
 
-if(e_PAGE == "content.php" && $pref['rss_newscats'])
+if(e_PAGE == "news.php" && $pref['rss_newscats'])
 {
 
 	$qry = explode(".",e_QUERY);

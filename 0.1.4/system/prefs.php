@@ -95,7 +95,7 @@ $pref = array (
   'wmessage_sc' => '0',
   'frontpage' =>
   array (
-    'all' => 'content.php',
+    'all' => 'news.php',
   ),
   'admin_alerts_ok' => '1',
   'link_replace' => '0',

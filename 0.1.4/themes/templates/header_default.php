@@ -422,7 +422,7 @@ if ($e107_popup != 1) {
 	}
 
 	$e107ParseHeaderFlag = FALSE;				// Deliberately choose a distinct Name! (Its got to reach the footer)
-	if (e_PAGE == 'content.php' && isset($NEWSHEADER))
+	if (e_PAGE == 'news.php' && isset($NEWSHEADER))
 	{
 		parseheader($NEWSHEADER);
 	}

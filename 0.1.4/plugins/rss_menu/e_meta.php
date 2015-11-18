@@ -27,7 +27,7 @@ $rssQuery = "rss_class='0' AND rss_limit>0 ";
 // Feed links should display on their corresponding pages. 
 
 // News and it's Categories
-if(e_PAGE  == "content.php")
+if(e_PAGE  == "news.php")
 {
 	if(e_QUERY)
 	{

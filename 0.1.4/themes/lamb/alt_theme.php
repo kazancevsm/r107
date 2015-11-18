@@ -92,7 +92,7 @@ on
 <img src='".e_IMAGE."admin/userclass_16.png' alt='' style='vertical-align: middle;' />
 {NEWSCOMMENTS}{TRACKBACK}
 <br />
- | <a href='".e_BASE."submitcontent.php'>Submit a news item</a>
+ | <a href='".e_BASE."submitnews.php'>Submit a news item</a>
 </div>
 <br />";
 define("ICONSTYLE", "float: left; border:0");

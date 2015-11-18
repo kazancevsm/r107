@@ -146,7 +146,7 @@ if (isset($_POST['emailsubmit']))
         if($sql->db_Select('news', '*', 'news_id='.$parms))
         {
             list($news_id, $news_title, $news_body, $news_extended, $news_datestamp, $news_author, $news_source, $news_url, $news_category, $news_allow_comments) = $sql->db_Fetch();
-			$message = "<h3 class='email_heading'>".$news_title."</h3><br />".$news_body."<br />".$news_extended."<br /><br /><a href='{e_BASE}content.php?extend.".$parms."'>{e_BASE}content.php?extend.".$parms."</a><br />";
+			$message = "<h3 class='email_heading'>".$news_title."</h3><br />".$news_body."<br />".$news_extended."<br /><br /><a href='{e_BASE}news.php?extend.".$parms."'>{e_BASE}news.php?extend.".$parms."</a><br />";
             $message = $tp->toEmail($message);
 
         }

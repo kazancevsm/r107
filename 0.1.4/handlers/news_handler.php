@@ -40,7 +40,7 @@ class news {
 			if ($sql -> db_Update('news', $vals)) {
 				$e_event -> trigger('newsupd', $news);
 				$message = LAN_NEWS_21;
-				$e107cache -> clear('content.php');
+				$e107cache -> clear('news.php');
 			} else {
 				$message = "<strong>".(!mysql_errno() ? LAN_NEWS_46 : LAN_NEWS_5)."</strong>";
 			}
@@ -48,7 +48,7 @@ class news {
 			if ($news['news_id'] = $sql ->db_Insert('news', "0, '".$news['news_title']."', '".$news['news_body']."', '".$news['news_extended']."', ".intval($news['news_datestamp']).", ".intval($news['news_author']).", '".intval($news['cat_id'])."', '".intval($news['news_allow_comments'])."', '".intval($news['news_start'])."', '".intval($news['news_end'])."', '".$tp->toDB($news['news_class'])."', '".intval($news['news_rendertype'])."', '0' , '".$news['news_summary']."', '".$tp->toDB($news['news_thumbnail'])."', '".intval($news['news_sticky'])."' ")) {
 				$e_event -> trigger('newspost', $news);
 				$message = LAN_NEWS_6;
-				$e107cache -> clear('content.php');
+				$e107cache -> clear('news.php');
 			} else {
 				$message = "<strong>".LAN_NEWS_7."</strong>";
 			}

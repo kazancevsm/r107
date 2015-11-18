@@ -202,7 +202,7 @@ $CUSTOMFOOTER = "
 ";
 
 
-$CUSTOMPAGES = "forum.php forum_post.php forum_viewforum.php forum_viewtopic.php user.php submitcontent.php download.php links.php stats.php usersettings.php signup.php";
+$CUSTOMPAGES = "forum.php forum_post.php forum_viewforum.php forum_viewtopic.php user.php submitnews.php download.php links.php stats.php usersettings.php signup.php";
 
 
 

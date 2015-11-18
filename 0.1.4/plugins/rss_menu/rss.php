@@ -213,7 +213,7 @@ class rssCreate {
 				$loop=0;
 				foreach($tmp as $value) {
 					$this -> rssItems[$loop]['title'] = $value['news_title'];
-					$this -> rssItems[$loop]['link'] = "http://".$_SERVER['HTTP_HOST'].e_HTTP."content.php?item.".$value['news_id'].".".$value['news_category'];
+					$this -> rssItems[$loop]['link'] = "http://".$_SERVER['HTTP_HOST'].e_HTTP."news.php?item.".$value['news_id'].".".$value['news_category'];
                     if($value['news_summary'])
                     {
                         	$this -> rssItems[$loop]['description'] = $value['news_summary'];
@@ -235,7 +235,7 @@ class rssCreate {
                     $this -> rssItems[$loop]['author_email'] = $value['user_email'];
 
 					$this -> rssItems[$loop]['category_name'] = $tp->toHTML($value['category_name'],TRUE,'defs');
-                    $this -> rssItems[$loop]['category_link'] = $e107->base_path."content.php?cat.".$value['news_category'];
+                    $this -> rssItems[$loop]['category_link'] = $e107->base_path."news.php?cat.".$value['news_category'];
 
 					if($value['news_allow_comments'] && $pref['comments_disabled'] != 1){
 						$this -> rssItems[$loop]['comment'] = "http://".$_SERVER['HTTP_HOST'].e_HTTP."comment.php?comment.news.".$value['news_id'];

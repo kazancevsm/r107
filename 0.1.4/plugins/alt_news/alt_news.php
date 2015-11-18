@@ -10,9 +10,9 @@
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).
 |
-|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_plugins/alt_news/alt_content.php $
+|     $URL: https://e107.svn.sourceforge.net/svnroot/e107/trunk/e107_0.7/e107_plugins/alt_news/alt_news.php $
 |     $Revision: 11678 $
-|     $Id: alt_content.php 11678 2010-08-22 00:43:45Z e107coders $
+|     $Id: alt_news.php 11678 2010-08-22 00:43:45Z e107coders $
 |     $Author: e107coders $
 +----------------------------------------------------------------------------+
 */
@@ -63,7 +63,7 @@ function alt_news($news_category) {
 					if ($news_allow_comments)
 					{
 						$text .= "
-						<a href='content.php?extend.".$news_id."'>".$news_title."</a>";
+						<a href='news.php?extend.".$news_id."'>".$news_title."</a>";
 					}
 					else
 					{

@@ -26,7 +26,7 @@ if (file_exists('index_include.php')) {
 
 if (!is_array($pref['frontpage']) && $pref['frontpage'] != 'Array') {
 	if (!$pref['frontpage'] || $pref['frontpage'] == 'Array.php') {
-		$up_pref = 'content.php';
+		$up_pref = 'news.php';
 	} else if ($pref['frontpage'] == 'links') {
 		$up_pref = $PLUGINS_DIRECTORY.'links_page/links.php';
 	} else if ($pref['frontpage'] == 'forum') {
@@ -69,8 +69,8 @@ if ($pref['membersonly_enabled'] && !USER) {
 
 // handle redirect and include front page methods
 if(isset($pref['frontpage_method']) && $pref['frontpage_method'] == "include") {
-	if($location == "content.php") {
-		require_once("content.php");
+	if($location == "news.php") {
+		require_once("news.php");
 	} elseif ($location == PLUGINS_DIRECTORY."forum/forum.php") {
 		require_once($PLUGINS_DIRECTORY."forum/forum.php");
 	} elseif (preg_match('/^page\.php\?([0-9]*)$/', $location)) {

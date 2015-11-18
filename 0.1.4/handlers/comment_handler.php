@@ -819,7 +819,7 @@ $text .= ($nextprev ? '<div class="nextprev">'.$nextprev.'</div>' : '');
 						$ret['comment_title']				= $tp -> toHTML($row2['news_title'], TRUE,'emotes_off, no_make_clickable');
 						$ret['comment_url']					= e_HTTP."comment.php?comment.news.".$row['comment_item_id'];
 						$ret['comment_category_heading']	= COMLAN_TYPE_1;
-						$ret['comment_category_url']		= e_HTTP."content.php";
+						$ret['comment_category_url']		= e_HTTP."news.php";
 					}
 					break;
 					

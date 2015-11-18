@@ -29,7 +29,7 @@ if (!defined('e107_INIT')) { exit; }
 		while($row = $sql -> db_Fetch()){
 
 			// Code from Lisa
-			// copied from the rss creation, but added here to make sure the url for the newsitem is to the content.php?item.X
+			// copied from the rss creation, but added here to make sure the url for the newsitem is to the news.php?item.X
 			// instead of the actual hyperlink that may have been added to a newstitle on creation
 			$search = array();
 			$replace = array();
@@ -50,9 +50,9 @@ if (!defined('e107_INIT')) { exit; }
 
 			$rowheading	= $this -> parse_heading($news_title, $mode);
 			$ICON		= $bullet;
-			$HEADING	= "<a href='".e_BASE."content.php?item.".$row['news_id']."' title='".$rowheading."'>".$rowheading."</a>";
+			$HEADING	= "<a href='".e_BASE."news.php?item.".$row['news_id']."' title='".$rowheading."'>".$rowheading."</a>";
 			$AUTHOR		= ($arr[3] ? ($row['news_author'] == 0 ? $row['news_author'] : ($row['news_author_name'] ? "<a href='".e_BASE."user.php?id.".$row['news_author_id']."'>".$row['news_author_name']."</a>" : "") ) : "");
-			$CATEGORY	= ($arr[4] ? "<a href='".e_BASE."content.php?cat.".$row['news_category_id']."'>".$row['news_category_name']."</a>" : "");
+			$CATEGORY	= ($arr[4] ? "<a href='".e_BASE."news.php?cat.".$row['news_category_id']."'>".$row['news_category_name']."</a>" : "");
 			$DATE		= ($arr[5] ? $this -> getListDate($row['news_datestamp'], $mode) : "");
 			$INFO		= "";
 			$LIST_DATA[$mode][] = array( $ICON, $HEADING, $AUTHOR, $CATEGORY, $DATE, $INFO );

@@ -34,7 +34,7 @@ if (IsSet($_POST['moderate']))
 	}
   }
   $ns->tablerender("", "<div style='text-align:center'><b>".TRACKBACK_L15."</b></div>");
-  $e107cache->clear("content.php");
+  $e107cache->clear("news.php");
 }
 	
 $text = "<div style='text-align:center'>

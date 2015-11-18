@@ -58,11 +58,11 @@ function hilite($link,$enabled=''){
 		}
 
 // --------------- highlight for news items.----------------
-// eg. content.php, content.php?list.1 or content.php?cat.2 etc
-	if(substr(basename($link),0,8) == "content.php")
+// eg. news.php, news.php?list.1 or news.php?cat.2 etc
+	if(substr(basename($link),0,8) == "news.php")
 	{
 
-		if (strpos($link, "content.php?") !== FALSE && strpos(e_SELF,"/content.php")!==FALSE) {
+		if (strpos($link, "news.php?") !== FALSE && strpos(e_SELF,"/news.php")!==FALSE) {
 
 			$lnk = explode(".",$link_qry); // link queries.
 			$qry = explode(".",e_QUERY); // current page queries.
@@ -88,7 +88,7 @@ function hilite($link,$enabled=''){
 			}
 
 		}
-		elseif (!e_QUERY && e_PAGE == "content.php")
+		elseif (!e_QUERY && e_PAGE == "news.php")
 		{
 
 		   	return TRUE;

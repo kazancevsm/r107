@@ -303,7 +303,7 @@ class themeHandler{
 
 		$author = ($theme['email'] ? "<a href='mailto:".$theme['email']."' title='".$theme['email']."'>".$theme['author']."</a>" : $theme['author']);
 		$website = ($theme['website'] ? "<a href='".$theme['website']."' rel='external'>".$theme['website']."</a>" : "");
-		$preview = "<a href='".e_BASE."content.php?themepreview.".$theme['id']."' title='".TPVLAN_9."' >".($theme['preview'] ? "<img src='".$theme['preview']."' style='border: 1px solid #000;width:200px' alt='' />" : "<img src='".e_IMAGE."admin/nopreview.png' style='border:0px' title='".TPVLAN_12."' alt='' />")."</a>";
+		$preview = "<a href='".e_BASE."news.php?themepreview.".$theme['id']."' title='".TPVLAN_9."' >".($theme['preview'] ? "<img src='".$theme['preview']."' style='border: 1px solid #000;width:200px' alt='' />" : "<img src='".e_IMAGE."admin/nopreview.png' style='border:0px' title='".TPVLAN_12."' alt='' />")."</a>";
 		$selectmainbutton = ($mode != 1 ? "<input class='button' type='submit' name='selectmain_".$theme['id']."' value='".TPVLAN_10."' />" : "");
 		$selectadminbutton = ($mode != 2 ? "<input class='button' type='submit' name='selectadmin_".$theme['id']."' value='".TPVLAN_32."' />" : "");
 		$previewbutton = (!$mode ? "<input class='button' type='submit' name='preview_".$theme['id']."' value='".TPVLAN_9."' /> " : "");
@@ -423,7 +423,7 @@ class themeHandler{
 
 	function themePreview()
 	{
-		echo "<script type='text/javascript'>document.location.href='".e_BASE."content.php?themepreview.".$this -> id."'</script>\n";
+		echo "<script type='text/javascript'>document.location.href='".e_BASE."news.php?themepreview.".$this -> id."'</script>\n";
 		exit;
 	}
 

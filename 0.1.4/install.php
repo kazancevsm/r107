@@ -935,7 +935,7 @@ class e_install
 		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_088."', 'index.php', '', '', 1, 1, 0, 0, 0) ");
 		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_089."', 'download.php', '', '', 1, 2, 0, 0, 0) ");
 		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_090."', 'user.php', '', '', 1, 3, 0, 0, 0) ");
-		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_091."', 'submitcontent.php', '', '', 1, 4, 0, 0, 0) ");
+		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_091."', 'submitnews.php', '', '', 1, 4, 0, 0, 0) ");
 		mysql_query("INSERT INTO {$this->previous_steps['mysql']['prefix']}links VALUES (0, '".LANINS_092."', 'contact.php', '', '', 1, 5, 0, 0, 0) ");
 
 		$udirs = "admin/|plugins/|temp";

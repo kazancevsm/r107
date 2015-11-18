@@ -32,8 +32,8 @@ if(!defined("e_TRACKING_DISABLED") && (isset($pref['track_online']) && $pref['tr
 			list($oid, $oname) = explode(".", $uinfo, 2);
 			$online_location_page = substr(strrchr($pinfo, "/"), 1);
 			if ($pinfo == "log.php" || $pinfo == "error.php") {
-				$online_location_page = "content.php";
-				$pinfo = "content.php";
+				$online_location_page = "news.php";
+				$pinfo = "news.php";
 			}
 			if ($online_location_page == "request.php") {
 				$pinfo = "download.php";
