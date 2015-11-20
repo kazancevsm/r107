@@ -7,60 +7,121 @@
 //	http://magicdreamwebstudio.ru
 //------project start in 2013 y-------------------------------------------------------------------
 
-//-----MG_PLUGIN
-define("MG_PLUGIN_NAME", "Волшебная галерея");
-define("MG_PLUGIN_DESC", "Плагин ".MG_PLUGIN_NAME." предназначен для создания фотогалереи. Плагин подключается к различным модулям с помощью биби кода. Он основан на технологии CSS.");
-define("MG_PLUGIN_INST", "Плагин успешно установлен.");
-define("MG_PLUGIN_UNINST", "Плагин удален из системы.");
-define("MG_PLUGIN_UPGRADE", "Плагин успешно обновлен.");
-define("MG_PLUGIN_LINK", "Фотогалерея");
-define("MG_PLUGIN_AUTHOR1", "Казанцев Сергей [sunout]");
-define("MG_PLUGIN_AUTHOR2", "Лебедев Александр [StAlKeR_PeOpLe]");
+//-----LAN_PLUGIN
+define("LAN_PLUGIN_NAME", "Волшебная галерея");
+define("LAN_PLUGIN_DESC", "Плагин ".LAN_PLUGIN_NAME." предназначен для создания фотогалереи. Плагин подключается к различным модулям с помощью биби кода. Он основан на технологии CSS.");
+define("LAN_PLUGIN_INST", "Плагин успешно установлен.");
+define("LAN_PLUGIN_UNINST", "Плагин удален из системы.");
+define("LAN_PLUGIN_UPGRADE", "Плагин успешно обновлен.");
+define("LAN_PLUGIN_LINK", "Фотогалерея");
+define("LAN_PLUGIN_AUTHOR1", "Казанцев Сергей [sunout]");
+define("LAN_PLUGIN_AUTHOR2", "Лебедев Александр [StAlKeR_PeOpLe]");
 
-//-----MG_MENU_PLUGIN
-define("MG_MENU_CAPTION", "Волшебная галерея");
+//-----LAN_MENU_PLUGIN
+define("LAN_MENU_CAPTION", "Волшебная галерея");
 
-//-----MG_ADMIN_CONFIG
-define("MG_ADMENU_CAP", "Меню галереи");
-define("MG_ADMENU_GNL", "Главная страница");
-define("MG_ADMENU_ALB", "Альбомы");
-define("MG_ADMENU_ADDPIC", "Добавить изображение");
-define("MG_ADMENU_NEWPIC", "Новые изображения");
-define("MG_ADMENU_OPTION", "Опции");
+//-----LAN_ADMIN_CONFIG
+define("LAN_ADMENU_CAP", "Меню галереи");
+define("LAN_ADMENU_GNL", "Главная страница");
+define("LAN_ADMENU_ALB", "Альбомы");
+define("LAN_ADMENU_ADDPIC", "Добавить изображение");
+define("LAN_ADMENU_NEWPIC", "Новые изображения");
+define("LAN_ADMENU_OPTION", "Опции");
 
-define("MG_ADMCAT_CAP", "Управление категориями");
-define("MG_ADMADD_CAP", "Добавление новых изображений");
-define("MG_ADMUPL_CAP", "Присланные пользователями изображения");
-define("MG_ADMOPT_CAP", "Опции фотогалереи");
+define("LAN_ADMCAT_CAP", "Управление категориями");
+define("LAN_ADMADD_CAP", "Добавление новых изображений");
+define("LAN_ADMUPL_CAP", "Присланные пользователями изображения");
+define("LAN_ADMOPT_CAP", "Опции фотогалереи");
 
-//-----MG_ADMIN_GENERAL
-define("MG_ADMGNL_CAP", "Главная страница");
-define("MG_ADMGNL_ID", "ID");
-define("MG_ADMGNL_NAME_ALB", "Альбом");
-define("MG_ADMGNL_AMOUNT", "Количество фото/размер, мб");
-define("MG_ADMGNL_USER", "Пользователь");
-define("MG_ADMGNL_OPT", "Опции");
+//-----ADMIN_GENERAL
+define("LAN_ADMGNL_CAP", "Главная страница");
+define("LAN_ADMGNL_ID", "ID");
+define("LAN_ADMGNL_NAME_ALB", "Альбом");
+define("LAN_ADMGNL_AMOUNT", "Количество фото/размер, мб");
+define("LAN_ADMGNL_USER", "Пользователь");
+define("LAN_ADMGNL_OPT", "Опции");
 
-//-----MG_NAVIGATION
-define("MG_NAVI_CAP", "Главная страница");
-define("MG_NAVI_ALL", "Все альбомы");
-define("MG_NAVI_SEARCH", "Поиск");
-define("MG_NAVI_ADD", "Загрузить фото");
-define("MG_NAVI_PO", "Личный кабинет");
+//-----NAVIGATION
+define("LAN_NAVI_CAP", "Главная страница");
+define("LAN_NAVI_ALL", "Все альбомы");
+define("LAN_NAVI_SEARCH", "Поиск");
+define("LAN_NAVI_ADD", "Загрузить фото");
+define("LAN_NAVI_PO", "Личный кабинет");
 
-//-----MG_MENU
-define("MG_MENU_CAP", "Случайная картинка"); //MYGAL_L002
+//-----MENU_CAPTION_RENDOMIZE_IMAGES
+define("LAN_MENU_CAP_RND", "Случайная картинка");
 
-define("MG_ALBUM_ID", "ID");
-define("MG_ALBUM_USER", "id пользователя");
-define("MG_ALBUM_CAT", "Категория");
-define("MG_ALBUM_NAME", "Название");
-define("MG_ALBUM_DIR", "Название папки");
-define("MG_ALBUM_DESC", "Описание");
-define("MG_ALBUM_ICON", "Изображение");
-define("MG_ALBUM_RATE", "Рейтинг");
-define("MG_CREATE_ALBUM", "Создать альбом");
+define("LAN_ALBUM_ID", "ID");
+define("LAN_ALBUM_USER", "Автор");
+define("LAN_ALBUM_CAT", "Категория");
+define("LAN_ALBUM_NAME", "Название");
+define("LAN_ALBUM_DIR", "Название папки");
+define("LAN_ALBUM_DESC", "Описание");
+define("LAN_ALBUM_ICON", "Изображение");
+define("LAN_ALBUM_RATE", "Рейтинг");
+define("LAN_ALBUM_OPTIONS", "Опции");
+define("LAN_CREATE_ALBUM", "Создать альбом");
 
+define("LAN_CAT_ID", "ID");
+define("LAN_CAT_NAME", "Название");
+define("LAN_CAT_ICON", "Изображение");
+define("LAN_CAT_DESC", "Описание");
+
+//-----IMAGES
+define('LAN_IMG_00',"Изображение");
+define('LAN_IMG_01',"Загрузить картинку");
+define('LAN_IMG_02',"Выберите изображение");
+define('LAN_IMG_03',"Показать иконки");
+define('LAN_IMG_04',"Поменять картинку");
+
+//-----BUTTONS
+define('LAN_BUT_ADD',"Добавить");
+define('LAN_BUT_DEL',"Удалить");
+define('LAN_BUT_EDIT',"Редактировать");
+define('LAN_BUT_UPD',"Обновить");
+define('LAN_BUT_RES',"Очистить");
+define('LAN_BUT_CANS',"Отменить");
+define('LAN_BUT_AGR',"Принять");
+define('LAN_BUT_SEA',"Найти");
+define('LAN_BUT_GO',"Перейти");
+define('LAN_BUT_ADDBASK',"В корзину");
+define("LAN_BUT_BASK","Корзина");
+define("LAN_BUT_BEGIN","В начало");
+define("LAN_BUT_BACK","Вернуться к выбору товара");
+
+//-----MESSAGE
+define('LAN_MES_START',"Catalog пока не готов к работе, пожалуйста, обратитесь к администратору сайта.");
+define('LAN_MES_CAP',"Сообщение");
+define('LAN_MES_00',"<font color=red>Настройки обновлены</font>");
+define('LAN_MES_01',"<font color=red>Не выбрана запись для редактирования</font>");
+define('LAN_MES_02',"<font color=red>Не выбрана запись для удаления</font>");
+define('LAN_MES_03',"<font color=red>Вы действительно хотите удалить категорию</font>");
+define('LAN_MES_04',"<font color=red>Вы пытаетесь добавить пустую категорию!</font>");
+define('LAN_MES_05',"<font color=red>Категория успешно добавлена</font>");
+define('LAN_MES_06',"<font color=red>Категория обновлена</font>");
+define('LAN_MES_07',"<font color=red>Категория</font>");
+define('LAN_MES_08',"<font color=red>удалена</font>");
+define('LAN_MES_09',"<font color=red>Неправильный формат номера страницы!</font>");
+define('LAN_MES_10',"<font color=red>Неправильный запрос к базе.</font>");
+define('LAN_MES_11',"<font color=red>Вы пытаетесь добавить пустую подкатегорию!</font>");
+define('LAN_MES_12',"<font color=red>Подкатегория успешно добавлена</font>");
+define('LAN_MES_13',"<font color=red>Под-категория обновлена</font>");
+define('LAN_MES_14',"<font color=red>Не вся информация была введена</font>");
+define('LAN_MES_15',"<font color=red>Без картинки</font>");
+define('LAN_MES_16',"<font color=red>Введите ваше имя, не более 20 символов!</font>");
+define('LAN_MES_17',"<font color=red>Установки обновлены</font>");
+define('LAN_MES_18',"<font color=red>Установки добавлены</font>");
+define('LAN_MES_19',"<font color=red>Вы уже добавили этот товар в Вашу корзину</font>");
+define("LAN_MES_EMPT_01","<font color=red>Ваша корзина пуста</font>");
+define("LAN_MES_EMPT_02","<font color=red>Ваша корзина пуста (Содержимое корзины автоматически очищается после 24 часов неиспользования)</font>");
+define("LAN_MES_NOLOGIN","Вы должны быть зарегестрированным пользователем.<br>Регистрация очень проста и не займет у вас много времени.<br><a href=".e_HTTP."signup.php><b>[Перейти к процедуре регистации]</b></a>");
+define("LAN_MES_DISCOUNT","Чтобы воспользоваться типом скидки Накопительная, вы должны быть зарегестрированы.<br><a href=".e_HTTP."signup.php>Перейти к процедуре регистации?</a>");
+define("LAN_MES_FILL","Возможно вы заполнили не все поля отмеченные заком *");
+
+//-----CONFIRM
+define("LAN_CAT_DEL_CONFIRM","Вы действительно хотите удалить категорию?");
+define("LAN_ALB_DEL_CONFIRM","Вы действительно хотите удалить альбом?");
+define("LAN_IMG_DEL_CONFIRM","Вы действительно хотите удалить изображение?");
 
 define("MYGAL_L003", "Галерея");
 define("MYGAL_L004", "Настройки сохранены");

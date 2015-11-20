@@ -39,79 +39,100 @@ $e_sub_cat = 'custom';		// on wysiwyg
 $e_wysiwyg = "data";		// on wysiwyg
 $vis = 'none';			// switch, display object none
 $unvis = 'yes';			// switch, display object yes
-$mg_sql = new db;
 
+$mg_sql = new db;
+$mg_sql_2 = new db;
+$mg_sql_3 = new db;
 // =================================================================================================
 //				          GENERAL PAGE
 // =================================================================================================
 if((!isset($action)) || (isset($action) && $action == "cat")){
 
+// ----- on wysiwyg
+if (((varset($pref['wysiwyg'],FALSE) && check_class($pref['post_html'])) || defsettrue('e_WYSIWYG')) && varset($e_wysiwyg) != ""){
+	require_once(e_HANDLER."tiny_mce/wysiwyg.php");
+	define("e_WYSIWYG",TRUE);
+	$wy = new wysiwyg($e_wysiwyg);
+	$wy->render();
+} else {
+	define("e_WYSIWYG",FALSE);
+}
 
-if(IsSet($sub_action) && ($sub_action =='create') || ($sub_action =='edit')) {
-	if($sub_action =='create') {
+// ----- variable
+	$cat_id = $_POST['cat_id'];
+//	$cat_sub = $_POST['cat_sub'];
+	$cat_name = $_POST['cat_name'];
+	$cat_icon = $_POST['cat_icon'];
+	$cat_desc = $_POST['cat_desc'];
+	
+// ----- sub_action CREATE OF CATEGORY
+if(IsSet($sub_action) && ($sub_action =='create_cat') || ($sub_action =='edit_cat')) {
+	if($sub_action =='create_cat') {
 		$vis_upd = 'none';
 		$vis_agr = 'block';
 	}
-	if($sub_action =='edit'){
-		$sql -> db_Select("catalog_cat", "*", "cat_id='$id'");
-		while($row = $sql -> db_Fetch()){
+	if($sub_action =='edit_cat'){
+		$mg_sql -> db_Select("gallery_cat", "*", "cat_id='$id'");
+		while($row = $mg_sql -> db_Fetch()){
 		$cat_id = $row['cat_id'];
 		$cat_name = $row['cat_name'];
-		$cat_sub = $row['cat_sub'];
-		$cat_pic = $row['cat_pic'];
+//		$cat_sub = $row['cat_sub'];
+		$cat_icon = $row['cat_icon'];
 		$cat_desc = $row['cat_desc'];
 		}
 		$vis_upd = 'block';
 		$vis_agr = 'none';
 	}
 	
-// -----form for processing of records------------------------------------------------
+if (isset($sub_action) && $sub_action == 'delete_cat'){
+	$mg_sql -> db_Delete("gallery_cat", "cat_id='$id'");
+}
+
+if (isset($_POST['submit_update_cat'])){
+	$mg_sql -> db_Update("gallery_cat", "cat_sub_id='$cat_sub_id', cat_name='$cat_name', cat_desc='$cat_desc', cat_icon='$cat_icon' WHERE cat_id='$cat_id'");
+		$cat_art=$cat_name=$cat_type=$cat_unit=$cat_desc=$cat_pic=$cat_price='';
+		$message = LAN_MES_06;
+		$ns -> tablerender(LAN_MES_00, $message);
+		$vis = 'none';
+		$unvis = 'yes';
+}
+
+if (IsSet($_POST['submit_insert_cat'])){
+	if ($cat_name == ""){
+	    $message = "<font color=red>".LAN_MES_11."</font>";
+	}
+	else {
+	    $mg_sql -> db_Insert("gallery_cat", "0, '', '$cat_name', '$cat_desc', '$cat_icon'");
+	    $message = "<font color=red>".LAN_MES_12."</font>";
+	    header ("Location: ".e_PLUGIN."gallery/admin_config.php?cat.create_cat");
+	    exit;
+	}
+	$ns -> tablerender(LAN_MES_00, $message);
+}
+	
+// ----- FORM - CREATE AND EDITION OF CATEGORY
 $text.="<div id='r_window_block_cat' class='r_window_block'>";
 $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Категории</div>";
-$text.="<div class='r_window_close'><a href='".e_PLUGIN."gallery/admin_config.php?cat' >Закрыть</a></div>";
+$text.="<div class='r_window_close'><a href='".e_PLUGIN."gallery/admin_config.php?cat'>Закрыть</a></div>";
 $text.="<div class='r_window_scroll'>";
 
 $text .="<form name='config' method='post' action='". $PHP_SELF ."'><table class='r_header3' style='width:100%'>";
 	$text .= "<tr><td width='30%' class='r_header3'>".LAN_CAT_NAME."</td><td class='r_header3' width='70%'>
 			<input size='40' class='tbox' type='text' name='cat_name' value='$cat_name'>
 			<input type='text' name='cat_id' value='$cat_id' style='display:none;'></td></tr>";
-	$text .= "<tr><td class='r_header3'>".LAN_CAT_SUB."</td><td class='r_header3'>";
-	$text .= "<select class='tbox' name='cat_sub'>";
-	/*
-	if($sub_action == 'edit') {
-	$sql -> db_Select("catalog_cat", "*", "cat_id='$cat_sub' ORDER BY cat_name ASC");
-		while($row = $sql -> db_Fetch()){
-		$cat_sub_id = $row['cat_id'];
-		$cat_sub_name = $row['cat_name'];
-	$text .= "<option value='$cat_sub_id'>$cat_sub_name</option>";
-		}
-	$text .= "<option value='0' checked>Не принадлежит</option>";
-	
-	}
-	if($sub_action == 'create') {
-	$text .= "<option value='0' checked>Не принадлежит</option>";
-	}
-	$sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
-	while($row = $sql -> db_Fetch()){
-		$Cat_id = $row['cat_id'];
-		$Cat_name = $row['cat_name'];
-	$text .= "<option value='$Cat_id'>$Cat_name</option>";
-	}
-	$text .="</select></td></tr>";
-	
 
 // -----output agent of images---------------------------------------------------------
 $fl = new e_file;
-if($imglist = $fl->get_files(e_PLUGIN."gallery/images/category/", ".jpg|.jpeg|.gif|.png|.JPG|.JPEG|.GIF|.PNG")){
+if($imglist = $fl->get_files(e_FILE."icons/", ".jpg|.jpeg|.gif|.png|.JPG|.JPEG|.GIF|.PNG")){
         sort($imglist);
 }
 	$text .= "<tr>
-			<td class='r_header3'>".LAN_IMG_02."</td>
-			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_pic' value='$cat_pic' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
+			<td class='r_header3'>".LAN_CAT_ICON."</td>
+			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_icon' value='$cat_icon' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
 			<div id='linkimg' style='display:none;{head}'>";
 	foreach($imglist as $img){
-			$list_img = str_replace(e_PLUGIN."gallery/images/category/","",$img['path'].$img['fname']);
+			$list_img = str_replace(e_FILE."icons/","",$img['path'].$img['fname']);
 			$text .= "<a href=\"javascript:insertext('".$list_img."','cat_pic','linkimg')\"><img src='".$img['path'].$img['fname']."' style='border:0' width=50px alt='' /></a> ";
 	}
 	$text .= "</div></td></tr>";
@@ -120,10 +141,10 @@ if($imglist = $fl->get_files(e_PLUGIN."gallery/images/category/", ".jpg|.jpeg|.g
 	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
 	$text .= "<textarea class='tbox' id='data' name='cat_desc' cols='80' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$cat_desc</textarea><br>".display_help('')."";
 	$text .= "</td></tr>";
-	*/
+	
 	$text .= "<tr><td></td><td>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr; float:left; margin-right:3px;' value=".LAN_BUT_AGR." name='submit_insert'>
-			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd; float:left; margin-right:3px;' value=".LAN_BUT_UPD." name='submit_update'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr; float:left; margin-right:3px;' value=".LAN_BUT_AGR." name='submit_insert_cat'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd; float:left; margin-right:3px;' value=".LAN_BUT_UPD." name='submit_update_cat'>
 			<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_CANS." name='submit_reset'>
 			</td></tr></table></form>";
 			
@@ -132,147 +153,190 @@ if($imglist = $fl->get_files(e_PLUGIN."gallery/images/category/", ".jpg|.jpeg|.g
 	$text.="</div>";
 }
 
-$text .= "<a href='".e_PLUGIN."gallery/admin_config.php?cat.create' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">Добавить категорию</a> | ";
-$text .="<a href='".e_PLUGIN."gallery/admin_config.php?cat.load' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_upload').style.display='block'; return false;\">Добавить альбом</a>";
-//e_PLUGIN."md_gallery/".
-$text .= "<table width=100%><tr>";
-$text .= "<td class='fcaption' width=5%>".MG_ALBUM_ID."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_USER."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_CAT."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_DIR."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_NAME."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_DESC."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_ICON."</td>";
-$text .= "<td class='fcaption' width=10%>".MG_ALBUM_RATE."</td>";
-$text .= "</tr>";
 
-$text .= "<tr>";
-$mg_sql -> db_Select("gal_album", "*", "");
+
+// ----- sub_action CREATE OF ALBUM
+
+
+
+
+if(IsSet($sub_action) && ($sub_action =='create_album') || ($sub_action =='edit_album')) {
+
+$dir = e_FILE."images_gallery";
+chmod (e_FILE."images_gallery",0777);
+
+
+
+$album_user = USERID;
+$album_dir = $_POST["album_dir"];
+$album_cat = $_POST["album_cat"];
+$album_name = $_POST["album_name"];
+$album_desc = $_POST["album_desc"];
+
+	if($sub_action =='create_album') {
+		$vis_upd = 'none';
+		$vis_agr = 'block';
+	}
+	if($sub_action =='edit_album'){
+		$mg_sql -> db_Select("gallery_album", "*", "album_id='$id'");
+		while($row = $mg_sql -> db_Fetch()){
+		$album_id = $row['album_id'];
+		$album_name = $row['album_name'];
+//		$cat_sub = $row['cat_sub'];
+		$album_icon = $row['album_icon'];
+		$album_desc = $row['album_desc'];
+		}
+		$vis_upd = 'block';
+		$vis_agr = 'none';
+	}
+	
+if (isset($sub_action) && $sub_action == 'delete_album'){
+	$mg_sql -> db_Delete("gallery_album", "album_id='$id'");
+}
+
+if (isset($_POST['submit_update_album'])){
+	$mg_sql -> db_Update("gallery_album", "album_cat='$album_cat', album_name='$album_name', album_desc='$album_desc', album_icon='$album_icon' WHERE album_id='$album_id'");
+		$album_cat=$album_name=$album_desc=$album_icon='';
+		$message = LAN_MES_06;
+		$ns -> tablerender(LAN_MES_00, $message);
+		$vis = 'none';
+		$unvis = 'yes';
+}
+
+if (IsSet($_POST['submit_insert_album'])){
+	if ($album_name == ""){
+	    $message = "<font color=red>".LAN_MES_11."</font>";
+	}
+	else {
+	    $mg_sql -> db_Insert ("gallery_album", "0, '$album_user', '$album_cat', '$album_dir', '$album_name', '$album_desc', '', ''");
+	    mkdir("$dir/$album_dir",0777);
+	    $message = "<font color=red>".LAN_MES_12."</font>";
+	    header ("Location: ".e_PLUGIN."gallery/admin_config.php?cat.create_album");
+	    exit;
+	}
+	$ns -> tablerender(LAN_MES_00, $message);
+}
+// ----- FORM - CREATE AND EDITION OF ALBUM
+$text.="<div id='r_window_block_cat' class='r_window_block'>";
+$text.="<div class='r_window_dialog'>";
+$text.="<div class='r_window_caption'>Категории</div>";
+$text.="<div class='r_window_close'><a href='".e_PLUGIN."gallery/admin_config.php?cat'>Закрыть</a></div>";
+$text.="<div class='r_window_scroll'>";
+
+$text .="<form name='config' method='post' action='". $PHP_SELF ."'><table class='r_header3' style='width:100%'>";
+	$text .= "<table style='width:85%' class='fborder'>";
+$text .= "<tr><td class='forumheader'>".LAN_ALBUM_CAT."</td>";
+$text .= "<td class='forumheader'><select class='tbox' name='album_cat'>
+	<option value='0' selected='selected'>".MYGAL_L024."</option>";
+	$mg_sql -> db_Select("gallery_cat", "*", "");
 	while($row = $mg_sql -> db_Fetch()){
-		$album_id = $row["album_id"];
-		$album_userid = $row["album_userid"];
-		$album_name_dir = $row["album_name_dir"];
-		$album_name = $row["album_name"];
-		$album_desc = $row["album_desc"];
-		$album_icon = $row["album_icon"];
-		$album_rate = $row["album_rate"];
-		
-		$text .= "<td class='forumheader' width=5%>".$album_id."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_userid."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_catid."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_name_dir."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_name."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_desc."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_icon."</td>";
-		$text .= "<td class='fcaption' width=10%>".$album_rate."</td>";
-		}
+		$cat_id = $row["cat_id"];
+		$cat_name = $row["cat_name"];
+	$text .= "<option value='$cat_id'>$cat_name</option>";
+	}
+$text .= "</select></td></tr>";
+$album_dir = time();
+$text .= "<tr><td class='forumheader'>".LAN_ALBUM_DIR."</td>";
+$text .= "<td class='forumheader'><input class='tbox' type='text' name='album_dir' size='60' value='$album_dir' readonly></td></tr>";
+$text .= "<tr><td class='forumheader'>".LAN_ALBUM_NAME."</td>";
+$text .= "<td class='forumheader'><input class='tbox' type='text' name='album_name' size='60' value='$album_name'></td></tr>";
+
+// -----output agent of images---------------------------------------------------------
+$fl = new e_file;
+if($imglist = $fl->get_files(e_FILE."icons/", ".jpg|.jpeg|.gif|.png|.JPG|.JPEG|.GIF|.PNG")){
+        sort($imglist);
+}
+	$text .= "<tr>
+			<td class='r_header3'>".LAN_CAT_ICON."</td>
+			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_icon' value='$cat_icon' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
+			<div id='linkimg' style='display:none;{head}'>";
+	foreach($imglist as $img){
+			$list_img = str_replace(e_FILE."icons/","",$img['path'].$img['fname']);
+			$text .= "<a href=\"javascript:insertext('".$list_img."','cat_pic','linkimg')\"><img src='".$img['path'].$img['fname']."' style='border:0' width=50px alt='' /></a> ";
+	}
+	$text .= "</div></td></tr>";
+	$text .= "<tr><td class='r_header3'>".LAN_ALBUM_DESC." </td><td class='r_header3'>";
+	$insertjs = (!e_WYSIWYG)?"rows='10' onselect='storeCaret(this);' onclick='storeCaret(this);' onkeyup='storeCaret(this);' style='width:100%'": "rows='10' style='width:100%' ";
+	$data = $tp->toForm($data,FALSE,TRUE);	// Make sure we convert HTML tags to entities
+	$text .= "<textarea class='tbox' id='data' name='album_desc' cols='80' $insertjs>".(strstr($data, "[img]http") ? $data : str_replace("[img]../", "[img]", $data))."$album_desc</textarea><br>".display_help('')."";
+	$text .= "</td></tr>";
+	
+	$text .= "<tr><td></td><td>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_agr; float:left; margin-right:3px;' value=".LAN_BUT_AGR." name='submit_insert_album'>
+			<input type='submit' class='button' style='cursor:pointer;display:$vis_upd; float:left; margin-right:3px;' value=".LAN_BUT_UPD." name='submit_update_album'>
+			<input type='submit' class='button' style='cursor:pointer;' value=".LAN_BUT_CANS." name='submit_reset'>
+			</td></tr></table></form>";
+			
+	$text.="</div>";
+	$text.="</div>";
+	$text.="</div>";
+}
+
+//----- FORM - OUTPUT OF CATEGORIES AND ALBUMS
+$text .= "<a href='".e_PLUGIN."gallery/admin_config.php?cat.create_cat' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">Добавить категорию</a> | ";
+$text .="<a href='".e_PLUGIN."gallery/admin_config.php?cat.create_album' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_upload').style.display='block'; return false;\">Добавить альбом</a>";
+
+$text.="<div class='r_frame_scroll'>";
+$text .= "<table width=100%><tr>";
+$text .= "<td class='fcaption' width=5%>".LAN_ALBUM_ID."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_USER."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_CAT."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_DIR."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_NAME."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_DESC."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_ICON."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_RATE."</td>";
+$text .= "<td class='fcaption' width=10%>".LAN_ALBUM_OPTIONS."</td>";
 $text .= "</tr>";
-$text .= "</table>";
-		
-// *** !!! Нужно сделать проверку существования папки а затем ее создать если нет. если есть переходим к открытию папки.
 
-// Create folder e_PLUGIN."gallery
-/*
-$folder = e_FILE."gallery";
-if ($handle = opendir($folder)){
-	while (false !== ($folder_a = readdir($handle))){
-		if ($folder_a != "." && $folder_a != ".." && is_dir($folder."/".$folder_a)){ 
-			 $nav_a[] = $folder_a; 
-		}
-	}
-closedir($handle);
-}
-sort($nav_a);
-foreach ($nav_a as $folder_a){
-	$text .= "<tr>";
-	$text .= "<td class='forumheader'></td>";
-	$text .= "<td class='forumheader'></td>";
-        $text .= "<td class='forumheader'>".($folder_name[$folder."/".$folder_a] != "" ? $folder_name[$folder."/".$folder_a] : $folder_a."")."</td>";
-        $text .= "<td class='forumheader'></td>";
-        $text .= "<td class='forumheader'>".MYGAL_L076."</td>";
-//        $text .= "<td class='forumheader'>".e_SELF."?createfolder:".$folder."/".$folder_a."' style='color:red;'>".MYGAL_L076."";
-//        $selector_text2 .= "".
-//        ($folder_name[$folder."/".$folder_a] != "" ? $folder_name[$folder."/".$folder_a] : $folder_a."")
- //       ."</td>";
-        $nav_b = "";
-	if ($handle = opendir("$folder/$folder_a")){
-		while (false !== ($folder_b = readdir($handle))){
-			if ($folder_b != "." && $folder_b != ".." && is_dir($folder."/".$folder_a."/".$folder_b))  { $nav_b[]= $folder_b; }
-		}
-	closedir($handle);
-        }
-        sort($nav_b);
 
-	foreach ($nav_b as $folder_b){
+$mg_sql -> db_Select("gallery_cat", "*", "");
+	while($row = $mg_sql -> db_Fetch()){
+		$cat_id = $row["cat_id"];
+		$cat_name = $row["cat_name"];
 		$text .= "<tr>";
-		$text .= "<td class='forumheader3'></td>";
-		$text .= "<td class='forumheader3'></td>";
-		$text .= "<td class='forumheader3'>".($folder_name[$folder."/".$folder_a."/".$folder_b] != "" ? $folder_name[$folder."/".$folder_a."/".$folder_b] : $folder_b)
-                ."</td>";
-//                $selector_text2 .= "<option value='".e_SELF."?manage:".$folder_a.":".$folder_b."'>".
- //               ($folder_name[$folder."/".$folder_a."/".$folder_b] != "" ? $folder_name[$folder."/".$folder_a."/".$folder_b] : $folder_b)
-//                ."</option>";
-		$text .= "<td class='forumheader3'></td>";
-		$text .= "<td class='forumheader3'>".MYGAL_L076."</td>";
-               }
-        }
-      $text .= "<tr>";
-      $text .= "<td class='forumheader'></td>";
-      $text .= "<td class='forumheader'></td>";
-      $text .= "<td class='forumheader'><a href='index.php?".$mass[$q]."'>".$mass[$q]."</a><br>\n";
-      $text .= "<td class='forumheader'></td>";
-      $text .= "<td class='forumheader'></td>";
+		$text .= "<td class='forumheader2' width=5%>".$cat_id."</td>";
+//		$text .= "<td class='forumheader' width=5%>".$cat_sub_id."</td>";
+		$text .= "<td class='forumheader2' colspan=7>".$cat_name."</td>";
+		$text .= "<td class='forumheader2' width='10%'>
+			<a href='".e_PLUGIN."gallery/admin_config.php?cat.edit_cat.$cat_id' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."gallery/admin_config.php?cat.delete_cat.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
+		  </td>";
+		$text .= "</tr>";
+		$mg_sql_2 -> db_Select("gallery_album", "*", "");
+			while($row = $mg_sql_2 -> db_Fetch()){
+				$album_id = $row["album_id"];
+				$album_user_id = $row["album_user_id"];
+				$album_name_dir = $row["album_name_dir"];
+				$album_name = $row["album_name"];
+				$album_desc = $row["album_desc"];
+				$album_icon = $row["album_icon"];
+				$album_rate = $row["album_rate"];
+				$mg_sql_3 -> db_Select("user", "*", "user_id='$album_user_id'");
+					while($row = $mg_sql_3 -> db_Fetch()){
+					$album_user = $row["user_name"];
+					}
+		$text .= "<tr>";
+		$text .= "<td class='forumheader' width=5%>".$album_id."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_user."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_catid."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_name_dir."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_name."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_desc."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_icon."</td>";
+		$text .= "<td class='forumheader' width=10%>".$album_rate."</td>";
+		$text .= "<td class='forumheader' width='10%'>
+			<a href='".e_PLUGIN."gallery/admin_config.php?cat.edit_album.$album_id' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."gallery/admin_config.php?cat.delete_album.$album_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $album_id] ]')\">".ADMIN_DELETE_ICON."</a>
+		  </td>";
+		$text .= "</tr>";
+		}
+	}
 
 $text .= "</table>";
+$text .= "</div>";
 
-$text .= "<select name='gallery_sections' class='tbox' onchange=\"if(this.options[this.selectedIndex].value.indexOf('-') &amp;&amp; this.options[this.selectedIndex].value != '' &amp;&amp; this.options[this.selectedIndex].value != '&nbsp;'){ return document.location=this.options[this.selectedIndex].value; }\">
-<option value=''>
-".($mygall_qs[2] !="" ? "".($folder_name[$folder."/".urldecode($mygall_qs[1])."/".urldecode($mygall_qs[2])] != ""
-? $folder_name[$folder."/".urldecode($mygall_qs[1])."/".urldecode($mygall_qs[2])]
-: urldecode($mygall_qs[2]))
-."" : "")."</option>
-<option value='".e_SELF."?createfolder:".$folder."' style='color:red;'>".MYGAL_L075."</option>
-";
-
-if ($handle = opendir($folder)){
-	while (false !== ($folder_a = readdir($handle))){
-		if ($folder_a != "." && $folder_a != ".." && is_dir($folder."/".$folder_a))  { $nav_a[] = $folder_a; }
-	}
-closedir($handle);
-}
-sort($nav_a);
-foreach ($nav_a as $folder_a){
-        $selector_text .= "<optgroup label='".
-        ($folder_name[$folder."/".$folder_a] != "" ? $folder_name[$folder."/".$folder_a] : $folder_a."")
-        ."'>
-        <option value='".e_SELF."?createfolder:".$folder."/".$folder_a."' style='color:red;'>".MYGAL_L076."</option>";
-        $selector_text2 .= "<optgroup label='".
-        ($folder_name[$folder."/".$folder_a] != "" ? $folder_name[$folder."/".$folder_a] : $folder_a."")
-        ."'>";
-        $nav_b = "";
-	if ($handle = opendir("$folder/$folder_a")){
-		while (false !== ($folder_b = readdir($handle))){
-			if ($folder_b != "." && $folder_b != ".." && is_dir($folder."/".$folder_a."/".$folder_b))  { $nav_b[]= $folder_b; }
-		}
-	closedir($handle);
-        }
-        sort($nav_b);
-
-	foreach ($nav_b as $folder_b){
-		$selector_text .= "<option value='".e_SELF."?manage:".$folder_a.":".$folder_b."'>".
-		($folder_name[$folder."/".$folder_a."/".$folder_b] != "" ? $folder_name[$folder."/".$folder_a."/".$folder_b] : $folder_b)
-                ."</option>";
-                $selector_text2 .= "<option value='".e_SELF."?manage:".$folder_a.":".$folder_b."'>".
-                ($folder_name[$folder."/".$folder_a."/".$folder_b] != "" ? $folder_name[$folder."/".$folder_a."/".$folder_b] : $folder_b)
-                ."</option>";
-                }
-        $selector_text .= "</optgroup>";
-        }
-$text .= $selector_text;
-$text .= "</select>";
-*/
-
-$caption = MG_ADMGNL_CAP;
+$caption = LAN_ADMGNL_CAP;
 $ns -> tablerender($caption, $text);
 }
 
@@ -308,23 +372,23 @@ $message = MYGAL_L004;
 $text ="Путь к директории $dir, пользователь ".USERID;
 $text .= "<form name='manage_album' action='' method='post'>";
 $text .= "<table style='width:85%' class='fborder'>";
-$text .= "<tr><td class='forumheader3'><b>".MG_ALBUM_CAT."</b></td>";
+$text .= "<tr><td class='forumheader3'><b>".LAN_ALBUM_CAT."</b></td>";
 $text .= "<td class='forumheader3'><select class='tbox' name='album_catid'>
     <option value='0' selected='selected'>".MYGAL_L024."</option>
     <option value='0'>".MYGAL_L024."</option>
     </select></td></tr>";
-$text .= "<tr><td class='forumheader3'><b>".MG_ALBUM_DIR."</b></td>";
+$text .= "<tr><td class='forumheader3'><b>".LAN_ALBUM_DIR."</b></td>";
 $text .= "<td class='forumheader3'><input class='tbox' type='text' name='album_dir' size='60' value='$album_dir' readonly></td></tr>";
-$text .= "<tr><td class='forumheader3'><b>".MG_ALBUM_NAME."</b></td>";
+$text .= "<tr><td class='forumheader3'><b>".LAN_ALBUM_NAME."</b></td>";
 $text .= "<td class='forumheader3'><input class='tbox' type='text' name='album_name' size='60' value='$album_name' ></td></tr>";
-$text .= "<tr><td class='forumheader3'><b>".MG_ALBUM_DESC."</b></td>";
+$text .= "<tr><td class='forumheader3'><b>".LAN_ALBUM_DESC."</b></td>";
 $text .= "<td class='forumheader3'><input class='tbox' type='text' name='album_desc' size='60' value='$album_desc' ></td></tr>";
 
 $text .= "</table>";
 
-$text .="<input class='button' type='submit' name='submit_create' value='".MG_CREATE_ALBUM."'>";
+$text .="<input class='button' type='submit' name='submit_create' value='".LAN_CREATE_ALBUM."'>";
 $text .="</form>";
-$caption = MG_ADMCAT_CAP;
+$caption = LAN_ADMCAT_CAP;
 $ns -> tablerender($caption, $text);
 }
 
@@ -335,7 +399,7 @@ if(isset($action) && $action == "add"){
 
 
 
-$caption = MG_ADMADD_CAP;
+$caption = LAN_ADMADD_CAP;
 $ns -> tablerender($caption, $text);
 }
 
@@ -346,7 +410,7 @@ if(isset($action) && $action == "upload"){
 
 
 
-$caption = MG_ADMUPL_CAP;
+$caption = LAN_ADMUPL_CAP;
 $ns -> tablerender($caption, $text);
 }
 
@@ -556,7 +620,7 @@ $text .="<tr>
 </tr>
 </table>
 </form>";
-$caption = MG_ADMOPT_CAP;
+$caption = LAN_ADMOPT_CAP;
 $ns -> tablerender($caption, $text);
 }
 
@@ -576,21 +640,21 @@ function admin_config_adminmenu(){
 
     $mdsql = new db();
 
-    $var['cat']['text'] = MG_ADMENU_ALB;
+    $var['cat']['text'] = LAN_ADMENU_ALB;
     $var['cat']['link'] = "".e_SELF."?cat";
 
-    $var['create_alb']['text'] = MG_ADMENU_ALB;
+    $var['create_alb']['text'] = LAN_ADMENU_ALB;
     $var['create_alb']['link'] = "".e_SELF."?create_alb";
 
-    $var['add']['text'] = MG_ADMENU_ADDPIC;
+    $var['add']['text'] = LAN_ADMENU_ADDPIC;
     $var['add']['link'] = "".e_SELF."?add";
 
-    $var['upload']['text'] = "".MG_ADMENU_NEWPIC." (".$mdsql->db_Count("md_gallery", "(*)", "WHERE pic_status = 'upload'").")";
+    $var['upload']['text'] = "".LAN_ADMENU_NEWPIC." (".$mdsql->db_Count("md_gallery", "(*)", "WHERE pic_status = 'upload'").")";
     $var['upload']['link'] = "".e_SELF."?upload";
 
-    $var['options']['text'] = MG_ADMENU_OPTION;
+    $var['options']['text'] = LAN_ADMENU_OPTION;
     $var['options']['link'] = "".e_SELF."?options";
 
-    show_admin_menu(MG_ADMENU_CAP, $action, $var);
+    show_admin_menu(LAN_ADMENU_CAP, $action, $var);
 }
 ?>
