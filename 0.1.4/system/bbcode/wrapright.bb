@@ -1,1 +1,0 @@
-return "<div class='wrapright'>$code_text</div>";

@@ -1,2 +1,0 @@
-global $linkstyle;
-$linkstyle = $parm;

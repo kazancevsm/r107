@@ -1,8 +1,0 @@
-[18-Oct-2013 22:48:25 Europe/Moscow] PHP Parse error:  syntax error, unexpected ';' in /home/mftrade/public_html/plugins/vtrade/list.php on line 57
-[18-Oct-2013 22:49:34 Europe/Moscow] PHP Parse error:  syntax error, unexpected '=' in /home/mftrade/public_html/plugins/vtrade/list.php on line 59
-[16-Dec-2013 16:45:23 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3407872) (tried to allocate 122880 bytes) in /home/mftrade/public_html/plugins/vtrade/categories.php on line 115
-[19-Dec-2013 04:35:12 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3407872) (tried to allocate 122880 bytes) in /home/mftrade/public_html/plugins/vtrade/categories.php on line 115
-[19-Dec-2013 04:35:12 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 3407872) (tried to allocate 122880 bytes) in /home/mftrade/public_html/plugins/vtrade/categories.php on line 115
-[25-Dec-2013 23:38:17 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 1572864) (tried to allocate 122880 bytes) in /home/mftrade/public_html/handlers/shortcode_handler.php(173) : eval()'d code on line 92
-[07-Jul-2014 00:28:20 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 1048576) (tried to allocate 491520 bytes) in /home/mftrade/public_html/class2.php on line 499
-[07-Jul-2014 00:28:20 Europe/Moscow] PHP Fatal error:  Out of memory (allocated 1048576) (tried to allocate 491520 bytes) in /home/mftrade/public_html/class2.php on line 499
