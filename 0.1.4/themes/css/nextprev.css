@@ -1,0 +1,44 @@
+.nextprev{ border: 0px; margin: 10px 4px 10px 4px; color: #999; text-decoration: none; font-size: 11px; text-align: center; padding : 7px 2px 7px 2px; background-color: transparent; }
+.nextprev a, .nextprev a:visited,
+.nextprev .PrevLink, .nextprev .NextLink {
+	border-radius: 4px;
+	background: linear-gradient(top, #c9c9c9 15%,#fff 50%,#fff 50%,#c9c9c9 85%);
+	background: -o-linear-gradient(top, #c9c9c9 15%,#fff 50%,#fff 50%,#c9c9c9 85%);
+	background: -ms-linear-gradient(top, #c9c9c9 15%,#fff 50%,#fff 50%,#c9c9c9 85%);
+	background: -moz-linear-gradient(top, #c9c9c9 15%,#fff 50%,#fff 50%,#c9c9c9 85%);
+	background: -webkit-linear-gradient(top, #c9c9c9 15%,#fff 50%,#fff 50%,#c9c9c9 85%); }
+.nextprev .this-page, .nextprev a:visited:hover,
+.nextprev a:hover, .nextprev a:active,
+.nextprev .AtStart, .nextprev .AtEnd {
+	border-radius: 4px;
+	background: linear-gradient(top, #fff 15%,#c9c9c9 50%,#c9c9c9 50%,#fff 85%);
+	background: -o-linear-gradient(top, #fff 15%,#c9c9c9 50%,#c9c9c9 50%,#fff 85%);
+	background: -ms-linear-gradient(top, #fff 15%,#c9c9c9 50%,#c9c9c9 50%,#fff 85%);
+	background: -moz-linear-gradient(top, #fff 15%,#c9c9c9 50%,#c9c9c9 50%,#fff 85%);
+	background: -webkit-linear-gradient(top, #fff 15%,#c9c9c9 50%,#c9c9c9 50%,#fff 85%); }
+.nextprev .AtStart, .nextprev .AtEnd {
+	box-shadow: 0 0 10px rgba(54, 54, 54, 0.3);
+	-o-box-shadow: 0 0 10px rgba(54, 54, 54, 0.3);
+	-ms-box-shadow: 0 0 10px rgba(54, 54, 54, 0.3);
+	-moz-box-shadow: 0 0 10px rgba(54, 54, 54, 0.3);
+	-webkit-box-shadow: 0 0 10px rgba(54, 54, 54, 0.3); }
+.nextprev a, .nextprev a:visited{ border: #999 1px solid; color: #000; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; }
+.nextprev .PrevLink { border: #999 1px solid; color: #000; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; margin-right:15px; }
+.nextprev .break { padding : 6px 3px; border:none; background-color: #fff; text-decoration:none; color: #999;}
+.nextprev .NextLink { border: #999 1px solid; color: #000; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; margin-left:10px; }
+.nextprev .this-page { border: #999 1px solid; color: #000; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; text-decoration: none;
+	box-shadow: 0 0 10px rgba(54, 54, 54, 0.5);
+	-o-box-shadow: 0 0 10px rgba(54, 54, 54, 0.5);
+	-ms-box-shadow: 0 0 10px rgba(54, 54, 54, 0.5);
+	-moz-box-shadow: 0 0 10px rgba(54, 54, 54, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(54, 54, 54, 0.5); }
+.nextprev a:visited:hover,
+.nextprev a:hover,
+.nextprev a:active { border: #999 1px solid; color: #717171; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; text-decoration: none;
+	box-shadow: 0 0 10px rgba(54, 54, 54, 0.7);
+	-o-box-shadow: 0 0 10px rgba(54, 54, 54, 0.7);
+	-ms-box-shadow: 0 0 10px rgba(54, 54, 54, 0.7);
+	-moz-box-shadow: 0 0 10px rgba(54, 54, 54, 0.7);
+	-webkit-box-shadow: 0 0 10px rgba(54, 54, 54, 0.7); }
+.nextprev .AtStart { border: #999 1px solid; color: #959595; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; margin-right:15px; text-decoration: none; }
+.nextprev .AtEnd { border: #999 1px solid; color: #959595; font-size: 11px; font-weight: normal; text-align:center; padding: 3px 6px; margin-left:10px; text-decoration: none; }
