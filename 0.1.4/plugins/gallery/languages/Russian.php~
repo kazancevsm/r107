@@ -22,9 +22,8 @@ define("LAN_MENU_CAPTION", "Волшебная галерея");
 
 //-----LAN_ADMIN_CONFIG
 define("LAN_ADMENU_CAP", "Меню галереи");
-define("LAN_ADMENU_GNL", "Главная страница");
-define("LAN_ADMENU_ALB", "Альбомы");
-define("LAN_ADMENU_ADDPIC", "Добавить изображение");
+define("LAN_ADMENU_ALB", "Управление альбомами");
+define("LAN_ADMENU_IMG", "Управление изображениями");
 define("LAN_ADMENU_NEWPIC", "Новые изображения");
 define("LAN_ADMENU_OPTION", "Опции");
 
@@ -52,7 +51,7 @@ define("LAN_NAVI_PO", "Личный кабинет");
 define("LAN_MENU_CAP_RND", "Случайная картинка");
 
 define("LAN_ALBUM_ID", "ID");
-define("LAN_ALBUM_USER", "Пользователь");
+define("LAN_ALBUM_USER", "Автор");
 define("LAN_ALBUM_CAT", "Категория");
 define("LAN_ALBUM_NAME", "Название");
 define("LAN_ALBUM_DIR", "Название папки");

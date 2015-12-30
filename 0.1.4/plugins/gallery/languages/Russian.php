@@ -7,24 +7,23 @@
 //	http://magicdreamwebstudio.ru
 //------project start in 2013 y-------------------------------------------------------------------
 
-//-----LAN_PLUGIN
-define("LAN_PLUGIN_NAME", "Волшебная галерея");
-define("LAN_PLUGIN_DESC", "Плагин ".LAN_PLUGIN_NAME." предназначен для создания фотогалереи. Плагин подключается к различным модулям с помощью биби кода. Он основан на технологии CSS.");
-define("LAN_PLUGIN_INST", "Плагин успешно установлен.");
-define("LAN_PLUGIN_UNINST", "Плагин удален из системы.");
-define("LAN_PLUGIN_UPGRADE", "Плагин успешно обновлен.");
-define("LAN_PLUGIN_LINK", "Фотогалерея");
-define("LAN_PLUGIN_AUTHOR1", "Казанцев Сергей [sunout]");
-define("LAN_PLUGIN_AUTHOR2", "Лебедев Александр [StAlKeR_PeOpLe]");
+//-----LAN_PLUGIN_MD
+define("LAN_PLUGIN_MD_NAME", "Волшебная галерея");
+define("LAN_PLUGIN_MD_DESC", "Плагин ".LAN_PLUGIN_MD_NAME." предназначен для создания фотогалереи. Плагин подключается к различным модулям с помощью биби кода. Он основан на технологии CSS.");
+define("LAN_PLUGIN_MD_INST", "Плагин успешно установлен.");
+define("LAN_PLUGIN_MD_UNINST", "Плагин удален из системы.");
+define("LAN_PLUGIN_MD_UPGRADE", "Плагин успешно обновлен.");
+define("LAN_PLUGIN_MD_LINK", "Фотогалерея");
+define("LAN_PLUGIN_MD_AUTHOR1", "Казанцев Сергей [sunout]");
+define("LAN_PLUGIN_MD_AUTHOR2", "Лебедев Александр [StAlKeR_PeOpLe]");
 
 //-----LAN_MENU_PLUGIN
 define("LAN_MENU_CAPTION", "Волшебная галерея");
 
 //-----LAN_ADMIN_CONFIG
 define("LAN_ADMENU_CAP", "Меню галереи");
-define("LAN_ADMENU_GNL", "Главная страница");
-define("LAN_ADMENU_ALB", "Альбомы");
-define("LAN_ADMENU_ADDPIC", "Добавить изображение");
+define("LAN_ADMENU_ALB", "Управление альбомами");
+define("LAN_ADMENU_IMG", "Управление изображениями");
 define("LAN_ADMENU_NEWPIC", "Новые изображения");
 define("LAN_ADMENU_OPTION", "Опции");
 

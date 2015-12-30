@@ -643,11 +643,11 @@ function admin_config_adminmenu(){
     $var['cat']['text'] = LAN_ADMENU_ALB;
     $var['cat']['link'] = "".e_SELF."?cat";
 
-    $var['create_alb']['text'] = LAN_ADMENU_ALB;
+    $var['create_alb']['text'] = LAN_ADMENU_IMG;
     $var['create_alb']['link'] = "".e_SELF."?create_alb";
 
-    $var['add']['text'] = LAN_ADMENU_ADDPIC;
-    $var['add']['link'] = "".e_SELF."?add";
+ //   $var['add']['text'] = LAN_ADMENU_ADDPIC;
+//    $var['add']['link'] = "".e_SELF."?add";
 
     $var['upload']['text'] = "".LAN_ADMENU_NEWPIC." (".$mdsql->db_Count("md_gallery", "(*)", "WHERE pic_status = 'upload'").")";
     $var['upload']['link'] = "".e_SELF."?upload";

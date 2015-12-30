@@ -15,26 +15,26 @@
 $lan_file = e_PLUGIN."gallery/languages/".e_LANGUAGE.".php";
 include_once((file_exists($lan_file) ? $lan_file : e_PLUGIN."gallery/languages/English.php"));
 
-$eplug_name = LAN_PLUGIN_NAME;
+$eplug_name = LAN_PLUGIN_MD_NAME;
 $eplug_version = "0.1";
-$eplug_author = LAN_PLUGIN_AUTHOR1."<br>".LAN_PLUGIN_AUTHOR2;
+$eplug_author = LAN_PLUGIN_MD_AUTHOR1."<br>".LAN_PLUGIN_MD_AUTHOR2;
 $eplug_folder = "gallery";
 $eplug_logo = $eplug_folder."/images/logo.png";
 $eplug_icon = $eplug_folder."/images/icon_32.png";
 $eplug_icon_small = $eplug_folder."/images/icon_16.png";
 $eplug_url = "http://osgroup.pro";
 $eplug_email = "support@osgroup.pro";
-$eplug_description = LAN_PLUGIN_DESC;
+$eplug_description = LAN_PLUGIN_MD_DESC;
 $eplug_compatible = "e107 v0.7+";
 $eplug_readme = "doc/".e_LANGUAGE.".pdf";
 $eplug_menu_name = "magic_gallery_menu";
 $eplug_conffile = "admin_config.php";
-$eplug_caption =  LAN_PLUGIN_NAME;
+$eplug_caption =  LAN_PLUGIN_MD_NAME;
 $eplug_link = TRUE;
 $eplug_link_url = e_PLUGIN."gallery/gallery.php";
-$eplug_link_name = PLUGIN_LINK;
-$eplug_done = LAN_PLUGIN_INST;
-$eplug_upgrade_done = LAN_PLUGIN_UPGRADE;
+$eplug_link_name = LAN_PLUGIN_MD_LINK;
+$eplug_done = LAN_PLUGIN_MD_INST;
+$eplug_upgrade_done = LAN_PLUGIN_MD_UPGRADE;
 
 $eplug_prefs = array(
     "md_gallery_folder" => "gallery",
@@ -45,7 +45,7 @@ $eplug_prefs = array(
     "md_gallery_foto_icon_width" => "120",
     "md_gallery_foto_view_height" => "1200",
     "md_gallery_foto_view_width" => "1200",
-    "md_gallery_gallery_name" => LAN_PLUGIN_NAME,
+    "md_gallery_gallery_name" => LAN_PLUGIN_MD_NAME,
     "md_gallery_title_image" => "theme/images/title_image.jpg",
     "md_gallery_menu_caption" => LAN_MENU_CAPTION,
     "md_gallery_slide_show" => FALSE,
