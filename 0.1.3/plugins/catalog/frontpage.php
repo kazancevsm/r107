@@ -9,7 +9,7 @@
 //=====================Output All Category======================\
 $text .= "<center>";
 $text .= "<table width='100%'><tr>";
-$my_width = 100/$conf_catshowcolscat;
+$my_width = 100 / $conf_catshowcolscat;
 $catsql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY `cat_id` ASC");
 	$i = 1;
 	while($row = $catsql -> db_Fetch()){

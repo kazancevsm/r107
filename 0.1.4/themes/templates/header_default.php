@@ -206,7 +206,11 @@ if(defined("PREVIEWTHEME")) {
 		} else {
 			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/nextprev.css' type='text/css' />\n";	
 		}
-		
+		if(file_exists(THEME_ABS."windows.css")){
+			echo "<link rel='stylesheet' href='".THEME_ABS."windows.css' type='text/css' />\n";
+		} else {
+			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/windows.css' type='text/css' />\n";	
+		}
 /*
 		if(file_exists(e_THEME_ABS."css/core.css")){
 			echo "<link rel='stylesheet' href='".e_FILE_ABS."core.css' type='text/css' />\n";

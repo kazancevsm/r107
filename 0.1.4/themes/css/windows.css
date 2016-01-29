@@ -8,53 +8,14 @@
 /* POP-UP Window */
 .r_window_block {
   position: fixed;
+  display: none;
   margin:0; padding:0;
   top:0px; left:0px;
   width:100%; height:100%;
   z-index:1000;
   background:url(../../images/generic/bg_window_block.png);
 }
-
-.r_window_dialog {
-  position: relative;
-  top:20px;
-  border:10px #fff solid;
-  margin:auto; padding:auto;
-  width:50%; height:90%;
-  z-index:1001;
-  background:#fff;
-  ms-border-radius:10px;
-  border-radius:10px;
-  -moz-border-radius:10px;
-  -webkit-border-radius:10px;
-
-}
-.r_window_scroll {
-  position: relative;
-  top:20px;
-  width:100%; height:90%;
-  overflow-y:scroll;
-}
-.r_window_caption {
-  position: relative;
-  top:0px;
-  width:50%; height:20px;
-  font-size:14px;
-  float:left;
-  text-align:left;
-}
-.r_window_close {
-  position: relative;
-  top:0px;
-  width:50%; height:20px;
-  font-size:14px;
-  float:left;
-  text-align:right;
-}
-
-
-/* POP-UP Window */
-.r_window_block {
+.r_window_admin {
   position: fixed;
   margin:0; padding:0;
   top:0px; left:0px;
@@ -62,7 +23,6 @@
   z-index:1000;
   background:url(../../images/generic/bg_window_block.png);
 }
-
 .r_window_dialog {
   position: relative;
   top:20px;
@@ -98,4 +58,11 @@
   font-size:14px;
   float:left;
   text-align:right;
+}
+.r_window_img {
+  position: relative;
+  top:20px;
+  width:100%; height:90%;
+  text-align:center;
+  vertical-align:middle;
 }

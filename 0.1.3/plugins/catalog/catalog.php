@@ -25,11 +25,12 @@ require_once(HEADERF);
 require_once(e_SYSTEM.'shortcode/batch/news_archives.php');
 require_once(e_HANDLER.'shortcode_handler.php');
 require_once('cat_class.php');
+require_once("navigation.php");
 
 $vt_shortcodes = $tp -> e_sc -> parse_scbatch(__FILE__);
 
 //=============Navigation================
-include("navigation.php");
+
 //=============Front Page================
 if(IsSet($page) && $page=='frontpage') {
     require_once("frontpage.php");
@@ -38,7 +39,7 @@ if(IsSet($page) && $page=='frontpage') {
 //=============Cat, Subcat Page==========
 if(!IsSet($page) || IsSet($page) && $page=='list' || $page==''){
     require_once("list.php");
-    $caption = "<a href='".e_PLUGIN."catalog/catalog.php'>$conf_cathead</a> $caption_section";
+   $caption = "<a href='".e_PLUGIN."catalog/catalog.php'>$conf_cathead</a> $caption_section";
 }
 
 //=============Items Page================

@@ -28,7 +28,7 @@ $LIST_NOMENCLATURE = "
 	</td>
 	<td class='r_header1' width=500px><a href='".e_PLUGIN."catalog/catalog.php?page=det&id={$NOM_ID}'><font size=2><b>{$NOM_NAME}</b></font></a><br>
 	
-	$NOM_SHORT_DESC...<a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$NOM_ID'><br>Подробное описание >>></a>
+	$NOM_SHORT_DESC...<a href='".e_PLUGIN."catalog/catalog.php?page=det&id=$NOM_ID'><br>".LAN_LAN_DESC." >>></a>
 	</td>
 	<td class='r_header1' width=140px><b>$NOM_PRICE</b></td>
 	</tr>

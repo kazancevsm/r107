@@ -127,10 +127,10 @@ if(IsSet($sub_action) && ($sub_action =='create') || ($sub_action =='edit')) {
 	}
 	
 // -----form for processing of records------------------------------------------------
-$text.="<div id='r_window_block_cat' class='r_window_block'>";
+$text.="<div class='r_window_admin'>";
 $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Категории</div>";
-$text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
+$text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat'>Закрыть</a></div>";
 $text.="<div class='r_window_scroll'>";
 $text .="<form name='config' method='post' action='". $PHP_SELF ."'><table class='r_header3' style='width:100%'>";
 	$text .= "<tr><td width='30%' class='r_header3'>".LAN_CAT_NAME."</td><td class='r_header3' width='70%'>
@@ -166,8 +166,8 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
         sort($imglist);
 }
 	$text .= "<tr>
-			<td class='r_header3'>".LAN_IMG_02."</td>
-			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_pic' value='$cat_pic' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_03."' onclick='expandit(this)'>
+			<td class='r_header3'>".LAN_IMG_SELECT."</td>
+			<td class='r_header3'><input class='tbox' type='text' id='cat_pic' name='cat_pic' value='$cat_pic' size='40'><input type ='button' class='button' style='cursor:pointer' size='30' value='".LAN_IMG_SHOW."' onclick='expandit(this)'>
 			<div id='linkimg' style='display:none;{head}'>";
 	foreach($imglist as $img){
 			$list_img = str_replace(e_PLUGIN."catalog/images/category/","",$img['path'].$img['fname']);
@@ -189,8 +189,8 @@ if($imglist = $fl->get_files(e_PLUGIN."catalog/images/category/", ".jpg|.jpeg|.g
 	$text.="</div>";		
 }
 
-$text .= "<a href='".e_PLUGIN."catalog/admin_config.php?cat.create' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">Добавить категорию</a> | ";
-$text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.load' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_upload').style.display='block'; return false;\">Загрузить изображения</a>";
+$text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.create' style='cursor:pointer;'>Добавить категорию</a> | ";
+$text .="<a href='".e_PLUGIN."catalog/admin_config.php?cat.load' style='cursor:pointer;'>Загрузить изображения</a>";
 
 $text.="<table width=100%>";
 $text.="<tr><td class='r_caption' width='5%'>ID</td>";
@@ -202,7 +202,7 @@ $text.="</table>";
 $text.="<div class='r_frame_scroll'>";
 $text.="<table width=100%>";
 
-
+/*
 $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 	while($row = $sql -> db_Fetch()){
 	$cat_id = $row['cat_id'];
@@ -213,7 +213,7 @@ $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 	$text .="<td class='r_header1' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
 	$text .="<td class='r_header1' width='75%'>❖<b> $cat_name</b></td>";
 	$text .= "<td class='r_header1' width='10%'>
-			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;' onClick=\"document.getElementById('r_window_block_cat').style.display='block'; return false;\">".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
 			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
 		  </td></tr>";
 	$catsql1 -> db_Select("catalog_cat", "*", "cat_sub='$cat_id' ORDER BY cat_name ASC");
@@ -231,11 +231,86 @@ $sql -> db_Select("catalog_cat", "*", "cat_sub='0' ORDER BY cat_name ASC");
 		  </td></tr>";	  
 		}
 	}		
+	*/
+	/*
+//Выбираем данные из БД
+$result=mysql_query("SELECT * FROM  catalog_cat");
+	//Если в базе данных есть записи, формируем массив
+	if   (mysql_num_rows($result) > 0){
+		$cats = array();
+		//В цикле формируем массив разделов, ключом будет id родительской категории, а также массив разделов, ключом будет id категории
+		while($cat =  mysql_fetch_assoc($result)){
+			$cats_ID[$cat['cat_id']][] = $cat;
+			$cats[$cat['cat_sub']][$cat['cat_id']] =  $cat;
+		}
+	}
+function build_tree($cats,$cat_sub,$only_parent = false){
+    if(is_array($cats) and isset($cats[$cat_sub])){
+        $tree = '<ul>';
+        if($only_parent==false){
+            foreach($cats[$cat_sub] as $cat){
+                $tree .= '<li>'.$cat['cat_name'].' #'.$cat['id'];
+                $tree .=  build_tree($cats,$cat['id']);
+                $tree .= '</li>';
+            }
+        }elseif(is_numeric($only_parent)){
+            $cat = $cats[$cat_sub][$only_parent];
+            $tree .= '<li>'.$cat['cat_name'].' #'.$cat['cat_id'];
+            $tree .=  build_tree($cats,$cat['cat_id']);
+            $tree .= '</li>';
+        }
+        $tree .= '</ul>';
+    }
+    else return null;
+    return $tree;
+}
+//	build_tree($cats,0);
+$text .= $tree;
+*/
+$sql -> db_Select("catalog_cat", "*", "cat_id ORDER BY cat_name ASC");
+	while($row = $sql -> db_Fetch()){
+	$cat_id = $row['cat_id'];
+	$cat_name = $row['cat_name'];
+	$cat_pic = $row['cat_pic'];
+		$count = $catsql1->db_Count("catalog_cat", "(*)", "WHERE cat_sub='".$cat_id."'");
+	$text .="<tr>";
+	$text .="<td class='r_header1' width='5%'><b>$cat_id</b></td>";
+	$text .="<td class='r_header1' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
+	$text .="<td class='r_header1' width='75%'>❖<b> $cat_name</b></td>";
+	$text .= "<td class='r_header1' width='10%'>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
+		  </td></tr>";
+	}
+function tree($cat_id) {
+
+$sql = "SELECT * FROM catalog_cat WHERE cat_sub=$cat_id";
+$a = mysql_query($sql);
+
+while($row = mysql_fetch_array($a)) {
+	$cat_id = $row['cat_id'];
+	$cat_name = $row['cat_name'];
+	$cat_pic = $row['cat_pic'];
+$text .="<tr>";
+	$text .="<td class='r_header1' width='5%'><b>$cat_id</b></td>";
+	$text .="<td class='r_header1' width='10%'><img src='".e_PLUGIN."catalog/images/category/$cat_pic' height='16' alt='$cat_name' /></td>";
+	$text .="<td class='r_header1' width='75%'>❖<b> $cat_name</b></td>";
+	$text .= "<td class='r_header1' width='10%'>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.edit.$cat_id' style='cursor:pointer;'>".ADMIN_EDIT_ICON."</a>
+			<a href='".e_PLUGIN."catalog/admin_config.php?cat.delete.$cat_id' style='cursor:pointer;' onclick=\"return jsconfirm('".LAN_CAT_DEL_CONFIRM." [ ID: $cat_id] ]')\">".ADMIN_DELETE_ICON."</a>
+		  </td></tr>";
+
+tree($row["cat_id"]);
+
+}
+
+}
+	tree(0);
 $text.="</table>";
 $text.="</div>";
 if(IsSet($sub_action) && $sub_action =='load') {
 
-$text.="<div id='r_window_block_upload' class='r_window_block'>";
+$text.="<div class='r_window_admin'>";
 $text.="<div class='r_window_dialog'>";
 $text.="<div class='r_window_caption'>Загрузить изображения</div>";
 $text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?cat' >Закрыть</a></div>";
@@ -344,11 +419,11 @@ if(IsSet($sub_action) && ($sub_action =='edit' || $sub_action =='create')) {
 	
 	}
 	
-$text ="<div id='r_window_block'>";
-$text.="<div id='r_window_dialog'>";
-$text.="<div id='r_window_caption'>Номенклатура</div>";
-$text.="<div id='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
-$text.="<div id='r_window_scroll'>";
+$text ="<div class='r_window_admin'>";
+$text.="<div class='r_window_dialog'>";
+$text.="<div class='r_window_caption'>Номенклатура</div>";
+$text.="<div class='r_window_close'><a href='".e_PLUGIN."catalog/admin_config.php?nom' >Закрыть</a></div>";
+$text.="<div class='r_window_scroll'>";
 	$text .= "<form method='post' action='". $PHP_SELF ."' id='dataform' enctype='multipart/form-data'>
 		<table style='".ADMIN_WIDTH."' class='r_border' style='width:640px'>";
 	$text .= "<tr>
