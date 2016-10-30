@@ -2,9 +2,9 @@
 /*
 + ----------------------------------------------------------------------------+
 |     	r107 website system
-|     	Copyright (C) 2014-2015 r107.pro
+|     	Copyright (C) 2014-2015 r107.slog.su
 |	Author: Open Source Group
-|	E-mail: support@r107.pro
+|	E-mail: sunout1303@yandex.ru
 |
 |     Released under the terms and conditions of the
 |     GNU General Public License (http://gnu.org).

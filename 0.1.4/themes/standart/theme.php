@@ -7,8 +7,8 @@ include_lan(e_THEME.'standart/languages/'.e_LANGUAGE.'.php');
 $themename = 'Standart';
 $themeversion = ' 0.1';
 $themeauthor = 'OSGroup';
-$themeemail = 'supprot@r107.pro';
-$themewebsite = 'http://r107.pro';
+$themeemail = 'sunout1303@yandex.ru';
+$themewebsite = 'http://r107.slog.su';
 $themedate = '09/2014';
 $themeinfo = '';
 $xhtmlcompliant = TRUE;
@@ -51,55 +51,41 @@ $HEADER = '
 			</div>
 		</div>
 	</div>
-	<div class="sitelinks_dropdown">
+	<div class="wrapper_sitelinks_dropdown">
 		{SITELINKS_DROPDOWN}
 	</div>
-	<div class="maincontentall">
-	  <div class="topcontentall clearfix">
-			<div class="rightcolall">
-			  {SETSTYLE=flatlinks}
-	      {LINKSTYLE=flatlinks}
-	      {SITELINKS=flat:2}
-				{SETSTYLE=bottmomenus}
-			  {MENU=1}
-			</div>
-			<div class="leftcol">
-			  {MENU=5}
+	<div class="wrapper_maincontent">
+		<div class="topcontentall clearfix">
+			  <div class="maincontent_right">
+				 {SETSTYLE=flatlinks}
+				 {LINKSTYLE=flatlinks}
+				 {SITELINKS=flat:2}
+				 {SETSTYLE=bottmomenus}
+				 {MENU=1}
+				 {MENU=2}
+				 {MENU=3}
+			 </div>
+			 <div class="maincontent_left"> 
 ';
 $FOOTER = '
-			  {MENU=6}
 			</div>
 		</div>
 	</div>
-	<div class="clear"></div>
-	<div class="bottmomenus">
-		<div class="bmenul">
-			{MENU=2}
+	<div class="wrapper_clear"></div>
+	<div class="wrapper_footerline"></div>
+	<div class="wrapper_footer">
+		<div class="footer_menul">
+			<a href="http://validator.w3.org/check?uri=referer" title=""><img src="'.THEME_ABS.'images/bottom_xhtml.png" alt="" style="margin-top: 10px;" /></a>
 		</div>
-		<div class="bmenur">
-			{MENU=4}
-		</div>
-		<div class="bmenum">
-			{MENU=3}
-		</div>
-	</div>
-	<div class="clear"></div>
-	<div class="footerbor"></div>
-	<div class="footer">
-		<div class="fmenul">
-			<div>
-				<a href="http://validator.w3.org/check?uri=referer" title=""><img src="'.THEME_ABS.'images/bottom_xhtml.png" alt="" style="margin-top: 10px;" /></a>
-			</div>
-		</div>
-		<div class="fmenur smalltext">
+		<div class="footer_menum smalltext">
 			{SITEDISCLAIMER}
 		</div>
-		<div class="fmenum">
-			<a href="http://r107.pro" title="e107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
+		<div class="footer_menur">
+			<a href="http://r107.slog.su" title="r107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
 			<br />{SITENAME}
 		</div>
 	</div>
-	<div class="footerlinks">
+	<div class="wrapper_footerlinks">
 	  {LINKSTYLE=bottom}
 	  {SITELINKS=flat:3}
 	</div>
@@ -127,32 +113,32 @@ $CUSTOMHEADER['HOME'] = '
 		</div>
 	</div>
 	</div>
-	<div class="sitelinks_dropdown">
+	<div class="wrapper_sitelinks_dropdown">
 		{SITELINKS_DROPDOWN}
 	</div>
-	<div class="maincontent">
-	  <div class="topcontent clearfix">
-	    {SETSTYLE=wm}
-	    {WMESSAGE}
+	<div class="wrapper_maincontent">
+		<div class="topcontent clearfix">
+			{SETSTYLE=wm}
+			{WMESSAGE}
 
 ';
 $CUSTOMFOOTER['HOME'] = '
 		</div>
 	</div>
-	<div class="clear"></div>
+	<div class="wrapper_clear"></div>
 	<div class="bottmomenus">
 		<div class="bmenul">
 		  {SETSTYLE=bottmomenus}
 			{MENU=2}
 		</div>
 		<div class="bmenur">
-			{MENU=4}
-		</div>
-		<div class="bmenum">
 			{MENU=3}
 		</div>
+		<div class="bmenum">
+			{MENU=4}
+		</div>
 	</div>
-	<div class="clear"></div>
+	<div class="wrapper_clear"></div>
 	<div class="footerbor"></div>
 	<div class="footer">
 		<div class="fmenul">
@@ -164,7 +150,7 @@ $CUSTOMFOOTER['HOME'] = '
 			{SITEDISCLAIMER}
 		</div>
 		<div class="fmenum">
-			<a href="http://r107.pro" title="e107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
+			<a href="http://r107.slog.su" title="e107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
 			<br />{SITENAME}
 		</div>
 	</div>
@@ -199,14 +185,14 @@ $CUSTOMHEADER['FULL'] = '
 	<div class="navigation">
 		{SITELINKS_DROPDOWN}
 	</div>
-	<div class="maincontent">
+	<div class="wrapper_maincontent">
 		<div class="fullside">
 		  {SETSTYLE=full}
 ';
 $CUSTOMFOOTER['FULL'] = '
 		</div>
 	</div>
-	<div class="clear"></div>
+	<div class="wrapper_clear"></div>
 	<div class="footerborfull"></div>
 	<div class="footer">
 		<div class="fmenul">
@@ -218,7 +204,7 @@ $CUSTOMFOOTER['FULL'] = '
 			{SITEDISCLAIMER}
 		</div>
 		<div class="fmenum">
-			<a href="http://r107.pro" title="e107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
+			<a href="http://r107.slog.su" title="e107"><img src="'.THEME_ABS.'images/e_logo_small.png" alt="" /></a>
 			<br />{SITENAME}
 		</div>
 	</div>
@@ -277,7 +263,7 @@ switch ($style) {
 	</div>
         ';
 	break;
-	case 'rightcol':
+	case 'maincontent_right':
 	echo '
 	<div class="rightbox">
 		<div class="rightbox_title">
@@ -289,7 +275,7 @@ switch ($style) {
 	</div>
         ';
 	break;
-	case 'leftcol':
+	case 'maincontent_left':
 	echo '
 	<div class="leftbox">
 		<div class="leftbox_title_bg">
@@ -348,7 +334,7 @@ $sc_style["NEWSCOMMENTS"]["pre"] = '<div class="news_comments">';
 $sc_style["NEWSCOMMENTS"]["post"] = '</div>';
 //[newsstlyle]
 $NEWSSTYLE = '
-<div class="newsbox">
+<div class="news_box">
 	<div class="leftbox">
 		<div class="leftbox_title_bg">
 			<div class="leftbox_title">
@@ -360,7 +346,7 @@ $NEWSSTYLE = '
 				{NEWSDATE=short}&nbsp;&nbsp;'.LAN_THEME_9.'&nbsp;{NEWSAUTHOR}
 			</div>
 		</div>
-	  <div class="fsnewsbbody">
+	  <div class="news_body">
 			{NEWSIMAGE}
 			{NEWSBODY} {EXTENDED}
 		</div>
@@ -375,7 +361,7 @@ $NEWSSTYLE = '
 </div>
 	';
 $NEWSLISTSTYLE = '
-<div class="newsbox">
+<div class="news_box">
 	<div class="leftbox">
 		<div class="leftbox_title_bg">
 			<div class="leftbox_title">
@@ -387,7 +373,7 @@ $NEWSLISTSTYLE = '
 				{NEWSDATE=short}&nbsp;&nbsp;'.LAN_THEME_9.'&nbsp;{NEWSAUTHOR}
 			</div>
 		</div>
-	  <div class="fsnewsbbody">
+	  <div class="news_body">
 			{NEWSIMAGE}
 			{NEWSBODY} {EXTENDED}
 		</div>

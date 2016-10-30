@@ -344,8 +344,8 @@ while ($files[$c]) {
 		if(e_QUERY != str_replace("../","",e_FILE."misc/")){
         	$movechoice[] = e_FILE."misc/";
 		}
-		if(e_QUERY != str_replace("../","",e_FILE."newspost_images/")){
-        	$movechoice[] = e_FILE."newspost_images/";
+		if(e_QUERY != str_replace("../","",e_FILE."images_newspost/")){
+        	$movechoice[] = e_FILE."images_newspost/";
 		}
 		if(e_QUERY != str_replace("../","",e_FILE."public/")){
         	$movechoice[] = e_FILE."public/";

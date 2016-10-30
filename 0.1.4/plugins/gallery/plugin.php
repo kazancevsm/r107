@@ -1,14 +1,14 @@
 <?php
 /*
 + ----------------------------------------------------------------------------------------------+
-|     r107 website system  : http://r107.pro
+|     r107 website system  : http://r107.slog.su
 |     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
 |
 |     Plugin "magic_gallery"
-|     Author: Sunout sunout@osgroup.pro
-|     Home page: 	http://md.osgroup.pro
-|			http://r107.pro
-|			http://osgroup.pro
+|     Author: Sunout sunout@webmaster.slog.su
+|     Home page: 	http://md.webmaster.slog.su
+|			http://r107.slog.su
+|			http://webmaster.slog.su
 +-----------------------------------------------------------------------------------------------+
 */
 
@@ -22,8 +22,8 @@ $eplug_folder = "gallery";
 $eplug_logo = $eplug_folder."/images/logo.png";
 $eplug_icon = $eplug_folder."/images/icon_32.png";
 $eplug_icon_small = $eplug_folder."/images/icon_16.png";
-$eplug_url = "http://osgroup.pro";
-$eplug_email = "support@osgroup.pro";
+$eplug_url = "http://webmaster.slog.su";
+$eplug_email = "support@webmaster.slog.su";
 $eplug_description = LAN_PLUGIN_MD_DESC;
 $eplug_compatible = "e107 v0.7+";
 $eplug_readme = "doc/".e_LANGUAGE.".pdf";

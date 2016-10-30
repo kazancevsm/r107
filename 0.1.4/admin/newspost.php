@@ -135,23 +135,23 @@ if (isset($_POST['submitupload']))
 {
 	$pref['upload_storagetype'] = '1';
 	require_once(e_HANDLER.'upload_handler.php');
-	$uploaded = file_upload(e_FILE.'newspost_images/');
+	$uploaded = file_upload(e_FILE.'images_newspost/');
 	foreach($_POST['uploadtype'] as $key=>$uploadtype)
 	{
 		if($uploadtype == 'thumb')
 		{
-			rename(e_FILE.'newspost_images/'.$uploaded[$key]['name'],e_FILE.'newspost_images/thumb_'.$uploaded[$key]['name']);
+			rename(e_FILE.'images_newspost/'.$uploaded[$key]['name'],e_FILE.'images_newspost/thumb_'.$uploaded[$key]['name']);
 		}
 
 		if($uploadtype == 'file')
 		{
-			rename(e_FILE.'newspost_images/'.$uploaded[$key]['name'],e_FILE.'downloads/'.$uploaded[$key]['name']);
+			rename(e_FILE.'images_newspost/'.$uploaded[$key]['name'],e_FILE.'downloads/'.$uploaded[$key]['name']);
 		}
 
 		if ($uploadtype == 'resize' && $_POST['resize_value'])
 		{
 			require_once(e_HANDLER.'resize_handler.php');
-			resize_image(e_FILE.'newspost_images/'.$uploaded[$key]['name'], e_FILE.'newspost_images/'.$uploaded[$key]['name'], $_POST['resize_value'], 'copy');
+			resize_image(e_FILE.'images_newspost/'.$uploaded[$key]['name'], e_FILE.'images_newspost/'.$uploaded[$key]['name'], $_POST['resize_value'], 'copy');
 		}
 	}
 }
@@ -428,7 +428,7 @@ class newspost
 						$tmp = explode(',',$submitnews_file);
 						foreach($tmp as $imgfile)
 						{
-							$_POST['data'] .= ($imgfile)? "<br /><br /><img src='{e_FILE}newspost_images/".$imgfile."' style='float:right; margin-left:5px;margin-right:5px;margin-top:5px;margin-bottom:5px; border:1px solid' alt='".$imgfile."' />":'';
+							$_POST['data'] .= ($imgfile)? "<br /><br /><img src='{e_FILE}images_newspost/".$imgfile."' style='float:right; margin-left:5px;margin-right:5px;margin-top:5px;margin-bottom:5px; border:1px solid' alt='".$imgfile."' />":'';
 						}
 					}
 					
@@ -441,7 +441,7 @@ class newspost
 						$tmp = explode(',',$submitnews_file);
 						foreach($tmp as $imgfile)
 						{
-							$_POST['data'] .= "\n\n[img]{e_FILE}newspost_images/".$imgfile.'[/img]';				
+							$_POST['data'] .= "\n\n[img]{e_FILE}images_newspost/".$imgfile.'[/img]';				
 						}
 					}
 					
@@ -540,9 +540,9 @@ class newspost
 			{
 				$text .= LAN_UPLOAD_777.'<b>'.str_replace('../','',e_FILE.'downloads/').'</b><br /><br />';
 			}
-			if (!is_writable(e_FILE.'newspost_images'))
+			if (!is_writable(e_FILE.'images_newspost'))
 			{
-				$text .= LAN_UPLOAD_777.'<b>'.str_replace('../','',e_FILE.'newspost_images/').'</b><br /><br />';
+				$text .= LAN_UPLOAD_777.'<b>'.str_replace('../','',e_FILE.'images_newspost/').'</b><br /><br />';
 			}
 
 			$up_name = array(LAN_NEWS_IMGAUTO,LAN_NEWS_IMG,LAN_NEWS_PIC,LAN_NEWS_FILE);
@@ -575,7 +575,7 @@ class newspost
 		<td class='forumheader3'>";
 
         $parms = 'name=news_thumbnail';
-		$parms .= '&path='.e_FILE.'newspost_images/';
+		$parms .= '&path='.e_FILE.'images_newspost/';
 		$parms .= '&default='.$_POST['news_thumbnail'];
 		$parms .= '&width=100px';
 		$parms .= '&height=100px';
@@ -1168,7 +1168,7 @@ class newspost
 					$text .= "<br />";
 					foreach($tmp as $imgfile)
 					{
-						$text .= "<br /><img src='".e_FILE_ABS."newspost_images/".$imgfile."' alt='".$imgfile."' />";					
+						$text .= "<br /><img src='".e_FILE_ABS."images_newspost/".$imgfile."' alt='".$imgfile."' />";					
 					}
 				}
 				$text .= "

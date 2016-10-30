@@ -1,16 +1,16 @@
 <?php
 /*
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro, http://osgroup.pro
-	Почта: support@r107.pro
+	© r107.slog.su, 2014. Все права защищены.
+	Сайт: http://r107.slog.su, http://webmaster.slog.su
+	Почта: sunout1303@yandex.ru
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
 	Автор: © Open Source Group
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro, http://osgroup.pro
-	Email: support@r107.pro
+	© r107.slog.su, 2014. All Rights Reserved.
+	Site: http://r107.slog.su, http://webmaster.slog.su
+	Email: sunout1303@yandex.ru
 	Charset: utf8
 	Date: 04.11.2014 05:05:05
 	Author: © Open Source Group

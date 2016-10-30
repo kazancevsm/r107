@@ -34,19 +34,19 @@ $tinyMCE_imglibs = array(
     'text'    => 'Images Root',
   ),
   array(
-    'value'   => $IMAGES_DIRECTORY."newspost_images/",
+    'value'   => $FILES_DIRECTORY."images_newspost/",
     'text'    => 'Newspost Images',
   ),
   array(
-    'value'   => $IMAGES_DIRECTORY."custom/",
+    'value'   => $FILES_DIRECTORY."custom/",
     'text'    => 'Custom Images',
   ),
   array(
-    'value'   => $IMAGES_DIRECTORY."icons/",
+    'value'   => $FILES_DIRECTORY."icons/",
     'text'    => 'Icons',
   ),
   array(
-    'value'   => $IMAGES_DIRECTORY."banners/",
+    'value'   => $FILES_DIRECTORY."banners/",
     'text'    => 'Banners',
   ),
   array(

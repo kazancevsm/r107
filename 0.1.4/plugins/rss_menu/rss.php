@@ -227,7 +227,7 @@ class rssCreate {
 					
 					if($value['news_thumbnail'])
 					{
-						$this -> rssItems[$loop]['media_content_url'][] = "http://".$_SERVER['HTTP_HOST'].e_HTTP.e_IMAGE."newspost_images/".$news_item['news_thumbnail'];
+						$this -> rssItems[$loop]['media_content_url'][] = "http://".$_SERVER['HTTP_HOST'].e_HTTP.e_FILE."images_newspost/".$news_item['news_thumbnail'];
 						$this -> rssItems[$loop]['media_content_type'][] = "image";
 					}
 					

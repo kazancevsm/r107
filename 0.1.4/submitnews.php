@@ -78,7 +78,7 @@ if (isset($_POST['submitnews_submit']) && $_POST['submitnews_title'] && $_POST['
 	if (FILE_UPLOADS && $_FILES['file_userfile'] && varsettrue($pref['subnews_attach']) && varsettrue($pref['upload_enabled']) && check_class($pref['upload_class']))
 	{
 		require_once(e_HANDLER.'upload_handler.php');
-		$uploaded = process_uploaded_files(e_IMAGE . 'newspost_images/', FALSE, array('file_mask' => 'jpg,gif,png', 'max_file_count' => 1));
+		$uploaded = process_uploaded_files(e_FILE . 'images_newspost/', FALSE, array('file_mask' => 'jpg,gif,png', 'max_file_count' => 1));
 
 /*	
 		if ($filename && $fileext != "jpg" && $fileext != "gif" && $fileext != "png")
@@ -122,19 +122,19 @@ if (isset($_POST['submitnews_submit']) && $_POST['submitnews_title'] && $_POST['
 				{
 					require_once(e_HANDLER.'resize_handler.php');
 			
-					if (!resize_image(e_IMAGE.'newspost_images/'.$filename, e_IMAGE.'newspost_images/'.$submitnews_file, $pref['subnews_resize']))
+					if (!resize_image(e_FILE.'images_newspost/'.$filename, e_FILE.'images_newspost/'.$submitnews_file, $pref['subnews_resize']))
 					{
-					  rename(e_IMAGE.'newspost_images/'.$filename, e_IMAGE.'newspost_images/'.$submitnews_file);
+					  rename(e_FILE.'images_newspost/'.$filename, e_FILE.'images_newspost/'.$submitnews_file);
 					}
 				}
 				elseif ($filename)
 				{
-					rename(e_IMAGE.'newspost_images/'.$filename, e_IMAGE.'newspost_images/'.$submitnews_file);
+					rename(e_FILE.'images_newspost/'.$filename, e_FILE.'images_newspost/'.$submitnews_file);
 				}
 			}
 		}
 	
-		if ($filename && !file_exists(e_IMAGE."newspost_images/".$submitnews_file))
+		if ($filename && !file_exists(e_FILE."images_newspost/".$submitnews_file))
 		{
 			$submitnews_file = "";
 		}

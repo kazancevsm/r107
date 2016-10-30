@@ -1260,7 +1260,7 @@ $core_image = array (
       'icon8.png' => '716b3b9833d4cb03a5594cd0111784f9',
       'icon9.png' => 'd0505cfb21a6d1c8cd6589c0a31e82cd',
     ),
-    'newspost_images' => 
+    'images_newspost' => 
     array (
       'index.html' => 'd41d8cd98f00b204e9800998ecf8427e',
       'v26nopref.png' => '1cba39fc8198334d42174c1824bab033',
@@ -4879,7 +4879,7 @@ $deprecated_image = array (
       'icon5.png' => '62de66653d9f686f7087ee7807fdcfd8',
       'null.txt' => 'd41d8cd98f00b204e9800998ecf8427e',
     ),
-    'newspost_images' => 
+    'images_newspost' => 
     array (
     ),
     'rate' => 

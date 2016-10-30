@@ -8,7 +8,7 @@ exit;
 // $fl = new e_file;
 
 // $rejecthumb = array('$.','$..','/','CVS','thumbs.db','*._$',"thumb_", 'index');
-// $imagelist = $fl->get_files(e_IMAGE."newspost_images/","",$rejecthumb);
+// $imagelist = $fl->get_files(e_FILE."images_newspost/","",$rejecthumb);
 
 $sql->db_Select("download");
 		$c = 0;

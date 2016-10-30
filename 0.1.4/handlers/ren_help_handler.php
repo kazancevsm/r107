@@ -184,7 +184,7 @@ function PreImage_Select($formid)
 {
 	global $fl, $tp, $bbcode_imagedir;
 
-	$path = ($bbcode_imagedir) ?  $bbcode_imagedir : e_FILE."newspost_images/";
+	$path = ($bbcode_imagedir) ?  $bbcode_imagedir : e_FILE."images_newspost/";
 	$formid = ($formid) ? ($formid) : "preimage_selector";
 
 

@@ -94,7 +94,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0px;
 }
-.clear {
+.wrapper_clear {
 	clear:both;
 }
 .clearfix:after {
@@ -509,7 +509,7 @@ span.logout a {
 }
 
 /* SITELINKS DROPDOWN CSS */
-.sitelinks_dropdown {
+.wrapper_sitelinks_dropdown {
 	width: 100%;
 	margin: 0px auto ;
 	height: 62px;
@@ -685,7 +685,7 @@ span.logout a {
 #nav a.sub:hover {
 }
 /* MAIN CONTENT CSS */
-.maincontent {
+.wrapper_maincontent {
 	background: #FFFFFF url(images/contentbg.png) repeat-x 0px 0px;
 	margin: 0px auto ;
 	width: 100%;
@@ -710,12 +710,6 @@ span.logout a {
 .topcontent_entry table {
 	width: 90%;
 	margin: 0px auto ;
-}
-.maincontentall {
-	background: #FFFFFF url(images/contentbg.png) repeat-x 0px 0px;
-	margin: 0px auto ;
-	width: 100%;
-	padding: 20px 0px ;
 }
 .topcontentall {
 	margin: 0px 20px 30px 20px;
@@ -755,11 +749,11 @@ span.logout a {
 	width: 300px;
 	font-size: 13px;
 }
-.rightcol {
+.maincontent_right {
 	float: right;
-	width: 300px;
+	width: 250px;
 	font-size: 13px;
-	margin-top: 63px;
+	margin: 0px;
 }
 .rightbox {
 	margin-bottom: 30px;
@@ -808,8 +802,8 @@ span.logout a {
 	margin: 0px auto ;
 }
 /* LEFT SITE SIDE CSS */
-.leftcol {
-	width: 600px;
+.maincontent_left {
+	width: 650px;
 	float: left;
 	font-size: 13px;
 }
@@ -858,7 +852,7 @@ span.logout a {
 	vertical-align: middle;
 	padding: 0px 2px 15px 0px;
 }
-.newsbox {
+.news_box {
 	margin-bottom: 30px;
 }
 .meta {
@@ -873,8 +867,9 @@ span.logout a {
 	vertical-align: middle;
 	height: 24px;
 }
-.fsnewsbbody {
+.news_body {
 	padding: 5px 0px 10px 0px;
+	text-align:justify;
 }
 .news_image {
 	float: left;
@@ -919,57 +914,60 @@ span.logout a {
 	width: auto;
 	margin: 0px 330px ;
 }
+
 /* FOOTER */
-.footerbor {
-	background: url(images/footerbor.png) repeat-x 0px 0px;
+.wrapper_footerline {
+	background: url(images/footerline.png) repeat-x 0px 0px;
 	width: 90%;
 	margin: 30px auto 0px auto ;
 	height: 3px;
 }
-.footerborfull {
-	background: url(images/footerbor.png) repeat-x 0px 0px;
+.wrapper_footerlinefull {
+	background: url(images/footerline.png) repeat-x 0px 0px;
 	width: 95%;
 	margin: 30px auto 0px auto ;
 	height: 3px;
 }
-.footer {
+.wrapper_footer {
+	display: table;
 	width: 100%;
-	margin: 30px 0px;
+	margin: 10px 0px;
 }
-.footer a {
+.wrapper_footer a {
 	text-decoration: none;
 }
-.fmenul {
-	float: left;
-	width: 300px;
+.footer_menul {
+	width: 250px;
 	text-align: left;
+	display: table-cell !important;
+	display: inline; /* для IE */
 }
-.fmenur {
-	float: right;
-	text-align: left;
-	width: 410px;
+.footer_menum {
+	width: 400px;
+	text-align: center;
 	color: #656565;
 	font-size: 10px;
+	display: table-cell !important;
+	display: inline; /* для IE */
 }
-.fmenum {
-	float: right;
-	text-align: center;
-	margin: -40px 10px 0px 10px;
-	width: auto;
-	color: #FFCC00;
-	font-weight: bold;
-	font-size: 12px;
+.footer_menur {
+	width: 250;
+	text-align: right;
+	color: #656565;
+	font-size: 10px;
+	display: table-cell !important;
+	display: inline; /* для IE */
 }
-.footerlinks {
+.wrapper_footerlinks {
 	width: auto;
 	margin: 20px 20px;
 	text-align: center;
 }
-.footerlinks a {
+.wrapper_footerlinks a {
 	color: #656565;
 	text-decoration: none;
 }
-.footerlinks a:hover {
+.wrapper_footerlinks a:hover {
 	color: #333333;
 	text-decoration: none;
 }

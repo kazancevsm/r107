@@ -21,7 +21,7 @@ if (!defined('e107_INIT')) { exit; }
 $text = "
 <div class='power_by'>
 	<div class='power_by_spacer'>
-		<a href='http://osgroup.pro' rel='external'>
+		<a href='http://webmaster.slog.su' rel='external'>
 			<img src='".e_PLUGIN_ABS."powered_by_menu/images/osgroup.png' alt='Open Source Group' style='border: 0px; width: 88px; height: 31px' />
 		</a>
 	</div>

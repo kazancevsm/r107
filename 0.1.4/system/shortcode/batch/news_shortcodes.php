@@ -268,13 +268,13 @@ SC_END
 SC_BEGIN NEWSTHUMBNAIL
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
+return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_FILE_ABS."images_newspost/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
 SC_END
 
 SC_BEGIN NEWSIMAGE
 $news_item = getcachedvars('current_news_item');
 $param = getcachedvars('current_news_param');
-return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_IMAGE_ABS."newspost_images/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
+return (isset($news_item['news_thumbnail']) && $news_item['news_thumbnail']) ? "<a href='".e_HTTP."news.php?item.".$news_item['news_id'].".".$news_item['news_category']."'><img class='".$GLOBALS['NEWS_CSSMODE']."_image' src='".e_FILE_ABS."images_newspost/".$news_item['news_thumbnail']."' alt='' style='".$param['thumbnail']."' /></a>" : "";
 SC_END
 
 SC_BEGIN STICKY_ICON

@@ -49,7 +49,7 @@ $BBCODE_TEMPLATE_ADMIN = "
 	{BB_HELP=admin}<br />
 	{BB=link}{BB=b}{BB=i}{BB=u}{BB=img}{BB=wrapright}{BB=center}{BB=left}{BB=right}{BB=justify}
 	{BB=bukvica}{BB=bq}{BB=code}{BB=list}{BB=fontcol}{BB=fontsize}{BB=emotes}
-	{BB_PREIMAGEDIR=".e_IMAGE."}
+	{BB_PREIMAGEDIR=".e_FILE."}
 	{BB=preimage}{BB=prefile}{BB=flash}{BB=youtube}
 ";
 
@@ -59,7 +59,7 @@ $BBCODE_TEMPLATE_NEWSPOST = "
 	{BB_HELP=$mode}<br />
 	{BB=link}{BB=b}{BB=i}{BB=u}{BB=img}{BB=wrapright}{BB=center}{BB=left}{BB=right}{BB=justify}
 	{BB=bukvica}{BB=bq}{BB=code}{BB=list}{BB=fontcol}{BB=fontsize}{BB=emotes}
-	{BB_PREIMAGEDIR=".e_IMAGE."newspost_images/}
+	{BB_PREIMAGEDIR=".e_FILE."images_newspost/}
 	{BB=preimage}{BB=prefile}{BB=flash}{BB=youtube}
 ";
 

@@ -44,9 +44,9 @@ if (!defined('ITEMVIEW'))
 if (e_QUERY) 
 {
 	$tmp = explode('.', e_QUERY);
-	$action = $tmp[0];							// At least one parameter here
-	$sub_action = varset($tmp[1],'');			// Usually a numeric category, or numeric news item number, but don't presume yet
-//	$id = varset($tmp[2],'');					// ID of specific news item where required
+	$action = $tmp[0];				// At least one parameter here
+	$sub_action = varset($tmp[1],'');		// Usually a numeric category, or numeric news item number, but don't presume yet
+//	$id = varset($tmp[2],'');			// ID of specific news item where required
 	$newsfrom = intval(varset($tmp[2],0));		// Item number for first item on multi-page lists
 	$cacheString = 'news.php_'.e_QUERY;
 }
@@ -688,7 +688,7 @@ function setNewsMeta($mode,$news)
 {
 	if($news['news_thumbnail'])
 	{
-		$image = (substr($news['news_thumbnail'],0,3)=="{e_") ? $tp->replaceConstants($news['news_thumbnail']) : SITEURL.e_IMAGE."newspost_images/".$news['news_thumbnail'];	
+		$image = (substr($news['news_thumbnail'],0,3)=="{e_") ? $tp->replaceConstants($news['news_thumbnail']) : SITEURL.e_FILE."images_newspost/".$news['news_thumbnail'];	
 	}
 	else
 	{

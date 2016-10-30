@@ -1,18 +1,18 @@
 <?php
 /*
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro
-	Почта: support@r107.pro
+	© r107.slog.su, 2014. Все права защищены.
+	Сайт: http://r107.slog.su
+	Почта: sunout1303@yandex.ru
 	Файл: install.php
 	Версия: 0.1
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
 	Автор: © Казанцев Сергей	[Sunout]
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro
-	Email: support@r107.pro
+	© r107.slog.su, 2014. All Rights Reserved.
+	Site: http://r107.slog.su
+	Email: sunout1303@yandex.ru
 	File: install.php
 	Version: 0.1
 	Charset: utf8
@@ -729,16 +729,16 @@ class e_install
 		$config_file = "<?php
 /*
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro, http://osgroup.pro
-	Почта: support@r107.pro
+	© r107.slog.su, 2014. Все права защищены.
+	Сайт: http://r107.slog.su, http://webmaster.slog.su
+	Почта: sunout1303@yandex.ru
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
 	Автор: © Open Source Group
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro, http://osgroup.pro
-	Email: support@r107.pro
+	© r107.slog.su, 2014. All Rights Reserved.
+	Site: http://r107.slog.su, http://webmaster.slog.su
+	Email: sunout1303@yandex.ru
 	Charset: utf8
 	Date: 04.11.2014 05:05:05
 	Author: © Open Source Group
@@ -1002,7 +1002,7 @@ class e_install
 		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}core` VALUES ('search_prefs', '{$search_prefs}') ");
 		$notify_prefs = mysql_real_escape_string("array ('event' => array ('usersup' => array ('type' => 'off', 'class' => '254', 'email' => '',),'userveri' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'login' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'logout' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'flood' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'subnews' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'newspost' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'newsupd' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), 'newsdel' => array ( 'type' => 'off', 'class' => '254', 'email' => '', ), ), )");
 		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}core` VALUES ('notify_prefs', '{$notify_prefs}') ");
-		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}banner` VALUES (0, 'r107', 'login', 'password', 'place_one', 'banner_r107.png', '', '', 'http://r107.pro', 0, 0, 0, 0, 0, 0, '') ");
+		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}banner` VALUES (0, 'r107', 'login', 'password', 'place_one', 'banner_r107.png', '', '', 'http://r107.slog.su', 0, 0, 0, 0, 0, 0, '') ");
 		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}menus` VALUES (1, 'login_menu', 1, 1, '0', '', 'login_menu/')");
 		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}menus` VALUES (3, 'online_menu', 0, 0, '0', '', 'online_menu/')");
 		mysql_query("INSERT INTO `{$this->previous_steps['mysql']['prefix']}menus` VALUES (4, 'blogcalendar_menu', 0, 0, '0', '', 'blogcalendar_menu/')");
@@ -1165,16 +1165,16 @@ function template_data()
 	$data = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\">
 <!--
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. Все права защищены.
-	Сайт: http://r107.pro, http://osgroup.pro
-	Почта: support@r107.pro
+	© r107.slog.su, 2014. Все права защищены.
+	Сайт: http://r107.slog.su, http://webmaster.slog.su
+	Почта: sunout1303@yandex.ru
 	Кодировка: utf8
 	Дата: 04.11.2014 05:05:05
 	Автор: © Open Source Group
 +-------------------------------------------------------------------------------+
-	© r107.pro, 2014. All Rights Reserved.
-	Site: http://r107.pro, http://osgroup.pro
-	Email: support@r107.pro
+	© r107.slog.su, 2014. All Rights Reserved.
+	Site: http://r107.slog.su, http://webmaster.slog.su
+	Email: sunout1303@yandex.ru
 	Charset: utf8
 	Date: 04.11.2014 05:05:05
 	Author: © Open Source Group

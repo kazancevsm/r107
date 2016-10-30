@@ -77,7 +77,7 @@ define("NWSLAN_67", "Image");
 define("NWSLAN_68", "File");
 define("NWSLAN_69", "Upload an image or file for use in the news item");
 // define("NWSLAN_70", "The ".e_FILE."downloads folder is not writable, you need to CHMOD 777 the folder before uploading and files.");  // deprecated see lan_admin.php
-// define("NWSLAN_71", "The ".e_IMAGE."newspost_images folder is not writable.  You need to CHMOD 777 the folder before uploading any images.");  // deprecated see lan_admin.php
+// define("NWSLAN_71", "The ".e_FILE."images_newspost folder is not writable.  You need to CHMOD 777 the folder before uploading any images.");  // deprecated see lan_admin.php
 define("NWSLAN_72", "Only show news item between certain dates");
 define("NWSLAN_73", "Render type");
 define("NWSLAN_74", "Select how and where news item is posted");
@@ -159,7 +159,7 @@ define("LAN_NEWS_39", "click on file to insert at cursor position");
 define("LAN_NEWS_40", "Insert download links");
 
 define("LAN_NEWS_42", "Files");
-// define("LAN_NEWS_43", "(no images in /e107_images/newspost_images)");  // deprecated see lan_admin.php
+// define("LAN_NEWS_43", "(no images in /r107_images/images_newspost)");  // deprecated see lan_admin.php
 define("LAN_NEWS_44", "Trackback not enabled.");
 
 define("LAN_NEWS_45", "ID");

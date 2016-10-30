@@ -892,7 +892,7 @@ span.logout a {
 	vertical-align: middle;
 	padding: 0px 2px 15px 0px;
 }
-.newsbox {
+.news_box {
 	margin-bottom: 30px;
 }
 .meta {
@@ -907,12 +907,14 @@ span.logout a {
 	vertical-align: middle;
 	height: 24px;
 }
-.fsnewsbbody {
-	padding: 5px 0px 10px 0px;
-}
+
 .news_image {
 	float: left;
 	margin: 0px 10px 5px 0px;
+}
+.news_body {
+	padding: 5px 0px 10px 0px;
+	text-align:justify;
 }
 .metabottom {
 	width: 100%;

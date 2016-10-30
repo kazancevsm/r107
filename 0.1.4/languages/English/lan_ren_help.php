@@ -49,7 +49,7 @@ define("LANHELP_34", "[newpage] or [newpage=title] Insert newpage tag, splits ar
 define("LANHELP_35", "hyperlink url");
 define("LANHELP_36", "Unordered: [list]line1*line2*line3[/list] Ordered: [list=type]line1*line2*line3[/list]");
 
-define("LANHELP_37", "Insert image from e107_images/newspost_images/ directory");
+define("LANHELP_37", "Insert image from r107_files/images_newspost/ directory");
 define("LANHELP_38", "link to full image will be generated");
 
 define("LANHELP_39", "Insert download link from existing downloads");

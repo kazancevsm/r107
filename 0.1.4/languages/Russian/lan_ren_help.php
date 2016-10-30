@@ -56,7 +56,7 @@ define("LANHELP_33", "HTML - удаляет пробелы между строч
 define("LANHELP_34", "[newpage] или [newpage=title] Вставьте тэг newpage в статью для разделения её на несколько страниц.");
 define("LANHELP_35", "адрес гиперссылки");
 define("LANHELP_36", "Несортированный список: [list]line1*line2*line3[/list] Сортированный список: [list=type]line1*line2*line3[/list]");
-define("LANHELP_37", "Вставить изображение из каталога images/newspost_images/");
+define("LANHELP_37", "Вставить изображение из каталога files/images_newspost/");
 define("LANHELP_38", "ссылка на полное изображение будет сгенерирована");
 define("LANHELP_39", "Вставить ссылку загрузки из существующих загрузок");
 define("LANHELP_40", "В настоящее время нет существующих загрузок");

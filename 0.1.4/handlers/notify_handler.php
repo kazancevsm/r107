@@ -192,8 +192,8 @@ function notify_subnews($data) {
 		$tmp = explode(",",$data['image']);
 		foreach($tmp as $image)
 		{
-			$message .= "<br /><img src='{e_IMAGE}newspost_images/".$image."' alt='' /><br />";
-			$message .= "src: {e_IMAGE}newspost_images/".$image;	
+			$message .= "<br /><img src='{e_FILE}images_newspost/".$image."' alt='' /><br />";
+			$message .= "src: {e_FILE}images_newspost/".$image;	
 		}
 	}
 		

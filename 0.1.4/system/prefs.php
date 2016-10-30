@@ -11,12 +11,12 @@ $pref = array (
   'sitedescription' => '',
   'siteadmin' => $site_admin_user,
   'siteadminemail' => $site_admin_email,
-  'sitecontactinfo' => '[b]r107.pro  - Сайт технической поддержки r107cms[/b]
-[b]Сайт:[/b] [url=http://r107.pro]r107.pro[/url]
-[b]Почта:[/b] support@r107.pro
-Сборка настоящей версии системы и русская локализация подготовлены командой сайта r107.pro. Основана на e107.
+  'sitecontactinfo' => '[b]r107.slog.su  - Сайт технической поддержки r107cms[/b]
+[b]Сайт:[/b] [url=http://r107.slog.su]r107.slog.su[/url]
+[b]Почта:[/b] sunout1303@yandex.ru
+Сборка настоящей версии системы и русская локализация подготовлены командой сайта r107.slog.su. Основана на e107.
 
-© r107.pro, '.date("Y").'. Все права защищены.',
+© r107.slog.su, '.date("Y").'. Все права защищены.',
   'sitetheme' => 'standart',
   'themecss' => 'style.css',
   'image_preload' => '0',
