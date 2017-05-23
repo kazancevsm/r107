@@ -135,7 +135,7 @@ define("ADLAN_CL_4", "Система связи");
 define("ADLAN_CL_5", "Файлы");
 define("ADLAN_CL_6", "Инструменты");
 define("ADLAN_CL_7", "Плагины");
-define("ADLAN_CL_8", "Документы");
+define("ADLAN_CL_8", "Подсказки");
 define("ADLAN_LAT_1", "Новинки");
 define("ADLAN_LAT_2", "Прислано новостей");
 define("ADLAN_LAT_5", "Присланных ссылок");

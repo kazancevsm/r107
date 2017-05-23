@@ -102,8 +102,8 @@ if ($delete == 'main' && $del_id)
 		{
 			$newspost->show_message(NWSLAN_31.' #'.$del_id.' '.NWSLAN_32);
 			$e107cache->clear('news.php');
-			$e107cache->clear('othernews');
-			$e107cache->clear('othernews2');
+			$e107cache->clear('news_menu1');
+			$e107cache->clear('news_menu2');
 			admin_purge_related('news', $del_id);
 		}
 	}
@@ -125,8 +125,8 @@ if($delete == 'sn' && $del_id)
 	{
 		$newspost->show_message(NWSLAN_34.' #'.$del_id.' '.NWSLAN_32);
 		$e107cache->clear('news.php');
-		$e107cache->clear('othernews');
-		$e107cache->clear('othernews2');
+		$e107cache->clear('news_menu1');
+		$e107cache->clear('news_menu2');
 		unset($delete, $del_id);
 	}
 }
@@ -168,8 +168,8 @@ if (isset($_POST['submit_news']))
 {
 	$newspost->submit_item($sub_action, $id);
 	$e107cache->clear('news.php');
-	$e107cache->clear('othernews');
-	$e107cache->clear('othernews2');
+	$e107cache->clear('news_menu1');
+	$e107cache->clear('news_menu2');
 	$action = 'main';
 	unset($sub_action, $id);
 }
@@ -207,8 +207,8 @@ if (isset($_POST['update_category']))
 		$newspost->show_message(NWSLAN_36);
 	}
 	$e107cache->clear('news.php');
-	$e107cache->clear('othernews');
-	$e107cache->clear('othernews2');
+	$e107cache->clear('news_menu1');
+	$e107cache->clear('news_menu2');
 }
 
 if (isset($_POST['save_prefs'])) 
@@ -228,8 +228,8 @@ if (isset($_POST['save_prefs']))
 	$pref['news_unstemplate']		= $_POST['news_unstemplate'];
 	save_prefs();
 	$e107cache->clear('news.php');
-	$e107cache->clear('othernews');
-	$e107cache->clear('othernews2');
+	$e107cache->clear('news_menu1');
+	$e107cache->clear('news_menu2');
 	$newspost->show_message(NWSLAN_119);
 }
 
@@ -326,14 +326,14 @@ class newspost
 			<form action='".e_SELF."' id='newsform' method='post'>
 			<table class='fborder' >
 			<tr>
-			<td style='width:5%' class='fcaption'><a href='".e_SELF."?main.news_id.{$sort_link}.{$from}'>".LAN_NEWS_45."</a></td>
-			<td style='width:15%' class='fcaption'><a href='".e_SELF."?main.news_datestamp.{$sort_link}.{$from}'>Дата</a></td>
-			<td style='width:55%' class='fcaption'><a href='".e_SELF."?main.news_title.{$sort_link}.{$from}'>".NWSLAN_40."</a></td>
-			<td style='width:15%' class='fcaption'>".LAN_NEWS_49."</td>
-			<td style='width:10%' class='fcaption'>".LAN_OPTIONS."</td>
+			<td style='width:5%' class='fcaption'><a href='".e_SELF."?main.news_id.{$sort_link}.{$from}'>".LAN_NEWS_ID."</a></td>
+			<td style='width:15%' class='fcaption'><a href='".e_SELF."?main.news_datestamp.{$sort_link}.{$from}'>".LAN_NEWS_DATE."</a></td>
+			<td style='width:55%' class='fcaption'><a href='".e_SELF."?main.news_title.{$sort_link}.{$from}'>".LAN_NEWS_CAPTION."</a></td>
+			<td style='width:20%' class='fcaption'>".LAN_NEWS_PLACE."</td>
+			<td style='width:5%' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr></table>";
 			$text .= "<div class='r_frame_scroll'><table class='fborder'>";
-			$ren_type = array('default','title','other-news','other-news 2');
+			$ren_type = array(LAN_NEWS_PAGE,LAN_NEWS_MENU1,LAN_NEWS_MENU2);
 			foreach($newsarray as $row)
 			{
 				extract($row);
@@ -343,7 +343,7 @@ class newspost
 				<td style='width:5%' class='forumheader3'>{$news_id}</td>
 				<td style='width:15%' class='forumheader3'>".date('d.m.Y H:i:s', $news_datestamp)."</td>
 				<td style='width:55%' class='forumheader3'><a href='".e_BASE."news.php?item.{$news_id}.{$news_category}'>".($news_title ? $tp->toHTML($news_title,"","no_hook,emotes_off,no_make_clickable") : "[".NWSLAN_42."]")."</a></td>
-				<td style='10%' class='forumheader3'>";
+				<td style='width:20%' class='forumheader3'>";
 				$text .= $ren_type[$news_render_type];
 				if($news_sticky)
 				{
@@ -353,7 +353,7 @@ class newspost
 				$text .= "
 				</td>
 
-				<td style='width:15%; text-align:center' class='forumheader3'>
+				<td style='width:5%; text-align:center' class='forumheader3'>
 				<a href='".e_SELF."?create.edit.{$news_id}'>".ADMIN_EDIT_ICON."</a>
 				<input type='image' title='".LAN_DELETE."' name='delete[main_{$news_id}]' src='".ADMIN_DELETE_ICON_PATH."' onclick=\"return jsconfirm('".NWSLAN_39." [ID: $news_id ]')\"/>
 				</td>
@@ -595,9 +595,9 @@ class newspost
 		</tr>
 
 		<tr>
-		<td style='width:20%' class='forumheader3'>".LAN_NEWS_TYPE.":</td>
+		<td style='width:20%' class='forumheader3'>".LAN_NEWS_PLACE.":</td>
 		<td style='width:80%' class='forumheader3'>";
-		$ren_type = array(NWSLAN_75,NWSLAN_76,NWSLAN_77,NWSLAN_77.' 2');
+		$ren_type = array(LAN_NEWS_PAGE,LAN_NEWS_MENU1,LAN_NEWS_MENU2);
 		foreach($ren_type as $key=>$value) 
 		{
 			$checked = ($_POST['news_rendertype'] == $key) ? "checked='checked'" : '';
@@ -947,7 +947,7 @@ class newspost
 			<tr>
 			<td style='width:5%' class='fcaption'>".LAN_NEWS_45."</td>
 			<td style='width:5%' class='fcaption'>&nbsp;</td>
-			<td style='width:70%' class='fcaption'>".NWSLAN_6."</td>
+			<td style='width:70%' class='fcaption'>".LAN_NEWS_CAT."</td>
 			<td style='width:20%; text-align:center' class='fcaption'>".LAN_OPTIONS."</td>
 			</tr>";
 			while ($row = $sql->db_Fetch())

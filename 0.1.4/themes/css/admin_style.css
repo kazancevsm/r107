@@ -650,7 +650,7 @@ td.admin_left_col_one {
 
 /* LINKs ADMIN */
 .admin_main_nav_bg {
-	background:#000 url(images/admin_nav_bg.png) no-repeat;
+	background:#000;
 	background-position:center;
 	padding:15px 0px 0px 0px;
 	height:35px;
