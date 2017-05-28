@@ -23,7 +23,7 @@
 //define("NWSLAN_48", "Опции новостей");
 define("LAN_NEWS_MENU_CAPTION", "Меню");
 //define("NWSLAN_44", "Главная страница новостей");
-define("LAN_NEWS_MENU_GENERAL", "Главная страница новостей");
+define("LAN_NEWS_MENU_GENERAL", "Главная страница");
 //define("NWSLAN_45", "Создать новость");
 define("LAN_NEWS_MENU_CREATE", "Создать новость");
 //define("NWSLAN_46", "Категории");

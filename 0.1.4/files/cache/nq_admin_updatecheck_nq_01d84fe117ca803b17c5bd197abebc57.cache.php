@@ -1,0 +1,1 @@
+<?php1495539705,1,0.1.4 Standart Assembly <br />The author of this Assembly: <a href='http://webmaster.slog.su'>Open Source Group</a>

@@ -424,7 +424,7 @@ class page
 		</form>
 		</div>";
 
-		$ns->tablerender("Options", $text);
+		$ns->tablerender(CUSLAN_3, $text);
 	}
 
 
@@ -452,7 +452,7 @@ class page
 		$var['createm']['text'] = CUSLAN_31;
 		$var['createm']['link'] = e_SELF."?createm";
 
-		$var['options']['text'] = LAN_OPTIONS;
+		$var['options']['text'] = CUSLAN_3;
 		$var['options']['link'] = e_SELF."?options";
 
 

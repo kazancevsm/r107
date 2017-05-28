@@ -27,6 +27,6 @@ if (!defined('e107_INIT')) { exit; }
 $text = "На этой странице вы можете создать персональные меню и страницы с вашим контентом внутри.<br /><br />";
 //Для подробностей смотрите <a href='http://docs.e107.org/Using Custom Pages and Custom Menus'>http://docs.e107.org/Using Custom Pages and Custom Menus</a>.";
 
-$ns -> tablerender('Свои меню/страницы: Справка', $text);
+$ns -> tablerender('Персональные меню/страницы: Справка', $text);
 
 ?>
