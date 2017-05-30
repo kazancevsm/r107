@@ -18,10 +18,8 @@ $pref = array (
 
 © r107.slog.su, '.date("Y").'. Все права защищены.',
   'sitetheme' => 'standart',
-  'themecss' => 'style.css',
   'image_preload' => '0',
   'admintheme' => 'standart',
-  'admincss' => 'style.css',
   'adminstyle' => 'categories',
   'sitedisclaimer' => LAN_PREF_3,
   'newsposts' => '5',

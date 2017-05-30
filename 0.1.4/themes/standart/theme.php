@@ -5,7 +5,7 @@ include_lan(e_THEME."standart/languages/".e_LANGUAGE.".php");
 @include_lan(e_THEME."standart/languages/English.php");
 // [theme information]
 $themename = "Standart";
-$themeversion = " 0.1";
+$themeversion = " 0.2";
 $themeauthor = "OSGroup";
 $themeemail = "sunout1303@yandex.ru";
 $themewebsite = "http://r107.slog.su";
@@ -20,7 +20,20 @@ define("FS_LINK_SEPARATOR","<div class='fs-linkSep'><!-- --></div>");
 define("FS_START_SEPARATOR", FALSE);
 define("FS_END_SEPARATOR", FALSE);
 define("ADLINK_COLS",5);
-
+define("THEME_DISCLAIMER", "<br /><i>".LAN_THEME_1."</i>");
+define("ICONSTYLE", "float: left; border:0");
+define("COMMENTLINK", LAN_THEME_2);
+define("COMMENTOFFSTRING", LAN_THEME_3);
+define("PRE_EXTENDEDSTRING", "<div class='readmore'>");
+define("EXTENDEDSTRING", LAN_THEME_4);
+define("POST_EXTENDEDSTRING", "</div>");
+define("TRACKBACKSTRING", LAN_THEME_5);
+define("TRACKBACKBEFORESTRING", " :: ");
+define("ICONMAIL", "mail.png");
+define("ICONPRINT", "print.png");
+define("ICONPRINTPDF", "pdf.png");
+define('NEWSCAT_AMOUNT',10);
+define("BULLET", "bullet.png");
 
 function theme_head() {
 	return "
@@ -29,6 +42,7 @@ function theme_head() {
 		<![endif]-->
 	";
 }
+
 // [layout]
 $layout = "_default";
 $HEADER = "
@@ -160,6 +174,7 @@ $CUSTOMFOOTER["HOME"] = "
 	</div>
 </div>
 ";
+
 $CUSTOMPAGES["HOME"] = SITEURL."index.php";
 
 $CUSTOMHEADER["FULL"] = "
@@ -315,19 +330,7 @@ switch ($style) {
 	break;
  }
 }
-define("THEME_DISCLAIMER", "<br /><i>".LAN_THEME_1."</i>");
-define("ICONSTYLE", "float: left; border:0");
-define("COMMENTLINK", LAN_THEME_2);
-define("COMMENTOFFSTRING", LAN_THEME_3);
-define("PRE_EXTENDEDSTRING", "<div class='readmore'>");
-define("EXTENDEDSTRING", LAN_THEME_4);
-define("POST_EXTENDEDSTRING", "</div>");
-define("TRACKBACKSTRING", LAN_THEME_5);
-define("TRACKBACKBEFORESTRING", " :: ");
-define("ICONMAIL", "mail.png");
-define("ICONPRINT", "print.png");
-define("ICONPRINTPDF", "pdf.png");
-define('NEWSCAT_AMOUNT',10);
+
 $sc_style['NEWSIMAGE']['pre'] = "<div class='news_image'>";
 $sc_style['NEWSIMAGE']['post'] = "</div>";
 $sc_style['NEWSCOMMENTS']['pre'] = "<div class='news_comments'>";
@@ -480,7 +483,6 @@ switch ($np_linkstyle)
 }
 return $linkstyleset;
 }
-  define("BULLET", "bullet.png");
 // Chatbox post style
 $CHATBOXSTYLE = '<br /><b>{USERNAME}</b>&nbsp;{TIMEDATE}<br />{MESSAGE}<br />';
 // Comment post style

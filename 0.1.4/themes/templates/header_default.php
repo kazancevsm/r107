@@ -176,9 +176,9 @@ if(defined("PREVIEWTHEME")) {
 	echo "<link rel='stylesheet' href='".PREVIEWTHEME."style.css' type='text/css' />\n";
 } else {
 	$css_default = "all";
-		if(isset($pref['themecss']) && file_exists(THEME.$pref['themecss']))
+		if(file_exists(THEME."style.css"))
 		{
-			echo "<link rel='stylesheet' href='".THEME_ABS."{$pref['themecss']}' type='text/css' media='{$css_default}' />\n";
+			echo "<link rel='stylesheet' href='".THEME_ABS."style.css' type='text/css' media='{$css_default}' />\n";
 		}else {
 			echo "<link rel='stylesheet' href='".e_THEME_ABS."css/style.css' type='text/css' media='{$css_default}' />\n";
 		}
