@@ -45,9 +45,10 @@ input[type="checkbox"], input[type="radio"] {
 blockquote, q {
 	quotes: none;
 }
-/* THEME CSS */
+
+/* ----- THEME CSS ----- */
 body {
-	background: #FFFFFF url(images/mainbg.png) repeat-x 0px 0px;
+	background: #ffffff url(images/mainbg.png) repeat-x 0px 0px;
 	font: 12px/16px Arial,Helvetica,sans-serif;
 	color : #333333;
 }
@@ -94,8 +95,95 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0px;
 }
+
+/* ===== WRAPPER CSS ===== */
+.wrapper {
+	width: 1000px;
+	margin:0px auto ;
+}
+.wrapper_full {
+	width: 95%;
+	margin: 0px auto ;
+}
+.wrapper_header {
+	background: transparent url(images/header_bg.png) repeat-x 0px 0px;
+	width:100%;
+	height:186px;
+}
+
+.wrapper_sitelinks_dropdown {
+	width: 100%;
+	margin: 0px auto ;
+	height: 62px;
+	background: url(images/navbg.png) repeat-x 0px 0px;
+}
+
+/* ----- WRAPPER MAINCONTENT ---- */
+.wrapper_maincontent {
+	background: #ffffff url(images/contentbg.png) repeat-x 0px 0px;
+	margin: 0px auto ;
+	width: 100%;
+	padding: 20px 0px ;
+}
+
+/* ----- WRAPPER FOOTER ---- */
 .wrapper_clear {
 	clear:both;
+}
+.wrapper_footerline {
+	background: url(images/footerline.png) repeat-x 0px 0px;
+	width: 90%;
+	margin: 30px auto 0px auto ;
+	height: 3px;
+}
+.wrapper_footerlinefull {
+	background: url(images/footerline.png) repeat-x 0px 0px;
+	width: 95%;
+	margin: 30px auto 0px auto ;
+	height: 3px;
+}
+.wrapper_footer {
+	display: table;
+	width: 100%;
+	margin: 10px 0px;
+}
+.wrapper_footerlinks {
+	width: auto;
+	margin: 20px 20px;
+	text-align: center;
+}
+
+
+.top_header{
+	height:135px;
+	width:100%;
+}
+.header_logo {
+	width:300px;
+	float:left;
+	margin:20px 0px 0px 0px;
+}
+.header_banner {
+	width: 700px;
+	float: right;
+	text-align: right;
+	margin: 20px 0px 0px 0px;
+}
+.bottom_header {
+	height: 50px;
+	width: 100%
+}
+.header_login {
+	width: 650px;
+	float: left;
+	height: 50px;
+}
+.header_search {
+	width: 300px;
+	text-align: right;
+	float: right;
+	margin-right: 20px;
+	margin-top: 4px;
 }
 .clearfix:after {
 	clear:both;
@@ -120,8 +208,8 @@ html .clearfix{
 /* E107 CORE CSS */
 .tbox {
 	color: #111111;
-	background-color: #FFFFFF;
-	border:1px solid #B5B5B7;
+	background-color: #ffffff;
+	border:1px solid #b5b5b7;
 	font-size: 14px;
 	font-weight: normal;
 	padding: 5px 10px;
@@ -131,14 +219,14 @@ html .clearfix{
 	border-radius: 3px;
 }
 .tbox:focus {
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 }
 .button, .button:focus {
 	color: #111111;
 	text-align: center;
-	background-color: #FFFFFF;
-	border: 1px #B5B5B7 solid;
+	background-color: #ffffff;
+	border: 1px #b5b5b7 solid;
 	padding: 5px 10px ;
 	margin: 5px 0px ;
 	font-weight: bold;
@@ -150,7 +238,7 @@ html .clearfix{
 }
 .button:hover {
 	color: #222222;
-	border: 1px #EEEEEE solid;
+	border: 1px #eeeeee solid;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -162,8 +250,8 @@ html .clearfix{
 	width: 90%;
 	padding : 2px;
 	color: #111111;
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 	margin: 10px auto;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -171,14 +259,14 @@ html .clearfix{
 	-webkit-border-radius: 3px;
 }
 .tbox.chatbox:focus {
-	background-color: #FFFFFF;
-	border:1px solid #EEEEEE;
+	background-color: #ffffff;
+	border:1px solid #eeeeee;
 }
 .tbox.signature {
 	width: 350px;
 	color: #111111;
-	background-color: #FFFFFF;
-	border:1px solid #B5B5B7;
+	background-color: #ffffff;
+	border:1px solid #b5b5b7;
 	font-size: 14px;
 	font-weight: normal;
 	padding: 5px 10px;
@@ -188,8 +276,8 @@ html .clearfix{
 	-webkit-border-radius: 3px;
 }
 .tbox.signature:focus {
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 }
 .npdropdown {
 	width: auto;
@@ -209,34 +297,34 @@ html .clearfix{
 	width: 98%;
 	padding : 2px;
 	color: #111111;
-	background-color: #FFFFFF;
-	border:1px solid #B5B5B7;
+	background-color: #ffffff;
+	border:1px solid #b5b5b7;
 }
 #comment.tbox.comment:focus {
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 }
 #contactForm textarea.tbox {
 	width: auto;
 	padding : 2px;
 	color: #111111;
-	background-color: #FFFFFF;
-	border:1px solid #B5B5B7;
+	background-color: #ffffff;
+	border:1px solid #b5b5b7;
 }
 #contactForm textarea.tbox:focus {
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 }
 input.input-text, textarea.tbox {
 	width: auto;
 	padding : 5px;
 	color: #111111;
-	background-color: #FFFFFF;
-	border:1px solid #B5B5B7;
+	background-color: #ffffff;
+	border:1px solid #b5b5b7;
 }
 input.input-text:focus, textarea.tbox:focus {
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 }
 input#helpb.helpbox {
 	float: left;
@@ -262,8 +350,8 @@ input#helpb.helpbox {
 }
 .indent {
 	color: #111111;
-	background-color: #EEEEEE;
-	border:1px solid #B5B5B7;
+	background-color: #eeeeee;
+	border:1px solid #b5b5b7;
 	padding: 5px 15px;
 	font-size: 90%;
 	margin: 10px 10px 5px 15px;
@@ -284,13 +372,13 @@ input#helpb.helpbox {
 }
 .fborder {
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	vertical-align: top;
 	text-align: left;
 }
 .fcaption {
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	border-collapse: collapse;
 	border: 0px none;
 	vertical-align: top;
@@ -308,14 +396,14 @@ input#helpb.helpbox {
 }
 .nfcaption{
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	padding: 3px;
 	font-size: 110%;
 	text-align: left;
 }
 .forumheader {
 	background-color: #F9F9F9;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	padding: 8px 3px;
 	font-weight: bold;
 	vertical-align: middle;
@@ -323,14 +411,14 @@ input#helpb.helpbox {
 }
 .forumheader2{
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	padding: 3px;
 	font-size: 99%;
 	text-align: left;
 }
 .forumheader3{
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	padding: 10px 3px;
 	font-size: 99%;
 	text-align: left;
@@ -339,49 +427,13 @@ input#helpb.helpbox {
 
 .finfobar{
 	background-color: transparent;
-	border-bottom:1px solid #B5B5B7;
+	border-bottom:1px solid #b5b5b7;
 	padding: 3px;
 	font-size: 100%;
 	text-align: left;
 }
-.wrapper {
-	width: 1000px;
-	margin:0px auto ;
-}
-.wrapper_full {
-	width: 95%;
-	margin: 0px auto ;
-}
-/* HEADER CSS */
-.wrapper_header {
-	background: transparent url(images/header_bg.png) repeat-x 0px 0px;
-	width:100%;
-	height:186px;
-}
-.top_header{
-	height:135px;
-	width:100%;
-}
-.header_logo {
-	width:300px;
-	float:left;
-	margin:20px 0px 0px 0px;
-}
-.header_banner {
-	width: 700px;
-	float: right;
-	text-align: right;
-	margin: 20px 0px 0px 0px;
-}
-.bottom_header {
-	height: 50px;
-	width: 100%
-}
-.header_login {
-	width: 650px;
-	float: left;
-	height: 50px;
-}
+
+/* ----- LOGIN BOX ----- */
 .login_sign {
 	height:50px;
 	padding-top:10px;
@@ -393,7 +445,7 @@ input#helpb.helpbox {
 	float:left;
 }
 .login_button {
-	color: #FFFFFF;
+	color: #ffffff;
 	font-weight: bold;
 	height:30px;
 	font-size: 14px;
@@ -404,7 +456,7 @@ input#helpb.helpbox {
 	border-radius: 3px;
 }
 .login_button a {
-	color: #FFFFFF;
+	color: #ffffff;
 	text-decoration: none;
 }
 .login_button_text {
@@ -416,7 +468,7 @@ input#helpb.helpbox {
 	width: 600px;
 }
 span.logout {
-	color: #FFFFFF;
+	color: #ffffff;
 	font-weight: bold;
 	width: 100px;
 	font-size: 14px;
@@ -431,7 +483,7 @@ span.logm {
 	height: 31px;
 }
 span.logout a {
-	color: #FFFFFF;
+	color: #ffffff;
 	text-decoration: none;
 }
 .username {
@@ -449,7 +501,7 @@ span.logout a {
 	border: 0px none;
 }
 .tbox.username:focus {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 .tbox.userpass {
 	width: 180px;
@@ -460,7 +512,7 @@ span.logout a {
 	border: 0px none;
 }
 .tbox.userpass:focus {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 .userlogin {
 	padding: 2px 10px ;
@@ -475,14 +527,8 @@ span.logout a {
 .fs_login_links_b {
 	padding: 0px 10px 0px 10px ;
 }
-/* SEARCH BOX CSS */
-.header_search {
-	width: 300px;
-	text-align: right;
-	float: right;
-	margin-right: 20px;
-	margin-top: 4px;
-}
+
+/* ----- SEARCH BOX CSS ----- */
 .search-form {
 	width: 200px;
 	padding: 5px 10px ;
@@ -495,7 +541,7 @@ span.logout a {
 	border-radius: 3px;
 }
 .search-form:focus {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	border: 1px #F0F0F0 solid;
 }
 .search-submit {
@@ -504,18 +550,12 @@ span.logout a {
 	height: 24px;
 	width: 24px;
 	border: 0px none;
-	color: #FFFFFF;
+	color: #ffffff;
 	font-weight: bold;
 	cursor:pointer;
 }
 
-/* SITELINKS DROPDOWN CSS */
-.wrapper_sitelinks_dropdown {
-	width: 100%;
-	margin: 0px auto ;
-	height: 62px;
-	background: url(images/navbg.png) repeat-x 0px 0px;
-}
+/* ----- SITELINKS DROPDOWN CSS ----- */
 #nav li.fs-linkSep {
 	background: url(images/nav_sep.png) no-repeat 0px 50%;
 	width: 2px;
@@ -539,7 +579,7 @@ span.logout a {
 }
 #nav li a {
 	color: #656565;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 	margin: 0px 10px;
 	padding: 20px 20px 10px 20px ;
 	display: block;
@@ -601,12 +641,12 @@ span.logout a {
 	color: #000000;
 	font-size: 14px;
 	font-weight: normal;
-	border-bottom: 1px #B5B5B7 solid;
+	border-bottom: 1px #b5b5b7 solid;
 }
 #nav li li a:hover {
-	background-color: #B5B5B7;
+	background-color: #b5b5b7;
 	color: #656565;
-	border-bottom: 1px #B5B5B7 solid;
+	border-bottom: 1px #b5b5b7 solid;
 }
 #nav li ul { /* second-level lists */
 	position: absolute;
@@ -685,13 +725,8 @@ span.logout a {
 }
 #nav a.sub:hover {
 }
-/* MAIN CONTENT CSS */
-.wrapper_maincontent {
-	background: #FFFFFF url(images/contentbg.png) repeat-x 0px 0px;
-	margin: 0px auto ;
-	width: 100%;
-	padding: 20px 0px ;
-}
+
+/* ----- MAIN CONTENT CSS ----- */
 .topcontent {
 	margin: 0px 20px 30px 20px;
 }
@@ -699,10 +734,10 @@ span.logout a {
 	font-size: 14px;
 	line-height: 18px;
 	color: #626262;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	margin-bottom: 30px;
 	padding: 20px 20px;
-	border-bottom: 3px #EEEEEE solid;
+	border-bottom: 3px #eeeeee solid;
 }
 .topcontent_entry img {
 	float: left;
@@ -714,14 +749,15 @@ span.logout a {
 }
 .topcontentall {
 	margin: 0px 20px 30px 20px;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	padding: 20px 20px ;
 }
-/* FULL SITE SIDE CSS */
+
+/* ----- FULL SITE SIDE CSS ----- */
 .fullside {
 	margin: 20px 20px ;
 	padding: 20px 0px ;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 }
 .fullcontent {
 	padding: 0px 20px ;
@@ -732,19 +768,20 @@ span.logout a {
 	font-weight: bold;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 }
 .fullcontent_entry table {
 	width: 90%;
 	margin: 0px auto ;
 }
 .maincontentwrap {
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	width: 920px;
 	margin: 0px auto ;
 	padding: 20px 20px ;
 }
-/* RIGHT SITE SIDE CSS */
+
+/* ----- RIGHT SITE SIDE CSS ----- */
 .rightcolall {
 	float: right;
 	width: 300px;
@@ -767,7 +804,7 @@ span.logout a {
 	padding-bottom: 10px;
 	margin-left: 30px;
 	margin-bottom: 10px;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 }
 .rightbox_text {
 	padding: 0px 0px;
@@ -781,9 +818,10 @@ span.logout a {
 	font-weight: bold;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 }
-/* MENU CSS */
+
+/* ----- MENU CSS ----- */
 .bottmomenusbox {
 	margin-bottom: 30px;
 }
@@ -793,7 +831,7 @@ span.logout a {
 	font-weight: bold;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 }
 .bottmomenus_text {
 	padding: 0px 0px;
@@ -802,7 +840,8 @@ span.logout a {
 	width: 90%;
 	margin: 0px auto ;
 }
-/* LEFT SITE SIDE CSS */
+
+/* ------ LEFT SITE SIDE CSS ----- */
 .maincontent_left {
 	width: 650px;
 	float: left;
@@ -819,13 +858,14 @@ span.logout a {
 .leftbox_title {
 	padding: 10px 20px ;
 	font-size: 18px;
-	text-shadow: 2px 2px 2px #B5B5B7;
+	text-shadow: 2px 2px 2px #b5b5b7;
 }
 .leftbox_text table {
 	width: 90%;
 	margin: 0px auto ;
 }
-/* NEWSSTYLE CSS */
+
+/* ----- NEWSSTYLE CSS ----- */
 .news_title_cat {
 	color: #333333;
 	font-weight: bold;
@@ -898,7 +938,8 @@ span.logout a {
 	color: #333333;
 	text-decoration: none;
 }
-/* MENU=2 MENU=3 MENU=4 CSS */
+
+/* ----- MENU=2 MENU=3 MENU=4 CSS ----- */
 .bottmomenus {
 	width: 960px;
 	margin: 30px auto ;
@@ -916,27 +957,7 @@ span.logout a {
 	margin: 0px 330px ;
 }
 
-/* FOOTER */
-.wrapper_footerline {
-	background: url(images/footerline.png) repeat-x 0px 0px;
-	width: 90%;
-	margin: 30px auto 0px auto ;
-	height: 3px;
-}
-.wrapper_footerlinefull {
-	background: url(images/footerline.png) repeat-x 0px 0px;
-	width: 95%;
-	margin: 30px auto 0px auto ;
-	height: 3px;
-}
-.wrapper_footer {
-	display: table;
-	width: 100%;
-	margin: 10px 0px;
-}
-.wrapper_footer a {
-	text-decoration: none;
-}
+/* ----- FOOTER MENU---- */
 .footer_menul {
 	width: 250px;
 	text-align: left;
@@ -959,20 +980,8 @@ span.logout a {
 	display: table-cell !important;
 	display: inline; /* для IE */
 }
-.wrapper_footerlinks {
-	width: auto;
-	margin: 20px 20px;
-	text-align: center;
-}
-.wrapper_footerlinks a {
-	color: #656565;
-	text-decoration: none;
-}
-.wrapper_footerlinks a:hover {
-	color: #333333;
-	text-decoration: none;
-}
-/* SITELINKS=flat:2 CSS */
+
+/* ----- SITELINKS=flat:2 CSS ----- */
 .styledmenu {
 	width: 100%;
 	margin-bottom: 30px;
@@ -1002,10 +1011,13 @@ span.logout a {
 }
 .styledmenu ul li.current a {
 	color: #111111;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	font-weight: bold;
 }
-
 .installe {
-	color:#FF5C5C; background-color:#FFCECE; border:1px solid #FF5C5C; padding:10px;margin:20px;
+	color:#FF5C5C;
+	background-color:#FFCECE;
+	border:1px solid #FF5C5C;
+	padding:10px;
+	margin:20px;
 }
