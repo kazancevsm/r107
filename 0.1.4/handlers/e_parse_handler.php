@@ -34,7 +34,7 @@ class e_parse
 		// toHTML Action defaults. For now these match existing convention.
 		// Let's reverse the logic on the first set ASAP; too confusing!
 	var $e_modSet = array();
-	var	$e_optDefault = array(
+	var $e_optDefault = array(
 		'context' => 'olddefault',			// default context: all "opt-out" conversions :(
 		'fromadmin' => FALSE,
 
@@ -276,7 +276,6 @@ class e_parse
 		}
 		return $ans;
 	}
-
 
 	/**
 	 * Check base-64 encoded code
