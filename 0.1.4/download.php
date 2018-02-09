@@ -97,7 +97,7 @@ else
 			{
 				$row = $sql->db_Fetch();
 				extract($row);
-				$type = "<h1>".$download_category_name."</h1>";
+				$type = $download_category_name;
 				$type .= ($download_category_description) ? "<div class='smalltext'>".$download_category_description."</div><br />" : "";
 				define("e_PAGETITLE", $download_category_name." / ".PAGE_NAME);
 			}
