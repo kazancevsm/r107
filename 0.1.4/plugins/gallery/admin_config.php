@@ -19,8 +19,6 @@ if (!getperms("P")) {
 require_once(e_ADMIN."auth.php");
 require_once(e_HANDLER."file_handler.php");
 require_once("gallery_handler.php");
-$mydb = new db();
-$mydb2 = new db();
 
 $lan_file = e_PLUGIN."gallery/languages/".e_LANGUAGE.".php";
 include_once((file_exists($lan_file) ? $lan_file : e_PLUGIN."gallery/languages/English.php"));
@@ -79,16 +77,16 @@ if ($mydb->db_Select("gallery_cat", "*", "cat_sub_id='0'")) {
         $cat_userid = $row['cat_userid'];
 	$path = e_PLUGIN."gallery/albums/".$cat_foldername."";
 	$text .="	<tr>
-		<td class='forumheader2'>".$cat_id."</td>
-		<td class='forumheader2' colspan=3>".$cat_name."</td>
+		<td class='forumheader2'>$cat_id</td>
+		<td class='forumheader2' colspan=3>$cat_name</td>
+		<td class='forumheader2'>$cat_userid</td>
 		<td class='forumheader2'></td>
-		<td class='forumheader2'>".$cat_userid."</td>
 		<td class='forumheader2'>
 		<a href='".e_PLUGIN."gallery/admin_config.php?menu_cat_edit.create.$cat_id'>
-		<img src='".e_IMAGE."admin/sublink_16.png' title='Создать подменю' alt='Создать подменю'></a>&nbsp;
+		<img src='".e_IMAGE."admin/sublink_16.png' title='Создать подкаталог' alt='Создать подкаталог'></a>&nbsp;
 		
 		<a href='".e_PLUGIN."gallery/admin_config.php?menu_cat_edit.edit.$cat_id'>
-		<img src='".e_IMAGE."admin/edit_16.png' alt='' title='Править' style='border:0px; height:16px; width:16px'></a>&nbsp;
+		<img src='".e_IMAGE."admin/edit_16.png' alt='".LAN_GAL_BUT_EDIT."' title='".LAN_GAL_BUT_EDIT."' style='border:0px; height:16px; width:16px'></a>&nbsp;
 		
 		<a href='".e_PLUGIN."gallery/admin_config.php?menu_cat.delete.$cat_id.$cat_foldername' onclick=\"return jsconfirm('Хотите удалить эту директорию?')\">
 		<img src='".e_IMAGE."admin/delete_16.png' alt='' title='Удалить' ></a>&nbsp;
@@ -134,12 +132,12 @@ if ($mydb->db_Select("gallery_cat", "*", "cat_sub_id='0'")) {
 }
 $text .= "</form></div>";
 
-$captions = LAN_GAL_CAT_MAN;
+$captions = LAN_GAL_CAP_CAT_MAN;
 $ns -> tablerender($captions, $text);
 }
 
 // =================================================================================================
-//					MENU CAT EDIT
+//					MENU CAT ADD & EDIT
 // =================================================================================================
 
 if ($action == 'menu_cat_edit') {
@@ -157,7 +155,7 @@ $cat_full_name = $cat_foldername."_".$cat_userid;
 $path = e_PLUGIN."gallery/albums/".$cat_full_name;
 
 	if ($cat_name == ""){ 
-		$message = "<font color=red>".NB_MES_04."</font>";
+		$message = "<font color=red>".LAN_GAL_MES_NOCRE."</font>";
 	}
 	else {
 	if ($cat_sub_id =='0') {
@@ -167,14 +165,14 @@ $path = e_PLUGIN."gallery/albums/".$cat_full_name;
 		$cat_id=$cat_sub_id=$cat_name=$cat_desc=$cat_img='';
 	}
 	if ($cat_sub_id <>'0' && $cat_sub_id<>'') {
-		mkdir ($path,0775);
+		mkdir ($path,0755);
 		if (!is_dir($path) && !mkdir($path)) {
 			$message = "Folder: ".$path." - Not create";
 		}
 		else {
 			$message = "Folder: ".$path."(".$cat_id.") - Created";
 			$mydb = new db;
-			$mydb -> db_Insert("gallery_cat", "0, '$cat_sub_id','$cat_full_name','$cat_name','$cat_desc','$cat_userid','$cat_img'");
+			$mydb -> db_Insert("gallery_cat", "0, '$cat_sub_id','$cat_full_name','$cat_name','$cat_desc','$cat_userid','$cat_img',''");
 			$message = "<font color=green>".LAN_GAL_MES_ADD_CAT.". ".LAN_GAL_DIR." ".$cat_full_name." ".LAN_GAL_MES_DIR_CRE."</font>";
 	}
 
@@ -281,12 +279,12 @@ $catFoldername = time();
 		
 				
 	$text .="</select></td></tr>";
-	/*
-		<tr><td class='forumheader3'>".LAN_GAL_DIR."</td>
+	
+	$text .="<tr><td class='forumheader3'>".LAN_GAL_DIR."</td>
 		<td class='forumheader3'>
-		<input class='tbox' type='text' name='cat_foldername' size='50' value='".$catFoldername."' readonly style='cursor:pointer;display:none'>
+		<input class='tbox' type='text' name='cat_foldername' size='50' value='".$catFoldername."' readonly style='cursor:pointer;display:block'>
 		</td></tr>";
-	*/
+	
 		
 	$text .= "<tr><td class='forumheader3' width='30%'>".LAN_GAL_CAT_NAME."</td>
 		<td class='forumheader3' width='70%'>
@@ -324,7 +322,7 @@ if($iconlist = $fl->get_files(e_FILE."icons/", ".jpg|.gif|.png|.JPG|.GIF|.PNG"))
 		</center>
 		</td></tr></table></form>";
     
-$caption = LAN_GAL_CAT_CRE;
+$caption = LAN_GAL_CAP_CAT_CRE;
 $ns -> tablerender($caption, $text);
 }
 
@@ -789,6 +787,115 @@ if(IsSet($_POST['public'])) {
 }
 */
 //==================================================================================================
+//					MENU IMAGE
+// =================================================================================================
+if ($action == 'menu_img') {
+
+//============ Delete image ===============
+if (IsSet($subaction) && $subaction == 'delete_img'){
+	$mydb->db_Select("gallery_img", "*", "img_id='$id'");
+		while($row = $mydb->db_Fetch()) {
+			$img_cat_id = $row['img_cat_id'];
+			$img_name = $row['img_name'];
+		}
+	$mydb->db_Select("gallery_cat", "*", "cat_id='$img_cat_id'");
+		while($row = $mydb->db_Fetch()) {
+			$cat_foldername = $row['cat_foldername'];
+		}
+	$puth = e_PLUGIN."gallery/albums/$cat_foldername/$img_name";
+//	$file_del_msg = unlink($puth);
+//	$filename = '/path/to/foo.txt';
+
+if (file_exists($puth)) {
+//    $message = "Файл $puth существует";
+//    $message .= substr(sprintf('%o', fileperms($puth)), -4);
+    unlink($puth);
+    $db_del_msg = $mydb->db_Delete("gallery_img", "img_id='$id'");
+} else {
+    $message = "Файл $puth не существует";
+}
+//	$db_del_msg = $mydb->db_Delete("gallery_img", "img_id='$id'");
+/*	foreach(array_keys($_POST['checked']) as $img_name) {
+		$file_del_msg = unlink($img_name);
+
+        if ($mydb->db_Select("gallery", "*", "img_name = '".$img_name."'")) {
+          while($row = $mydb->db_Fetch()) {
+              $db_del_msg = $mydb->db_Delete("gallery_img", "img_id = '".$row['img_id']."'");
+              $db_comm_del_msg = $mydb->db_Delete("comments", "comment_item_id = '".$row['img_id']."' AND comment_type = 'gallery'");
+          }
+        }
+        $message .= ($file_del_msg ? "File: ".$img_name." - deleted" : "")
+        .($db_del_msg ? ", DB line - deleted" : "")
+        .($db_comm_del_msg ? ", Comments - deleted" : "")
+        ."<br>";
+    }
+    */
+//       $message = $puth;
+ //      $message = file_exists($puth);
+//    $message = ($file_del_msg ? "File: ".$img_name." - deleted" : "").($db_del_msg ? ", DB line - deleted" : "").($db_comm_del_msg ? ", Comments - deleted" : "");
+        
+   $ns->tablerender("", "<div style='text-align:center'><b>$message</b></div>");
+
+}
+
+$mydb->db_Select("gallery_cat", "*", "cat_id='$id'");
+	while($row = $mydb->db_Fetch()) {
+		$cat_id = $row['cat_id'];
+		$cat_name = $row['cat_name'];
+		$cat_foldername = $row['cat_foldername'];
+	}
+
+$text = "<div style='text-align:center'>
+	<form enctype='multipart/form-data' method='post' action='".e_SELF."?menu_img'>
+          <table class='fborder'>";
+$text .="	<td class='fcaption'>ID</td>
+		<td class='fcaption'>".LAN_GAL_IMG_IMG."</td>
+		<td class='fcaption'>".LAN_GAL_IMG_NAME."</td>
+		<td class='fcaption'>".LAN_GAL_IMG_DESC."</td>
+		<td class='fcaption'>".LAN_GAL_IMG_STATUS."</td>
+		<td class='fcaption'>".LAN_GAL_IMG_COUNT."</td>
+		<td class='fcaption'>".LAN_GAL_IMG_OPTIONS."</td>
+      ";
+
+// if ($mydb->db_Select("gallery", "*", "img_status = 'upload'")) {
+if (IsSet($id) && $id<>'') {
+	$mydb->db_Select("gallery_img", "*", "img_cat_id='$id'");
+	} else {
+	$mydb->db_Select("gallery_img", "*", "");
+	}
+	while($row = $mydb->db_Fetch()) {
+		$img_id = $row['img_id'];
+		$img_cat_id = $row['img_cat_id'];
+		$img_name = $row['img_name'];
+		$img_desc = $row['img_desc'];
+		$img_title = $row['img_title'];
+		$img_status = $row['img_status'];
+		$img_userid = $row['img_userid'];
+		$img_count = $row['img_count'];
+	$text .="<tr>";
+	$text .="<td class='forumheader2'><input class='tbox' type='text' value='$img_id' name=img_id size='1'></td>";
+	$text .="<td class='forumheader2'><img src='".e_PLUGIN."gallery/albums/$cat_foldername/$img_name' width=50px></td>";
+	$text .="<td class='forumheader2'><input class='tbox' type='text' value='$img_title' name=img_title size='10'></td>";
+	$text .="<td class='forumheader2'><textarea class='tbox' style='width:90%' name='img_desc' cols='50' rows='2'>$img_desc</textarea></td>";
+	$text .="<td class='forumheader2'>$img_status</td>";
+	$text .="<td class='forumheader2'>$img_count</td>";
+	$text .="<td class='forumheader2'>
+		<a href='".e_PLUGIN."gallery/admin_config.php?menu_img.delete_img.$img_id' onclick=\"return jsconfirm('Хотите удалить это изображение?')\">
+		<img src='".e_IMAGE."admin/delete_16.png' alt='' title='Удалить изображение' ></a>&nbsp;	
+	</td>";
+	$text .="</tr>";
+        }
+
+//$text .= $button_text;
+$text .= "</table></form>";
+
+
+$captions = LAN_GAL_CAP_IMG;
+$ns -> tablerender($captions, $text);
+
+}
+
+//==================================================================================================
 //					MENU IMAGE UPLOAD
 // =================================================================================================
 if ($action == 'menu_img_upload') {
@@ -929,117 +1036,10 @@ $text .= "<tr>
 	</td>
 	</tr>
 </table></form>";
-	$ns -> tablerender(LAN_GAL_IMG_CAP, $text);
+	$ns -> tablerender(LAN_GAL_CAP_IMG_UP, $text);
 }
 
-//==================================================================================================
-//					MENU IMAGE
-// =================================================================================================
-if ($action == 'menu_img') {
 
-//============ Delete image ===============
-if (IsSet($subaction) && $subaction == 'delete_img'){
-	$mydb->db_Select("gallery_img", "*", "img_id='$id'");
-		while($row = $mydb->db_Fetch()) {
-			$img_cat_id = $row['img_cat_id'];
-			$img_name = $row['img_name'];
-		}
-	$mydb->db_Select("gallery_cat", "*", "cat_id='$img_cat_id'");
-		while($row = $mydb->db_Fetch()) {
-			$cat_foldername = $row['cat_foldername'];
-		}
-	$puth = e_PLUGIN."gallery/albums/$cat_foldername/$img_name";
-//	$file_del_msg = unlink($puth);
-//	$filename = '/path/to/foo.txt';
-
-if (file_exists($puth)) {
-//    $message = "Файл $puth существует";
-//    $message .= substr(sprintf('%o', fileperms($puth)), -4);
-    unlink($puth);
-    $db_del_msg = $mydb->db_Delete("gallery_img", "img_id='$id'");
-} else {
-    $message = "Файл $puth не существует";
-}
-//	$db_del_msg = $mydb->db_Delete("gallery_img", "img_id='$id'");
-/*	foreach(array_keys($_POST['checked']) as $img_name) {
-		$file_del_msg = unlink($img_name);
-
-        if ($mydb->db_Select("gallery", "*", "img_name = '".$img_name."'")) {
-          while($row = $mydb->db_Fetch()) {
-              $db_del_msg = $mydb->db_Delete("gallery_img", "img_id = '".$row['img_id']."'");
-              $db_comm_del_msg = $mydb->db_Delete("comments", "comment_item_id = '".$row['img_id']."' AND comment_type = 'gallery'");
-          }
-        }
-        $message .= ($file_del_msg ? "File: ".$img_name." - deleted" : "")
-        .($db_del_msg ? ", DB line - deleted" : "")
-        .($db_comm_del_msg ? ", Comments - deleted" : "")
-        ."<br>";
-    }
-    */
-//       $message = $puth;
- //      $message = file_exists($puth);
-//    $message = ($file_del_msg ? "File: ".$img_name." - deleted" : "").($db_del_msg ? ", DB line - deleted" : "").($db_comm_del_msg ? ", Comments - deleted" : "");
-        
-   $ns->tablerender("", "<div style='text-align:center'><b>$message</b></div>");
-
-}
-
-$mydb->db_Select("gallery_cat", "*", "cat_id='$id'");
-	while($row = $mydb->db_Fetch()) {
-		$cat_id = $row['cat_id'];
-		$cat_name = $row['cat_name'];
-		$cat_foldername = $row['cat_foldername'];
-	}
-
-$text = "<div style='text-align:center'>
-	<form enctype='multipart/form-data' method='post' action='".e_SELF."?menu_img'>
-          <table class='fborder'>";
-$text .="	<td class='fcaption'>ID</td>
-		<td class='fcaption'>".LAN_GAL_IMG_IMG."</td>
-		<td class='fcaption'>".LAN_GAL_IMG_NAME."</td>
-		<td class='fcaption'>".LAN_GAL_IMG_DESC."</td>
-		<td class='fcaption'>".LAN_GAL_IMG_STATUS."</td>
-		<td class='fcaption'>".LAN_GAL_IMG_COUNT."</td>
-		<td class='fcaption'>".LAN_GAL_IMG_OPTIONS."</td>
-      ";
-
-// if ($mydb->db_Select("gallery", "*", "img_status = 'upload'")) {
-if (IsSet($id) && $id<>'') {
-	$mydb->db_Select("gallery_img", "*", "img_cat_id='$id'");
-	} else {
-	$mydb->db_Select("gallery_img", "*", "");
-	}
-	while($row = $mydb->db_Fetch()) {
-		$img_id = $row['img_id'];
-		$img_cat_id = $row['img_cat_id'];
-		$img_name = $row['img_name'];
-		$img_desc = $row['img_desc'];
-		$img_title = $row['img_title'];
-		$img_status = $row['img_status'];
-		$img_userid = $row['img_userid'];
-		$img_count = $row['img_count'];
-	$text .="<tr>";
-	$text .="<td class='forumheader2'><input class='tbox' type='text' value='$img_id' name=img_id size='1'></td>";
-	$text .="<td class='forumheader2'><img src='".e_PLUGIN."gallery/albums/$cat_foldername/$img_name' width=50px></td>";
-	$text .="<td class='forumheader2'><input class='tbox' type='text' value='$img_title' name=img_title size='10'></td>";
-	$text .="<td class='forumheader2'><textarea class='tbox' style='width:90%' name='img_desc' cols='50' rows='2'>$img_desc</textarea></td>";
-	$text .="<td class='forumheader2'>$img_status</td>";
-	$text .="<td class='forumheader2'>$img_count</td>";
-	$text .="<td class='forumheader2'>
-		<a href='".e_PLUGIN."gallery/admin_config.php?menu_img.delete_img.$img_id' onclick=\"return jsconfirm('Хотите удалить это изображение?')\">
-		<img src='".e_IMAGE."admin/delete_16.png' alt='' title='Удалить изображение' ></a>&nbsp;	
-	</td>";
-	$text .="</tr>";
-        }
-
-//$text .= $button_text;
-$text .= "</table></form>";
-
-
-$captions = LAN_GAL_L073;
-$ns -> tablerender($captions, $text);
-
-}
 
 //==================================================================================================
 //					OPTIONS
@@ -1319,7 +1319,7 @@ $text .="
 	 </tr>
 <br><input type='checkbox' name='mg_file_rewrite' value='1' /> ".LAN_GAL_L052."<input class='button' type='submit' name='tn_create' value='".LAN_GAL_L053."'>
 */
-$captions = LAN_GAL_OPT_CAP;
+$captions = LAN_GAL_CAP_OPTIONS;
 $ns -> tablerender($captions, $text);
 
 

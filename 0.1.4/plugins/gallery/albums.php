@@ -32,7 +32,7 @@
 	$img_view_height = $pref['gallery_img_view_height'];
 	$img_view_widt = $pref['gallery_img_view_width'];
     
-	$text = "<table style='overflow:hidden;'>";
+	$text = "<table class='gall_wrapper'>";
 	$text .= "<tr>";
 	
 	$i = 0;
@@ -90,20 +90,20 @@
 
 		$text .="<td>";
 		
-		$text .="<div style='overflow:hidden;left:0px;top:0px;width:".$icon_div_width."px;height:".$icon_div_height."px;margin:0px;position:relative;'>";
+		$text .="<div style='height:".$icon_div_height."px;' class='gall_albums_shell'>";
 		
-			$text .="<div style='position:absolute;bottom:0px;margin:5px;z-index:2;'>$img_title</div>";
+			$text .="<div class='gall_albums_name'>$img_title</div>";
 		
 			$text .="<div style='border:#eee 1px solid;position:absolute;left:-".$icon_left_minus."px;top:-".$icon_top_minus."px;'>";
 		
 			$text .="<a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j').style.display='block'; return false;\" title='".SITENAME."'>";
 				        
 			$text .="<img src='$path/$img_name' width='$icon_width' alt='$img_description' title='$img_description'/>";
-			$text .="</a></div></div>";
+			$text .="</a>";
 			
 			
 		
-		$text .= "</div>";
+		$text .= "</div></div>";
 		$text .= "</td>";
 		
 		
