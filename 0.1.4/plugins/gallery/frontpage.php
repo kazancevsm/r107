@@ -80,15 +80,15 @@ while($row = $mydb->db_Fetch()) {
 		
 		$text .="<div class='gall_albums_name'><a href='".e_PLUGIN."gallery/gallery.php?page=albums&id=".$catId."#gallery'>$catName</a></div>";
 		
-//		$text .="<div style='width:".$icon_div_width."px;height:".$icon_div_height."px;' class='gall_albums_icon'>";
+		$text .="<div style='width:".$icon_div_width."px;height:".$icon_div_height."px;' class='gall_albums_icon'>";
 		
 			$text .="<div style='border:#eee 1px solid;position:absolute;left:-".$icon_left_minus."px;top:-".$icon_top_minus."px;'>";
 		
 			$text .="<a href='".e_PLUGIN."gallery/gallery.php?page=albums&id=".$catId."#gallery' title='$img_description'>";
-				        
+			
 			$text .="<img  src='".e_PLUGIN."gallery/albums/$catFoldername/$img_name' width='$icon_width' alt='$img_description' title='$img_description'/>";
 			$text .="</a>";
-	$text .= "</div></div>";
+	$text .= "</div></div></div>";
 	$text .= "</td>";
 			}
 		}

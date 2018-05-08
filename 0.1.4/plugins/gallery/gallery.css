@@ -9,14 +9,18 @@
 */
 
 .gall_wrapper {
-	width:100%;
+	width:900px;
 	overflow:hidden;
+	border:#000 0px solid;
+}
+.gall_td {
+	
 }
 .gall_albums_shell {
 	position:relative;
 	background:#111;
 	overflow:hidden;
-	margin:2px;
+	margin:auto;
 }
 .gall_albums_name {
 	position:absolute;
@@ -27,7 +31,7 @@
 	z-index:2;
 	text-align:left;
 	text-transform:capitalize;
-	background:url(images/bg_title.png)
+	background:url(images/bg_title.png);
 }
 
 .gall_albums_icon {

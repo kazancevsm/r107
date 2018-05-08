@@ -84,41 +84,62 @@
 					$i=1;
 				}
 			
-			$j++;
-			$j_minus = $j-1;
-			$j_plus = $j+1;
+		$j++;
+		$j_minus = $j-1;
+		$j_plus = $j+1;
 
-		$text .="<td>";
+//	$text .="<td>";
+	$icon_div_height_border = $icon_div_height - 2;
+	$icon_div_width_border = $icon_div_width - 4;
 		
-		$text .="<div style='height:".$icon_div_height."px;' class='gall_albums_shell'>";
+	$text .="<td style='height:".$icon_div_height."px;width:".$icon_div_width."px;'>";
+		
+		$text .="<div style='height:".$icon_div_height_border."px;width:".$icon_div_width_border."px;' class='gall_albums_shell'>";
 		
 			$text .="<div class='gall_albums_name'>$img_title</div>";
 		
 			$text .="<div style='border:#eee 1px solid;position:absolute;left:-".$icon_left_minus."px;top:-".$icon_top_minus."px;'>";
 		
-			$text .="<a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j').style.display='block'; return false;\" title='".SITENAME."'>";
-				        
-			$text .="<img src='$path/$img_name' width='$icon_width' alt='$img_description' title='$img_description'/>";
-			$text .="</a>";
+				$text .="<a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j').style.display='block'; return false;\" title='".SITENAME."'>";
+				$text .="<img src='$path/$img_name' width='$icon_width' alt='$img_description' title='$img_description'/>";
+				$text .="</a>";
 			
-			
+			$text .= "</div>";
 		
-		$text .= "</div></div>";
-		$text .= "</td>";
+		$text .= "</div>";
+	$text .= "</td>";
 		
 		
 	$text .="<div id='big_picture_show_$j' class='r_window_block'>";
-		$text .="<div><img class='r_window_img'  height='80%' src='$path/$img_name' alt='$img_description' title='$img_description' />";
-			$text .="<div class='r_window_caption'>$img_title</div>";
+		$text .="<div class='r_window_img'><img src='$path/$img_name' alt='$img_description' title='$img_description' /></div>";
+		$text .="<div class='r_window_img_caption'><div class='r_window_img_caption_text'>(№ $img_id) $img_title</div></div>";
+		
+		$text .="<div class='r_window_img_panel'>";
+			$text .="<div class='r_window_img_num'></div>";
 			
-			$text .="<div class='r_window_close'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j').style.display='none';return false;\">CLOSE</a></div>";
+			if ($j_minus>=1) {
+			$text .="<div class='r_window_img_pre'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j_minus').style.display='block'; document.getElementById('big_picture_show_$j').style.display='none';return false;\" >";
+			$text .="<img src='images/pre.png' height=55px>";
+			$text .="</a></div>";
+			}
 			
-			if ($j_minus>=1) $text .="<div class='r_window_pre'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j_minus').style.display='block'; document.getElementById('big_picture_show_$j').style.display='none';return false;\" >PREVIEW</a></div>";
-			
-			$text .="<div class='r_window_next'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j_plus').style.display='block'; document.getElementById('big_picture_show_$j').style.display='none';return false;\" >NEXT</a></div>";
-			
+			$text .="<div class='r_window_img_next'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j_plus').style.display='block'; document.getElementById('big_picture_show_$j').style.display='none';return false;\" >";
+			$text .="<img src='images/next.png' height=55px>";
+			$text .="</a></div>";
+		      
+			$text .="<div class='r_window_img_close'><a href='#gallery' onclick=\"document.getElementById('big_picture_show_$j').style.display='none';return false;\">";
+			$text .="<img src='images/close.png' height=55px>";
+			$text .="</a></div>";
 			
 		$text .= "</div>";
+		
+		
+	
+			
+		
+			
+			
+		
 	$text .= "</div>";
 		
 			}
@@ -126,7 +147,3 @@
 $text .= "</table>";
 $cat_count ++;
 $mydb -> db_Update("gallery_cat", "cat_count='$cat_count' WHERE cat_id='$id'");
-
-
-
-
