@@ -1,0 +1,44 @@
+/*
++ ----------------------------------------------------------------------------------------------+
+|     e107 website system  : http://e107.org.ru
+|     Released under the terms and conditions of the GNU General Public License (http://gnu.org).
+|
+|     Plugin "my_gallery"
+|     Author: Alex ANP alex-anp@ya.ru
++-----------------------------------------------------------------------------------------------+
+*/
+
+.gall_wrapper {
+	width:900px;
+	overflow:hidden;
+	border:#000 0px solid;
+}
+.gall_td {
+	
+}
+.gall_albums_shell {
+	position:relative;
+	background:#111;
+	overflow:hidden;
+	margin:auto;
+}
+.gall_albums_name {
+	position:absolute;
+	width:93%;
+	bottom:0px;
+	margin:5px;
+	padding:5px;
+	z-index:2;
+	text-align:left;
+	text-transform:capitalize;
+	background:url(images/bg_title.png);
+}
+
+.gall_albums_icon {
+	position:relative;
+	overflow:hidden;
+	left:0px;
+	top:0px;
+	margin:0px;
+}
+
